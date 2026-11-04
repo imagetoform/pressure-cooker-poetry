@@ -8,6 +8,22 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-04 17:45 — Database spec for ChatGPT
+
+### What was asked
+A markdown explaining how the database is organized and how items are selected with the emotion wheel / dartboard, so ChatGPT can build out the full database.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Spec | repo/docs/DATABASE_SPEC.md (committed): design rules, wheel layout + radii + tag points, 33-word vocabulary + aliases, taste aim angles, dart formula, bull + house rules, closeness and cutout/style selection formulas, schemas for ingredients / cutouts / movements, tagging and coverage guidance, paste-ready ChatGPT prompt, validation checklist. Numbers checked against src/board.js and src/styles.js. |
+| Facts pulled live | fallback generators: halftone torn wedge arrow target burst bars ember crow eye stamp scribble gear loaf; layout ids: manifesto cutup xerox ledger whisper reliquary. |
+
+### Open / notes
+- Spec adds optional cutout fields `family`, `source`, `notes` (engine ignores them; harmless).
+- When ChatGPT output comes back: validate vocabulary, ids, taste ranges and coverage before merging.
+- Still waiting: empty GitHub repo from Brandon; approval to publish the dartboard/styles build.
+
 ## 2026-11-04 15:15 — Dartboard (emotion wheel), style tree with per-movement kits, repo staged
 
 ### What was asked
