@@ -2,11 +2,37 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: decide a corrections channel (form or email); swap in Brandon's 152-card deck when he shares it
+next: Brandon creates an empty private GitHub repo (pressure-cooker-poetry) -> attach with add_repo (push) and push repo/; approve publishing the dartboard/styles build; send cutout files
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-04 15:15 — Dartboard (emotion wheel), style tree with per-movement kits, repo staged
+
+### What was asked
+Use the cutouts: an emotion wheel split like a dartboard; ingredient values are the darts; cutouts chosen by emotion tags (no numbers). Then: a hierarchy of design movements (Art Nouveau, Minimalism, Cyberpunk, Punk, Maximalism, Brutalism, Abstract...) mixed in with the cutouts; one repository instead of scattered folders and zips; cutouts, buttons, layouts and animations each in their own design family. Also asked whether I have the cutout library.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Dartboard | src/board.js: Plutchik wheel, 8 petals x 3 rings (intense/core/mild) + 8 dyads + bull "overwhelm". Taste aim angles: sweet 0, umami 45, sour 125, bitter 200, spicy 285, salty 330. Dart radius r = 1.25 - focus - 0.3*(min(1.2,total/10)-0.9), seeded wobble. Bull only when 3 darts spread over >=3 petals and >=135deg. Closeness exp(-d/0.16); overwhelm matches only the bull. Spread over pantry: 42 intense / 88 core / 51 mild. |
+| Cutout tags | 19 manifest fragments got emo tags (tools/build_board.py EMO). Engine 1.1 picks cutouts by darts when any asset has emo. |
+| Style tree | src/styles.js: 6 branches, 18 movements, each with emo, blurb, colors, texture, motif SVG, layout (one of the 6 grammars or null), motion. Primary = closest movement (argmax); secondary weighted from another branch when darts spread or 25%. Primary's layout overrides the family unless forced. Layers are decoration only; textures masked to an edge frame (fixed after Whisper test showed dots behind text). |
+| Kits | Per-movement motion keyframes (.anim-*; off with Motion off / reduced motion) and button skins via body[data-sty] on Pressurize/Valve buttons. |
+| Lab | Dartboard panel in console (lab-only), Darts + Styles rows in inspector, #/lab cutout tagger (load images, tap wheel cells, copy manifest lines; tags saved in localStorage pcp-lab-tags). Every wheel cell labelled. |
+| How page | Sections: The dartboard, The style tree (all 18 movements with blurbs and emotions). |
+| Repo | repo/ (git, branch main, 2 commits): site/{live,src,tools,dist}, library/families/<branch>/<movement>/{README.md,cutouts/}, library/cutouts/inbox, docs/logbook.md, README with design law. Builds byte-identical dist. Not pushed: this session's GitHub access is bound to existing repos (no user/repos endpoint), so Brandon must create the empty repo first. |
+| Tests | test4.js: pots map to fitting styles (grief->Abstract Expressionism, ecstasy->Art Deco/Reliquary, contempt->Dada, overwhelm->Maximalism); board hidden for visitors; tagger produces manifest; no JS errors. |
+
+### Changed: old → new
+- Cutout choice: numeric stats distance → emotion darts + tags (engine pcp-engine/1.0 → 1.1). Coupons clipped before this build will rebuild with different cutouts and styles.
+- Layout family: chosen only by pressure → primary movement's layout grammar when it has one.
+
+### Open / notes
+- NOT deployed yet. dist/index.html = repo/site/dist/index.html (md5 c02ad471...).
+- Cutout library: none of Brandon's real cutouts are reachable here. Only 3 embedded images + procedural stand-ins. Drive has pressure-cooker-poetry-rc2-site.zip (5.3 MB) and pressurizing-preview.zip that may contain cutouts; Drive download returns base64 inline, too big to pull through the tool. Best path: he drops images in the repo (library/cutouts/inbox) or links this chat to his computer.
+- 12 movements without a matching grammar (cyberpunk, vaporwave, abstract-expressionism, op-art have layout null) borrow the pressure's pick; real new layout grammars per movement are future work.
 
 ## 2026-11-02 14:47 — Published to production
 
