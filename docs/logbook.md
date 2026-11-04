@@ -2,11 +2,33 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon creates an empty private GitHub repo (pressure-cooker-poetry) -> attach with add_repo (push) and push repo/; approve publishing the dartboard/styles build; send cutout files
+next: Brandon approves publishing the dartboard/styles build (dist c02ad471); sends cutout files to library/cutouts/inbox; brings back ChatGPT's database for validation
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-04 17:47 — Repo attached and pushed to GitHub
+
+### What was asked
+Brandon: "I created the repo on GitHub to add the database to" — put the staged repo into it.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Attached repo | imagetoform/pressure-cooker-poetry (private, branch main), push access, cloned to /home/claude/pressure-cooker-poetry and registered as a repo root |
+| Merged with his initial commit | rebased the staged repo onto his c6921af; README conflict resolved by keeping his description line first, expanded, then the design law / how it works / layout / build / deploy |
+| Verified build | site/tools/build.py in the clone gives a byte-identical dist/index.html (md5 c02ad47116b3eecc9b33d68bb812b8d2) |
+| Pushed | c6921af..21f6d71 main -> main; GitHub contents list shows .gitignore README.md docs library site |
+
+### Result
+One home for everything: site source + build + tests (site/), design-family library (library/families/<branch>/<movement>/cutouts/), cutout inbox (library/cutouts/inbox/), docs/DATABASE_SPEC.md, docs/logbook.md (mirror of this file). From now on work in the clone, not /root/tasks/pcp-site-update/repo (that staged copy is superseded).
+
+### Open / notes
+- Production is still the Nov 2 build (md5 30354a8e…); dartboard/styles build c02ad471… waits for Brandon's OK. Coupons clipped earlier will rebuild differently after that publish.
+- No cutout image files yet; he can drop them in library/cutouts/inbox/ via GitHub upload, or link this chat to his computer.
+- When ChatGPT returns the database, validate against the DATABASE_SPEC checklist before merging.
+- Corrections channel (Netlify form vs email) still undecided.
 
 ## 2026-11-04 17:45 — Database spec for ChatGPT
 
