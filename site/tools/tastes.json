@@ -1,0 +1,144 @@
+{
+"borrowed-light": {
+"sweet": 5,
+"sour": 2,
+"salty": 3
+},
+"cold-coffee": {
+"bitter": 5,
+"sour": 5,
+"spicy": 4
+},
+"union-bread": {
+"umami": 6,
+"salty": 3,
+"sweet": 2,
+"sour": 1
+},
+"red-ink": {
+"spicy": 7,
+"sour": 4,
+"bitter": 1
+},
+"grandmothers-hands": {
+"sweet": 7,
+"umami": 5
+},
+"honest-sentence": {
+"salty": 7,
+"sour": 3,
+"umami": 2
+},
+"ceo-prayers": {
+"bitter": 8,
+"sour": 3
+},
+"static": {
+"bitter": 6,
+"spicy": 5,
+"sour": 3
+},
+"long-shift-salt": {
+"salty": 4,
+"umami": 4,
+"spicy": 3
+},
+"store-brand-silence": {
+"salty": 6,
+"bitter": 3,
+"sweet": 2
+},
+"earnings-call": {
+"bitter": 9,
+"sour": 3,
+"spicy": 2
+},
+"crow-on-wire": {
+"umami": 4,
+"sour": 3,
+"sweet": 3
+},
+"embers": {
+"spicy": 6,
+"umami": 4,
+"sweet": 2
+},
+"ruler-no-numbers": {
+"sour": 6,
+"bitter": 3
+},
+"bootstraps": {
+"bitter": 6,
+"spicy": 4,
+"salty": 1
+},
+"unsent-letter": {
+"sweet": 6,
+"umami": 4,
+"bitter": 3
+},
+"fluorescent-hum": {
+"bitter": 5,
+"salty": 3,
+"sour": 3
+},
+"marigold-riot": {
+"spicy": 6,
+"sweet": 4,
+"sour": 2
+},
+"empty-chair": {
+"umami": 5,
+"sweet": 4,
+"bitter": 2,
+"salty": 2
+},
+"shareholder-sermon": {
+"bitter": 7,
+"sour": 3,
+"spicy": 2
+},
+"gold-foil-nothing": {
+"bitter": 6,
+"spicy": 4,
+"sour": 3,
+"sweet": 1
+},
+"three-am": {
+"spicy": 5,
+"sweet": 3,
+"sour": 2
+},
+"strike-fund": {
+"salty": 5,
+"umami": 4,
+"spicy": 3
+},
+"margin-manifesto": {
+"sour": 5,
+"spicy": 4,
+"salty": 2
+},
+"tv-dinner": {
+"sweet": 5,
+"salty": 3,
+"bitter": 2,
+"sour": 1
+},
+"landlord-apology": {
+"bitter": 7,
+"sour": 3,
+"sweet": 1
+},
+"drum-solo": {
+"spicy": 8,
+"sour": 3,
+"bitter": 2
+},
+"rust": {
+"bitter": 5,
+"umami": 3,
+"sour": 2,
+"spicy": 1
+}
+}

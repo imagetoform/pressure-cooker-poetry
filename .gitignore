@@ -1,0 +1,7 @@
+node_modules/
+shots/
+tmp/
+publish/
+deploy-tool/
+*.zip
+.DS_Store
