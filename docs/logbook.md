@@ -2,11 +2,44 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon approves publishing the dartboard/styles build (dist c02ad471); sends cutout files to library/cutouts/inbox; brings back ChatGPT's database for validation
+next: Brandon reviews the merged build (481 ingredients, 28 movements) and says publish or not; decides Pop Art/Maximalism dominance + layout-override tuning; points to the real cutout files (likely in the batch/kitchen-rebuild/web-elements zips on his PC)
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-04 18:50 — ChatGPT database v1 audited, re-tasted and merged
+
+### What was asked
+Brandon attached ChatGPT's HANDOFF_FOR_CLAUDE.md and COVERAGE_REPORT.md (validate and merge the expansion per DATABASE_SPEC). The data files weren't attached; his computer was linked, so I asked for ~/Downloads and ~/pressurecookerpoetry (granted) and found `PCP_Database_Expansion_v1.zip` in Downloads.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Unpacked | /root/tasks/pcp-site-update/intake/db-expansion-v1/ (originals also in repo docs/intake/2026-11-04-chatgpt-database-v1/original/) |
+| Structural check (check.py vs current.json dumped from the built page) | no id clashes with the 181, all cats/codes/totals legal, all emo words in the 33; only bug: 8 cutouts used family `swiss-international` (site id `swiss`) |
+| Found | ChatGPT's build.py assigned tastes by row number and cutout tags by rotation. Its 300 darts: 208 intense, no anger or disgust wedge at all |
+| Re-tasted all 300 by hand | check/retaste.txt, then sharpen.py made 52 opposed pairs clearer. One dart per ingredient: 79 intense / 133 core / 88 mild, all 8 wedges |
+| Merged ingredients | appended to site/src/pantry-plus.js under a "batch 2" comment -> 481 total |
+| Merged 10 movements | MORE block in site/src/styles.js (surrealism, expressionism, memphis, zine-diy, situationism, grunge-design, afrofuturism, y2k, gothic-revival, ukiyo-e) with my own motif SVGs; button skins in extra.css (fixed 2 low-contrast ones); blurbs corrected (Breton+Trotsky 1938 manifesto, Dery 1993, degenerate art 1937, Debord 1967, Ray Gun) |
+| Cutouts | library/cutouts/shopping-list.json + SHOPPING.md in every movement folder; 10 new movement folders with README + cutouts/.gitkeep; not loaded by the renderer |
+| Sim | check/sim.js: 6000 seeded pots through PCP.engine.genome, pre-merge build (served from check/before on :8766) vs merged (:8765). Deterministic 0 diffs; no repeated cutout in a room; bull about 14% of pots |
+| Browser | check/test5.js: poems byte-identical (56), visitor hidden controls, one pot rendered per new movement, reduced motion, Pixel 7 no overflow; site/tools/test.js-test4.js all pass (only the old kit4 404) |
+| Docs | docs/intake/.../AUDIT.md; DATABASE_SPEC 28-movement table + "tasted for what it means" checklist line; README count; families index regenerated |
+| Commit | 3e5cc19 on main; dist md5 8c489923553a557cf3d9d43b27edfd1f (task dist/ updated to match) |
+
+### Result
+The merged build is in the repo, not deployed. Production is still the Nov 2 build (md5 30354a8e…).
+
+### Corrections
+ChatGPT's handoff said "do not change hidden dartboard behavior": I didn't. The tastes were replaced, not kept, because they had nothing to do with the words. The handoff's step 5 (a full visual kit per movement: fonts, CSS kit) was done only partly: motifs, button skins, layout, motion and texture, using existing fonts. No new fonts.
+
+### Open / notes
+- FOR BRANDON TO DECIDE (hidden tuning, not changed): Pop Art 16% + Maximalism 12.5% of rooms (joy tag sits where most darts land; overwhelm wins every bull). A movement picks the layout in 86% of rooms (only 4 of 28 have layout null), so the dials pick the grammar in about 1 room in 7; cutup 40%. Possible fixes: more movements with layout null, or weaken the style->layout override, or a softer argmax for the primary style.
+- URL-loaded rooms (`#/kitchen?...&g=` with no poem) show poems[0] "First Mark"; cooking through the UI picks by flavor. This was already true before today.
+- The ingredient words are ChatGPT's; many institutions use one formula. Brandon should skim.
+- Check scripts in the repo copy point at ../original/; in the task folder they point at ../pcp-database-expansion/.
+- Brandon's computer (Windows, device dini-ding-dong) has more PCP material: ~/pressurecookerpoetry/pressure_cooker_poetry_publishable (a separate Vite-style build with 12 "aesthetic registry" families + SVG motifs), Downloads/pcp-kitchen-rebuild(.zip), pressure-cooker-batch(-v2).zip (168/247 MB), "Web page elements" zip (32 MB), PCP-ATELIER-studio-kit zips, Logo.psd. Not opened yet. These may hold the real cutouts.
 
 ## 2026-11-04 17:47 — Repo attached and pushed to GitHub
 
