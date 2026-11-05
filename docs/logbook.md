@@ -6,30 +6,9 @@ next: Brandon - add OPENROUTER_API_KEY + allow Actions PRs, say publish; Claude 
 owner: human
 ---
 
-# Logbook — pressurecookerpoe## 2026-11-04 23:38 — First live run: Muse constructivism delivery through intake (run 1)
+# Logbook — pressurecookerpoetry.com update
 
-### What was asked
-Brandon uploaded `pcp-delivery-constructivism-2026-11-04.json`. He made it with Muse Spark 1.3 using superbot.md; Superbot itself didn't work on his phone or network. Muse played all six roles.
-
-### Done
-| Action | Detail |
-|--------|--------|
-| Checked the delivery | 5 cutouts, all on Commons and PD; 4 snippets, all passing check_snippet; 12 honest drops (Klutsis because of ARS, a Rodchenko deletion nomination, a Pelikan logo, unverifiable licences). Two page_urls pointed at wikiquote/wikidata mirrors and were repointed to Commons (noted in its "corrections" field) |
-| New: crop step | crop_raw(): use the delivery's crop box, else ask the model with prompts/crop.md and the keep note (needs the key), else the whole image flagged "uncropped". Added to the main flow and to intake; superbot.md now asks for a crop box. Stub-tested all three paths |
-| UA | now names the repo URL (Wikimedia bot policy) |
-| Pushed 0293cd9 | the delivery is in library/intake/ on main; the push trigger fired: run 41975006101, all steps green, 2.5 min. Wikimedia downloads and rembg's model download work on the runner. Artifact 13391321456 |
-| Result branch | cutouts/run-1 (06d33c0): 5 PNGs + manifest + 4 kit CSS files. **No PR**: "GitHub Actions is not permitted to create or approve pull requests" (the repo setting isn't ticked). No OPENROUTER_API_KEY secret yet, so no model crops |
-| Looked at the cutouts | contact sheet shots/60-run1-sheet.png. Proun 99: clean, good. Gan cover: whole cover cut well (lettering + bar), good as is. Red wedge: the wedge is clean, but ghosts of the white circle and text remain; needs a crop. ROSTA: the whole 4-panel poster came through; needs a crop to one worker. VKhUTEMAS: failed; the grey photo hand was removed and only the text survived; crop alone may not fix it |
-
-### Open / notes
-- Brandon: add the OPENROUTER_API_KEY secret, and tick Settings -> Actions -> General -> "Allow GitHub Actions to create and approve pull requests".
-- Then re-run the intake: the delivery is still in library/intake/ on main, because run-1 was never merged. Push any change there, or run the workflow with mode intake. Don't merge cutouts/run-1.
-- gh from this session: actions/runs, jobs and logs are readable; secrets and permissions are blocked (403); gh pr list (GraphQL) is blocked, use REST `gh api repos/.../pulls`.
-- The kit snippets are filed but the site doesn't load kits yet.
-
-try.com update
-
-## ## 2026-11-05 09:09 — Kits (480 parts) + database-only rooms
+## 2026-11-05 09:09 — Kits (480 parts) + database-only rooms
 
 ### What was asked
 `/animatedwebs:style`: "create the proper elements for PCP and add more to the aesthetic families so that we get a robust collage database to pull randomly from each one according to recipes". The AnimatedWebs connector is NOT connected: its search/get_style_reference tools are missing, and SearchMcpRegistry didn't find it. Told Brandon, and argued that one brand system works against 28 families anyway; built the kits in-house instead. Mid-turn: "i want these default layouts and backgrounds etc... to be replaced with the database that we have gathered and only to use those graphics". AskUserQuestion answers: **switch per movement as it fills (6+ cutouts)**; **keep the layouts' text arrangement, drop their art**.
@@ -50,7 +29,7 @@ try.com update
 - Coupons: once library cutouts land on main, existing rooms' cutout picks change (the pool grows), and full movements switch look. Expected.
 - Still not live in production; Brandon hasn't said publish. Still pending: OPENROUTER_API_KEY secret + allow Actions PRs, then re-run the constructivism intake with crops (don't merge cutouts/run-1).
 
-2026-11-05 08:54 — Animation prompt, contract and harness
+## 2026-11-05 08:54 — Animation prompt, contract and harness
 
 ### What was asked
 After Brandon proposed a cartoon GIF (gloved hands dropping ingredients into a pot) for the pressurize moment: "create a prompt for some proper animations we can create". The GIF's origin and rights are still unknown; it was not used.
@@ -66,6 +45,27 @@ After Brandon proposed a cartoon GIF (gloved hands dropping ingredients into a p
 ### Open / notes
 - Not wired into the site: cook() in the app would need to call PCP.animations[...] in place of the #pressurize overlay. Do that once a candidate passes the harness and Brandon likes it.
 - The headless test used fallback fonts (no Impact); real devices have the site's embedded display font.
+
+## 2026-11-04 23:38 — First live run: Muse constructivism delivery through intake (run 1)
+
+### What was asked
+Brandon uploaded `pcp-delivery-constructivism-2026-11-04.json`. He made it with Muse Spark 1.3 using superbot.md; Superbot itself didn't work on his phone or network. Muse played all six roles.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Checked the delivery | 5 cutouts, all on Commons and PD; 4 snippets, all passing check_snippet; 12 honest drops (Klutsis because of ARS, a Rodchenko deletion nomination, a Pelikan logo, unverifiable licences). Two page_urls pointed at wikiquote/wikidata mirrors and were repointed to Commons (noted in its "corrections" field) |
+| New: crop step | crop_raw(): use the delivery's crop box, else ask the model with prompts/crop.md and the keep note (needs the key), else the whole image flagged "uncropped". Added to the main flow and to intake; superbot.md now asks for a crop box. Stub-tested all three paths |
+| UA | now names the repo URL (Wikimedia bot policy) |
+| Pushed 0293cd9 | the delivery is in library/intake/ on main; the push trigger fired: run 41975006101, all steps green, 2.5 min. Wikimedia downloads and rembg's model download work on the runner. Artifact 13391321456 |
+| Result branch | cutouts/run-1 (06d33c0): 5 PNGs + manifest + 4 kit CSS files. **No PR**: "GitHub Actions is not permitted to create or approve pull requests" (the repo setting isn't ticked). No OPENROUTER_API_KEY secret yet, so no model crops |
+| Looked at the cutouts | contact sheet shots/60-run1-sheet.png. Proun 99: clean, good. Gan cover: whole cover cut well (lettering + bar), good as is. Red wedge: the wedge is clean, but ghosts of the white circle and text remain; needs a crop. ROSTA: the whole 4-panel poster came through; needs a crop to one worker. VKhUTEMAS: failed; the grey photo hand was removed and only the text survived; crop alone may not fix it |
+
+### Open / notes
+- Brandon: add the OPENROUTER_API_KEY secret, and tick Settings -> Actions -> General -> "Allow GitHub Actions to create and approve pull requests".
+- Then re-run the intake: the delivery is still in library/intake/ on main, because run-1 was never merged. Push any change there, or run the workflow with mode intake. Don't merge cutouts/run-1.
+- gh from this session: actions/runs, jobs and logs are readable; secrets and permissions are blocked (403); gh pr list (GraphQL) is blocked, use REST `gh api repos/.../pulls`.
+- The kit snippets are filed but the site doesn't load kits yet.
 
 ## 2026-11-04 22:00 — Superbot multi-model prompt + intake mode
 
@@ -300,4 +300,3 @@ I told Brandon in the scope question that the Archive held public-domain demo po
 - To publish: run `npx -y @netlify/mcp@latest --site-id 1176071c-2c46-48fb-82b5-1a87a714fb04 --proxy-path "<fresh proxy URL from the deploy-site tool>"` inside a folder containing only index.html (copy of dist/index.html). It zips the folder and builds to production. Rollback = republish deploy 6ae51df243afff5d5e014dfc in the Netlify UI.
 - Receipts promise open corrections, but the site has no feedback channel yet (Netlify forms are disabled; Brandon's email isn't published). Needs his decision.
 - Essays are marked by Brandon Rhodes; they're drafts written with Claude and not yet signed off by him.
-
