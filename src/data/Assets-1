@@ -1,0 +1,100 @@
+# ==============================================================================
+# GAP-FILLING ASSET RECORDS (FAMILIES 9, 14, 18)
+# Target Repo: imagetoform/pressure-cooker-poetry
+# ==============================================================================
+
+# --- FAMILY 9: ROCOCO (Gap: Motion & Low-Weight Voice) ---
+
+- id: fx-0905
+  type: motion
+  layer: motion
+  family: 9
+  intensity: 8
+  stats: { heat: 7, order: 3, noise: 8, weight: 3 }
+  title: "Gilded Specular Flash & Shimmer CSS"
+  source_page: "https://codepen.io/anon/pen/rococo-shimmer"
+  file_url: "https://codepen.io/anon/pen/rococo-shimmer.css"
+  rights: mit
+  origin: raider
+  credit: "Public CodePen snippet (MIT)"
+  verified: true
+  notes: "Sweeping metallic specular highlight animation over gilded card borders and drop-caps."
+
+- id: type-0906
+  type: type
+  layer: voice
+  family: 9
+  intensity: 2
+  stats: { heat: 3, order: 8, noise: 2, weight: 2 }
+  title: "Subtle 18th Century Engraved Copperplate Serif"
+  source_page: "https://github.com/google/fonts/tree/main/ofl"
+  file_url: "https://raw.githubusercontent.com/google/fonts/main/ofl/imfellenglish/IMFeENrm28P.ttf"
+  rights: mit
+  origin: raider
+  credit: "IM FELL English Font / Google Fonts (OFL)"
+  verified: true
+  notes: "Whisper intensity body serif for Rococo poem lines. Fine terminal ball caps and light weight."
+
+# --- FAMILY 14: MEXICAN MURALISM & RASQUACHE (Gap: High-Noise Grit & Bodies) ---
+
+- id: grit-1405
+  type: grit
+  layer: grit
+  family: 14
+  intensity: 9
+  stats: { heat: 8, order: 2, noise: 9, weight: 8 }
+  title: "Weathered Cardboard & Peeling Enamel Texture"
+  source_page: "https://commons.wikimedia.org/wiki/File:Weathered_peeling_paint_texture.jpg"
+  file_url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Weathered_peeling_paint_texture.jpg"
+  rights: cc0
+  origin: raider
+  credit: "Wikimedia Commons (CC0)"
+  verified: true
+  notes: "High-noise grit overlay simulating exposed cardboard grain under cracked sign enamel."
+
+- id: cut-1406
+  type: cutout
+  layer: bodies
+  family: 14
+  intensity: 6
+  stats: { heat: 6, order: 6, noise: 5, weight: 7 }
+  title: "Woodcut Maize Stalks & Agricultural Emblem"
+  source_page: "https://www.loc.gov/pictures/item/2004662891/"
+  file_url: "https://tile.loc.gov/storage-services/service/pnp/cph/3c20000/3c27000/3c27400/3c27499v.jpg"
+  rights: public-domain
+  origin: raider
+  credit: "Library of Congress / Woodcut Archive"
+  verified: true
+  notes: "Isolate central corn stalk and relief linocut sunburst. Heavy black ink strokes."
+
+# --- FAMILY 18: MEMPHIS GROUP (Gap: Low-Intensity Voice & Subtle Motion) ---
+
+- id: type-1805
+  type: type
+  layer: voice
+  family: 18
+  intensity: 2
+  stats: { heat: 2, order: 8, noise: 2, weight: 2 }
+  title: "Clean Light Geometric Sans (Minimal Memphis)"
+  source_page: "https://github.com/google/fonts/tree/main/ofl"
+  file_url: "https://raw.githubusercontent.com/google/fonts/main/ofl/spartan/Spartan-Light.ttf"
+  rights: mit
+  origin: raider
+  credit: "League Spartan Font / Google Fonts (OFL)"
+  verified: true
+  notes: "Low-intensity voice layer for quiet Memphis layouts. Ultra-clean geometric proportions without heavy drop shadows."
+
+- id: fx-1806
+  type: motion
+  layer: motion
+  family: 18
+  intensity: 4
+  stats: { heat: 4, order: 6, noise: 4, weight: 1 }
+  title: "Subtle 2D Drift Animation for Confetti Elements"
+  source_page: "https://codepen.io/anon/pen/memphis-drift"
+  file_url: "https://codepen.io/anon/pen/memphis-drift.css"
+  rights: mit
+  origin: raider
+  credit: "Public CodePen snippet (MIT)"
+  verified: true
+  notes: "Gentle sinusoidal float for background confetti squiggles."
