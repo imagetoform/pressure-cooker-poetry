@@ -2,7 +2,7 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - add OPENROUTER_API_KEY + allow Actions PRs; Claude - re-run constructivism intake with crops (see top entry)
+next: Brandon - add OPENROUTER_API_KEY + allow Actions PRs, say publish; Claude - re-run constructivism intake with crops
 owner: human
 ---
 
@@ -29,7 +29,28 @@ Brandon uploaded `pcp-delivery-constructivism-2026-11-04.json`. He made it with 
 
 try.com update
 
-## 2026-11-05 08:54 — Animation prompt, contract and harness
+## ## 2026-11-05 09:09 — Kits (480 parts) + database-only rooms
+
+### What was asked
+`/animatedwebs:style`: "create the proper elements for PCP and add more to the aesthetic families so that we get a robust collage database to pull randomly from each one according to recipes". The AnimatedWebs connector is NOT connected: its search/get_style_reference tools are missing, and SearchMcpRegistry didn't find it. Told Brandon, and argued that one brand system works against 28 families anyway; built the kits in-house instead. Mid-turn: "i want these default layouts and backgrounds etc... to be replaced with the database that we have gathered and only to use those graphics". AskUserQuestion answers: **switch per movement as it fills (6+ cutouts)**; **keep the layouts' text arrangement, drop their art**.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| tools/kits/generate.py | 16 button, 16 texture, 16 ornament (incl. per-movement words), 11 motion templates; GRAMMAR picks 4/4/5/3 per movement -> 480 parts, CC0; every part passes run.py check_snippet. Button text: halo under 4.5:1; transparent variants got an #111 background with coloured text only where it reads (the sidebar is dark). Contact sheet shots/83-buttons.png (taken after the .3 s transition; the first sheet was mid-transition and looked washed out) |
+| site/tools/build_kits.py | bundles kit CSS (119 KB) + PCP.kits; rewrites delivered snippets (.tex-/.orn-/.anim-<m>-N, plain scope) onto the hooks; base CSS gives .kit-tex the same edge mask as .sty-tex and turns motion off for .no-motion and reduced motion |
+| styles.js decorate | primary movement: mkRng("kit|"+sid) picks body data-k-button/texture/motion + 1-2 .kit-orn at the edges; data-k-* cleared at the start of every decorate. Test (tmp/kits_test.js): 8 movements, the same recipe gives the same picks, valve variant differs, reduced motion stops animations, Pixel 7 no overflow, no errors. shots/82-kit-grid.png |
+| run.py fix | BAD_CSS url() pattern rejected quoted data: URLs (backtracking); now `url\(\s*(?!['\"]?data:)` |
+| site/tools/build_library.py | library/cutouts/manifest.json (non-rejected, file exists) -> dist/assets/cutouts/ + PCP.assets (library: true); genome.dbOnly when the primary movement has >= DB_MIN (6) library cutouts -> pool = library only; cutout() draws no stand-ins; .room.db-only hides m-band, m-disc, c-cut:not(.cut), x-grain/mark/staple/tape/loop, l-stamp, w-ember/hair, r-glass/halo, fallbacks, ledger rules. Each family's decorate() still runs (it places the cutouts and ingredient slogans and sets ctx.theta) |
+| Test | copy at tmp/dbonly with 6 constructivism cutouts (run-1 minus vkhutemas, plus 2 duplicates): db-only manifesto room shows 3 real cutouts, 0 stand-ins, 0 layout art, kit texture and ornament present (shots/90-db-manifesto.png); a brutalism room unchanged |
+| Main | 0 library cutouts on main, so no room is db-only yet. Commits f0ab81c (kits), 2e97919 (db-only). dist md5 changes with each build; the task dist/ copy was updated |
+
+### Open / notes
+- **Deploy now needs the whole dist/ folder** (index.html + assets/cutouts/), not just index.html. README updated.
+- Coupons: once library cutouts land on main, existing rooms' cutout picks change (the pool grows), and full movements switch look. Expected.
+- Still not live in production; Brandon hasn't said publish. Still pending: OPENROUTER_API_KEY secret + allow Actions PRs, then re-run the constructivism intake with crops (don't merge cutouts/run-1).
+
+2026-11-05 08:54 — Animation prompt, contract and harness
 
 ### What was asked
 After Brandon proposed a cartoon GIF (gloved hands dropping ingredients into a pot) for the pressurize moment: "create a prompt for some proper animations we can create". The GIF's origin and rights are still unknown; it was not used.
