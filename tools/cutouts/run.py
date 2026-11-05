@@ -324,7 +324,7 @@ def scout(mv, shop, cat, model, count):
 # ---------------------------------------------------------------- SNIPPETS: grow a movement's kit
 KINDS = {"button", "texture", "motion", "ornament"}
 CODE_LICENSES = {"CC0", "MIT", "APACHE-2.0", "BSD", "BSD-2-CLAUSE", "BSD-3-CLAUSE"}
-BAD_CSS = [r"@import", r"url\(\s*['\"]?(?!data:)", r"expression\s*\(", r"javascript:", r"behavior\s*:", r"-moz-binding", r"</?\s*(style|script)", r"@font-face"]
+BAD_CSS = [r"@import", r"url\(\s*(?!['\"]?data:)", r"expression\s*\(", r"javascript:", r"behavior\s*:", r"-moz-binding", r"</?\s*(style|script)", r"@font-face"]
 
 def css_rules(css):
     """Top-level selectors outside @keyframes/@media, via a tiny brace scanner."""

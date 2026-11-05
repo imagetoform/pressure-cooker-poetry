@@ -217,6 +217,8 @@ def main():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import build_board
     s = build_board.apply(s, patch, read, app_marker)
+    import build_kits
+    s = build_kits.apply(s, patch, app_marker, os.path.dirname(ROOT))
 
     os.makedirs(os.path.join(ROOT, "dist"), exist_ok=True)
     with open(os.path.join(ROOT, "dist", "index.html"), "w", encoding="utf-8") as f:

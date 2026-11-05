@@ -196,6 +196,7 @@
   /* lay the chosen movements into a rendered room (decoration only) */
   function decorate(room, styles, mkRng) {
     var h = PCP.h, content = room.querySelector(".content");
+    ["button", "texture", "motion"].forEach(function (kind) { document.body.removeAttribute("data-k-" + kind); });
     (styles || []).forEach(function (sid, k) {
       var m = BY_ID[sid]; if (!m) return;
       var r = mkRng("style|" + sid);
@@ -208,6 +209,27 @@
         else if (side === "t") { x = r.range(0, 90); y = r.range(-6, 8); }
         else { x = r.range(0, 90); y = r.range(80, 96); }
         layer.appendChild(h("div", { "class": "sty-m anim-" + (m.motion || "fade"), html: m.motif(r, m.colors, i), style: { left: x.toFixed(1) + "%", top: y.toFixed(1) + "%", width: wpc.toFixed(1) + "%", "--rot": r.range(-14, 14).toFixed(1) + "deg" } }));
+      }
+      // the primary movement's kit: one button skin, one edge texture, one motion,
+      // and one or two ornaments, picked by the recipe's own seed
+      if (k === 0) {
+        var kit = (PCP.kits || {})[sid] || {}, kr = mkRng("kit|" + sid), b = document.body;
+        ["button", "texture", "motion"].forEach(function (kind) {
+          var list = kit[kind] || [];
+          if (list.length) b.setAttribute("data-k-" + kind, kr.pick(list)); else b.removeAttribute("data-k-" + kind);
+        });
+        if ((kit.texture || []).length) layer.appendChild(h("div", { "class": "kit-tex" }));
+        var orns = (kit.ornament || []).slice(), howMany = orns.length ? 1 + (kr.next() < 0.55 ? 1 : 0) : 0;
+        for (var o = 0; o < howMany && orns.length; o++) {
+          var name = orns.splice(Math.floor(kr.next() * orns.length), 1)[0];
+          var side = kr.pick(["l", "r", "t", "b"]), wpc = kr.range(7, 15), ox, oy;
+          if (side === "l") { ox = kr.range(1, 6); oy = kr.range(8, 80); }
+          else if (side === "r") { ox = kr.range(94 - wpc, 99 - wpc); oy = kr.range(8, 80); }
+          else if (side === "t") { ox = kr.range(8, 86 - wpc); oy = kr.range(1, 5); }
+          else { ox = kr.range(8, 86 - wpc); oy = kr.range(88, 93); }
+          layer.appendChild(h("i", { "class": "kit-orn orn-" + name, "data-orn": name, style: {
+            left: ox.toFixed(1) + "%", top: oy.toFixed(1) + "%", width: wpc.toFixed(1) + "%", rotate: kr.range(-18, 18).toFixed(1) + "deg" } }));
+        }
       }
       room.insertBefore(layer, content);
       room.classList.add("has-sty", "sty-" + sid);
