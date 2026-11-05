@@ -1,0 +1,86 @@
+# The cutout pipeline: find public-domain images for the shopping list, cut them
+# out, tag them by looking, add CSS snippets to the design kits, and open a pull
+# request to review. Also uploads everything as a zip you can download.
+#
+# Run it from GitHub: Actions tab -> "Cutouts" -> Run workflow.
+# Needs one repo secret: OPENROUTER_API_KEY (Settings -> Secrets and variables -> Actions).
+name: Cutouts
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "cutouts = find, cut and tag the list · scout = add wanted cutouts · snippets = add CSS to kits · all = all three"
+        type: choice
+        options: [cutouts, scout, snippets, all]
+        default: cutouts
+      movement:
+        description: "One movement id (e.g. punk, art-nouveau), or leave empty for any"
+        required: false
+        default: ""
+      limit:
+        description: "How many wanted cutouts to try this run"
+        required: false
+        default: "8"
+      model:
+        description: "OpenRouter model or preset, e.g. google/gemini-3.8-flash, meta/muse-spark-1.3, @preset/pcp-scout"
+        required: false
+        default: "google/gemini-3.8-flash"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: cutouts
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -r tools/cutouts/requirements.txt
+      - name: Read the site's vocabulary and movements
+        run: node tools/cutouts/catalog.js
+      - name: Run the pipeline
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          IN_MODE: ${{ inputs.mode }}
+          IN_MOVEMENT: ${{ inputs.movement }}
+          IN_LIMIT: ${{ inputs.limit }}
+          IN_MODEL: ${{ inputs.model }}
+        run: |
+          case "$IN_LIMIT" in ''|*[!0-9]*) echo "limit must be a number"; exit 1;; esac
+          python tools/cutouts/run.py --mode "$IN_MODE" --movement "$IN_MOVEMENT" --limit "$IN_LIMIT" --model "$IN_MODEL"
+      - name: Zip what this run made
+        run: |
+          mkdir -p out
+          files=$(cat library/cutouts/last-run-files.txt)
+          zip -q out/cutouts-run.zip $files library/cutouts/manifest.json library/cutouts/shopping-list.json || true
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: cutouts-run-${{ github.run_number }}
+          path: out/cutouts-run.zip
+          if-no-files-found: ignore
+      - name: Open a pull request to review
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_NO: ${{ github.run_number }}
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then echo "nothing new"; exit 0; fi
+          branch="cutouts/run-$RUN_NO"
+          git config user.name "pcp-cutouts-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add library
+          git commit -q -m "Cutout run $RUN_NO"
+          git push -q origin "$branch"
+          report=$(ls -t library/cutouts/runs/*.md | head -1)
+          gh pr create --title "Cutout run $RUN_NO" --body "Review the report: [$report]($report). Merging keeps everything in it; delete what you don't want first." \
+            || echo "Couldn't open the pull request automatically. The branch $branch is pushed; open it from the repo page."

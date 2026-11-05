@@ -9,3 +9,7 @@ How to tag:
 4. Copy the image files to `assets/cutouts/` next to the deployed `index.html`.
 
 Tags are emotion words only. The wheel decides how close one emotion is to another.
+
+## Finding cutouts automatically
+
+`shopping-list.json` is the list of cutouts still wanted. The pipeline in `tools/cutouts/` (run from GitHub Actions, see `docs/CUTOUT_PIPELINE.md`) finds public-domain images for them, cuts them out, tags them by looking, and opens a pull request. Records land in `manifest.json`; each run's report is in `runs/`.
