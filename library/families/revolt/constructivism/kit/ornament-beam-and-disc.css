@@ -1,0 +1,20 @@
+/* beam-and-disc · ornament · Constructivism kit · licence: CC0 · from pcp-delivery-constructivism-2026-11-04.json */
+body[data-sty="constructivism"] .orn-constructivism-1 {
+  position: absolute;
+  width: 140px;
+  height: 18px;
+  background: #c8102e;
+  transform: rotate(-45deg);
+  transform-origin: left center;
+}
+body[data-sty="constructivism"] .orn-constructivism-1::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  margin-top: -17px;
+  background: #111111;
+  border-radius: 50%;
+}
