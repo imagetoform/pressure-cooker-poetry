@@ -1,0 +1,54 @@
+[
+ {
+  "name": "red-wedge",
+  "kind": "button",
+  "file": "library/families/revolt/constructivism/kit/button-red-wedge.css",
+  "license": "CC0",
+  "author": "Kit coder (original code)",
+  "source_url": null,
+  "why": "The red wedge and hard black shadow of El Lissitzky-style propaganda posters — the diagonal cut edge is the movement's signature slash.",
+  "status": "new",
+  "model": "Muse Spark 1.3 (subagent)",
+  "when": "2026-11-05 05:36 UTC",
+  "delivery": "pcp-delivery-constructivism-2026-11-04.json"
+ },
+ {
+  "name": "beam-frame",
+  "kind": "texture",
+  "file": "library/families/revolt/constructivism/kit/texture-beam-frame.css",
+  "license": "CC0",
+  "author": "Kit coder (original code)",
+  "source_url": null,
+  "why": "The poster frame as scaffolding — red and black bars along the edges only, leaving the centre completely clear for the poem.",
+  "status": "new",
+  "model": "Muse Spark 1.3 (subagent)",
+  "when": "2026-11-05 05:36 UTC",
+  "delivery": "pcp-delivery-constructivism-2026-11-04.json"
+ },
+ {
+  "name": "diagonal-thrust",
+  "kind": "motion",
+  "file": "library/families/revolt/constructivism/kit/motion-diagonal-thrust.css",
+  "license": "CC0",
+  "author": "Kit coder (original code)",
+  "source_url": null,
+  "why": "The diagonal thrust of constructivist composition — everything leans upward and forward along the same 45° axis, never drifting sideways.",
+  "status": "new",
+  "model": "Muse Spark 1.3 (subagent)",
+  "when": "2026-11-05 05:36 UTC",
+  "delivery": "pcp-delivery-constructivism-2026-11-04.json"
+ },
+ {
+  "name": "beam-and-disc",
+  "kind": "ornament",
+  "file": "library/families/revolt/constructivism/kit/ornament-beam-and-disc.css",
+  "license": "CC0",
+  "author": "Kit coder (original code)",
+  "source_url": null,
+  "why": "The beam-and-disc motif of Rodchenko and Lissitzky — a red diagonal girder capped by a black circle, the movement's industrial geometry reduced to two shapes.",
+  "status": "new",
+  "model": "Muse Spark 1.3 (subagent)",
+  "when": "2026-11-05 05:36 UTC",
+  "delivery": "pcp-delivery-constructivism-2026-11-04.json"
+ }
+]
