@@ -2,11 +2,30 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon reviews the merged build (481 ingredients, 28 movements) and says publish or not; decides Pop Art/Maximalism dominance + layout-override tuning; points to the real cutout files (likely in the batch/kitchen-rebuild/web-elements zips on his PC)
+next: Brandon - publish yes/no + style-tuning call (see 18:50 entry); Claude - finish OpenRouter intake (see top entry)
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-04 18:58 — OpenRouter intake started (paused), `next` shortened
+
+### What was asked
+Brandon wants a prompt/markdown for OpenRouter that finds images, cuts them out, and gathers animation/CSS snippets to add to the database, with the results landing in the GitHub repo or as a download. He interrupted the build with "Pcp-site-update-next" after Baton flagged the `next` field as too long.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Plan told to Brandon | 1) `docs/OPENROUTER_PROMPT.md` to paste into OpenRouter (web search on); it returns one JSON delivery. 2) A loading dock: JSON goes in `library/intake/`, and a GitHub Action downloads, cuts out the background (rembg), validates against the spec, files each piece as needs-review, and uploads a zip. Licence rule: PD/CC0 images; MIT/CC0/Apache code; source recorded |
+| Checked | OpenRouter: `:online` is deprecated; use the `openrouter:web_search` server tool (openrouter.ai/docs/guides/routing/model-variants/online.md) |
+| Action pins (git ls-remote) | actions/checkout v7.0.1 = 3d3c42e5aac5ba805825da76410c181273ba90b1; actions/setup-python v7.1.0 = 6d4fd22b20465ccc0f7354476588e8df7c9ca0e0; actions/upload-artifact v7.0.2 = cf430e030ddbb5b0abf93d22962f4752f3646cd9. Lightweight tags; checkout v7.0.1 also lists 043fb46d…, so check which one is the commit before pinning |
+
+### Result
+No files written for the intake yet. `next` was cut back to a pointer.
+
+### Open / notes
+- The sandbox can't download from archive.org or loc.gov (only GitHub and package registries are allowed), so the fetch-and-cutout step has to run in GitHub Actions or on Brandon's PC. `gh api` is refused for other repos in this session (403); `git ls-remote` works.
+- Still waiting on Brandon from the last entry: publish or not; the Pop Art/Maximalism and layout-override tuning call; where the real cutouts are.
 
 ## 2026-11-04 18:50 — ChatGPT database v1 audited, re-tasted and merged
 
