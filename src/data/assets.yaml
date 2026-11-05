@@ -1,0 +1,237 @@
+- family_id: 0
+  name: "Art Nouveau"
+  default_mood: "Sweet Nostalgia"
+  default_stats: { heat: 4, order: 6, noise: 3, weight: 4 }
+  history: "Emerged in Western Europe in the 1890s as a reaction against industrial mass production and academic art. Graphic artists and architects drew from organic plant structures, Japanese woodcuts, and flowing linework to integrate fine art into daily commercial craft."
+  visual_dna: [sinuous whiplash curves, stylized botanical tendrils, flattened decorative planes, ornate framing, muted organic palettes]
+  palette: ["#2E4033", "#D9A05B", "#E8C8A5", "#4A6B5D", "#8C5E38"]
+  type_cues: [hand-drawn display lettering, swash caps, organic serif terminals, integrated floral cartouches]
+  motion_cues: [slow undulating sway, organic line draw-in, gentle iris opens, liquid morphing]
+  whisper: "A subtle sage border with delicate whiplash corner flourishes and understated serif captions."
+  scream: "Overwhelming golden vines, tangled Alphonse Mucha cartouches, and hyper-saturated stained-glass framing that swallows the page text."
+  key_makers: ["Alphonse Mucha", "Aubrey Beardsley", "Will Bradley", "Ector Guimard", "Les Nabis"]
+
+- family_id: 1
+  name: "Punk / Xerox Zine"
+  default_mood: "Burnt Rage"
+  default_stats: { heat: 8, order: 1, noise: 9, weight: 6 }
+  history: "Born in the late 1970s underground music scenes of London, New York, and Los Angeles out of economic hardship and anti-establishment anger. Made by teenagers and activists using cheap commercial photocopiers, stolen office supplies, and newsprint."
+  visual_dna: [photocopy grain, high-contrast black-and-white, ransom-note typography, safety pins, visible tape edges, off-register cutouts]
+  palette: ["#000000", "#FFFFFF", "#FF0033", "#555555", "#C0C0C0"]
+  type_cues: [cut-out magazine letters, typewriter text blocks, hand-scrawled marker notes, misaligned stencil press]
+  motion_cues: [hard 1-frame cuts, stroboscopic flicker, position jitter, misregistered frame jumps]
+  whisper: "Faint paper grain texture, a single torn tape strip anchor, and slightly gritty monochrome body type."
+  scream: "Blinding high-contrast xerox bleed, screaming ransom-note display headers, heavy ink smear, and rapid-fire frame-jump overlays."
+
+- family_id: 2
+  name: "Afrofuturism"
+  default_mood: "Spice Ecstasy"
+  default_stats: { heat: 7, order: 5, noise: 6, weight: 7 }
+  history: "Coined as a term in the 1990s but rooted in mid-20th-century Black avant-garde art, jazz, and speculative fiction. Blends African diasporic mythology, space exploration, cybernetics, and liberation politics to imagine empowering technological futures."
+  visual_dna: [metallic chrome, cosmic nebulae, circuit patterns, Egyptian iconography, geometric hair architecture, iridescent gradients]
+  palette: ["#FFB800", "#7B2CBF", "#00F0FF", "#121212", "#E63946"]
+  type_cues: [futuristic geometric display, metallic inline serifs, modular glyphs, techno-hieroglyphics]
+  motion_cues: [orbiting particle rings, chrome sheen wipes, pulsating energy grids, dimensional starfield zooms]
+  whisper: "Subtle gold accent linework, thin star-chart coordinates, and clean geometric sans layout anchors."
+  scream: "Dazzling iridescent chrome overlays, pulsing cosmic energy circuits, vibrant gold hieroglyphic masks, and deep space particle sweeps."
+
+- family_id: 3
+  name: "Dada"
+  default_mood: "Spoiled Satire"
+  default_stats: { heat: 6, order: 0, noise: 9, weight: 3 }
+  history: "Formed in Zurich, Berlin, and Paris around 1916 as an anti-art reaction to the horrors of World War I and bourgeois rationalism. Artists used chance operations, photomontage, and absurd juxtapositions to dismantle traditional artistic authority."
+  visual_dna: [photomontage collisions, mechanical engravings, absurd scale shifts, catalog cutouts, inverted typography]
+  palette: ["#1F1A17", "#D6C7B2", "#9E2A2B", "#4A4E69", "#706963"]
+  type_cues: [randomized point-size mixes, upside-down headline blocks, mixed foundry fonts, print shop scrap types]
+  motion_cues: [erratic rotation flips, detached element drifts, sudden displacement jumps, chaotic scale bounces]
+  whisper: "A single misplaced vintage gear cutout or one intentionally inverted word in an otherwise clean layout."
+  scream: "Total typographic collage collapse—overlapping anatomical plates, inverted headlines, colliding mechanical diagrams, and absurd scale explosions."
+
+- family_id: 4
+  name: "Surrealism"
+  default_mood: "Smoke Mysticism"
+  default_stats: { heat: 5, order: 3, noise: 5, weight: 6 }
+  history: "Developed in Paris in the 1920s out of Dada, influenced by Freud's theories of subconscious dreamwork and automatic writing. Visualized irrational dreamscapes, bizarre object couplings, and psychological symbols without conscious control."
+  visual_dna: [floating anatomical eyes, melted or distorted objects, deep desert horizons, incongruous scale, atmospheric shadows]
+  palette: ["#2B2D42", "#8D99AE", "#D80032", "#EDF2F4", "#4A3B32"]
+  type_cues: [classical high-contrast serif, copperplate scripts, floating letterforms, distorted perspective text]
+  motion_cues: [slow drift and hover, parallax depth glides, eerie smoke dissolves, melting vector distorts]
+  whisper: "A single floating eyeball icon in the margin and a long, dramatic drop shadow behind body text."
+  scream: "Surreal dreamscape collage—floating hour-glasses, melting perspective grids, atmospheric smoke, and detached anatomical features drifting across the page."
+
+- family_id: 5
+  name: "Vaporwave"
+  default_mood: "Bland Void"
+  default_stats: { heat: 3, order: 5, noise: 6, weight: 2 }
+  history: "Emerged in early 2010s internet subcultures as an ironic critique of consumer capitalism and 1980s/90s Yuppie techno-optimism. Built on pitched-down elevator music, early computer GUIs, Japanese ads, and classical statuary."
+  visual_dna: [dithered gradients, 3D wireframe grids, Classical marble busts, early Windows UI windows, Japanese typography, pastel neon]
+  palette: ["#FF71CE", "#01CDFE", "#05FFA1", "#B967FF", "#FFFB96"]
+  type_cues: [full-width Romanized text, pixelated bitmap fonts, Japanese katakana display, early web serif]
+  motion_cues: [scanline scrolling, CRT raster jitter, smooth wireframe grid sweeps, window drag trails]
+  whisper: "Faint pastel gradient backdrop, a subtle scanline overlay, and wide-spaced header lettering."
+  scream: "Full CRT glitch overload—cascading grey UI dialog boxes, marble busts glowing in neon pink and cyan, wireframe grid corridors, and rasterized scanlines."
+
+- family_id: 6
+  name: "Abstract Expressionism"
+  default_mood: "Raw Exposure"
+  default_stats: { heat: 7, order: 2, noise: 7, weight: 8 }
+  history: "Developed in New York in the 1940s following World War II, putting American modern art on the global map. Emphasized spontaneous, emotional creation through gestural paint drips, action painting, and massive color fields."
+  visual_dna: [paint splatters, heavy gestural brushstrokes, impasto textures, raw canvas ground, emotional color stains]
+  palette: ["#111111", "#B80000", "#D8A47F", "#F4F1DE", "#3D405B"]
+  type_cues: [rough dry-brush scrawl, hand-drawn heavy ink blocks, raw calligraphic strokes]
+  motion_cues: [paint drip trails, violent splatter reveals, expanding wet-edge bleeds]
+  whisper: "A single dry-brush stroke underlying a section header and faint raw canvas texture on the ground."
+  scream: "Violent black splatter overlays, heavy impasto color field blocks swallowing text margins, and aggressive gestural brush cuts."
+
+- family_id: 7
+  name: "Minimalism"
+  default_mood: "Bland Void"
+  default_stats: { heat: 1, order: 9, noise: 1, weight: 3 }
+  history: "Emerged in New York visual art and architecture in the late 1950s and 1960s. Rejected emotional expressionism in favor of extreme simplicity, geometric purity, objective materials, and expansive negative space."
+  visual_dna: [massive white space, single geometric accents, hair-line grids, extreme typographic hierarchy, monochrome stillness]
+  palette: ["#FFFFFF", "#000000", "#E5E5E5", "#1A1A1A", "#808080"]
+  type_cues: [lightweight neo-grotesque sans, unadorned precision typography, wide tracking]
+  motion_cues: [imperceptible fade-ins, precise crisp line draws, static stability]
+  whisper: "Generous margin padding, a single 0.5px hairline rule, and immaculate 10pt neutral sans-serif body text."
+  scream: "Aggressive reduction—a giant 96pt single letterform offset against absolute stark void with zero decorative element."
+
+- family_id: 8
+  name: "Gothic Revival"
+  default_mood: "Bitter Grief"
+  default_stats: { heat: 3, order: 7, noise: 3, weight: 9 }
+  history: "Mid-19th-century architectural and decorative movement that rejected industrial rationalism in favor of medieval Christian craftsmanship, dark romanticism, and ornate stone traceries."
+  visual_dna: [pointed arches, trefoils, blackletter typography, ironwork filigree, dense woodcut engravings, gloomy shadow]
+  palette: ["#0B0C10", "#1F2833", "#C5C6C7", "#45A29E", "#66FCF1"]
+  type_cues: [dense blackletter, Fraktur woodcut type, illuminated drop caps, engraved serif display]
+  motion_cues: [slow vertical light sweeps, ironwork gate slides, atmospheric fog rolls]
+  whisper: "An engraved drop cap at the start of a stanza and thin wrought-iron filigree rule dividers."
+  scream: "Dense medieval woodcut frames, towering blackletter headlines, cathedral window traceries, and heavy shadowy weight."
+
+- family_id: 9
+  name: "Rococo, post-modernized"
+  default_mood: "Sugar Rush Infomercial"
+  default_stats: { heat: 6, order: 4, noise: 7, weight: 4 }
+  history: "Originating in 18th-century France as a hyper-ornate aristocratic style, recontextualized by postmodernism into an ironic, gaudy commentary on luxury, consumer excess, and artificial elegance."
+  visual_dna: [gilded rocaille scrolls, pastel silk wallpapers, cherub cutouts, fake gold foil, plastic pearl borders, ironic glitz]
+  palette: ["#FFD700", "#FFB6C1", "#E0FFFF", "#FFF8DC", "#C0C0C0"]
+  type_cues: [over-decorated copperplate script, gilded shaded serifs, hyper-swashed italic caps]
+  motion_cues: [shimmering gold gleam effects, floating cherub bounces, glittering particle cascades]
+  whisper: "A delicate pale pink background with a subtle gold foil hairline divider."
+  scream: "Gaudy golden cherub cutouts, overwhelming Rocaille scrollwork, shimmering gilt borders, and bright pastel silk overlays."
+
+- family_id: 10
+  name: "Psychedelia"
+  default_mood: "Spice Ecstasy"
+  default_stats: { heat: 8, order: 3, noise: 8, weight: 5 }
+  history: "Mid-1960s counterculture movement centered in San Francisco and London, inspired by LSD experiences and Art Nouveau revive posters. Created intense visual vibrations for rock concert posters and underground press."
+  visual_dna: [warped liquid typography, vibrating complementary color pairs, melting patterns, optic illusions, swirling mandalas]
+  palette: ["#FF007F", "#7F00FF", "#00FF7F", "#FF7F00", "#FFFF00"]
+  type_cues: [hand-drawn melting lettering, liquid bubble display, Art Nouveau inspired warped letterforms]
+  motion_cues: [liquid hue cycling, undulating wave warps, pulsing optical expansions]
+  whisper: "A subtle two-color vibrating border and slightly curved, organic display captions."
+  scream: "Full optical vibration—blinding high-contrast complementary color swirls, melting liquid lettering, and pulsing kaleidoscopic motion."
+
+- family_id: 11
+  name: "New Age Occultism"
+  default_mood: "Smoke Mysticism"
+  default_stats: { heat: 4, order: 5, noise: 4, weight: 5 }
+  history: "Popularized in the late 1960s and 1970s, drawing on 19th-century Hermeticism, astrology, tarot, and esoteric alchemy to create accessible mystic iconography for counterculture spiritual seekers."
+  visual_dna: [astrological diagrams, palmistry hands, sacred geometry, celestial orbits, tarot card borders, stippled line art]
+  palette: ["#101720", "#D4AF37", "#2C3539", "#4B0082", "#F0E68C"]
+  type_cues: [esoteric serif, astrological symbol fonts, delicate inline capitals, engraved book type]
+  motion_cues: [concentric orbit rotations, slow constellation draws, glowing sigil pulses]
+  whisper: "A small stippled moon phase diagram dividing stanzas and gold accent sigils."
+  scream: "Overlapping astronomical orbit wheels, palmistry hands, glowing golden sacred geometry, and dense celestial map grounds."
+
+- family_id: 12
+  name: "Soviet Constructivism"
+  default_mood: "Salt Labor"
+  default_stats: { heat: 7, order: 8, noise: 5, weight: 8 }
+  history: "Emerging in post-revolutionary Russia in 1919, rejecting autonomous art in favor of art as a practice directed towards social, industrial, and political purposes. Championed by El Lissitzky and Rodchenko."
+  visual_dna: [diagonal dynamic vectors, stark geometric wedges, high-contrast red and black, industrial photomontage, bold structural grids]
+  palette: ["#CC0000", "#000000", "#F5F2EB", "#333333", "#8B0000"]
+  type_cues: [heavy woodtype sans-serif, bold slab serifs, diagonal headline blocks, stencil press]
+  motion_cues: [sharp angular vector thrusts, industrial piston pushes, rigid diagonal wipes]
+  whisper: "A strong red structural column along the left margin and clean black geometric headers."
+  scream: "Massive diagonal red wedges cutting through black industrial photo cutouts, screaming agitprop headline blocks, and heavy structural grids."
+
+- family_id: 13
+  name: "Bauhaus"
+  default_mood: "Chalk Bureaucracy"
+  default_stats: { heat: 3, order: 10, noise: 2, weight: 6 }
+  history: "Founded by Walter Gropius in Weimar Germany in 1919. Combined crafts and fine arts to establish a unified design philosophy: form follows function, clean geometric grids, and unadorned typography."
+  visual_dna: [primary color accents, geometric primitive shapes (circle, square, triangle), clean grid layouts, asymmetric balance]
+  palette: ["#023047", "#D90429", "#FFB703", "#EAEAEA", "#111111"]
+  type_cues: [universal geometric sans-serif, unadorned lowercase hierarchy, clean grid alignment]
+  motion_cues: [precise mechanical slide, geometric element dock, crisp linear reveals]
+  whisper: "Immaculate asymmetrical grid layout anchored by a single primary red square."
+  scream: "Rigid primary geometric grid—heavy circles, squares, and primary color blocks dominating typographic arrangement."
+
+- family_id: 14
+  name: "Mexican Muralism & Rasquache"
+  default_mood: "Salt Labor"
+  default_stats: { heat: 7, order: 5, noise: 6, weight: 8 }
+  history: "Muralism arose in 1920s post-revolutionary Mexico to build national identity through public art (Rivera, Orozco, Siqueiros). Rasquache is an underdog Chicano aesthetic making resourcefulness and vibrant assemblage an art form."
+  visual_dna: [weathered adobe textures, monumental worker figures, hand-painted storefront signage (rótulos), vibrant folk palettes, papel picado cuts]
+  palette: ["#D03B29", "#1B7B76", "#F2A900", "#E36980", "#5C3D2E"]
+  type_cues: [hand-painted block shadow rótulos, monumental fresco lettering, folk sign painter strokes]
+  motion_cues: [papel picado wind flutter, heavy fresco masonry slides, vibrant color pulses]
+  whisper: "Sun-bleached adobe wall texture background with clean hand-lettered section headers."
+  scream: "Monumental sculpted worker cutouts over hand-painted rótulo lettering, weathered fresco cracks, and bright papel picado motion banners."
+
+- family_id: 15
+  name: "Harlem Renaissance & Black Arts Movement"
+  default_mood: "Pepper Riot"
+  default_stats: { heat: 7, order: 6, noise: 5, weight: 7 }
+  history: "Flowered in 1920s Harlem (Douglas, Du Bois) and expanded into the 1960s/70s Black Arts Movement (Baraka, Catlett). Celebrated Black culture, jazz rhythms, African heritage, and anti-racist political activism through bold woodcuts and press literature."
+  visual_dna: [silhouette figures, angular woodcut forms, jazz syncopation motifs, rays of light, bold editorial press blocks]
+  palette: ["#121212", "#D4A373", "#E07A5F", "#F4F1DE", "#3D405B"]
+  type_cues: [woodcut display lettering, high-contrast activist press serifs, rhythmic poster caps]
+  motion_cues: [syncopated staccato frame leaps, radiating light beam expansions, jazz-rhythm pulses]
+  whisper: "A stark Aaron Douglas-style silhouette accent icon and crisp editorial serif body text."
+  scream: "Bold woodcut silhouettes, radiating light beams, high-contrast activist press headers, and syncopated jazz rhythm overlays."
+
+- family_id: 16
+  name: "Pop Art"
+  default_mood: "Sugar Rush Infomercial"
+  default_stats: { heat: 7, order: 6, noise: 7, weight: 3 }
+  history: "Emerged in the 1950s in Britain and flourished in 1960s America (Warhol, Lichtenstein). Challenged fine art traditions by incorporating imagery from commercial advertising, comic books, and mass production."
+  visual_dna: [Ben-Day dot screens, comic book speech bubbles, saturated neon primary colors, silkscreen misregistrations, repeated product icons]
+  palette: ["#FF0055", "#FFE600", "#0099FF", "#000000", "#FFFFFF"]
+  type_cues: [bold comic display sans, commercial ad slab serifs, speech bubble lettering]
+  motion_cues: [pop-in scale bounces, halftone screen shifts, silkscreen color registration pulses]
+  whisper: "A subtle Ben-Day dot background overlay and a clean commercial slab serif header."
+  scream: "Massive comic book speech bubbles, screaming neon colors, heavy Ben-Day dot screens, and repeated silkscreen icon grids."
+
+- family_id: 17
+  name: "Cold War Propaganda"
+  default_mood: "Metallic Paranoia"
+  default_stats: { heat: 5, order: 9, noise: 4, weight: 7 }
+  history: "Produced by government agencies, civil defense programs, and educational publishing during the 1950s–1980s. Designed to instruct, warn, and control public behavior using authoritative graphic charts."
+  visual_dna: [civil defense diagrams, fallout shelter maps, instructional halftone illustrations, stamp overlay warnings, official seal borders]
+  palette: ["#2B3A41", "#C0392B", "#F39C12", "#BDC3C7", "#1A252F"]
+  type_cues: [official government sans, classified stamp stencils, typewriter instruction text]
+  motion_cues: [radar sweep circles, warning indicator blinks, official document stamp impacts]
+  whisper: "A subtle 'RESTRICTED' red stamp watermark in the corner and clean civil defense table rules."
+  scream: "Massive fallout shelter diagrams, stark warning stamps across body text, radar sweep overlays, and heavy official seals."
+
+- family_id: 18
+  name: "Memphis Group"
+  default_mood: "Citrus Joy"
+  default_stats: { heat: 6, order: 4, noise: 8, weight: 2 }
+  history: "Founded in Milan in 1981 by Ettore Sottsass. Reacted against dictatorial modernist functionalism with bright pastel colors, plastic laminate patterns, asymmetric geometric shapes, and playful postmodern humor."
+  visual_dna: [bacterio squiggles, confetti dots, plastic laminate patterns, pastel geometric blocks, asymmetric floating shapes]
+  palette: ["#FF90B3", "#FFC04D", "#00E5FF", "#B388FF", "#333333"]
+  type_cues: [playful geometric sans, squiggly display fonts, 80s postmodern headline types]
+  motion_cues: [asymmetric shape jitters, squiggly line wriggles, floating confetti bounces]
+  whisper: "A light Bacterio squiggle line divider and a soft pastel accent block behind a header."
+  scream: "Wild asymmetric confetti patterns, squiggly Bacterio laminate backgrounds, floating pastel 3D shapes, and jittering buttons."
+
+- family_id: 19
+  name: "Brutalism"
+  default_mood: "Ash Aftermath"
+  default_stats: { heat: 2, order: 8, noise: 2, weight: 10 }
+  history: "Mid-20th-century architectural style emphasizing raw materials (béton brut) and unadorned structural honesty. Modern web brutalism adapts this into raw unstyled HTML, heavy black borders, and stark utility."
+  visual_dna: [board-formed concrete textures, exposed structural borders, stark monochrome weight, raw utilitarian layouts, unpolished industrial forms]
+  palette: ["#1C1C1C", "#575757", "#A8A8A8", "#E0E0E0", "#000000"]
+  type_cues: [s
