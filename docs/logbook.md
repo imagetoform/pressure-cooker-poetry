@@ -2,11 +2,30 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - make pcp-database preset, upload deliveries, add OPENROUTER_API_KEY + allow Actions PRs; Claude - process deliveries, publish when movements fill
+next: Brandon - regular OpenRouter key in OPENROUTER_API_KEY, allow Actions PRs, decide Rococo/Muralism + stats mapping; Claude - real PD sources for those families once decided
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-05 17:58 — Published deploy 6aed160c861c99567614c4de; Brandon's src/data records audited (0 of 18 usable)
+
+### What was asked
+"Lets take the assets we have gathered in the GitHub repo and put them into the sites design live." An explicit publish request.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Audit | Brandon's 4 new files in src/data (assets.yaml, Assets-1, family profiles 9, asset records batch 2). Every file URL was checked by HTTP request and the Commons API. **0 of 18 records usable**: Commons files don't exist, Met/archive.org/Cooper Hewitt URLs 404, CodePen "anon/pen/<name>.css" addresses invented, the Spartan and Mendoza font files 404, IM Fell is OFL not "mit". The 2 LOC files exist but are 1940s news photos (a woman in an armchair, two men at a DOJ door), not the woodcuts claimed. Written up in docs/intake/2026-11-05-src-data/AUDIT.md. assets.yaml is cut off at line 237 (inside Brutalism) |
+| Build + tests | build.py: 488 kit parts, 2 cutouts, dist md5 5134eccb... test/test2/test3/test4 pass (they need `python3 -m http.server 8765` in site/dist first; test.js's one 404 is the known placeholder cutout) |
+| Deploy | deploy 6aed160c861c99567614c4de, production. Live md5 = dist md5; both cutout PNGs 200; delivered parts (red-wedge, beam-frame, laminate-button, triangle-disc) in the live page. site/tools/live_check.js on desktop and Pixel 7: 481 tiles, no page errors (shots/98-live-*.png) |
+
+### Result
+Live now carries everything verified in the repo: 488 kit parts (including the 8 Muse/Memphis delivered snippets) and the 2 constructivism cutouts. Nothing from src/data went live.
+
+### Open / notes
+- Still to decide with Brandon: add Rococo and Mexican Muralism & Rasquache as movements (both have good pre-1931 sources), and whether heat/order/noise/weight maps onto the hidden dials. The family profiles' text is good brief material for the scout and kit generator.
+- No movement has 6 library cutouts yet, so no room is database-only. Blocked on the OpenRouter key (provisioning key, needs a regular one) for crops.
 
 ## 2026-11-05 11:06 — Memphis delivery filed (0 cutouts, 4 snippets); preset taught the public-domain date line; publish blocked pending OK
 
