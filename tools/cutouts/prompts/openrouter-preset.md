@@ -23,7 +23,7 @@ On openrouter.ai: **Settings → Presets → Create preset**.
 4. The repo takes it from there. The **Cutouts** workflow starts by itself: it re-checks every field, downloads only from the allowed hosts, crops and cuts out each image, and files everything for your review. (Cropping needs the `OPENROUTER_API_KEY` secret in the repo; without it, images are cut out whole and flagged "uncropped".)
 5. Once a movement has 6 good cutouts, its rooms switch to database-only graphics.
 
-Movements with nothing yet: all 28 except constructivism, which has 2 (Proun 99 and the Gan cover). Start anywhere. Punk, Dada, Art Nouveau and Ukiyo-e have deep public-domain archives.
+Movements with nothing yet: all 30 except constructivism, which has 2 (Proun 99 and the Gan cover). Start anywhere. Punk, Dada, Art Nouveau and Ukiyo-e have deep public-domain archives. Rococo: 18th-century ornament engravings and prints (Met and Rijksmuseum open access, CC0). Mexican Muralism & Rasquache: José Guadalupe Posada's broadsides (he died 1913) and anonymous 19th-century retablos and ex-votos; the murals themselves and the Taller de Gráfica Popular (founded 1937) are still under copyright.
 
 ## System prompt
 
@@ -73,7 +73,7 @@ Eight wedges, strongest word first:
 Blends (on the seams between wedges): love, submission, awe, disapproval, remorse, contempt, aggressiveness, optimism.
 Bullseye: **overwhelm**, only for things that are genuinely too much (crowds, collages, sale signs, noise).
 
-## The 28 movements
+## The 30 movements
 
 | id | branch | its emotions |
 |---|---|---|
@@ -100,6 +100,8 @@ Bullseye: **overwhelm**, only for things that are genuinely too much (crowds, co
 | maximalism | excess | ecstasy, overwhelm, amazement |
 | pop-art | excess | joy, amazement, contempt |
 | memphis | excess | ecstasy, distraction, optimism |
+| rococo | excess | ecstasy, distraction, contempt |
+| mexican-muralism | revolt | admiration, anger, optimism |
 | abstract-expressionism | abstract | rage, grief, overwhelm |
 | geometric-abstraction | abstract | serenity, interest, trust |
 | op-art | abstract | distraction, amazement, apprehension |
@@ -134,7 +136,7 @@ Code rules:
 
 1. Images: public domain or CC0 only, with a working source page. When you're unsure, leave it out. A watermark, a signature or a living company's logo means drop it.
 2. No graphic violence or gore, no sexual content, no humiliating images of identifiable private people, no hate symbols used approvingly.
-3. Emotion words only from the 33. Movement ids only from the 28.
+3. Emotion words only from the 33. Movement ids only from the 30.
 4. Every `id` is unique, lowercase, hyphenated.
 5. Honesty beats volume. An empty slot is better than a made-up URL, a guessed licence or a forced tag.
 6. Images must come from the hosts listed in step 2. Anything else is rejected automatically when the file is loaded.

@@ -425,6 +425,26 @@
    "blurb": "Late 1980s–1990s. Distressed type and broken layouts, from Seattle gig flyers to David Carson's Ray Gun (1992 on). Legibility on purpose made second."
   },
   {
+   "id": "mexican-muralism",
+   "name": "Mexican Muralism & Rasquache",
+   "branch": "revolt",
+   "branchName": "Revolt & noise",
+   "emo": [
+    "admiration",
+    "anger",
+    "optimism"
+   ],
+   "layout": "manifesto",
+   "motion": "drop",
+   "colors": [
+    "#c25927",
+    "#1b4965",
+    "#e8a838",
+    "#2c221e"
+   ],
+   "blurb": "1920s on. After the Revolution, Rivera, Orozco and Siqueiros painted workers and Indigenous history on public walls for people who couldn't buy paintings. Rasquache, the Chicano art of making do (named by Tomás Ybarra-Frausto, 1989): rescued materials, loud colour, hand-painted signs."
+  },
+  {
    "id": "futurism",
    "name": "Futurism",
    "branch": "future",
@@ -581,6 +601,26 @@
     "#1a175a"
    ],
    "blurb": "1981–1987. Ettore Sottsass's Milan group: plastic laminate, squiggles, clashing pattern, furniture that laughed at good taste."
+  },
+  {
+   "id": "rococo",
+   "name": "Rococo",
+   "branch": "excess",
+   "branchName": "Excess & pop",
+   "emo": [
+    "ecstasy",
+    "distraction",
+    "contempt"
+   ],
+   "layout": "cutup",
+   "motion": "float",
+   "colors": [
+    "#fce4ec",
+    "#d4af37",
+    "#1a1a1a",
+    "#fff59d"
+   ],
+   "blurb": "c. 1720s–1770s France. Shell-and-scroll ornament (rocaille), pastels and gold leaf, Boucher's and Fragonard's pleasure gardens: luxury for a class headed for 1789. Played here as satire of fake abundance."
   },
   {
    "id": "abstract-expressionism",

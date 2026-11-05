@@ -272,15 +272,15 @@ Each movement is a whole kit: its emotion tags, its layout grammar, its motion, 
 | `colors` | 2–5 hex colors |
 | `blurb` | one or two sentences, historically accurate, with dates; honest about a movement's politics (e.g. Futurism's love of war) |
 
-**The 28 movements in the tree** (10 added Nov 4 2026):
+**The 30 movements in the tree** (10 added Nov 4 2026; Rococo and Mexican Muralism & Rasquache added Nov 5):
 
 | Branch | Movements |
 |---|---|
 | ornament | Art Nouveau, Art Deco, Psychedelia, Gothic Revival, Ukiyo-e |
 | order | Minimalism, Swiss/International (`swiss`), Bauhaus, Brutalism |
-| revolt | Constructivism, Dada, Punk, Zine/DIY, Situationism, Grunge Design |
+| revolt | Constructivism, Dada, Punk, Zine/DIY, Situationism, Grunge Design, Mexican Muralism & Rasquache (`mexican-muralism`) |
 | future | Futurism, Cyberpunk, Vaporwave, Afrofuturism, Y2K |
-| excess | Maximalism, Pop Art, Memphis |
+| excess | Maximalism, Pop Art, Memphis, Rococo |
 | abstract | Abstract Expressionism, Geometric Abstraction, Op Art, Surrealism, Expressionism |
 
 Still unused, if the wheel needs them: Swiss Punk, Socialist Realism (as propaganda to study).

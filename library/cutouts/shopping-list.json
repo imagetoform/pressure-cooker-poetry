@@ -4217,5 +4217,293 @@
   "fallback": null,
   "source": null,
   "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "rococo-rocaille-shell-scroll",
+  "label": "rocaille shell scroll",
+  "family": "rococo",
+  "emo": [
+   "ecstasy",
+   "distraction"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "rococo-rocaille-shell-scroll.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "rococo-putto-with-garland",
+  "label": "putto with garland",
+  "family": "rococo",
+  "emo": [
+   "joy",
+   "contempt"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "rococo-putto-with-garland.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "rococo-gilded-mirror-frame",
+  "label": "gilded mirror frame",
+  "family": "rococo",
+  "emo": [
+   "admiration",
+   "contempt"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "rococo-gilded-mirror-frame.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "rococo-swing-in-a-garden",
+  "label": "swing in a garden",
+  "family": "rococo",
+  "emo": [
+   "ecstasy",
+   "love"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "rococo-swing-in-a-garden.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "rococo-pastel-silk-brocade",
+  "label": "pastel silk brocade",
+  "family": "rococo",
+  "emo": [
+   "serenity",
+   "boredom"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "rococo-pastel-silk-brocade.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "rococo-powdered-wig-profile",
+  "label": "powdered wig profile",
+  "family": "rococo",
+  "emo": [
+   "contempt",
+   "distraction"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "rococo-powdered-wig-profile.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "rococo-porcelain-teacup-and-saucer",
+  "label": "porcelain teacup and saucer",
+  "family": "rococo",
+  "emo": [
+   "interest",
+   "boredom"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "rococo-porcelain-teacup-and-saucer.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "rococo-chinoiserie-pagoda-vignette",
+  "label": "chinoiserie pagoda vignette",
+  "family": "rococo",
+  "emo": [
+   "amazement",
+   "distraction"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "rococo-chinoiserie-pagoda-vignette.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "mexican-muralism-calavera-broadside-skeleton",
+  "label": "calavera broadside skeleton",
+  "family": "mexican-muralism",
+  "emo": [
+   "contempt",
+   "joy"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "mexican-muralism-calavera-broadside-skeleton.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "mexican-muralism-worker-with-raised-tool",
+  "label": "worker with raised tool",
+  "family": "mexican-muralism",
+  "emo": [
+   "admiration",
+   "anger"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "mexican-muralism-worker-with-raised-tool.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "mexican-muralism-ex-voto-painted-tin-panel",
+  "label": "ex-voto painted tin panel",
+  "family": "mexican-muralism",
+  "emo": [
+   "submission",
+   "optimism"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "mexican-muralism-ex-voto-painted-tin-panel.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "mexican-muralism-corn-ear-woodcut",
+  "label": "corn ear woodcut",
+  "family": "mexican-muralism",
+  "emo": [
+   "serenity",
+   "optimism"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "mexican-muralism-corn-ear-woodcut.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "mexican-muralism-broadside-headline-block",
+  "label": "broadside headline block",
+  "family": "mexican-muralism",
+  "emo": [
+   "anger",
+   "vigilance"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "mexican-muralism-broadside-headline-block.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "mexican-muralism-papel-picado-banner",
+  "label": "papel picado banner",
+  "family": "mexican-muralism",
+  "emo": [
+   "joy",
+   "ecstasy"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "mexican-muralism-papel-picado-banner.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "mexican-muralism-corrugated-metal-sheet",
+  "label": "corrugated metal sheet",
+  "family": "mexican-muralism",
+  "emo": [
+   "annoyance",
+   "acceptance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "mexican-muralism-corrugated-metal-sheet.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "mexican-muralism-hand-painted-sign-lettering",
+  "label": "hand-painted sign lettering",
+  "family": "mexican-muralism",
+  "emo": [
+   "interest",
+   "optimism"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "mexican-muralism-hand-painted-sign-lettering.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
  }
 ]

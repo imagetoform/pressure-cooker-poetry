@@ -123,7 +123,14 @@
           if (k === 0) return svg('<path d="M10 100 q 20 -40 40 0 t 40 0 t 40 0 t 40 0" fill="none" stroke="' + c[3] + '" stroke-width="10" stroke-linecap="round"/>');
           if (k === 1) return svg('<polygon points="100,20 180,170 20,170" fill="' + c[0] + '" stroke="' + c[3] + '" stroke-width="5"/><circle cx="' + f(r.range(60, 140)) + '" cy="130" r="18" fill="' + c[2] + '"/>');
           var d = ""; for (var y = 30; y < 200; y += 28) for (var x = 30; x < 200; x += 28) d += '<circle cx="' + x + '" cy="' + y + '" r="5" fill="' + c[1] + '"/>';
-          return svg(d); } }
+          return svg(d); } },
+      { id: "rococo", layout: "cutup", motion: "float", name: "Rococo", texture: null, emo: ["ecstasy", "distraction", "contempt"], colors: ["#fce4ec", "#d4af37", "#1a1a1a", "#fff59d"], count: 2,
+        blurb: "c. 1720s–1770s France. Shell-and-scroll ornament (rocaille), pastels and gold leaf, Boucher's and Fragonard's pleasure gardens: luxury for a class headed for 1789. Played here as satire of fake abundance.",
+        motif: function (r, c) { var out = '<rect width="200" height="200" fill="' + c[0] + '"/>';
+          for (var k = 0; k < 3; k++) { var x = f(r.range(30, 150)), y = f(r.range(40, 160)), s = r.range(.6, 1.2);
+            out += '<path transform="translate(' + x + ' ' + y + ') scale(' + f(s) + ')" d="M0 0 C -30 -40 30 -60 30 -20 C 30 0 10 5 5 -5 M0 0 C 30 40 -30 60 -30 20 C -30 0 -10 -5 -5 5" fill="none" stroke="' + c[1] + '" stroke-width="5" stroke-linecap="round"/>'; }
+          for (var j = 0; j < 9; j++) out += '<circle cx="' + (20 + j * 20) + '" cy="188" r="5" fill="' + c[3] + '" stroke="' + c[1] + '" stroke-width="1.5"/>';
+          return svg(out); } }
     ],
     revolt: [
       { id: "zine-diy", layout: "xerox", motion: "jitter", name: "Zine / DIY", texture: "toner", emo: ["interest", "annoyance", "acceptance"], colors: ["#171717", "#f0ece3", "#fa3a70"], count: 3,
@@ -142,7 +149,13 @@
       { id: "grunge-design", layout: "xerox", motion: "smear", name: "Grunge Design", texture: "toner", emo: ["loathing", "annoyance", "pensiveness"], colors: ["#272920", "#aba18b", "#cf632e"], count: 2,
         blurb: "Late 1980s–1990s. Distressed type and broken layouts, from Seattle gig flyers to David Carson's Ray Gun (1992 on). Legibility on purpose made second.",
         motif: function (r, c) { var out = ""; for (var k = 0; k < 5; k++) { var y = f(r.range(20, 180)); out += '<rect x="' + f(r.range(-20, 60)) + '" y="' + y + '" width="' + f(r.range(80, 180)) + '" height="' + f(r.range(4, 18)) + '" fill="' + c[k % 3] + '" opacity=".8"/>'; }
-          return svg(out + '<path d="M' + f(r.range(20, 80)) + ' 30 L' + f(r.range(120, 180)) + ' 170" stroke="' + c[0] + '" stroke-width="6"/>'); } }
+          return svg(out + '<path d="M' + f(r.range(20, 80)) + ' 30 L' + f(r.range(120, 180)) + ' 170" stroke="' + c[0] + '" stroke-width="6"/>'); } },
+      { id: "mexican-muralism", layout: "manifesto", motion: "drop", name: "Mexican Muralism & Rasquache", texture: "concrete", emo: ["admiration", "anger", "optimism"], colors: ["#c25927", "#1b4965", "#e8a838", "#2c221e"], count: 2,
+        blurb: "1920s on. After the Revolution, Rivera, Orozco and Siqueiros painted workers and Indigenous history on public walls for people who couldn't buy paintings. Rasquache, the Chicano art of making do (named by Tomás Ybarra-Frausto, 1989): rescued materials, loud colour, hand-painted signs.",
+        motif: function (r, c) { var out = '<rect width="200" height="200" fill="' + c[1] + '"/><circle cx="' + f(r.range(60, 140)) + '" cy="70" r="46" fill="' + c[2] + '"/>';
+          out += '<path d="M0 200 V150 H40 V120 H80 V95 H120 V120 H160 V150 H200 V200z" fill="' + c[0] + '"/>';
+          for (var k = 0; k < 6; k++) { var y = f(r.range(155, 195)); out += '<path d="M' + f(r.range(0, 120)) + ' ' + y + ' l' + f(r.range(30, 80)) + ' -3" stroke="' + c[3] + '" stroke-width="3"/>'; }
+          return svg(out); } }
     ],
     future: [
       { id: "afrofuturism", layout: "reliquary", motion: "rise", name: "Afrofuturism", texture: "dots", emo: ["vigilance", "awe", "admiration"], colors: ["#241345", "#e99d22", "#31c6b4"], count: 2,

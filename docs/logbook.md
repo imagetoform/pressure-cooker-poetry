@@ -2,11 +2,33 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - regular OpenRouter key in OPENROUTER_API_KEY, allow Actions PRs, decide Rococo/Muralism + stats mapping; Claude - real PD sources for those families once decided
+next: Brandon - regular OpenRouter key in OPENROUTER_API_KEY, allow Actions PRs, decide heat/order/noise/weight mapping + Rococo/Muralism moods; Claude - tune Rococo/Muralism from the live site with Brandon (Rococo ground reads dark, not pastel)
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-05 17:57 — Movements 29-30 live: Rococo and Mexican Muralism & Rasquache (deploy 6aed17b74e29ff90a1c4a2bc)
+
+### What was asked
+Brandon said yes (by voice) to adding Rococo and Mexican Muralism as movements 29 and 30, then: "We can come back to that later right now just make it live and we can troubleshoot from there". The mood talk is deferred; publish was explicitly asked for.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Movements | site/src/styles.js: `rococo` in excess (cutup, float, no texture, emo ecstasy/distraction/contempt, colours #fce4ec #d4af37 #1a1a1a #fff59d from Brandon's profile) and `mexican-muralism` in revolt (manifesto, drop, concrete, emo admiration/anger/optimism, #c25927 #1b4965 #e8a838 #2c221e), each with blurb + SVG motif. Button skins in extra.css. GRAMMAR rows in tools/kits/generate.py (muralism words TIERRA, PAN, TRABAJO, 1910) |
+| Kits | catalog.js -> 30 movements; generate.py -> rococo 16, mexican-muralism 19 parts; build: 523 parts, 131 KB css |
+| Library | family folders with README (incl. where the PD material is) + SHOPPING; shopping-list.json +16 (240 wanted) |
+| Docs | DATABASE_SPEC (30 movements table), openrouter-preset.md (30 movements, PD routes for both: Met/Rijksmuseum CC0 ornament engravings; Posada d.1913 broadsides and anonymous retablos/ex-votos; murals and TGP (founded 1937) are under copyright) |
+| Checked | random 20000 pots: all 30 movements appear as primary, rococo 385, muralism 607. Forced rooms render, no page errors (shots/99-new-*.png). test/test2/test3/test4 pass (howStyles 30; the known placeholder 404). Live md5 91d1deef... = dist; live_check desktop + Pixel 7: 481 tiles, no errors |
+
+### Corrections
+On the voice call I said early Taller de Gráfica Popular work is public domain. Wrong: TGP was founded 1937. Told Brandon in text and kept it out of the preset.
+
+### Open / notes
+- Rococo room's ground reads dark (cutup layout), not the pastel pink of the profile: first thing to tune.
+- Moods, stats (heat/order/noise/weight) and the emo picks are my first pass from his profiles; revisit with Brandon.
+- Brandon still needs to paste the updated openrouter-preset.md into his OpenRouter preset.
 
 ## 2026-11-05 17:58 — Published deploy 6aed160c861c99567614c4de; Brandon's src/data records audited (0 of 18 usable)
 

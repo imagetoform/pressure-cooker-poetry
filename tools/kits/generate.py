@@ -147,6 +147,8 @@ GRAMMAR = {
   "geometric-abstraction":  (["split", "slab", "outline", "pill"], ["checker", "grid", "bars", "corners"], ["tiles", "triangle", "disc", "diamond", "arc"], ["spin", "snap", "drift"], []),
   "op-art":        (["outline", "split", "inset", "double"], ["rings", "stripes", "checker", "zigzag"], ["rings", "tiles", "diamond", "sunburst", "disc"], ["spin", "breathe", "pendulum"], []),
   "surrealism":    (["pill", "outline", "arch", "underline"], ["wave", "corners", "double-rule", "rings"], ["disc", "arc", "lancet", "wave", "triangle"], ["drift", "bob", "breathe"], []),
+  "rococo":        (["gloss", "double", "arch", "pill"], ["vines", "double-rule", "corners", "dots"], ["squiggle", "arc", "sunburst", "disc", "star"], ["sway", "breathe", "flicker"], []),
+  "mexican-muralism": (["woodblock", "stamp", "slab", "wedge"], ["brick", "stripes", "stitch", "scan"], ["sunburst", "triangle", "tiles", "bar", "word"], ["snap", "rise", "pendulum"], ["TIERRA", "PAN", "TRABAJO", "1910"]),
   "expressionism": (["wedge", "slab", "stamp", "arch"], ["zigzag", "stripes", "corners", "bars"], ["triangle", "bolt", "lancet", "bar", "star"], ["shudder", "sway", "pendulum"], []),
 }
 
