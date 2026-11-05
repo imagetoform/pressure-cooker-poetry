@@ -42,6 +42,7 @@ ALLOWED_HOSTS = [
     r"api\.openverse\.org", r"live\.staticflickr\.com", r"farm\d+\.staticflickr\.com",
     r"images\.metmuseum\.org", r"ids\.si\.edu", r"tile\.loc\.gov", r"www\.loc\.gov",
     r"archive\.org", r"ia\d+\.us\.archive\.org", r"images\.nypl\.org",
+    r"images-assets\.nasa\.gov",   # NASA Image and Video Library: US federal government works
 ]
 OK_LICENSES = {"cc0", "pdm", "pd", "public domain"}
 

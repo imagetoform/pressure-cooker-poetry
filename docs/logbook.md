@@ -8,6 +8,25 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-05 11:06 — Memphis delivery filed (0 cutouts, 4 snippets); preset taught the public-domain date line; publish blocked pending OK
+
+### What was asked
+Brandon pasted a pcp-database preset delivery for Memphis: no cutouts (a CC BY 3.0 photo and an off-host CC0 background were honestly dropped), 4 CSS snippets.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Intake (run locally, here) | saved as library/intake/pcp-delivery-memphis-2026-11-05.json, then `run.py --mode intake`: 4 Memphis parts filed (laminate-button, confetti-frame, playful-tilt, triangle-disc). The same run also re-read the constructivism delivery still in intake/ and filed **Muse's 4 constructivism snippets** (red-wedge, beam-frame, diagonal-thrust, beam-and-disc); its cutouts failed here (no rembg in this sandbox). Moved the constructivism delivery back into intake/ for the crop re-run |
+| Fixes | intake skips a snippet already filed from the same delivery (re-runs would otherwise add "-x" copies); build_kits BASE_CSS pins .kit-orn to position:absolute and display:block with !important (triangle-disc set position:relative). Kits: 488 parts |
+| Checked | tmp/delivered_check.js forced each delivered part onto a real room: all render in place (shots/97-delivered.png); test3 passes. Commit 7a2505c |
+| Publish | **refused by the auto-mode classifier ([Production Deploy])**, because Brandon didn't ask to publish this time. Not deployed. Live is still deploy 6aec9eda53a8f7258ab0b2dd (md5 bbc1cc...). dist now 5134eccb... |
+| Preset | openrouter-preset.md: new section "When the movement is too recent for the public domain" (US public domain = published before 1931; routes: US federal works (NASA, LOC HABS/HAER, WPA/FSA/OWI), pre-1931 ancestors with the same grammar, creator CC0 dedications; otherwise deliver snippets only). NASA's images-assets.nasa.gov added to the host allowlist in run.py and the preset |
+
+### Open / notes
+- Ask Brandon before every production publish.
+- Brandon must update his OpenRouter preset's system prompt with the new section (paste the file again).
+- PD-friendly movements, by date: Art Nouveau, Art Deco (pre-1931), Gothic Revival, Ukiyo-e, Constructivism, Dada, Futurism, Expressionism, Bauhaus, early Surrealism; partly Geometric Abstraction and Maximalism (Victorian ornament).
+
 ## 2026-11-05 10:48 — Runs 3-4: the key is a provisioning (management) key; PR setting still off
 
 ### What was asked

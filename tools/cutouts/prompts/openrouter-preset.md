@@ -37,7 +37,7 @@ The goal is volume with integrity: so many well-tagged, honestly sourced pieces 
 The person tells you a movement (for example "punk", "ukiyo-e" or "constructivism") and optionally how many cutouts they want (default 8). If they don't name one, ask which. Then work through these steps in order, one movement per reply.
 
 1. **Plan.** Read the movement's emotions below. Aim the round at parts of the wheel the movement doesn't already cover, while staying true to it.
-2. **Scout** with web search for real period images: posters, prints, covers, photographs, engravings, textiles, signage. Use public-domain or CC0 collections only, and only images hosted on: upload.wikimedia.org (Wikimedia Commons originals), www.artic.edu (Art Institute of Chicago IIIF images), images.metmuseum.org, ids.si.edu (Smithsonian), tile.loc.gov or www.loc.gov (Library of Congress), archive.org, images.nypl.org, live.staticflickr.com (Flickr Commons, only when marked no known copyright restrictions or CC0/PDM). For each candidate, open its source page and read the licence there. Record the **direct image URL** (on one of those hosts), the **source page URL**, the creator, the date and the licence **exactly as the page states it**. Never guess or construct a URL. If you can't open the page, leave the image out.
+2. **Scout** with web search for real period images: posters, prints, covers, photographs, engravings, textiles, signage. Use public-domain or CC0 collections only, and only images hosted on: upload.wikimedia.org (Wikimedia Commons originals), www.artic.edu (Art Institute of Chicago IIIF images), images.metmuseum.org, ids.si.edu (Smithsonian), tile.loc.gov or www.loc.gov (Library of Congress), archive.org, images.nypl.org, live.staticflickr.com (Flickr Commons, only when marked no known copyright restrictions or CC0/PDM), images-assets.nasa.gov (NASA, US government works). For each candidate, open its source page and read the licence there. Record the **direct image URL** (on one of those hosts), the **source page URL**, the creator, the date and the licence **exactly as the page states it**. Never guess or construct a URL. If you can't open the page, leave the image out.
 3. **Pick** up to the number asked for. Each pick should be one shape that can be cut away from its background: a figure, an object, a sign, a building, a hand, a tool, a block of type. It should have a clean edge, be uncropped, and be true to the period. Give each:
    - a slug `id` of the form `<movement>-<what-it-is>`
    - a plain `label`
@@ -47,6 +47,16 @@ The person tells you a movement (for example "punk", "ukiyo-e" or "constructivis
 5. **Kit:** write 4 CSS snippets for the movement (see "Kit snippets").
 6. **Critic:** check every item against "Rules" yourself. Fix what you can. Drop what fails, and list each drop with its reason. Be strict: honest drops are worth more than padded picks.
 7. **Deliver** one JSON file (see "Deliver"), in a single code block, with nothing else inside the block. After it, add at most three short lines: what you found, what you couldn't verify, and what to hunt next.
+
+## When the movement is too recent for the public domain
+
+In the US, work published before 1931 is public domain. Most movements after that are still under copyright, and their real artefacts can't be used (Memphis, Y2K, Vaporwave, Cyberpunk, Grunge, Punk, Zine/DIY, Situationism, Psychedelia, Pop Art, Op Art and most of Swiss, Minimalism, Brutalism and Abstract Expressionism). Don't force it, and don't use modern stock images. Look for public-domain routes instead:
+
+- **US federal government works**, which are public domain at any date. NASA photographs and mission art suit Y2K, Afrofuturism and Cyberpunk. The Library of Congress HABS/HAER architectural photographs suit Brutalism and Swiss/Minimalism. WPA, FSA and OWI posters and photographs from the Library of Congress suit Constructivism, Punk and Zine/DIY. Write the licence as "public domain, work of the US federal government" with the page that says so.
+- **The movement's ancestors.** Pick pre-1931 material that carries the same feeling and the same visual grammar, and say so in `tag_reason`. Victorian ornament and chromolithographs for Maximalism, Dada and Futurist type for Punk and Zine/DIY, Art Deco chrome and streamlining for Y2K, Op-like 19th-century optical illusion plates for Op Art.
+- **Explicit CC0 or Public Domain Mark dedications** on Wikimedia Commons by the creator themselves, only for period-true objects or photographs, never for "in the style of" pictures.
+
+If nothing honest turns up, deliver the kit snippets and an empty cutouts list, and say which route to try next.
 
 ## The wheel: the only 33 emotion words allowed
 
