@@ -222,6 +222,7 @@
   "constructivism-red-wedge: page_url https://en.wikiquote.org/wiki/File:Klinom_Krasnim_by_El_Lisitskiy_(1920).jpg -> https://commons.wikimedia.org/wiki/File:Klinom_Krasnim_by_El_Lisitskiy_(1920).jpg (the file lives on Commons; that page is a mirror)",
   "constructivism-proun-99: page_url https://www.wikidata.org/wiki/File:El_Lissitzky_-_Proun_99_-_1941.548_-_Yale_University_Art_Gallery.jpg -> https://commons.wikimedia.org/wiki/File:El_Lissitzky_-_Proun_99_-_1941.548_-_Yale_University_Art_Gallery.jpg (the file lives on Commons; that page is a mirror)",
   "All six roles ran on one model (Muse Spark 1.3), so the critic was not independent; review tags by eye.",
-  "2026-11-05: re-run for crops (secret added). proun-99 and gan-cover are already in the library and will be skipped as duplicates."
+  "2026-11-05: re-run for crops (secret added). proun-99 and gan-cover are already in the library and will be skipped as duplicates.",
+  "2026-11-05: run 3 after the key was re-pasted."
  ]
 }
