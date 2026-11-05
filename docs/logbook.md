@@ -8,6 +8,23 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-04 22:00 — Superbot multi-model prompt + intake mode
+
+### What was asked
+"A prompt for an agentic multi-model workflow (superbot)". Searched: "Superbot" is most likely the multi-model hub app (one interface over several AI services, relays into agent harnesses; aiagentslist.com/agents/superbot). There is also a Python SuperBot framework. So the prompt is written to work in any multi-agent harness.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| tools/cutouts/prompts/superbot.md | orchestrator instructions for 6 roles on different model families (orchestrator, scout with web search, picture editor and tagger as two different vision models, kit coder, critic). Embeds the wheel, all 28 movements and their emotions, the tag rubric (ski-mask context, never tag from identity, satire aims up), the snippet rules, and the delivery JSON format pcp-delivery-<movement>-<date>.json |
+| run.py --mode intake | library/intake/*.json -> re-checks wheel words (aliases), movement, PD/CC0 licence wording, image host allowlist, https source page, snippet safety -> cut -> file as status new with made_by provenance -> moves the delivery to intake/done/. Stub test: 1 good cutout filed (defiance->aggressiveness), a bad host and a CC BY-SA item dropped, 1 snippet filed |
+| Workflow | push trigger on library/intake/*.json on main (defaults to intake mode); the bot commits to cutouts/run-N branches, so no loop |
+| Commit | 6720e61 on main, pushed |
+
+### Open / notes
+- Still never run live. It needs the OPENROUTER_API_KEY secret, and intake doesn't even need the key: no model calls, only download and cut.
+- Intake cutouts get a line in the run report, not table rows with thumbnails.
+
 ## 2026-11-04 21:34 — Cutout pipeline built (scout / find / pick / cut / tag / snippets) and pushed
 
 ### What was asked
