@@ -1,0 +1,16 @@
+{
+  "movement": "memphis",
+  "made_by": {"preset": "pcp-database", "model": "unknown"},
+  "cutouts": [],
+  "snippets": [
+    {"name": "laminate-button", "kind": "button", "css": "body[data-sty=\"memphis\"] .btn-cook { background: #ffe34f; color: #171326; border: 3px solid #171326; border-radius: 0; box-shadow: 5px 5px 0 #fa5f8a; padding: 0.7em 1.2em; font-weight: 800; letter-spacing: 0.05em; }", "license": "CC0", "source_url": "", "author": "", "why": "Bright laminate colors, black outlines and offset geometric depth echo Memphis furniture.", "critic": "pass"},
+    {"name": "confetti-frame", "kind": "texture", "css": "body[data-sty=\"memphis\"] .sty-tex.tex-memphis-1 { background-image: repeating-linear-gradient(45deg, #171326 0 3px, #ffdc55 3px 12px), repeating-linear-gradient(45deg, #171326 0 3px, #ffdc55 3px 12px), repeating-linear-gradient(-45deg, #171326 0 3px, #56d5cb 3px 12px), repeating-linear-gradient(-45deg, #171326 0 3px, #56d5cb 3px 12px); background-position: top, bottom, left, right; background-size: 100% 12px, 100% 12px, 12px 100%, 12px 100%; background-repeat: no-repeat; }", "license": "CC0", "source_url": "", "author": "", "why": "Striped contrasting edges recall Memphis patterning while leaving the center unpainted.", "critic": "pass"},
+    {"name": "playful-tilt", "kind": "motion", "css": "@media (prefers-reduced-motion: no-preference) { @keyframes memphis-tilt-1 { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } } body[data-sty=\"memphis\"] .anim-memphis-1 { animation: memphis-tilt-1 4s ease-in-out infinite; } }", "license": "CC0", "source_url": "", "author": "", "why": "A gentle wobble suggests the movement's playful, off-kilter geometry.", "critic": "pass"},
+    {"name": "triangle-disc", "kind": "ornament", "css": "body[data-sty=\"memphis\"] .orn-memphis-1 { display: inline-block; width: 64px; height: 58px; position: relative; background: #fa5f8a; clip-path: polygon(50% 0, 100% 100%, 0 100%); } body[data-sty=\"memphis\"] .orn-memphis-1::after { content: \"\"; position: absolute; width: 18px; height: 18px; left: 23px; top: 30px; border-radius: 50%; background: #171326; }", "license": "CC0", "source_url": "", "author": "", "why": "A pink triangle and black dot evoke the movement's bold, simple geometric ornaments.", "critic": "pass"}
+  ],
+  "dropped": [
+    {"what": "Carlton bookcase photograph by Sailko", "why": "The opened Commons page states Creative Commons Attribution 3.0 Unported, not public domain or CC0."},
+    {"what": "1980 Memphis Design Background by Linnaea Mallette", "why": "Although marked CC0, its source is not on an allowed image host and the page does not establish it as a period image."}
+  ],
+  "coverage": "No emotion wedges or blends added: no cutouts passed the image rules."
+}

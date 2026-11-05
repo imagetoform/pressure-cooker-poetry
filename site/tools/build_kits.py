@@ -14,7 +14,7 @@ BASE_CSS = """
 .sty-layer .kit-tex { position: absolute; inset: 0; pointer-events: none;
   -webkit-mask: linear-gradient(#000,#000) top / 100% 9% no-repeat, linear-gradient(#000,#000) bottom / 100% 9% no-repeat, linear-gradient(#000,#000) left / 7% 100% no-repeat, linear-gradient(#000,#000) right / 7% 100% no-repeat;
   mask: linear-gradient(#000,#000) top / 100% 9% no-repeat, linear-gradient(#000,#000) bottom / 100% 9% no-repeat, linear-gradient(#000,#000) left / 7% 100% no-repeat, linear-gradient(#000,#000) right / 7% 100% no-repeat; }
-.sty-layer .kit-orn { position: absolute; pointer-events: none; display: block; }
+.sty-layer .kit-orn { position: absolute !important; pointer-events: none; display: block !important; }  /* delivered ornaments can't pull themselves out of place */
 .no-motion .kit-orn { animation: none !important; }
 @media (prefers-reduced-motion: reduce) { html:not(.lab) .kit-orn { animation: none !important; } }
 """

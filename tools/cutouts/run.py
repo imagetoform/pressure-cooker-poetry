@@ -437,6 +437,7 @@ def intake(cat, MOV, shop, manifest, stamp, model=None):
             names = {k["name"] for k in kit}
             for sn in d["snippets"]:
                 name = slug(str(sn.get("name", "")) or "snippet")
+                if any(k.get("name") == name and k.get("delivery") == fn for k in kit): continue   # already filed from this delivery
                 try:
                     css, lic = check_snippet(sn, mv)
                     while name in names: name += "-x"

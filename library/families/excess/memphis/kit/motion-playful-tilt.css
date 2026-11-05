@@ -1,0 +1,2 @@
+/* playful-tilt · motion · Memphis kit · licence: CC0 · from pcp-delivery-memphis-2026-11-05.json */
+@media (prefers-reduced-motion: no-preference) { @keyframes memphis-tilt-1 { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } } body[data-sty="memphis"] .anim-memphis-1 { animation: memphis-tilt-1 4s ease-in-out infinite; } }

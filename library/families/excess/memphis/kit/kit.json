@@ -190,5 +190,57 @@
   "status": "built-in",
   "generated": true,
   "canonical": true
+ },
+ {
+  "name": "laminate-button",
+  "kind": "button",
+  "file": "library/families/excess/memphis/kit/button-laminate-button.css",
+  "license": "CC0",
+  "author": "",
+  "source_url": "",
+  "why": "Bright laminate colors, black outlines and offset geometric depth echo Memphis furniture.",
+  "status": "new",
+  "model": "",
+  "when": "2026-11-05 17:03 UTC",
+  "delivery": "pcp-delivery-memphis-2026-11-05.json"
+ },
+ {
+  "name": "confetti-frame",
+  "kind": "texture",
+  "file": "library/families/excess/memphis/kit/texture-confetti-frame.css",
+  "license": "CC0",
+  "author": "",
+  "source_url": "",
+  "why": "Striped contrasting edges recall Memphis patterning while leaving the center unpainted.",
+  "status": "new",
+  "model": "",
+  "when": "2026-11-05 17:03 UTC",
+  "delivery": "pcp-delivery-memphis-2026-11-05.json"
+ },
+ {
+  "name": "playful-tilt",
+  "kind": "motion",
+  "file": "library/families/excess/memphis/kit/motion-playful-tilt.css",
+  "license": "CC0",
+  "author": "",
+  "source_url": "",
+  "why": "A gentle wobble suggests the movement's playful, off-kilter geometry.",
+  "status": "new",
+  "model": "",
+  "when": "2026-11-05 17:03 UTC",
+  "delivery": "pcp-delivery-memphis-2026-11-05.json"
+ },
+ {
+  "name": "triangle-disc",
+  "kind": "ornament",
+  "file": "library/families/excess/memphis/kit/ornament-triangle-disc.css",
+  "license": "CC0",
+  "author": "",
+  "source_url": "",
+  "why": "A pink triangle and black dot evoke the movement's bold, simple geometric ornaments.",
+  "status": "new",
+  "model": "",
+  "when": "2026-11-05 17:03 UTC",
+  "delivery": "pcp-delivery-memphis-2026-11-05.json"
  }
 ]

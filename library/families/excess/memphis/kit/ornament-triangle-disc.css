@@ -1,0 +1,2 @@
+/* triangle-disc · ornament · Memphis kit · licence: CC0 · from pcp-delivery-memphis-2026-11-05.json */
+body[data-sty="memphis"] .orn-memphis-1 { display: inline-block; width: 64px; height: 58px; position: relative; background: #fa5f8a; clip-path: polygon(50% 0, 100% 100%, 0 100%); } body[data-sty="memphis"] .orn-memphis-1::after { content: ""; position: absolute; width: 18px; height: 18px; left: 23px; top: 30px; border-radius: 50%; background: #171326; }

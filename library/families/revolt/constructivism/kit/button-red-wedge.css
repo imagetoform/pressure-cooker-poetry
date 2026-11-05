@@ -1,0 +1,23 @@
+/* red-wedge · button · Constructivism kit · licence: CC0 · from pcp-delivery-constructivism-2026-11-04.json */
+body[data-sty="constructivism"] .btn-cook {
+  display: inline-block;
+  padding: 0.9em 1.6em 0.9em 1.2em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f5efdd;
+  background: #c8102e;
+  border: 3px solid #111111;
+  box-shadow: 6px 6px 0 #111111;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);
+  cursor: pointer;
+}
+body[data-sty="constructivism"] .btn-cook:hover {
+  background: #111111;
+  color: #f5efdd;
+  box-shadow: 6px 6px 0 #c8102e;
+}
+body[data-sty="constructivism"] .btn-cook:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 #111111;
+}

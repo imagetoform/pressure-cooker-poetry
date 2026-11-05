@@ -1,0 +1,11 @@
+/* diagonal-thrust · motion · Constructivism kit · licence: CC0 · from pcp-delivery-constructivism-2026-11-04.json */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes constructivism-thrust {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    50% { transform: translate(8px, -8px) rotate(-1.5deg); opacity: 0.92; }
+    100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+  }
+  body[data-sty="constructivism"] .anim-constructivism-1 {
+    animation: constructivism-thrust 4s ease-in-out infinite alternate;
+  }
+}
