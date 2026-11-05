@@ -1439,6 +1439,15 @@ body[data-sty="zine-diy"] .kit-orn.orn-squiggle { aspect-ratio:3/1;background:ur
 @media (prefers-reduced-motion: no-preference) { @keyframes k-zine-diy-bob { 0%{transform:translateY(0)}100%{transform:translateY(-10px)} } body[data-sty="zine-diy"][data-k-motion="bob"] .kit-orn { animation: k-zine-diy-bob 3.2s ease-in-out infinite alternate; } }
 @media (prefers-reduced-motion: no-preference) { @keyframes k-zine-diy-shudder { 0%{transform:translate(0,0)}50%{transform:translate(2px,-1px)}100%{transform:translate(-1px,2px)} } body[data-sty="zine-diy"][data-k-motion="shudder"] .kit-orn { animation: k-zine-diy-shudder 0.6s steps(2) infinite normal; } }
 </style>
+<style id="pcp-db-only">
+/* ---- database-only rooms (see site/tools/build_library.py) ---- */
+.room.db-only .m-band, .room.db-only .m-disc, .room.db-only .c-cut:not(.cut),
+.room.db-only .x-grain, .room.db-only .x-mark, .room.db-only .x-staple, .room.db-only .x-tape, .room.db-only .x-loop,
+.room.db-only .l-stamp, .room.db-only .w-ember, .room.db-only .w-hair, .room.db-only .r-glass, .room.db-only .r-halo,
+.room.db-only .cut.is-fallback, .room.db-only .x-photo:has(.is-fallback) { display: none !important; }
+.room.db-only.fam-ledger { background-image: none; }
+.room.db-only .cut img { filter: drop-shadow(2px 3px 0 rgba(0,0,0,.35)); }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -7827,9 +7836,12 @@ window.PCP.assets = [
       var ing = (ctx.ingredients || []).filter(function (x) { return x.id === id; })[0];
       return ing ? ing.cat : null;
     }).filter(Boolean);
-    var assetIds = (darts && (ctx.assets || []).some(function (a) { return a.emo && a.emo.length; }))
-      ? PCP.board.pickAssets(R("assets"), darts, ctx.assets, ingCats, imageCount)
-      : pickAssets(R("assets"), sem, ctx.assets, ingCats, imageCount);
+    var libAssets = (ctx.assets || []).filter(function (a) { return a.library; });
+    var dbOnly = !!(styles && styles[0]) && libAssets.filter(function (a) { return a.family === styles[0]; }).length >= (PCP.DB_MIN || 6);
+    var pool = dbOnly ? libAssets : (ctx.assets || []);
+    var assetIds = (darts && pool.some(function (a) { return a.emo && a.emo.length; }))
+      ? PCP.board.pickAssets(R("assets"), darts, pool, ingCats, imageCount)
+      : pickAssets(R("assets"), sem, pool, ingCats, imageCount);
 
     return {
       engine: ENGINE_VERSION,
@@ -7851,6 +7863,7 @@ window.PCP.assets = [
       assets: assetIds,
       darts: darts ? darts.map(function (d) { return { label: d.label, tags: d.tags, angle: d.angle, r: d.r }; }) : null,
       styles: styles,
+      dbOnly: dbOnly,
       // a short fingerprint so two people can compare rooms by eye
       fingerprint: hashString([seed, variant, mode, familyId, palIndex,
         inputs.energy, inputs.clarity, inputs.intimacy, inputs.chaos,
@@ -8152,7 +8165,7 @@ window.PCP.assets = [
     var a = ctx.assetsById[id];
     var r = ctx.rng("cut-" + id);
     var fig = h("div", { "class": "cut " + (cls || ""), "data-asset": id });
-    var fallback = PCP.graphics.draw(a ? a.fallback : "halftone", r, colors);
+    var fallback = ctx.g && ctx.g.dbOnly ? "" : PCP.graphics.draw(a ? a.fallback : "halftone", r, colors);
     if (a && a.src) {
       var img = h("img", { alt: "", decoding: "async", src: a.src, draggable: "false" });
       img.addEventListener("error", function () {
@@ -8586,6 +8599,7 @@ window.PCP.assets = [
       narrow: g.mode === "narrow", sem: g.semantic,
       rng: function (name) { return E().makeRng(key + "|" + name + "|" + g.mode); }
     };
+    if (g.dbOnly) room.classList.add("db-only");
     fam.decorate(ctx, deco);
     if (g.collision && g.secondary && BY_ID[g.secondary]) {
       var sec = BY_ID[g.secondary];
@@ -9496,6 +9510,10 @@ window.PCP.essays = [
 </script>
 <script>
 window.PCP = window.PCP || {}; window.PCP.kits = {"abstract-expressionism":{"button":["slab","tape","inset","split"],"texture":["stripes","scan","stitch","brick"],"ornament":["squiggle","bar","disc","cross","arc"],"motion":["sway","drift","shudder"]},"expressionism":{"button":["wedge","slab","stamp","arch"],"texture":["zigzag","stripes","corners","bars"],"ornament":["triangle","bolt","lancet","bar","star"],"motion":["shudder","sway","pendulum"]},"geometric-abstraction":{"button":["split","slab","outline","pill"],"texture":["checker","grid","bars","corners"],"ornament":["tiles","triangle","disc","diamond","arc"],"motion":["spin","snap","drift"]},"op-art":{"button":["outline","split","inset","double"],"texture":["rings","stripes","checker","zigzag"],"ornament":["rings","tiles","diamond","sunburst","disc"],"motion":["spin","breathe","pendulum"]},"surrealism":{"button":["pill","outline","arch","underline"],"texture":["wave","corners","double-rule","rings"],"ornament":["disc","arc","lancet","wave","triangle"],"motion":["drift","bob","breathe"]},"maximalism":{"button":["halftone","sticker","split","double"],"texture":["dots","checker","zigzag","stripes","vines"],"ornament":["sunburst","star","diamond","squiggle","disc"],"motion":["breathe","spin","sway"]},"memphis":{"button":["sticker","split","pill","halftone"],"texture":["zigzag","dots","checker","stripes"],"ornament":["squiggle","bolt","triangle","disc","tiles"],"motion":["bob","spin","sway"]},"pop-art":{"button":["halftone","sticker","slab","pill"],"texture":["dots","stripes","checker","bars"],"ornament":["star","word-0","word-1","word-2","word-3","disc","bolt","sunburst"],"motion":["breathe","snap","bob"]},"afrofuturism":{"button":["pill","gloss","double","inset"],"texture":["rings","dots","zigzag","corners"],"ornament":["rings","disc","star","sunburst","arc"],"motion":["orbit","rise","breathe"]},"cyberpunk":{"button":["outline","gloss","split","inset"],"texture":["scan","grid","corners","stripes"],"ornament":["tiles","bar","cross","rings","word-0","word-1","word-2","word-3"],"motion":["flicker","snap","drift"]},"futurism":{"button":["wedge","split","slab","gloss"],"texture":["stripes","zigzag","bars","scan"],"ornament":["bolt","beam-disc","triangle","star","bar"],"motion":["rise","snap","orbit"]},"vaporwave":{"button":["gloss","pill","outline","split"],"texture":["grid","scan","wave","checker"],"ornament":["disc","wave","tiles","triangle","rings"],"motion":["drift","bob","breathe"]},"y2k":{"button":["gloss","pill","sticker","outline"],"texture":["grid","dots","rings","corners"],"ornament":["star","disc","rings","bolt","diamond"],"motion":["bob","spin","breathe"]},"bauhaus":{"button":["pill","slab","split","wedge"],"texture":["bars","checker","grid","corners"],"ornament":["disc","triangle","tiles","arc","bar"],"motion":["spin","snap","bob"]},"brutalism":{"button":["slab","inset","stamp","outline"],"texture":["brick","bars","frame-shadow","stitch"],"ornament":["bar","tiles","cross","triangle","word-0","word-1","word-2","word-3"],"motion":["snap","shudder","rise"]},"minimalism":{"button":["outline","underline","inset","slab"],"texture":["frame-shadow","corners","grid","stitch"],"ornament":["disc","bar","triangle","arc","tiles"],"motion":["breathe","drift","bob"]},"swiss":{"button":["slab","underline","wedge","outline"],"texture":["grid","bars","stripes","corners"],"ornament":["disc","bar","tiles","triangle","word-0","word-1","word-2","word-3"],"motion":["snap","rise","drift"]},"art-deco":{"button":["double","inset","wedge","gloss"],"texture":["zigzag","double-rule","corners","stripes"],"ornament":["sunburst","diamond","arc","bar","star"],"motion":["rise","breathe","spin"]},"art-nouveau":{"button":["pill","arch","outline","double"],"texture":["vines","double-rule","wave","corners"],"ornament":["squiggle","arc","lancet","disc","wave"],"motion":["sway","breathe","drift"]},"gothic-revival":{"button":["arch","double","outline","inset"],"texture":["double-rule","corners","stitch","brick"],"ornament":["lancet","cross","rings","arc","star"],"motion":["breathe","pendulum","rise"]},"psychedelia":{"button":["pill","split","halftone","sticker"],"texture":["rings","wave","dots","checker"],"ornament":["rings","squiggle","sunburst","disc","wave"],"motion":["spin","breathe","sway"]},"ukiyo-e":{"button":["woodblock","underline","outline","stamp"],"texture":["wave","double-rule","scan","corners"],"ornament":["wave","disc","arc","bar","tiles"],"motion":["drift","sway","bob"]},"constructivism":{"button":["wedge","slab","split","stamp"],"texture":["bars","stripes","corners","zigzag"],"ornament":["beam-disc","triangle","star","bar","word-0","word-1","word-2","word-3"],"motion":["snap","rise","shudder"]},"dada":{"button":["sticker","stamp","tape","split"],"texture":["tape","checker","stitch","dots"],"ornament":["word-0","word-1","word-2","word-3","word-4","disc","cross","triangle","squiggle"],"motion":["shudder","sway","snap"]},"grunge-design":{"button":["tape","slab","stamp","inset"],"texture":["scan","stripes","stitch","brick"],"ornament":["cross","bar","word-0","word-1","word-2","word-3","tiles","squiggle"],"motion":["shudder","sway","drift"]},"punk":{"button":["tape","stamp","sticker","slab"],"texture":["tape","stripes","stitch","scan"],"ornament":["cross","word-0","word-1","word-2","word-3","bolt","star","bar"],"motion":["shudder","snap","sway"]},"situationism":{"button":["stamp","outline","split","underline"],"texture":["stitch","scan","grid","tape"],"ornament":["word-0","word-1","word-2","word-3","arc","cross","disc","bar"],"motion":["drift","sway","snap"]},"zine-diy":{"button":["tape","stamp","outline","sticker"],"texture":["tape","stitch","scan","dots"],"ornament":["word-0","word-1","word-2","word-3","tiles","bar","cross","squiggle"],"motion":["sway","bob","shudder"]}};
+</script>
+<script>
+(function () { var P = window.PCP = window.PCP || {}; P.DB_MIN = 6;
+  P.assets = (P.assets || []).concat([]); })();
 </script>
 <script>
 /* =====================================================================
