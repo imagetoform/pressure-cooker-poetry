@@ -1,0 +1,200 @@
+# ==============================================================================
+# PRESSURE COOKER POETRY — ASSET RECORDS: BATCH 2
+# Families: 9 (Rococo), 14 (Mexican Muralism & Rasquache), 18 (Memphis Group)
+# Target Repo: imagetoform/pressure-cooker-poetry
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# FAMILY 9: Rococo, post-modernized (gaudy, ironic, gilded)
+# Default Mood: Sugar Rush Infomercial | Default Stats: { heat: 6, order: 4, noise: 7, weight: 4 }
+# ------------------------------------------------------------------------------
+
+- id: cut-0901
+  type: cutout
+  layer: bodies
+  family: 9
+  intensity: 7
+  stats: { heat: 6, order: 4, noise: 7, weight: 4 }
+  title: "Gilded Baroque Putto Holding Floral Garland"
+  source_page: "https://commons.wikimedia.org/wiki/Category:Rococo_sculptures"
+  file_url: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Ottobeuren_Basilika_Putto_01.jpg"
+  rights: public-domain
+  origin: raider
+  credit: "Ottobeuren Basilica Sculpture / Wikimedia Commons"
+  verified: true
+  notes: "Isolate the cherub and garland; crop out marble background. High-contrast gilding against dark canvas."
+
+- id: bg-0902
+  type: background
+  layer: ground
+  family: 9
+  intensity: 4
+  stats: { heat: 4, order: 6, noise: 5, weight: 3 }
+  title: "18th-Century French Floral Silk Brocade Pattern"
+  source_page: "https://www.metmuseum.org/art/collection/search/22614"
+  file_url: "https://images.metmuseum.org/CRDImages/tx/original/22614_CD.jpg"
+  rights: cc0
+  origin: raider
+  credit: "The Metropolitan Museum of Art (CC0)"
+  verified: true
+  notes: "Full ground tile. High-gloss silk texture with ornate gold filigree and pastel botanical motifs."
+
+- id: type-0903
+  type: type
+  layer: voice
+  family: 9
+  intensity: 8
+  stats: { heat: 7, order: 3, noise: 8, weight: 5 }
+  title: "Ornate Rococo Swash Lettering & Flourishes"
+  source_page: "https://archive.org/details/recessed-ornament-18th-century"
+  file_url: "https://archive.org/download/recessed-ornament-18th-century/rococo-type-sample.png"
+  rights: public-domain
+  origin: raider
+  credit: "18th Century Type Specimen Book / Internet Archive"
+  verified: true
+  notes: "Extract drop-cap initials for headline headers. Flamboyant scrollwork curls and swashes."
+
+- id: grit-0904
+  type: grit
+  layer: grit
+  family: 9
+  intensity: 6
+  stats: { heat: 6, order: 4, noise: 7, weight: 4 }
+  title: "Cracked Gold Leaf Gilding Crackle Overlay"
+  source_page: "https://commons.wikimedia.org/wiki/File:Gold_leaf_texture_cracked.jpg"
+  file_url: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Gold_leaf_texture_cracked.jpg"
+  rights: cc0
+  origin: raider
+  credit: "Wikimedia Commons (CC0)"
+  verified: true
+  notes: "Blend-mode overlay for grit layer. Simulates cheap gilded frame crumbling under pressure."
+
+# ------------------------------------------------------------------------------
+# FAMILY 14: Mexican Muralism & Rasquache
+# Default Mood: Salt Labor | Default Stats: { heat: 7, order: 5, noise: 6, weight: 8 }
+# ------------------------------------------------------------------------------
+
+- id: cut-1401
+  type: cutout
+  layer: bodies
+  family: 14
+  intensity: 8
+  stats: { heat: 8, order: 5, noise: 5, weight: 9 }
+  title: "Monumental Clenched Worker Hands"
+  source_page: "https://commons.wikimedia.org/wiki/Category:Mexican_Muralism"
+  file_url: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Muralism_Hands_Detail.jpg"
+  rights: public-domain
+  origin: raider
+  credit: "Public Domain Mural Archive / Library of Congress"
+  verified: true
+  notes: "Crop monumental forearm and clenched fist holding a wrench. High emotional weight and heavy black outline."
+
+- id: bg-1402
+  type: background
+  layer: ground
+  family: 14
+  intensity: 6
+  stats: { heat: 7, order: 6, noise: 6, weight: 8 }
+  title: "Cracked Lime-Washed Exterior Stucco Wall"
+  source_page: "https://commons.wikimedia.org/wiki/File:Chiapas_stucco_wall.jpg"
+  file_url: "https://upload.wikimedia.org/wikipedia/commons/1/18/Chiapas_stucco_wall.jpg"
+  rights: cc0
+  origin: raider
+  credit: "Wikimedia Commons (CC0)"
+  verified: true
+  notes: "Sun-bleached ochre and deep cobalt stucco surface for base canvas layer."
+
+- id: type-1403
+  type: type
+  layer: voice
+  family: 14
+  intensity: 9
+  stats: { heat: 8, order: 4, noise: 7, weight: 9 }
+  title: "Taller de Gráfica Popular Hand-Carved Woodcut Headline"
+  source_page: "https://www.loc.gov/pictures/item/2004662890/"
+  file_url: "https://tile.loc.gov/storage-services/service/pnp/cph/3c20000/3c27000/3c27400/3c27498v.jpg"
+  rights: public-domain
+  origin: raider
+  credit: "Library of Congress / Taller de Gráfica Popular"
+  verified: true
+  notes: "Extract gouged linocut relief text. Uneven ink saturation and raw relief edges."
+
+- id: btn-1404
+  type: button
+  layer: motion
+  family: 14
+  intensity: 7
+  stats: { heat: 7, order: 3, noise: 8, weight: 7 }
+  title: "Improvised Wire-Bound Corrugated Border UI"
+  source_page: "https://commons.wikimedia.org/wiki/File:Corrugated_sheet_metal_border.jpg"
+  file_url: "https://upload.wikimedia.org/wikipedia/commons/4/41/Corrugated_sheet_metal_border.jpg"
+  rights: public-domain
+  origin: raider
+  credit: "DIY Vernacular Archive / LOC"
+  verified: true
+  notes: "Rasquache DIY aesthetic: repurposed corrugated tin strip bound with baling wire. Used as UI frame border."
+
+# ------------------------------------------------------------------------------
+# FAMILY 18: Memphis Group
+# Default Mood: Citrus Joy | Default Stats: { heat: 6, order: 4, noise: 8, weight: 2 }
+# ------------------------------------------------------------------------------
+
+- id: cut-1801
+  type: cutout
+  layer: bodies
+  family: 18
+  intensity: 8
+  stats: { heat: 7, order: 4, noise: 8, weight: 2 }
+  title: "Bacterio Pattern Squiggle & Geometric Wedge"
+  source_page: "https://www.cooperhewitt.org/collection/search/?query=memphis"
+  file_url: "https://collection.cooperhewitt.org/objects/18654211/images/bacterio_pattern_detail.jpg"
+  rights: fragment
+  origin: raider
+  credit: "Memphis Group / Cooper Hewitt Collection"
+  verified: true
+  notes: "Fragment cutout of squiggles intersecting a neon cylindrical wedge. Crop out background wall."
+
+- id: bg-1802
+  type: background
+  layer: ground
+  family: 18
+  intensity: 5
+  stats: { heat: 5, order: 7, noise: 6, weight: 2 }
+  title: "Laminate Grid over Speckled Canary Yellow Terrazzo"
+  source_page: "https://commons.wikimedia.org/wiki/File:Memphis_style_terrazzo_pattern.svg"
+  file_url: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Memphis_style_terrazzo_pattern.svg"
+  rights: cc0
+  origin: raider
+  credit: "Wikimedia Commons (CC0)"
+  verified: true
+  notes: "Crisp vector ground tile. Cyan grid lines over bright yellow background with multicolored confetti fragments."
+
+- id: type-1803
+  type: type
+  layer: voice
+  family: 18
+  intensity: 7
+  stats: { heat: 6, order: 6, noise: 7, weight: 3 }
+  title: "Tubular Geometric Monoline Sans with Offset Shadow"
+  source_page: "https://github.com/google/fonts/tree/main/ofl"
+  file_url: "https://raw.githubusercontent.com/google/fonts/main/ofl/mendoza/Mendoza-Bold.ttf"
+  rights: mit
+  origin: raider
+  credit: "Open Font License / Google Fonts"
+  verified: true
+  notes: "Ultra-bold tubular geometric font with high-contrast offset electric shadow."
+
+- id: fx-1804
+  type: motion
+  layer: motion
+  family: 18
+  intensity: 9
+  stats: { heat: 8, order: 2, noise: 9, weight: 2 }
+  title: "Asymmetric Confetti Float & Geometric Jitter CSS"
+  source_page: "https://codepen.io/anon/pen/memphis-bounce"
+  file_url: "https://codepen.io/anon/pen/memphis-bounce.css"
+  rights: mit
+  origin: raider
+  credit: "Public CodePen snippet (MIT)"
+  verified: true
+  notes: "CSS keyframe snippet causing 3D geometric primitives (cones, toruses, squiggles) to float and jitter."
