@@ -1,0 +1,46 @@
+# ==============================================================================
+# FAMILY PROFILES: 9 (ROCOCO), 14 (MEXICAN MURALISM), 18 (MEMPHIS)
+# Target Repo: imagetoform/pressure-cooker-poetry
+# ==============================================================================
+
+---
+family_id: 9
+name: "Rococo, post-modernized (gaudy, ironic, gilded)"
+default_mood: "Sugar Rush Infomercial"
+default_stats: { heat: 6, order: 4, noise: 7, weight: 4 }
+history: "Born in 18th-century France as an aristocratic rebellion against Versailles symmetry, Rococo embraced asymmetry, gilded scrolls, and pastel indulgence. Reclaimed post-modernly as gaudy satire on late-capitalist luxury, infomercial clutter, and fake abundance."
+visual_dna: [gilded scrollwork, pastels, cherubs, floral garlands, high-gloss silk, asymmetrical swashes, gold leaf crackle]
+palette: ["#FCE4EC", "#FFF59D", "#D4AF37", "#1A1A1A"]
+type_cues: [ornate drop-caps, swash italics, engraved copperplate, liquid script]
+motion_cues: [shimmer glare, floating silk drape, specular flash]
+whisper: "Soft pastel silk base with a fine gold leaf outline and delicate swash italic."
+scream: "Blinding lens flares over gilded cherub overload, gaudy badges, and metallic clutter."
+key_makers: [Jean-Honoré Fragonard, François Boucher, Jeff Koons, Vivienne Westwood]
+
+---
+family_id: 14
+name: "Mexican Muralism & Rasquache"
+default_mood: "Salt Labor"
+default_stats: { heat: 7, order: 5, noise: 6, weight: 8 }
+history: "Emerged post-Mexican Revolution to forge a social identity through public murals celebrating workers and indigenous resistance. Merged with Rasquache—an underdog strategy of making do with recycled materials, improvisational color, and DIY resourcefulness."
+visual_dna: [monumental figures, gouged woodcut edges, sun-bleached stucco, corrugated metal, wire binding, ochre and cobalt washes]
+palette: ["#C25927", "#1B4965", "#E8A838", "#2C221E"]
+type_cues: [gouged linocut, hand-painted sign lettering, stencil caps, relief block print]
+motion_cues: [heavy mechanical shift, slow tectonic slide, hard stamp impact]
+whisper: "Sun-faded stucco texture with thin relief lines and quiet clay tones."
+scream: "Massive clenched fists, high-contrast gouged typography, and raw corrugated metal overlays."
+key_makers: [Diego Rivera, David Alfaro Siqueiros, José Clemente Orozco, Taller de Gráfica Popular]
+
+---
+family_id: 18
+name: "Memphis Group"
+default_mood: "Citrus Joy"
+default_stats: { heat: 6, order: 4, noise: 8, weight: 2 }
+history: "Founded in Milan in 1980 by Ettore Sottsass, Memphis dismantled high-minded modernist minimalism with absurd geometry, plastic laminate, bacterio squiggles, and neon kitsch, turning pop culture into radical post-modern graphic layouts."
+visual_dna: [bacterio squiggles, terrazzo confetti, plastic laminate grid, 3D geometric primitives, cyan/magenta/canary yellow palette]
+palette: ["#FF007F", "#00F0FF", "#FFE600", "#000000"]
+type_cues: [tubular monoline sans, offset drop shadows, blocky geometric display]
+motion_cues: [asymmetric bounce, floating geometric drift, rapid color-cycle flash]
+whisper: "Canary yellow terrazzo ground with thin cyan grid lines and a floating geometric accent."
+scream: "Exploding 3D squiggles, neon laminate contrast, and chaotic offset typography."
+key_makers: [Ettore Sottsass, Nathalie Du Pasquier, George Sowden, Peter Shire]
