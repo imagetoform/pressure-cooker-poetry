@@ -27,7 +27,7 @@ Run these as separate agents on different models. Different model families catch
 
 1. **Plan.** Pick one movement (or take the one you're given). Read its emotions below. Decide which parts of the wheel its library needs most. Aim for at least 6 cutouts touching each wedge and 2 per blend across the whole library.
 2. **Scout** finds up to 16 candidate images: public domain or CC0 only, from Wikimedia Commons, the Library of Congress, the Internet Archive, the Art Institute of Chicago, the Met Open Access, the Smithsonian Open Access, the NYPL Digital Collections or the Rijksmuseum. For each one, record the **direct image URL, the source page URL, the creator, the date and the licence exactly as the source states it**. Never guess or construct a URL. If you can't open the page, leave the image out.
-3. **Picture editor** keeps up to 8: a single shape that can be cut away from its background, a clean edge, the subject not cropped, period-true to the movement. Give each a slug `id` (`<movement>-<what-it-is>`), a plain `label`, and a `keep` note saying what to keep when cutting it out.
+3. **Picture editor** keeps up to 8: a single shape that can be cut away from its background, a clean edge, the subject not cropped, period-true to the movement. Give each a slug `id` (`<movement>-<what-it-is>`), a plain `label`, a `keep` note saying what to keep when cutting it out, and a `crop` box around that part: `[left, top, right, bottom]` in thousandths of the image's width and height (0 is the top-left corner, 1000 the far edge), with a little margin. When the part is a piece of a bigger poster, the crop box is what makes the cutout work: the background remover only cleans up what's inside the box.
 4. **Tagger** looks at each kept image and tags what it **delivers**, not what it is (see "How to tag").
 5. **Kit coder** delivers 4 CSS snippets for the movement (see "Kit snippets").
 6. **Critic** checks everything against "Rules". Anything that fails goes back once to the agent that made it. Fail twice and it's dropped, with the reason noted.
@@ -126,7 +126,7 @@ Write one JSON file named `pcp-delivery-<movement>-<yyyy-mm-dd>.json`, nothing e
      "emo": ["aggressiveness", "contempt", "vigilance"], "cats": ["object"], "fallback": "stamp",
      "image_url": "https://upload.wikimedia.org/...", "page_url": "https://commons.wikimedia.org/wiki/File:...",
      "creator": "as stated", "date": "as stated", "license": "as stated by the source",
-     "keep": "the jacket only", "tag_reason": "the visual evidence in one or two sentences",
+     "keep": "the jacket only", "crop": [180, 220, 640, 930], "tag_reason": "the visual evidence in one or two sentences",
      "critic": "pass"}
   ],
   "snippets": [

@@ -1,0 +1,226 @@
+{
+ "movement": "constructivism",
+ "made_by": {
+  "orchestrator": "Charlotte — Muse Spark 1.3",
+  "scout": "Muse Spark 1.3 (subagent)",
+  "picture_editor": "Charlotte — Muse Spark 1.3",
+  "tagger": "Muse Spark 1.3 (subagent)",
+  "kit_coder": "Muse Spark 1.3 (subagent)",
+  "critic": "Muse Spark 1.3 (subagent)"
+ },
+ "cutouts": [
+  {
+   "id": "constructivism-red-wedge",
+   "label": "Red Wedge",
+   "family": "constructivism",
+   "emo": [
+    "aggressiveness",
+    "anticipation",
+    "admiration"
+   ],
+   "cats": [
+    "concept",
+    "institution"
+   ],
+   "fallback": "wedge",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Klinom_Krasnim_by_El_Lisitskiy_%281920%29.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Klinom_Krasnim_by_El_Lisitskiy_(1920).jpg",
+   "creator": "El Lissitzky (1890–1941)",
+   "date": "between 1919 and 1920",
+   "license": "This photographic reproduction is therefore also considered to be in the public domain in the United States.",
+   "keep": "Cut the red wedge — single clean triangle driving into the white circle; poster text stays out of the cut.",
+   "tag_reason": "The red wedge's diagonal thrust into the white circle, set against hard black and cream, delivers a feeling of forceful attack and forward momentum — a strike already in motion, with the boldness of the composition inviting admiration.",
+   "critic": "pass"
+  },
+  {
+   "id": "constructivism-proun-99",
+   "label": "Proun 99",
+   "family": "constructivism",
+   "emo": [
+    "awe",
+    "serenity",
+    "interest"
+   ],
+   "cats": [
+    "concept",
+    "object"
+   ],
+   "fallback": "gear",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/El_Lissitzky_-_Proun_99_-_1941.548_-_Yale_University_Art_Gallery.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:El_Lissitzky_-_Proun_99_-_1941.548_-_Yale_University_Art_Gallery.jpg",
+   "creator": "El Lissitzky (1890–1941)",
+   "date": "between 1923 and 1925",
+   "license": "This photographic reproduction is therefore also considered to be in the public domain in the United States.",
+   "keep": "Cut the faceted composite object upper left — black/grey/white planes, clean edges; the red arc and hatched fan stay out.",
+   "tag_reason": "The faceted black-grey-white form hangs impossibly in flat grey space, steadied by a thin red arc and a hatched fan converging to a point, so it delivers quiet wonder at an engineered impossibility rather than agitation — a calm, hovering strangeness that invites long looking.",
+   "critic": "pass"
+  },
+  {
+   "id": "constructivism-gan-cover",
+   "label": "Konstruktivizm cover",
+   "family": "constructivism",
+   "emo": [
+    "anticipation",
+    "trust",
+    "admiration"
+   ],
+   "cats": [
+    "institution",
+    "concept"
+   ],
+   "fallback": "bars",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Cover_of_Konstruktivizm_by_Aleksei_Gan_1922.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Cover_of_Konstruktivizm_by_Aleksei_Gan_1922.jpg",
+   "creator": "Aleksei Gan",
+   "date": "1922",
+   "license": "This work is ineligible for copyright and therefore in the public domain because it consists entirely of information that is common property and contains no original authorship.",
+   "keep": "Cut the black КОНСТРУКТИВИЗМ bar — single clean rectangle; red name lettering stays out.",
+   "tag_reason": "The stark red name over the heavy black bar, unadorned on worn cream paper, delivers the calm certainty of a movement announcing itself — a declaration that trusts its own minimal typography to carry the weight.",
+   "critic": "pass"
+  },
+  {
+   "id": "constructivism-rosta-worker",
+   "label": "ROSTA poster: Want it? Join",
+   "family": "constructivism",
+   "emo": [
+    "aggressiveness",
+    "joy",
+    "anticipation"
+   ],
+   "cats": [
+    "food",
+    "absurdity"
+   ],
+   "fallback": "burst",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Plakat_mayakowski_gross.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Plakat_mayakowski_gross.jpg",
+   "creator": "Mayakovsky, Vladimir",
+   "date": "c. 1920",
+   "license": "This work is in the public domain in its country of origin and other countries and areas where the copyright term is the author's life plus 70 years or fewer. This work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1930.",
+   "keep": "Cut the red worker eating corn, bottom left — solid red figure on cream, clean edge; poster text stays out.",
+   "tag_reason": "The grotesque cold-monster and hunger-skeleton loom as threats in the top panels while the solid red workers eat corn and drink with satisfaction below, delivering a combative rallying energy — the enemies are the monsters, never the workers, who are the poster's heroes.",
+   "critic": "pass"
+  },
+  {
+   "id": "constructivism-vkhutemas-hand",
+   "label": "VKhUTEMAS cover",
+   "family": "constructivism",
+   "emo": [
+    "vigilance",
+    "anticipation",
+    "admiration"
+   ],
+   "cats": [
+    "object",
+    "institution"
+   ],
+   "fallback": "stamp",
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Vkhutemas.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Vkhutemas.jpg",
+   "creator": "El Lissitzky (1890–1941)",
+   "date": "1927",
+   "license": "This work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1931.",
+   "keep": "Cut the hand with the compass — solid photographic form on graph paper; diagonal typography stays out.",
+   "tag_reason": "The hand grips the compass firmly and holds it poised over graph paper while the bold red-and-black type slashes diagonally across the frame, delivering the alert focus of a worker about to draw — readiness and craft, not a passive portrait.",
+   "critic": "pass"
+  }
+ ],
+ "snippets": [
+  {
+   "name": "red-wedge",
+   "kind": "button",
+   "css": "body[data-sty=\"constructivism\"] .btn-cook {\n  display: inline-block;\n  padding: 0.9em 1.6em 0.9em 1.2em;\n  font-weight: 800;\n  letter-spacing: 0.12em;\n  text-transform: uppercase;\n  color: #f5efdd;\n  background: #c8102e;\n  border: 3px solid #111111;\n  box-shadow: 6px 6px 0 #111111;\n  clip-path: polygon(0 0, 100% 0, calc(100% - 18px) 100%, 0 100%);\n  cursor: pointer;\n}\nbody[data-sty=\"constructivism\"] .btn-cook:hover {\n  background: #111111;\n  color: #f5efdd;\n  box-shadow: 6px 6px 0 #c8102e;\n}\nbody[data-sty=\"constructivism\"] .btn-cook:active {\n  transform: translate(3px, 3px);\n  box-shadow: 3px 3px 0 #111111;\n}",
+   "license": "CC0",
+   "source_url": null,
+   "author": "Kit coder (original code)",
+   "why": "The red wedge and hard black shadow of El Lissitzky-style propaganda posters — the diagonal cut edge is the movement's signature slash.",
+   "critic": "pass"
+  },
+  {
+   "name": "beam-frame",
+   "kind": "texture",
+   "css": "body[data-sty=\"constructivism\"] .sty-tex.tex-constructivism-1 {\n  background-color: transparent;\n  background-image:\n    linear-gradient(180deg, #c8102e 0 14px, transparent 14px),\n    linear-gradient(90deg, #111111 0 10px, transparent 10px),\n    linear-gradient(0deg, #111111 0 10px, transparent 10px),\n    linear-gradient(-45deg, #c8102e 0 22px, transparent 22px);\n  background-position: top left, bottom left, top right, bottom right;\n  background-repeat: no-repeat;\n  background-size: 38% 100%, 100% 100%, 100% 100%, 100% 100%;\n  border: 3px solid #111111;\n}",
+   "license": "CC0",
+   "source_url": null,
+   "author": "Kit coder (original code)",
+   "why": "The poster frame as scaffolding — red and black bars along the edges only, leaving the centre completely clear for the poem.",
+   "critic": "pass"
+  },
+  {
+   "name": "diagonal-thrust",
+   "kind": "motion",
+   "css": "@media (prefers-reduced-motion: no-preference) {\n  @keyframes constructivism-thrust {\n    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }\n    50% { transform: translate(8px, -8px) rotate(-1.5deg); opacity: 0.92; }\n    100% { transform: translate(0, 0) rotate(0deg); opacity: 1; }\n  }\n  body[data-sty=\"constructivism\"] .anim-constructivism-1 {\n    animation: constructivism-thrust 4s ease-in-out infinite alternate;\n  }\n}",
+   "license": "CC0",
+   "source_url": null,
+   "author": "Kit coder (original code)",
+   "why": "The diagonal thrust of constructivist composition — everything leans upward and forward along the same 45° axis, never drifting sideways.",
+   "critic": "pass"
+  },
+  {
+   "name": "beam-and-disc",
+   "kind": "ornament",
+   "css": "body[data-sty=\"constructivism\"] .orn-constructivism-1 {\n  position: absolute;\n  width: 140px;\n  height: 18px;\n  background: #c8102e;\n  transform: rotate(-45deg);\n  transform-origin: left center;\n}\nbody[data-sty=\"constructivism\"] .orn-constructivism-1::after {\n  content: \"\";\n  position: absolute;\n  right: -14px;\n  top: 50%;\n  width: 34px;\n  height: 34px;\n  margin-top: -17px;\n  background: #111111;\n  border-radius: 50%;\n}",
+   "license": "CC0",
+   "source_url": null,
+   "author": "Kit coder (original code)",
+   "why": "The beam-and-disc motif of Rodchenko and Lissitzky — a red diagonal girder capped by a black circle, the movement's industrial geometry reduced to two shapes.",
+   "critic": "pass"
+  }
+ ],
+ "dropped": [
+  {
+   "what": "Everything for the Front poster (El Lissitzky, 1941/42)",
+   "why": "Critic: not period-true — dated over a decade after constructivism's core period (1919–1927); licence clean and the bomber plane cuts well, but period-truth is a date test."
+  },
+  {
+   "what": "Tatlin's Tower photo (November 1920)",
+   "why": "Licence clean (PD-Art) but picture-edit: photograph of an open lattice with people and a busy hall, tower cropped at top; not a single shape that cuts away cleanly."
+  },
+  {
+   "what": "ROSTA Window No. 583 (Mayakovsky, November 1920)",
+   "why": "Licence line blank on the file page; author listed as the photographer Joanbanjo, not Mayakovsky. Unsure means out."
+  },
+  {
+   "what": "Klutsis, Electrification of the Entire Country (c. 1920)",
+   "why": "Licence conflict: MoMA record claims © Estate of Gustav Klutsis / Artists Rights Society (ARS), New York."
+  },
+  {
+   "what": "Klutsis, Soviet Power plus electrification (1929)",
+   "why": "Licence never seen on the file page."
+  },
+  {
+   "what": "Zuev Workers' Club historic photo",
+   "why": "Licence and date not re-verified."
+  },
+  {
+   "what": "PROUN street celebration (Lissitzky, 1923)",
+   "why": "Commons file page not found after three searches; licence not confirmable on the file page."
+  },
+  {
+   "what": "Pelikan poster (Lissitzky, 1929)",
+   "why": "Living company logo; excluded regardless of public-domain status."
+  },
+  {
+   "what": "Rodchenko, 'Books' poster (1924)",
+   "why": "Commons deletion nomination over copyright; Rodchenko works after 1917 not public domain in Europe."
+  },
+  {
+   "what": "Art Institute of Chicago Lissitzky works",
+   "why": "Seen marked © ARS; no explicit PD/CC0 designation on an AIC object page."
+  },
+  {
+   "what": "Met, Lissitzky '[Self-Portrait]' (1924–25)",
+   "why": "No direct image URL and no explicit Open Access badge in the fetched text."
+  },
+  {
+   "what": "Stenberg, 'Symphony of a Big City' poster (1928)",
+   "why": "Reuse restrictions (contact ArtResource); not CC0."
+  }
+ ],
+ "coverage": "Adds joy (serenity, joy), trust (admiration, trust) and anticipation (anticipation, interest, vigilance), plus blends aggressiveness and awe; fear, surprise, sadness, disgust and anger wedges untouched this round.",
+ "corrections": [
+  "constructivism-red-wedge: page_url https://en.wikiquote.org/wiki/File:Klinom_Krasnim_by_El_Lisitskiy_(1920).jpg -> https://commons.wikimedia.org/wiki/File:Klinom_Krasnim_by_El_Lisitskiy_(1920).jpg (the file lives on Commons; that page is a mirror)",
+  "constructivism-proun-99: page_url https://www.wikidata.org/wiki/File:El_Lissitzky_-_Proun_99_-_1941.548_-_Yale_University_Art_Gallery.jpg -> https://commons.wikimedia.org/wiki/File:El_Lissitzky_-_Proun_99_-_1941.548_-_Yale_University_Art_Gallery.jpg (the file lives on Commons; that page is a mirror)",
+  "All six roles ran on one model (Muse Spark 1.3), so the critic was not independent; review tags by eye."
+ ]
+}

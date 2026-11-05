@@ -30,7 +30,7 @@ from PIL import Image
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 LIB = os.path.join(ROOT, "library")
 PROMPTS = os.path.join(os.path.dirname(__file__), "prompts")
-UA = "PressureCookerPoetry-cutouts/1.0 (open-source poetry site; batch image tagging)"
+UA = "PressureCookerPoetry-cutouts/1.0 (+https://github.com/imagetoform/pressure-cooker-poetry; batch cutouts of public-domain images)"
 DEFAULT_MODEL = "google/gemini-3.8-flash"
 MAX_DOWNLOAD = 30 * 1024 * 1024
 OUT_MAX_PX = 1200
@@ -193,6 +193,37 @@ def pick(item, movement, cands, model, dry):
     if ch is None or not isinstance(ch, int) or not 0 <= ch < len(kept): return None, ans.get("reason", "no suitable image"), ""
     return ch, ans.get("reason", ""), ans.get("keep", "")
 
+
+
+# ---------------------------------------------------------------- crop to the part worth keeping
+def valid_box(b):
+    try:
+        b = [float(x) for x in b]
+    except Exception:
+        return None
+    if len(b) != 4: return None
+    x0, y0, x1, y1 = [max(0.0, min(1000.0, v)) for v in b]
+    if x1 - x0 < 30 or y1 - y0 < 30: return None          # under 3% a side: not a real box
+    return [x0, y0, x1, y1]
+
+def crop_raw(raw, box=None, keep="", model=None, dry=False):
+    """Crop the source image to the part to keep. Box from the delivery, else asked of the model, else whole image."""
+    img = Image.open(io.BytesIO(raw)); img.load(); img = img.convert("RGB")
+    how = "whole image"
+    b = valid_box(box) if box is not None else None
+    if b: how = "crop from delivery"
+    elif keep and model and not dry and os.environ.get("OPENROUTER_API_KEY"):
+        try:
+            ans = ask_model(model, fill(open(os.path.join(PROMPTS, "crop.md"), encoding="utf-8").read(), keep=keep), [data_url(img, "JPEG", 1024)])
+            b = valid_box(ans.get("box")) if ans.get("box") is not None else None
+            if b: how = "crop by model"
+        except Exception as e:
+            how = "whole image (crop failed: %s)" % str(e)[:60]
+    if b:
+        W, H = img.size
+        img = img.crop((int(b[0] * W / 1000), int(b[1] * H / 1000), int(b[2] * W / 1000), int(b[3] * H / 1000)))
+    out = io.BytesIO(); img.save(out, "PNG")
+    return out.getvalue(), how, b
 
 # ---------------------------------------------------------------- 3. CUT
 _session = None
@@ -362,7 +393,7 @@ def snippets(mv, cat, model, count, stamp):
 # ---------------------------------------------------------------- INTAKE: a delivery from another agent (e.g. Superbot)
 PD_WORDS = ("public domain", "cc0", "pdm", "no known copyright", "no known restrictions")
 
-def intake(cat, MOV, shop, manifest, stamp):
+def intake(cat, MOV, shop, manifest, stamp, model=None):
     """library/intake/*.json -> checked, cut, filed. Tags come from the delivering agent's tagger."""
     in_dir = os.path.join(LIB, "intake"); done_dir = os.path.join(in_dir, "done")
     made, lines, have = [], [], {m["id"] for m in manifest}
@@ -381,7 +412,8 @@ def intake(cat, MOV, shop, manifest, stamp):
                 if not any(w in lic for w in PD_WORDS): raise ValueError("licence not public domain / CC0: " + lic[:40])
                 if not host_ok(str(c.get("image_url", ""))): raise ValueError("image host not on the allowlist")
                 if not str(c.get("page_url", "")).startswith("https://"): raise ValueError("no source page")
-                cutout, cov = cut(http_get(c["image_url"], binary=True))
+                raw, how, box = crop_raw(http_get(c["image_url"], binary=True), c.get("crop"), str(c.get("keep", "")), model)
+                cutout, cov = cut(raw)
                 rel = "library/families/%s/%s/cutouts/%s.png" % (mv["branch"], mv["id"], cid)
                 os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True); cutout.save(os.path.join(ROOT, rel), optimize=True)
                 fb = c.get("fallback") if c.get("fallback") in cat["fallbacks"] else "torn"
@@ -391,7 +423,7 @@ def intake(cat, MOV, shop, manifest, stamp):
                     "source": "%s (%s) %s" % (credit, c.get("license"), c.get("page_url")), "notes": str(c.get("tag_reason", ""))[:300], "status": "new", "file": rel,
                     "provenance": {"delivery": fn, "made_by": who, "image_url": c["image_url"], "page_url": c["page_url"], "creator": c.get("creator", ""),
                                    "date": c.get("date", ""), "license": c.get("license"), "keep": c.get("keep", ""), "critic": c.get("critic", ""),
-                                   "coverage": round(cov, 3), "when": stamp}})
+                                   "coverage": round(cov, 3), "crop": how, "box": box, "flags": ["uncropped"] if how.startswith("whole image") and c.get("keep") else [], "when": stamp}})
                 have.add(cid); made.append(rel)
                 for it in shop:
                     if it["id"] == cid: it["status"] = "found"
@@ -464,7 +496,7 @@ def main():
             except Exception as e:
                 extra_lines.append("- Snippets for %s failed: %s" % (mv["name"], str(e)[:160]))
     if a.mode == "intake":
-        made_i, lines_i = intake(cat, MOV, shop, manifest, stamp); made_extra += made_i; extra_lines += lines_i
+        made_i, lines_i = intake(cat, MOV, shop, manifest, stamp, a.model); made_extra += made_i; extra_lines += lines_i
         save(shop_path, shop); save(man_path, manifest)
     if a.mode in ("scout", "snippets", "intake"): a.limit = 0
     todo = [s for s in shop if s["family"] in MOV and s["id"] not in have and (not a.movement or s["family"] == a.movement)
@@ -481,7 +513,8 @@ def main():
             ch, why, keep = pick(item, mv, cands, a.model, a.dry_run)
             if ch is None: raise ValueError("picker rejected all: " + why)
             c = cands[ch]
-            cutout, cov = cut(http_get(c["image_url"], binary=True))
+            raw, how, box = crop_raw(http_get(c["image_url"], binary=True), None, keep, a.model, a.dry_run)
+            cutout, cov = cut(raw)
             t = tag(item, mv, cutout, cat, a.model, a.dry_run)
             rel = "library/families/%s/%s/cutouts/%s.png" % (mv["branch"], mv["id"], item["id"])
             os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
@@ -495,7 +528,7 @@ def main():
                 "provenance": {"source": c["source"], "title": c["title"], "creator": c["creator"], "date": c["date"],
                                "license": c["license"], "license_url": c["license_url"], "page_url": c["page_url"], "image_url": c["image_url"],
                                "picked_because": why, "keep": keep, "first_guess_emo": item["emo"], "people": t.get("people"),
-                               "flags": t.get("flags", []), "coverage": round(cov, 3), "model": "dry-run" if a.dry_run else a.model, "when": stamp}})
+                               "flags": t.get("flags", []), "coverage": round(cov, 3), "crop": how, "box": box, "model": "dry-run" if a.dry_run else a.model, "when": stamp}})
             item["status"] = "found"; item["file"] = rel; item["src"] = "assets/cutouts/%s.png" % item["id"]
             item["emo"] = t["emo"]; item["cats"] = t["cats"]; item["fallback"] = t["fallback"]
             item["source"] = manifest[-1]["source"]; item["notes"] = "tagged by looking (%s)" % manifest[-1]["provenance"]["model"]
