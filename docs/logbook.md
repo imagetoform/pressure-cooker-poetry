@@ -2,11 +2,32 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - add OPENROUTER_API_KEY secret + first Cutouts run; publish yes/no + style tuning (see 18:50)
+next: Brandon - add OPENROUTER_API_KEY + allow Actions PRs; Claude - re-run constructivism intake with crops (see top entry)
 owner: human
 ---
 
-# Logbook — pressurecookerpoetry.com update
+# Logbook — pressurecookerpoe## 2026-11-04 23:38 — First live run: Muse constructivism delivery through intake (run 1)
+
+### What was asked
+Brandon uploaded `pcp-delivery-constructivism-2026-11-04.json`. He made it with Muse Spark 1.3 using superbot.md; Superbot itself didn't work on his phone or network. Muse played all six roles.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Checked the delivery | 5 cutouts, all on Commons and PD; 4 snippets, all passing check_snippet; 12 honest drops (Klutsis because of ARS, a Rodchenko deletion nomination, a Pelikan logo, unverifiable licences). Two page_urls pointed at wikiquote/wikidata mirrors and were repointed to Commons (noted in its "corrections" field) |
+| New: crop step | crop_raw(): use the delivery's crop box, else ask the model with prompts/crop.md and the keep note (needs the key), else the whole image flagged "uncropped". Added to the main flow and to intake; superbot.md now asks for a crop box. Stub-tested all three paths |
+| UA | now names the repo URL (Wikimedia bot policy) |
+| Pushed 0293cd9 | the delivery is in library/intake/ on main; the push trigger fired: run 41975006101, all steps green, 2.5 min. Wikimedia downloads and rembg's model download work on the runner. Artifact 13391321456 |
+| Result branch | cutouts/run-1 (06d33c0): 5 PNGs + manifest + 4 kit CSS files. **No PR**: "GitHub Actions is not permitted to create or approve pull requests" (the repo setting isn't ticked). No OPENROUTER_API_KEY secret yet, so no model crops |
+| Looked at the cutouts | contact sheet shots/60-run1-sheet.png. Proun 99: clean, good. Gan cover: whole cover cut well (lettering + bar), good as is. Red wedge: the wedge is clean, but ghosts of the white circle and text remain; needs a crop. ROSTA: the whole 4-panel poster came through; needs a crop to one worker. VKhUTEMAS: failed; the grey photo hand was removed and only the text survived; crop alone may not fix it |
+
+### Open / notes
+- Brandon: add the OPENROUTER_API_KEY secret, and tick Settings -> Actions -> General -> "Allow GitHub Actions to create and approve pull requests".
+- Then re-run the intake: the delivery is still in library/intake/ on main, because run-1 was never merged. Push any change there, or run the workflow with mode intake. Don't merge cutouts/run-1.
+- gh from this session: actions/runs, jobs and logs are readable; secrets and permissions are blocked (403); gh pr list (GraphQL) is blocked, use REST `gh api repos/.../pulls`.
+- The kit snippets are filed but the site doesn't load kits yet.
+
+try.com update
 
 ## 2026-11-04 22:00 — Superbot multi-model prompt + intake mode
 
