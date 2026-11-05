@@ -51,6 +51,20 @@ jobs:
         run: pip install -r tools/cutouts/requirements.txt
       - name: Read the site's vocabulary and movements
         run: node tools/cutouts/catalog.js
+      - name: Check the OpenRouter key (never prints it)
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          k="$OPENROUTER_API_KEY"
+          if [ -z "$k" ]; then echo "KEY CHECK: no OPENROUTER_API_KEY secret is set"; exit 0; fi
+          echo "KEY CHECK: length ${#k}, starts with '${k:0:9}'"
+          case "$k" in *" "*) echo "KEY CHECK: contains a space";; esac
+          case "$k" in *$'\n'*|*$'\r'*) echo "KEY CHECK: contains a line break";; esac
+          case "$k" in \"*|\'*) echo "KEY CHECK: starts with a quote mark";; esac
+          code=$(curl -s -o /tmp/key.json -w '%{http_code}' -H "Authorization: Bearer $k" https://openrouter.ai/api/v1/key)
+          echo "KEY CHECK: OpenRouter answered HTTP $code"
+          python3 -c "import json; d=json.load(open('/tmp/key.json')); d=d.get('data', d); print('KEY CHECK:', {x: d.get(x) for x in ('label','limit','limit_remaining','usage','is_free_tier','is_provisioning_key','message','error')})" || true
+          rm -f /tmp/key.json
       - name: Run the pipeline
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
