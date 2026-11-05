@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCP animation harness</title>
+<style>
+  :root { --f-display: Impact, "Arial Narrow Bold", sans-serif; --f-mono: ui-monospace, Menlo, Consolas, monospace; --f-serif: Georgia, serif; }
+  body { margin: 0; background: #1a1a1a; color: #f4f4f2; font: 15px/1.4 var(--f-mono); }
+  header { padding: .8rem 1rem; display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; border-bottom: 2px solid #ffd400; }
+  header b { font: 400 1.4rem var(--f-display); text-transform: uppercase; margin-right: .5rem; }
+  button, select, input { font: inherit; background: #f4f4f2; color: #111; border: 2px solid #111; padding: .35rem .6rem; cursor: pointer; }
+  button.on { background: #ffd400; }
+  #frame { position: relative; margin: 1rem auto; width: min(96vw, 1200px); height: 70vh; background: #111; overflow: hidden; border: 2px solid #333; }
+  #frame.narrow { width: 390px; height: 720px; }
+  #stage { position: absolute; inset: 0; }
+  #log { max-width: 1200px; margin: 0 auto 2rem; padding: 0 1rem; color: #bbb; white-space: pre-wrap; }
+  .hint { color: #999; font-size: 13px; }
+</style>
+</head>
+<body>
+<header>
+  <b>Animation harness</b>
+  <select id="pick" aria-label="Animation"></select>
+  <input id="src" placeholder="or load a .js file" type="file" accept=".js">
+  <button data-pot="A">Pot A</button><button data-pot="B">Pot B</button><button data-pot="C">Pot C</button><button data-pot="E">Empty pot</button>
+  <select id="mv" aria-label="Movement"></select>
+  <button id="rm">Reduced motion: off</button>
+  <button id="phone">Phone frame: off</button>
+  <button id="skip">Skip</button>
+  <span class="hint">Same pot + same seed = same animation. Seed:</span><input id="seed" value="PCP-0001" size="9" aria-label="Seed">
+</header>
+<div id="frame"><div id="stage"></div></div>
+<div id="log"></div>
+
+<script src="pressurize-gauge.js"></script>
+<script>
+(function () {
+  "use strict";
+  var POTS = {
+    A: [{ text: "a pot of lentils", cat: "food", tastes: { umami: 8, salty: 2 } },
+        { text: "the patent on insulin", cat: "institution", tastes: { bitter: 9, sour: 1 } },
+        { text: "a goose with a five-year plan", cat: "absurdity", tastes: { sour: 5, spicy: 4, salty: 2 } }],
+    B: [{ text: "your grandmother's hands", cat: "memory", tastes: { sweet: 7, umami: 4 } },
+        { text: "a porch light left on", cat: "memory", tastes: { sweet: 7, umami: 3 } }],
+    C: [{ text: "the executives-only lifeboat", cat: "institution", tastes: { spicy: 7, bitter: 4 } },
+        { text: "a rent strike", cat: "institution", tastes: { spicy: 6, umami: 4 } },
+        { text: "hot sauce from a gas station", cat: "food", tastes: { spicy: 8, sour: 3 } }],
+    E: []
+  };
+  var MOVEMENTS = [
+    { id: "constructivism", name: "Constructivism", colors: ["#c4161c", "#111111", "#e8dcc4"], motion: "thrust" },
+    { id: "punk", name: "Punk", colors: ["#111111", "#ff2d6f", "#f4f4f2"], motion: "jitter" },
+    { id: "art-nouveau", name: "Art Nouveau", colors: ["#6b7a2f", "#b08d3c", "#3f5a3a"], motion: "grow" },
+    { id: "memphis", name: "Memphis", colors: ["#ffdf44", "#00a8ac", "#f17baf", "#1a175a"], motion: "pop" },
+    { id: "ukiyo-e", name: "Ukiyo-e", colors: ["#243c57", "#e3c9a2", "#bd6248"], motion: "slide" }
+  ];
+  // the same seeded generator the site uses (cyrb128 + sfc32)
+  function cyrb128(str) { var h1 = 1779033703, h2 = 3144134277, h3 = 1013904242, h4 = 2773480762;
+    for (var i = 0, k; i < str.length; i++) { k = str.charCodeAt(i); h1 = h2 ^ Math.imul(h1 ^ k, 597399067); h2 = h3 ^ Math.imul(h2 ^ k, 2869860233); h3 = h4 ^ Math.imul(h3 ^ k, 951274213); h4 = h1 ^ Math.imul(h4 ^ k, 2716044179); }
+    h1 = Math.imul(h3 ^ (h1 >>> 18), 597399067); h2 = Math.imul(h4 ^ (h2 >>> 22), 2869860233); h3 = Math.imul(h1 ^ (h3 >>> 17), 951274213); h4 = Math.imul(h2 ^ (h4 >>> 19), 2716044179);
+    return [(h1 ^ h2 ^ h3 ^ h4) >>> 0, (h2 ^ h1) >>> 0, (h3 ^ h1) >>> 0, (h4 ^ h1) >>> 0]; }
+  function sfc32(a, b, c, d) { return function () { a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0; var t = (a + b) | 0; a = b ^ (b >>> 9); b = (c + (c << 3)) | 0; c = (c << 21) | (c >>> 11); d = (d + 1) | 0; t = (t + d) | 0; c = (c + t) | 0; return (t >>> 0) / 4294967296; }; }
+  function rngFor(key) { var s = cyrb128(key); return sfc32(s[0], s[1], s[2], s[3]); }
+
+  var $ = function (id) { return document.getElementById(id); };
+  var stage = $("stage"), log = $("log"), reduced = false, phone = false, current = null, skipped = false;
+  function refreshList() {
+    var sel = $("pick"), keep = sel.value; sel.innerHTML = "";
+    Object.keys((window.PCP && PCP.animations) || {}).forEach(function (k) { var o = document.createElement("option"); o.value = o.textContent = k; sel.appendChild(o); });
+    if (keep) sel.value = keep;
+  }
+  MOVEMENTS.forEach(function (m) { var o = document.createElement("option"); o.value = m.id; o.textContent = m.name; $("mv").appendChild(o); });
+  refreshList();
+
+  function note(s) { log.textContent = s + "\n" + log.textContent; }
+  function play(potKey) {
+    var name = $("pick").value, A = PCP.animations[name]; if (!A) { note("No animation loaded."); return; }
+    if (current) current.skip();
+    stage.innerHTML = "";
+    var ings = POTS[potKey], mv = MOVEMENTS.filter(function (m) { return m.id === $("mv").value; })[0];
+    var pressure = Math.min(1, 0.25 + ings.length * 0.2 + (potKey === "C" ? 0.15 : 0)), psi = Math.round(pressure * 140);
+    var data = { moment: A.moment, ingredients: ings, psi: psi, pressure: pressure, movement: mv,
+                 rng: rngFor($("seed").value + "|" + potKey + "|" + name), reducedMotion: reduced, narrow: phone };
+    var t0 = performance.now(), before = stage.childElementCount; skipped = false;
+    try { current = A.play(stage, data); } catch (e) { note("ERROR in play(): " + e.message); return; }
+    if (!current || !current.done || typeof current.skip !== "function") { note("Contract broken: play() must return { done, skip }."); return; }
+    current.done.then(function () {
+      var ms = Math.round(performance.now() - t0), left = stage.childElementCount - before;
+      var range = { pressurize: [2200, 3500], valve: [300, 600], drop: [250, 450], reveal: [600, 1200] }[A.moment] || [0, 1e9];
+      var lenOk = skipped ? true : reduced ? ms <= 700 : (ms >= range[0] - 50 && ms <= range[1] + 100);
+      note(name + " · pot " + potKey + " · " + (reduced ? "reduced motion" : "full") + " · " + ms + " ms " + (skipped ? "(skipped)" : lenOk ? "(ok)" : "(outside " + (reduced ? "600 ms" : range.join("–") + " ms") + ")") + " · " + (left ? left + " element(s) left behind!" : "cleaned up"));
+      current = null;
+    });
+  }
+  document.querySelectorAll("[data-pot]").forEach(function (b) { b.onclick = function () { play(b.getAttribute("data-pot")); }; });
+  $("skip").onclick = function () { if (current) { skipped = true; current.skip(); } };
+  $("rm").onclick = function () { reduced = !reduced; this.textContent = "Reduced motion: " + (reduced ? "on" : "off"); this.classList.toggle("on", reduced); };
+  $("phone").onclick = function () { phone = !phone; this.textContent = "Phone frame: " + (phone ? "on" : "off"); this.classList.toggle("on", phone); $("frame").classList.toggle("narrow", phone); };
+  $("src").onchange = function () {
+    var f = this.files[0]; if (!f) return;
+    f.text().then(function (code) {
+      if (/\bfetch\s*\(|XMLHttpRequest|import\s*\(|<script|https?:\/\//.test(code.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, ""))) note("Warning: " + f.name + " mentions network access. The contract forbids it.");
+      if (/Math\.random/.test(code)) note("Warning: " + f.name + " uses Math.random. Use data.rng() so it's repeatable.");
+      var s = document.createElement("script"); s.textContent = code; document.body.appendChild(s);
+      refreshList(); var names = Object.keys(PCP.animations); $("pick").value = names[names.length - 1];
+      note("Loaded " + f.name);
+    });
+  };
+})();
+</script>
+</body>
+</html>
