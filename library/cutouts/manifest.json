@@ -88,5 +88,143 @@
    ],
    "when": "2026-11-05 05:36 UTC"
   }
+ },
+ {
+  "id": "constructivism-red-wedge",
+  "src": "assets/cutouts/constructivism-red-wedge.png",
+  "fallback": "wedge",
+  "label": "Red Wedge",
+  "family": "constructivism",
+  "emo": [
+   "aggressiveness",
+   "anticipation",
+   "admiration"
+  ],
+  "cats": [
+   "concept",
+   "institution"
+  ],
+  "source": "Red Wedge, El Lissitzky (1890–1941), between 1919 and 1920 (This photographic reproduction is therefore also considered to be in the public domain in the United States.) https://commons.wikimedia.org/wiki/File:Klinom_Krasnim_by_El_Lisitskiy_(1920).jpg",
+  "notes": "The red wedge's diagonal thrust into the white circle, set against hard black and cream, delivers a feeling of forceful attack and forward momentum — a strike already in motion, with the boldness of the composition inviting admiration.",
+  "status": "new",
+  "file": "library/families/revolt/constructivism/cutouts/constructivism-red-wedge.png",
+  "provenance": {
+   "delivery": "pcp-delivery-constructivism-2026-11-04.json",
+   "made_by": {
+    "orchestrator": "Charlotte — Muse Spark 1.3",
+    "scout": "Muse Spark 1.3 (subagent)",
+    "picture_editor": "Charlotte — Muse Spark 1.3",
+    "tagger": "Muse Spark 1.3 (subagent)",
+    "kit_coder": "Muse Spark 1.3 (subagent)",
+    "critic": "Muse Spark 1.3 (subagent)"
+   },
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Klinom_Krasnim_by_El_Lisitskiy_%281920%29.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Klinom_Krasnim_by_El_Lisitskiy_(1920).jpg",
+   "creator": "El Lissitzky (1890–1941)",
+   "date": "between 1919 and 1920",
+   "license": "This photographic reproduction is therefore also considered to be in the public domain in the United States.",
+   "keep": "Cut the red wedge — single clean triangle driving into the white circle; poster text stays out of the cut.",
+   "critic": "pass",
+   "coverage": 0.122,
+   "crop": "whole image (crop failed: 401 Client Error: Unauthorized for url: https://openrouter.a)",
+   "box": null,
+   "looked": null,
+   "flags": [
+    "uncropped"
+   ],
+   "when": "2026-11-05 15:36 UTC"
+  }
+ },
+ {
+  "id": "constructivism-rosta-worker",
+  "src": "assets/cutouts/constructivism-rosta-worker.png",
+  "fallback": "burst",
+  "label": "ROSTA poster: Want it? Join",
+  "family": "constructivism",
+  "emo": [
+   "aggressiveness",
+   "joy",
+   "anticipation"
+  ],
+  "cats": [
+   "food",
+   "absurdity"
+  ],
+  "source": "ROSTA poster: Want it? Join, Mayakovsky, Vladimir, c. 1920 (This work is in the public domain in its country of origin and other countries and areas where the copyright term is the author's life plus 70 years or fewer. This work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1930.) https://commons.wikimedia.org/wiki/File:Plakat_mayakowski_gross.jpg",
+  "notes": "The grotesque cold-monster and hunger-skeleton loom as threats in the top panels while the solid red workers eat corn and drink with satisfaction below, delivering a combative rallying energy — the enemies are the monsters, never the workers, who are the poster's heroes.",
+  "status": "new",
+  "file": "library/families/revolt/constructivism/cutouts/constructivism-rosta-worker.png",
+  "provenance": {
+   "delivery": "pcp-delivery-constructivism-2026-11-04.json",
+   "made_by": {
+    "orchestrator": "Charlotte — Muse Spark 1.3",
+    "scout": "Muse Spark 1.3 (subagent)",
+    "picture_editor": "Charlotte — Muse Spark 1.3",
+    "tagger": "Muse Spark 1.3 (subagent)",
+    "kit_coder": "Muse Spark 1.3 (subagent)",
+    "critic": "Muse Spark 1.3 (subagent)"
+   },
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Plakat_mayakowski_gross.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Plakat_mayakowski_gross.jpg",
+   "creator": "Mayakovsky, Vladimir",
+   "date": "c. 1920",
+   "license": "This work is in the public domain in its country of origin and other countries and areas where the copyright term is the author's life plus 70 years or fewer. This work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1930.",
+   "keep": "Cut the red worker eating corn, bottom left — solid red figure on cream, clean edge; poster text stays out.",
+   "critic": "pass",
+   "coverage": 0.349,
+   "crop": "whole image (crop failed: 401 Client Error: Unauthorized for url: https://openrouter.a)",
+   "box": null,
+   "looked": null,
+   "flags": [
+    "uncropped"
+   ],
+   "when": "2026-11-05 15:36 UTC"
+  }
+ },
+ {
+  "id": "constructivism-vkhutemas-hand",
+  "src": "assets/cutouts/constructivism-vkhutemas-hand.png",
+  "fallback": "stamp",
+  "label": "VKhUTEMAS cover",
+  "family": "constructivism",
+  "emo": [
+   "vigilance",
+   "anticipation",
+   "admiration"
+  ],
+  "cats": [
+   "object",
+   "institution"
+  ],
+  "source": "VKhUTEMAS cover, El Lissitzky (1890–1941), 1927 (This work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1931.) https://commons.wikimedia.org/wiki/File:Vkhutemas.jpg",
+  "notes": "The hand grips the compass firmly and holds it poised over graph paper while the bold red-and-black type slashes diagonally across the frame, delivering the alert focus of a worker about to draw — readiness and craft, not a passive portrait.",
+  "status": "new",
+  "file": "library/families/revolt/constructivism/cutouts/constructivism-vkhutemas-hand.png",
+  "provenance": {
+   "delivery": "pcp-delivery-constructivism-2026-11-04.json",
+   "made_by": {
+    "orchestrator": "Charlotte — Muse Spark 1.3",
+    "scout": "Muse Spark 1.3 (subagent)",
+    "picture_editor": "Charlotte — Muse Spark 1.3",
+    "tagger": "Muse Spark 1.3 (subagent)",
+    "kit_coder": "Muse Spark 1.3 (subagent)",
+    "critic": "Muse Spark 1.3 (subagent)"
+   },
+   "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Vkhutemas.jpg",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Vkhutemas.jpg",
+   "creator": "El Lissitzky (1890–1941)",
+   "date": "1927",
+   "license": "This work is in the public domain in the United States because it was published (or registered with the U.S. Copyright Office) before January 1, 1931.",
+   "keep": "Cut the hand with the compass — solid photographic form on graph paper; diagonal typography stays out.",
+   "critic": "pass",
+   "coverage": 0.031,
+   "crop": "whole image (crop failed: 401 Client Error: Unauthorized for url: https://openrouter.a)",
+   "box": null,
+   "looked": null,
+   "flags": [
+    "uncropped"
+   ],
+   "when": "2026-11-05 15:36 UTC"
+  }
  }
 ]
