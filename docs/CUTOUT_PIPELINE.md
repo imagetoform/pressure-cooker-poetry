@@ -60,5 +60,6 @@ The four prompts in `tools/cutouts/prompts/` are plain markdown with `{placehold
 ## Not done yet
 
 - **The site doesn't load library cutouts yet.** The next build step: read `library/cutouts/manifest.json`, take the reviewed entries, put them in the asset manifest, and ship the PNGs as `assets/cutouts/` next to `index.html` in the deploy.
+- **Deliveries from other agents:** drop a `pcp-delivery-*.json` (made with `tools/cutouts/prompts/superbot.md`) in `library/intake/` on `main`; the workflow runs in `intake` mode by itself.
 - **Kit snippets aren't wired in either.** They need the style engine to pick one variant per room (seeded, so the same recipe gives the same room).
 - Openverse limits anonymous use heavily. If it keeps refusing, run with sources `commons,aic` (the `--sources` flag).

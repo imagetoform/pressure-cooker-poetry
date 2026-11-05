@@ -7,12 +7,15 @@
 name: Cutouts
 
 on:
+  push:
+    branches: [main]
+    paths: ["library/intake/*.json"]
   workflow_dispatch:
     inputs:
       mode:
-        description: "cutouts = find, cut and tag the list · scout = add wanted cutouts · snippets = add CSS to kits · all = all three"
+        description: "cutouts = find, cut and tag the list · scout = add wanted cutouts · snippets = add CSS to kits · all = all three · intake = process library/intake deliveries"
         type: choice
-        options: [cutouts, scout, snippets, all]
+        options: [cutouts, scout, snippets, all, intake]
         default: cutouts
       movement:
         description: "One movement id (e.g. punk, art-nouveau), or leave empty for any"
@@ -51,10 +54,10 @@ jobs:
       - name: Run the pipeline
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          IN_MODE: ${{ inputs.mode }}
+          IN_MODE: ${{ inputs.mode || 'intake' }}
           IN_MOVEMENT: ${{ inputs.movement }}
-          IN_LIMIT: ${{ inputs.limit }}
-          IN_MODEL: ${{ inputs.model }}
+          IN_LIMIT: ${{ inputs.limit || '0' }}
+          IN_MODEL: ${{ inputs.model || 'google/gemini-3.8-flash' }}
         run: |
           case "$IN_LIMIT" in ''|*[!0-9]*) echo "limit must be a number"; exit 1;; esac
           python tools/cutouts/run.py --mode "$IN_MODE" --movement "$IN_MOVEMENT" --limit "$IN_LIMIT" --model "$IN_MODEL"

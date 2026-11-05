@@ -358,6 +358,69 @@ def snippets(mv, cat, model, count, stamp):
     save(kit_path, kit)
     return made, rejected
 
+
+# ---------------------------------------------------------------- INTAKE: a delivery from another agent (e.g. Superbot)
+PD_WORDS = ("public domain", "cc0", "pdm", "no known copyright", "no known restrictions")
+
+def intake(cat, MOV, shop, manifest, stamp):
+    """library/intake/*.json -> checked, cut, filed. Tags come from the delivering agent's tagger."""
+    in_dir = os.path.join(LIB, "intake"); done_dir = os.path.join(in_dir, "done")
+    made, lines, have = [], [], {m["id"] for m in manifest}
+    for fn in sorted(f for f in os.listdir(in_dir) if f.endswith(".json")) if os.path.isdir(in_dir) else []:
+        path = os.path.join(in_dir, fn); d = load(path, {}) or {}
+        who = d.get("made_by") or {}; dropped = []
+        for c in d.get("cutouts", []):
+            cid = slug(str(c.get("id", "")))
+            try:
+                mv = MOV.get(c.get("family") or d.get("movement"))
+                if not mv: raise ValueError("unknown movement")
+                if not cid or cid in have: raise ValueError("missing or duplicate id")
+                emo = list(dict.fromkeys(x for x in (resolve(w, cat) for w in c.get("emo", [])) if x))[:4]
+                if len(emo) < 2: raise ValueError("fewer than 2 wheel words")
+                lic = str(c.get("license", "")).lower()
+                if not any(w in lic for w in PD_WORDS): raise ValueError("licence not public domain / CC0: " + lic[:40])
+                if not host_ok(str(c.get("image_url", ""))): raise ValueError("image host not on the allowlist")
+                if not str(c.get("page_url", "")).startswith("https://"): raise ValueError("no source page")
+                cutout, cov = cut(http_get(c["image_url"], binary=True))
+                rel = "library/families/%s/%s/cutouts/%s.png" % (mv["branch"], mv["id"], cid)
+                os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True); cutout.save(os.path.join(ROOT, rel), optimize=True)
+                fb = c.get("fallback") if c.get("fallback") in cat["fallbacks"] else "torn"
+                credit = ", ".join(x for x in [str(c.get("label", ""))[:80], str(c.get("creator", ""))[:80], str(c.get("date", ""))[:30]] if x)
+                manifest.append({"id": cid, "src": "assets/cutouts/%s.png" % cid, "fallback": fb, "label": str(c.get("label", cid))[:80], "family": mv["id"],
+                    "emo": emo, "cats": [k for k in c.get("cats", []) if k in cat["categories"]][:3],
+                    "source": "%s (%s) %s" % (credit, c.get("license"), c.get("page_url")), "notes": str(c.get("tag_reason", ""))[:300], "status": "new", "file": rel,
+                    "provenance": {"delivery": fn, "made_by": who, "image_url": c["image_url"], "page_url": c["page_url"], "creator": c.get("creator", ""),
+                                   "date": c.get("date", ""), "license": c.get("license"), "keep": c.get("keep", ""), "critic": c.get("critic", ""),
+                                   "coverage": round(cov, 3), "when": stamp}})
+                have.add(cid); made.append(rel)
+                for it in shop:
+                    if it["id"] == cid: it["status"] = "found"
+            except Exception as e:
+                dropped.append("%s: %s" % (cid or "?", str(e)[:120]))
+        mv = MOV.get(d.get("movement"))
+        if mv and d.get("snippets"):
+            kit_dir = os.path.join(LIB, "families", mv["branch"], mv["id"], "kit"); kit_path = os.path.join(kit_dir, "kit.json"); kit = load(kit_path, [])
+            names = {k["name"] for k in kit}
+            for sn in d["snippets"]:
+                name = slug(str(sn.get("name", "")) or "snippet")
+                try:
+                    css, lic = check_snippet(sn, mv)
+                    while name in names: name += "-x"
+                    rel = "library/families/%s/%s/kit/%s-%s.css" % (mv["branch"], mv["id"], sn["kind"], name)
+                    os.makedirs(kit_dir, exist_ok=True)
+                    open(os.path.join(ROOT, rel), "w", encoding="utf-8").write("/* %s · %s · %s kit · licence: %s%s · from %s */\n%s\n" % (
+                        name, sn["kind"], mv["name"], lic, (" · source: " + sn["source_url"]) if sn.get("source_url") else "", fn, css.strip()))
+                    kit.append({"name": name, "kind": sn["kind"], "file": rel, "license": lic, "author": sn.get("author", ""), "source_url": sn.get("source_url", ""),
+                                "why": sn.get("why", ""), "status": "new", "model": who.get("kit_coder", ""), "when": stamp, "delivery": fn})
+                    names.add(name); made.append(rel)
+                except Exception as e:
+                    dropped.append("snippet %s: %s" % (name, e))
+            save(kit_path, kit)
+        os.makedirs(done_dir, exist_ok=True); os.replace(path, os.path.join(done_dir, fn))
+        lines.append("- %s: %d files filed so far%s" % (fn, len(made), ("; dropped: " + "; ".join(dropped)) if dropped else ""))
+        print("intake %s | dropped %d" % (fn, len(dropped)))
+    return made, lines
+
 # ---------------------------------------------------------------- 5. FILE + run
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -367,7 +430,7 @@ def main():
     ap.add_argument("--sources", default="commons,aic,openverse")
     ap.add_argument("--retry", action="store_true", help="also retry items that found no match before")
     ap.add_argument("--dry-run", action="store_true", help="no model calls: first candidate, first-guess tags")
-    ap.add_argument("--mode", default="cutouts", choices=["cutouts", "scout", "snippets", "all"],
+    ap.add_argument("--mode", default="cutouts", choices=["cutouts", "scout", "snippets", "all", "intake"],
                     help="cutouts: find+cut+tag the shopping list; scout: add wanted cutouts; snippets: add CSS to kits; all: scout, snippets, then cutouts")
     ap.add_argument("--scout-count", type=int, default=8, help="new wanted cutouts per movement when scouting")
     ap.add_argument("--snippet-count", type=int, default=4, help="snippets per movement")
@@ -400,7 +463,10 @@ def main():
                 print("snippets %-21s +%d (-%d)" % (mv["id"], len(made_s), len(rej)))
             except Exception as e:
                 extra_lines.append("- Snippets for %s failed: %s" % (mv["name"], str(e)[:160]))
-    if a.mode in ("scout", "snippets"): a.limit = 0
+    if a.mode == "intake":
+        made_i, lines_i = intake(cat, MOV, shop, manifest, stamp); made_extra += made_i; extra_lines += lines_i
+        save(shop_path, shop); save(man_path, manifest)
+    if a.mode in ("scout", "snippets", "intake"): a.limit = 0
     todo = [s for s in shop if s["family"] in MOV and s["id"] not in have and (not a.movement or s["family"] == a.movement)
             and (s.get("status") == "wanted" or (a.retry and s.get("status") == "no-match"))][:a.limit]
     sources = [s for s in a.sources.split(",") if s in SOURCES]
@@ -448,14 +514,14 @@ def main():
              "| Cutout | Tags (by looking) | Licence | Source | Flags |", "|---|---|---|---|---|"]
     for r in report:
         if r["ok"]: lines.append("| ![](../../../%s) %s | %s | %s | [page](%s) | %s |" % (r["file"], r["label"], r["emo"], r["lic"], r["page"], r["flags"] or "-"))
-    if extra_lines: lines += ["", "## Scouting and kit snippets", ""] + extra_lines
+    if extra_lines: lines += ["", "## Scouting, kit snippets and deliveries", ""] + extra_lines
     miss = [r for r in report if not r["ok"]]
     if miss: lines += ["", "## Not found this time", ""] + ["- %s (%s): %s" % (r["label"], r["movement"], r["why"]) for r in miss]
     run_md = os.path.join(LIB, "cutouts", "runs", stamp[:16].replace(" ", "_").replace(":", "") + ".md")
     os.makedirs(os.path.dirname(run_md), exist_ok=True)
     open(run_md, "w", encoding="utf-8").write("\n".join(lines) + "\n")
     with open(os.path.join(LIB, "cutouts", "last-run-files.txt"), "w") as f: f.write("\n".join(made + made_extra + [os.path.relpath(run_md, ROOT)]) + "\n")
-    print("made %d of %d cutouts, %d snippets | report %s" % (len(made), len(todo), len(made_extra), os.path.relpath(run_md, ROOT)))
+    print("made %d of %d searched cutouts, %d other files (snippets, deliveries) | report %s" % (len(made), len(todo), len(made_extra), os.path.relpath(run_md, ROOT)))
 
 if __name__ == "__main__":
     main()
