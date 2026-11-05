@@ -8,6 +8,24 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-05 10:48 — Runs 3-4: the key is a provisioning (management) key; PR setting still off
+
+### What was asked
+Brandon asked me twice to do the key and the PR setting for him, then said "Done".
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Browser attempts | Claude in Chrome: github.com/.../settings/actions opened (the title loaded), but find/read_page/screenshot all timed out waiting for document_idle or script injection, over 7 tries across 2 tabs. Stopped and closed the tabs. Likely a pending extension site permission for github.com, or GitHub's sudo "Confirm access" screen. Told Brandon that entering an API key into a field is something I won't do even when asked; the checkbox I can do once the page works |
+| Run 3 (42067493883) | still 401 on crops; PR still refused |
+| Key check step | added to .github/workflows/cutouts.yml before "Run the pipeline": prints length, prefix (sk-or-v1-), whitespace/quote warnings, and GET https://openrouter.ai/api/v1/key status + fields. Never the key |
+| Run 4 (42067955690) | KEY CHECK: length 73, prefix ok, HTTP 200, **is_provisioning_key: True**, usage 0. **A provisioning key can manage keys but can't run models, hence the 401 on chat completions.** PR: still "GitHub Actions is not permitted to create or approve pull requests" |
+
+### Open / notes
+- Brandon: on openrouter.ai create a regular **API key** (Settings -> Keys), not a provisioning or management key, and put it in the OPENROUTER_API_KEY repo secret. The PR checkbox is at github.com/imagetoform/pressure-cooker-poetry/settings/actions (repo level), bottom box "Workflow permissions": tick it, then Save in that box.
+- I can open pull requests myself through the REST API (`gh api repos/.../pulls -X POST`) if the setting stays off.
+- Branches cutouts/run-1..4 are all uncropped attempts; delete them after a good run.
+
 ## 2026-11-05 09:38 — Run 2: the secret exists but OpenRouter says 401; PR permission still off
 
 ### What was asked
