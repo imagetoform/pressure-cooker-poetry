@@ -8,6 +8,22 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-05 09:38 — Run 2: the secret exists but OpenRouter says 401; PR permission still off
+
+### What was asked
+Brandon: "All right, I think I did it" (added the secret and the PR setting).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Re-run | appended a corrections line to library/intake/pcp-delivery-constructivism-2026-11-04.json and pushed 05af251 -> run 42056579631 (run 2), success, about 2 min |
+| Result | proun-99 and gan-cover were dropped as duplicates (already kept on main), as expected. Red wedge, ROSTA and VKhUTEMAS: "crop failed: 401 Client Error: Unauthorized" from openrouter.ai, so the secret is set but its value is rejected (wrong or partial key, extra spaces or quotes, or a deleted key). All three were cut out whole again and flagged "uncropped". Branch cutouts/run-2 |
+| PR | still "GitHub Actions is not permitted to create or approve pull requests": the setting isn't saved or isn't ticked |
+
+### Open / notes
+- Brandon: re-paste the key (only the `sk-or-v1-...` string, no quotes or spaces) in Settings -> Secrets and variables -> Actions -> OPENROUTER_API_KEY -> Update. Under Settings -> Actions -> General -> Workflow permissions, tick "Allow GitHub Actions to create and approve pull requests" and press **Save** in that box.
+- Then re-run again by touching the delivery in library/intake on main. Don't merge cutouts/run-1 or run-2; delete both once a good run lands.
+
 ## 2026-11-05 09:23 — Published to production (kits, 481 ingredients, 28 movements, 2 library cutouts) + OpenRouter preset
 
 ### What was asked
