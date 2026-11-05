@@ -29,6 +29,23 @@ Brandon uploaded `pcp-delivery-constructivism-2026-11-04.json`. He made it with 
 
 try.com update
 
+## 2026-11-05 08:54 — Animation prompt, contract and harness
+
+### What was asked
+After Brandon proposed a cartoon GIF (gloved hands dropping ingredients into a pot) for the pressurize moment: "create a prompt for some proper animations we can create". The GIF's origin and rights are still unknown; it was not used.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| tools/animations/prompt.md | prompt for a coding model; moments pressurize (2.2-3.5 s), valve, drop, reveal; concept menu (hands-into-pot with original generic gloves, ransom-note, red-wedge, xerox-jam, reliquary); data contract (ingredients text/cat/tastes, psi, pressure, movement colours, seeded rng, reducedMotion, narrow); taste -> motion map; rules: no network, transform/opacity/clip-path only, ~60 elements, skip on tap/Esc/Enter, reduced motion = one still frame in under 600 ms, aria-live text, no flashing, CC0 original art; deliverables: one .js + demo.html |
+| pressurize-gauge.js | the current overlay rebuilt to the contract (1.5 s, so the harness flags it as shorter than the new range; that's the old screen's length) |
+| harness.html | file-openable; loads a candidate .js through a file picker (warns on fetch/http/Math.random); pots A/B/C/empty; movement picker; reduced motion and phone frame toggles; skip; logs length vs range and leftover elements. Tested with Playwright: no errors, cleans up, reduced motion 544 ms, skip marked |
+| Commit | on main (see git log) |
+
+### Open / notes
+- Not wired into the site: cook() in the app would need to call PCP.animations[...] in place of the #pressurize overlay. Do that once a candidate passes the harness and Brandon likes it.
+- The headless test used fallback fonts (no Impact); real devices have the site's embedded display font.
+
 ## 2026-11-04 22:00 — Superbot multi-model prompt + intake mode
 
 ### What was asked
