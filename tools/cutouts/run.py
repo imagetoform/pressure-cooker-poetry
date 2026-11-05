@@ -423,7 +423,9 @@ def intake(cat, MOV, shop, manifest, stamp, model=None):
                     "source": "%s (%s) %s" % (credit, c.get("license"), c.get("page_url")), "notes": str(c.get("tag_reason", ""))[:300], "status": "new", "file": rel,
                     "provenance": {"delivery": fn, "made_by": who, "image_url": c["image_url"], "page_url": c["page_url"], "creator": c.get("creator", ""),
                                    "date": c.get("date", ""), "license": c.get("license"), "keep": c.get("keep", ""), "critic": c.get("critic", ""),
-                                   "coverage": round(cov, 3), "crop": how, "box": box, "flags": ["uncropped"] if how.startswith("whole image") and c.get("keep") else [], "when": stamp}})
+                                   "coverage": round(cov, 3), "crop": how, "box": box, "looked": c.get("looked"),
+                                   "flags": (["uncropped"] if how.startswith("whole image") and c.get("keep") else []) + (["tags-unseen"] if c.get("looked") is False else []),
+                                   "when": stamp}})
                 have.add(cid); made.append(rel)
                 for it in shop:
                     if it["id"] == cid: it["status"] = "found"
