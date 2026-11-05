@@ -1,0 +1,3549 @@
+[
+  {
+    "id": "art-nouveau-iris-stem-window",
+    "suggested_filename": "art-nouveau-iris-stem-window.png",
+    "label": "iris stem window",
+    "family": "art-nouveau",
+    "emo": [
+      "serenity",
+      "love",
+      "pensiveness"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-nouveau-hair-and-vine-silhouette",
+    "suggested_filename": "art-nouveau-hair-and-vine-silhouette.png",
+    "label": "hair and vine silhouette",
+    "family": "art-nouveau",
+    "emo": [
+      "love",
+      "submission",
+      "acceptance"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-nouveau-dragonfly-wing-panel",
+    "suggested_filename": "art-nouveau-dragonfly-wing-panel.png",
+    "label": "dragonfly wing panel",
+    "family": "art-nouveau",
+    "emo": [
+      "admiration",
+      "awe",
+      "interest"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-nouveau-curling-iron-gate",
+    "suggested_filename": "art-nouveau-curling-iron-gate.png",
+    "label": "curling iron gate",
+    "family": "art-nouveau",
+    "emo": [
+      "pensiveness",
+      "disapproval",
+      "awe"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-nouveau-moonlit-lily-poster",
+    "suggested_filename": "art-nouveau-moonlit-lily-poster.png",
+    "label": "moonlit lily poster",
+    "family": "art-nouveau",
+    "emo": [
+      "acceptance",
+      "remorse",
+      "ecstasy"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-nouveau-thistle-border",
+    "suggested_filename": "art-nouveau-thistle-border.png",
+    "label": "thistle border",
+    "family": "art-nouveau",
+    "emo": [
+      "interest",
+      "contempt",
+      "serenity"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-nouveau-serpentine-river-map",
+    "suggested_filename": "art-nouveau-serpentine-river-map.png",
+    "label": "serpentine river map",
+    "family": "art-nouveau",
+    "emo": [
+      "awe",
+      "aggressiveness",
+      "love"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-nouveau-peacock-tail-fan",
+    "suggested_filename": "art-nouveau-peacock-tail-fan.png",
+    "label": "peacock tail fan",
+    "family": "art-nouveau",
+    "emo": [
+      "ecstasy",
+      "optimism",
+      "admiration"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-deco-sunburst-elevator-door",
+    "suggested_filename": "art-deco-sunburst-elevator-door.png",
+    "label": "sunburst elevator door",
+    "family": "art-deco",
+    "emo": [
+      "admiration",
+      "submission",
+      "optimism"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-deco-stepped-skyscraper",
+    "suggested_filename": "art-deco-stepped-skyscraper.png",
+    "label": "stepped skyscraper",
+    "family": "art-deco",
+    "emo": [
+      "vigilance",
+      "awe",
+      "interest"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-deco-fan-shaped-theater-light",
+    "suggested_filename": "art-deco-fan-shaped-theater-light.png",
+    "label": "fan shaped theater light",
+    "family": "art-deco",
+    "emo": [
+      "ecstasy",
+      "disapproval",
+      "contempt"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-deco-chrome-train-nose",
+    "suggested_filename": "art-deco-chrome-train-nose.png",
+    "label": "chrome train nose",
+    "family": "art-deco",
+    "emo": [
+      "optimism",
+      "remorse",
+      "amazement"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-deco-geometric-cocktail-glass",
+    "suggested_filename": "art-deco-geometric-cocktail-glass.png",
+    "label": "geometric cocktail glass",
+    "family": "art-deco",
+    "emo": [
+      "interest",
+      "contempt",
+      "trust"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-deco-golden-ticket-booth",
+    "suggested_filename": "art-deco-golden-ticket-booth.png",
+    "label": "golden ticket booth",
+    "family": "art-deco",
+    "emo": [
+      "contempt",
+      "aggressiveness",
+      "admiration"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-deco-marquee-corner",
+    "suggested_filename": "art-deco-marquee-corner.png",
+    "label": "marquee corner",
+    "family": "art-deco",
+    "emo": [
+      "amazement",
+      "optimism",
+      "vigilance"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "art-deco-zigzag-city-skyline",
+    "suggested_filename": "art-deco-zigzag-city-skyline.png",
+    "label": "zigzag city skyline",
+    "family": "art-deco",
+    "emo": [
+      "trust",
+      "love",
+      "ecstasy"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "psychedelia-melting-eye-flower",
+    "suggested_filename": "psychedelia-melting-eye-flower.png",
+    "label": "melting eye flower",
+    "family": "psychedelia",
+    "emo": [
+      "amazement",
+      "awe",
+      "ecstasy"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "psychedelia-spiral-hand-lettering",
+    "suggested_filename": "psychedelia-spiral-hand-lettering.png",
+    "label": "spiral hand lettering",
+    "family": "psychedelia",
+    "emo": [
+      "overwhelm",
+      "disapproval",
+      "distraction"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "psychedelia-radiating-mushroom-cap",
+    "suggested_filename": "psychedelia-radiating-mushroom-cap.png",
+    "label": "radiating mushroom cap",
+    "family": "psychedelia",
+    "emo": [
+      "awe",
+      "remorse",
+      "apprehension"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "psychedelia-liquid-rainbow-pool",
+    "suggested_filename": "psychedelia-liquid-rainbow-pool.png",
+    "label": "liquid rainbow pool",
+    "family": "psychedelia",
+    "emo": [
+      "ecstasy",
+      "contempt",
+      "love"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "psychedelia-interlocking-faces",
+    "suggested_filename": "psychedelia-interlocking-faces.png",
+    "label": "interlocking faces",
+    "family": "psychedelia",
+    "emo": [
+      "distraction",
+      "aggressiveness",
+      "interest"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "psychedelia-vibrating-sun-disk",
+    "suggested_filename": "psychedelia-vibrating-sun-disk.png",
+    "label": "vibrating sun disk",
+    "family": "psychedelia",
+    "emo": [
+      "apprehension",
+      "optimism",
+      "amazement"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "psychedelia-swirling-paisley-serpent",
+    "suggested_filename": "psychedelia-swirling-paisley-serpent.png",
+    "label": "swirling paisley serpent",
+    "family": "psychedelia",
+    "emo": [
+      "love",
+      "overwhelm"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "psychedelia-breathing-poster-frame",
+    "suggested_filename": "psychedelia-breathing-poster-frame.png",
+    "label": "breathing poster frame",
+    "family": "psychedelia",
+    "emo": [
+      "interest",
+      "submission",
+      "awe"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "minimalism-single-red-square",
+    "suggested_filename": "minimalism-single-red-square.png",
+    "label": "single red square",
+    "family": "minimalism",
+    "emo": [
+      "serenity",
+      "disapproval",
+      "boredom"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "minimalism-off-center-black-line",
+    "suggested_filename": "minimalism-off-center-black-line.png",
+    "label": "off center black line",
+    "family": "minimalism",
+    "emo": [
+      "pensiveness",
+      "remorse",
+      "trust"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "minimalism-empty-chair-outline",
+    "suggested_filename": "minimalism-empty-chair-outline.png",
+    "label": "empty chair outline",
+    "family": "minimalism",
+    "emo": [
+      "acceptance",
+      "contempt",
+      "apprehension"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "minimalism-one-small-window",
+    "suggested_filename": "minimalism-one-small-window.png",
+    "label": "one small window",
+    "family": "minimalism",
+    "emo": [
+      "boredom",
+      "aggressiveness",
+      "interest"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "minimalism-narrow-light-beam",
+    "suggested_filename": "minimalism-narrow-light-beam.png",
+    "label": "narrow light beam",
+    "family": "minimalism",
+    "emo": [
+      "trust",
+      "optimism",
+      "sadness"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "minimalism-two-spaced-circles",
+    "suggested_filename": "minimalism-two-spaced-circles.png",
+    "label": "two spaced circles",
+    "family": "minimalism",
+    "emo": [
+      "apprehension",
+      "love",
+      "serenity"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "minimalism-white-field-shadow",
+    "suggested_filename": "minimalism-white-field-shadow.png",
+    "label": "white field shadow",
+    "family": "minimalism",
+    "emo": [
+      "interest",
+      "submission",
+      "pensiveness"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "minimalism-floating-paper-dot",
+    "suggested_filename": "minimalism-floating-paper-dot.png",
+    "label": "floating paper dot",
+    "family": "minimalism",
+    "emo": [
+      "sadness",
+      "awe",
+      "acceptance"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "swiss-international-asymmetric-grid-rule",
+    "suggested_filename": "swiss-international-asymmetric-grid-rule.png",
+    "label": "asymmetric grid rule",
+    "family": "swiss-international",
+    "emo": [
+      "trust",
+      "remorse",
+      "interest"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "swiss-international-oversized-cropped-numeral",
+    "suggested_filename": "swiss-international-oversized-cropped-numeral.png",
+    "label": "oversized cropped numeral",
+    "family": "swiss-international",
+    "emo": [
+      "vigilance",
+      "contempt",
+      "admiration"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "swiss-international-transit-wayfinding-arrow",
+    "suggested_filename": "swiss-international-transit-wayfinding-arrow.png",
+    "label": "transit wayfinding arrow",
+    "family": "swiss-international",
+    "emo": [
+      "acceptance",
+      "aggressiveness",
+      "boredom"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "swiss-international-modular-clock-face",
+    "suggested_filename": "swiss-international-modular-clock-face.png",
+    "label": "modular clock face",
+    "family": "swiss-international",
+    "emo": [
+      "interest",
+      "optimism",
+      "anticipation"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "swiss-international-red-information-circle",
+    "suggested_filename": "swiss-international-red-information-circle.png",
+    "label": "red information circle",
+    "family": "swiss-international",
+    "emo": [
+      "admiration",
+      "love",
+      "serenity"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "swiss-international-diagonal-baseline",
+    "suggested_filename": "swiss-international-diagonal-baseline.png",
+    "label": "diagonal baseline",
+    "family": "swiss-international",
+    "emo": [
+      "boredom",
+      "submission",
+      "trust"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "swiss-international-negative-space-poster",
+    "suggested_filename": "swiss-international-negative-space-poster.png",
+    "label": "negative space poster",
+    "family": "swiss-international",
+    "emo": [
+      "anticipation",
+      "awe",
+      "vigilance"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "swiss-international-strict-typographic-column",
+    "suggested_filename": "swiss-international-strict-typographic-column.png",
+    "label": "strict typographic column",
+    "family": "swiss-international",
+    "emo": [
+      "serenity",
+      "disapproval",
+      "acceptance"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "bauhaus-nested-primary-triangles",
+    "suggested_filename": "bauhaus-nested-primary-triangles.png",
+    "label": "nested primary triangles",
+    "family": "bauhaus",
+    "emo": [
+      "anticipation",
+      "contempt",
+      "optimism"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "bauhaus-steel-tube-chair",
+    "suggested_filename": "bauhaus-steel-tube-chair.png",
+    "label": "steel tube chair",
+    "family": "bauhaus",
+    "emo": [
+      "trust",
+      "aggressiveness",
+      "admiration"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "bauhaus-modular-lamp-shade",
+    "suggested_filename": "bauhaus-modular-lamp-shade.png",
+    "label": "modular lamp shade",
+    "family": "bauhaus",
+    "emo": [
+      "interest",
+      "optimism",
+      "acceptance"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "bauhaus-red-blue-balance",
+    "suggested_filename": "bauhaus-red-blue-balance.png",
+    "label": "red blue balance",
+    "family": "bauhaus",
+    "emo": [
+      "optimism",
+      "love",
+      "joy"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "bauhaus-geometric-dancer",
+    "suggested_filename": "bauhaus-geometric-dancer.png",
+    "label": "geometric dancer",
+    "family": "bauhaus",
+    "emo": [
+      "admiration",
+      "submission",
+      "vigilance"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "bauhaus-workshop-stamp",
+    "suggested_filename": "bauhaus-workshop-stamp.png",
+    "label": "workshop stamp",
+    "family": "bauhaus",
+    "emo": [
+      "acceptance",
+      "awe",
+      "anticipation"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "bauhaus-circle-square-study",
+    "suggested_filename": "bauhaus-circle-square-study.png",
+    "label": "circle square study",
+    "family": "bauhaus",
+    "emo": [
+      "joy",
+      "disapproval",
+      "trust"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "bauhaus-colored-glass-grid",
+    "suggested_filename": "bauhaus-colored-glass-grid.png",
+    "label": "colored glass grid",
+    "family": "bauhaus",
+    "emo": [
+      "vigilance",
+      "remorse",
+      "interest"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "brutalism-cast-concrete-stairwell",
+    "suggested_filename": "brutalism-cast-concrete-stairwell.png",
+    "label": "cast concrete stairwell",
+    "family": "brutalism",
+    "emo": [
+      "apprehension",
+      "aggressiveness",
+      "contempt"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "brutalism-raw-cement-bunker",
+    "suggested_filename": "brutalism-raw-cement-bunker.png",
+    "label": "raw cement bunker",
+    "family": "brutalism",
+    "emo": [
+      "grief",
+      "optimism",
+      "terror"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "brutalism-monolithic-service-tower",
+    "suggested_filename": "brutalism-monolithic-service-tower.png",
+    "label": "monolithic service tower",
+    "family": "brutalism",
+    "emo": [
+      "admiration",
+      "love",
+      "annoyance"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "brutalism-board-formed-wall",
+    "suggested_filename": "brutalism-board-formed-wall.png",
+    "label": "board formed wall",
+    "family": "brutalism",
+    "emo": [
+      "contempt",
+      "submission",
+      "vigilance"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "brutalism-heavy-shadow-overhang",
+    "suggested_filename": "brutalism-heavy-shadow-overhang.png",
+    "label": "heavy shadow overhang",
+    "family": "brutalism",
+    "emo": [
+      "terror",
+      "awe",
+      "pensiveness"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "brutalism-exposed-conduit-knot",
+    "suggested_filename": "brutalism-exposed-conduit-knot.png",
+    "label": "exposed conduit knot",
+    "family": "brutalism",
+    "emo": [
+      "annoyance",
+      "disapproval",
+      "apprehension"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "brutalism-blocky-entrance-sign",
+    "suggested_filename": "brutalism-blocky-entrance-sign.png",
+    "label": "blocky entrance sign",
+    "family": "brutalism",
+    "emo": [
+      "vigilance",
+      "remorse",
+      "grief"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "brutalism-stark-civic-ramp",
+    "suggested_filename": "brutalism-stark-civic-ramp.png",
+    "label": "stark civic ramp",
+    "family": "brutalism",
+    "emo": [
+      "pensiveness",
+      "contempt",
+      "admiration"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "constructivism-red-wedge-through-circle",
+    "suggested_filename": "constructivism-red-wedge-through-circle.png",
+    "label": "red wedge through circle",
+    "family": "constructivism",
+    "emo": [
+      "aggressiveness",
+      "optimism",
+      "rage"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "constructivism-worker-with-megaphone",
+    "suggested_filename": "constructivism-worker-with-megaphone.png",
+    "label": "worker with megaphone",
+    "family": "constructivism",
+    "emo": [
+      "vigilance",
+      "love",
+      "trust"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "constructivism-diagonal-crane-arm",
+    "suggested_filename": "constructivism-diagonal-crane-arm.png",
+    "label": "diagonal crane arm",
+    "family": "constructivism",
+    "emo": [
+      "admiration",
+      "submission",
+      "optimism"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "constructivism-gear-and-banner",
+    "suggested_filename": "constructivism-gear-and-banner.png",
+    "label": "gear and banner",
+    "family": "constructivism",
+    "emo": [
+      "rage",
+      "awe",
+      "anticipation"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "constructivism-staircase-photomontage",
+    "suggested_filename": "constructivism-staircase-photomontage.png",
+    "label": "staircase photomontage",
+    "family": "constructivism",
+    "emo": [
+      "trust",
+      "disapproval",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "constructivism-five-point-industrial-star",
+    "suggested_filename": "constructivism-five-point-industrial-star.png",
+    "label": "five point industrial star",
+    "family": "constructivism",
+    "emo": [
+      "optimism",
+      "remorse",
+      "aggressiveness"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "constructivism-angled-factory-chimney",
+    "suggested_filename": "constructivism-angled-factory-chimney.png",
+    "label": "angled factory chimney",
+    "family": "constructivism",
+    "emo": [
+      "anticipation",
+      "contempt",
+      "vigilance"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "constructivism-bold-propaganda-rays",
+    "suggested_filename": "constructivism-bold-propaganda-rays.png",
+    "label": "bold propaganda rays",
+    "family": "constructivism",
+    "emo": [
+      "overwhelm",
+      "aggressiveness",
+      "admiration"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "dada-upside-down-bowler-hat",
+    "suggested_filename": "dada-upside-down-bowler-hat.png",
+    "label": "upside down bowler hat",
+    "family": "dada",
+    "emo": [
+      "distraction",
+      "love",
+      "awe"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "dada-newspaper-mouth",
+    "suggested_filename": "dada-newspaper-mouth.png",
+    "label": "newspaper mouth",
+    "family": "dada",
+    "emo": [
+      "contempt",
+      "submission",
+      "annoyance"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "dada-collaged-pocket-watch",
+    "suggested_filename": "dada-collaged-pocket-watch.png",
+    "label": "collaged pocket watch",
+    "family": "dada",
+    "emo": [
+      "amazement",
+      "awe",
+      "loathing"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "dada-dislocated-porcelain-eye",
+    "suggested_filename": "dada-dislocated-porcelain-eye.png",
+    "label": "dislocated porcelain eye",
+    "family": "dada",
+    "emo": [
+      "awe",
+      "disapproval",
+      "remorse"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "dada-cutout-type-sentence",
+    "suggested_filename": "dada-cutout-type-sentence.png",
+    "label": "cutout type sentence",
+    "family": "dada",
+    "emo": [
+      "annoyance",
+      "remorse",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "dada-mustached-portrait-frame",
+    "suggested_filename": "dada-mustached-portrait-frame.png",
+    "label": "mustached portrait frame",
+    "family": "dada",
+    "emo": [
+      "loathing",
+      "contempt",
+      "distraction"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "dada-receipt-winged-bird",
+    "suggested_filename": "dada-receipt-winged-bird.png",
+    "label": "receipt winged bird",
+    "family": "dada",
+    "emo": [
+      "remorse",
+      "aggressiveness",
+      "contempt"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "dada-impossible-office-stamp",
+    "suggested_filename": "dada-impossible-office-stamp.png",
+    "label": "impossible office stamp",
+    "family": "dada",
+    "emo": [
+      "overwhelm",
+      "optimism",
+      "amazement"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "punk-safety-pin-heart",
+    "suggested_filename": "punk-safety-pin-heart.png",
+    "label": "safety pin heart",
+    "family": "punk",
+    "emo": [
+      "aggressiveness",
+      "submission",
+      "annoyance"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "punk-ripped-gig-ticket",
+    "suggested_filename": "punk-ripped-gig-ticket.png",
+    "label": "ripped gig ticket",
+    "family": "punk",
+    "emo": [
+      "anger",
+      "awe",
+      "contempt"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "punk-stenciled-fist",
+    "suggested_filename": "punk-stenciled-fist.png",
+    "label": "stenciled fist",
+    "family": "punk",
+    "emo": [
+      "vigilance",
+      "disapproval",
+      "love"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "punk-photocopied-bootprint",
+    "suggested_filename": "punk-photocopied-bootprint.png",
+    "label": "photocopied bootprint",
+    "family": "punk",
+    "emo": [
+      "annoyance",
+      "remorse",
+      "rage"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "punk-ransom-note-title",
+    "suggested_filename": "punk-ransom-note-title.png",
+    "label": "ransom note title",
+    "family": "punk",
+    "emo": [
+      "contempt",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "punk-barbed-wire-flower",
+    "suggested_filename": "punk-barbed-wire-flower.png",
+    "label": "barbed wire flower",
+    "family": "punk",
+    "emo": [
+      "love",
+      "aggressiveness"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "punk-spray-painted-stop-sign",
+    "suggested_filename": "punk-spray-painted-stop-sign.png",
+    "label": "spray painted stop sign",
+    "family": "punk",
+    "emo": [
+      "rage",
+      "optimism",
+      "anger"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "punk-torn-anti-authority-badge",
+    "suggested_filename": "punk-torn-anti-authority-badge.png",
+    "label": "torn anti authority badge",
+    "family": "punk",
+    "emo": [
+      "overwhelm",
+      "love",
+      "vigilance"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "futurism-speed-lines-locomotive",
+    "suggested_filename": "futurism-speed-lines-locomotive.png",
+    "label": "speed lines locomotive",
+    "family": "futurism",
+    "emo": [
+      "anticipation",
+      "awe",
+      "vigilance"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "futurism-fragmented-running-legs",
+    "suggested_filename": "futurism-fragmented-running-legs.png",
+    "label": "fragmented running legs",
+    "family": "futurism",
+    "emo": [
+      "aggressiveness",
+      "disapproval",
+      "terror"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "futurism-propeller-sun",
+    "suggested_filename": "futurism-propeller-sun.png",
+    "label": "propeller sun",
+    "family": "futurism",
+    "emo": [
+      "amazement",
+      "remorse",
+      "admiration"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "futurism-motorcar-in-motion",
+    "suggested_filename": "futurism-motorcar-in-motion.png",
+    "label": "motorcar in motion",
+    "family": "futurism",
+    "emo": [
+      "vigilance",
+      "contempt",
+      "rage"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "futurism-diagonal-city-towers",
+    "suggested_filename": "futurism-diagonal-city-towers.png",
+    "label": "diagonal city towers",
+    "family": "futurism",
+    "emo": [
+      "terror",
+      "aggressiveness",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "futurism-mechanical-horse",
+    "suggested_filename": "futurism-mechanical-horse.png",
+    "label": "mechanical horse",
+    "family": "futurism",
+    "emo": [
+      "admiration",
+      "optimism",
+      "anticipation"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "futurism-rotating-gear-cloud",
+    "suggested_filename": "futurism-rotating-gear-cloud.png",
+    "label": "rotating gear cloud",
+    "family": "futurism",
+    "emo": [
+      "rage",
+      "love",
+      "aggressiveness"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "futurism-metallic-noise-burst",
+    "suggested_filename": "futurism-metallic-noise-burst.png",
+    "label": "metallic noise burst",
+    "family": "futurism",
+    "emo": [
+      "overwhelm",
+      "submission",
+      "amazement"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "cyberpunk-neon-rain-alley",
+    "suggested_filename": "cyberpunk-neon-rain-alley.png",
+    "label": "neon rain alley",
+    "family": "cyberpunk",
+    "emo": [
+      "apprehension",
+      "disapproval",
+      "vigilance"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "cyberpunk-broken-surveillance-lens",
+    "suggested_filename": "cyberpunk-broken-surveillance-lens.png",
+    "label": "broken surveillance lens",
+    "family": "cyberpunk",
+    "emo": [
+      "contempt",
+      "remorse",
+      "aggressiveness"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "cyberpunk-fiber-optic-spine",
+    "suggested_filename": "cyberpunk-fiber-optic-spine.png",
+    "label": "fiber optic spine",
+    "family": "cyberpunk",
+    "emo": [
+      "terror",
+      "contempt",
+      "distraction"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "cyberpunk-corporate-skyscraper-glyph",
+    "suggested_filename": "cyberpunk-corporate-skyscraper-glyph.png",
+    "label": "corporate skyscraper glyph",
+    "family": "cyberpunk",
+    "emo": [
+      "vigilance",
+      "aggressiveness",
+      "pensiveness"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "cyberpunk-hacked-turnstile",
+    "suggested_filename": "cyberpunk-hacked-turnstile.png",
+    "label": "hacked turnstile",
+    "family": "cyberpunk",
+    "emo": [
+      "aggressiveness",
+      "optimism",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "cyberpunk-glitched-billboard-face",
+    "suggested_filename": "cyberpunk-glitched-billboard-face.png",
+    "label": "glitched billboard face",
+    "family": "cyberpunk",
+    "emo": [
+      "distraction",
+      "love",
+      "apprehension"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "cyberpunk-wires-and-roots",
+    "suggested_filename": "cyberpunk-wires-and-roots.png",
+    "label": "wires and roots",
+    "family": "cyberpunk",
+    "emo": [
+      "pensiveness",
+      "submission",
+      "contempt"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "cyberpunk-midnight-data-market",
+    "suggested_filename": "cyberpunk-midnight-data-market.png",
+    "label": "midnight data market",
+    "family": "cyberpunk",
+    "emo": [
+      "overwhelm",
+      "awe",
+      "terror"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "vaporwave-pastel-classical-bust",
+    "suggested_filename": "vaporwave-pastel-classical-bust.png",
+    "label": "pastel classical bust",
+    "family": "vaporwave",
+    "emo": [
+      "pensiveness",
+      "remorse"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "vaporwave-sunset-grid-horizon",
+    "suggested_filename": "vaporwave-sunset-grid-horizon.png",
+    "label": "sunset grid horizon",
+    "family": "vaporwave",
+    "emo": [
+      "serenity",
+      "contempt",
+      "distraction"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "vaporwave-pixelated-palm-tree",
+    "suggested_filename": "vaporwave-pixelated-palm-tree.png",
+    "label": "pixelated palm tree",
+    "family": "vaporwave",
+    "emo": [
+      "interest",
+      "aggressiveness",
+      "boredom"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "vaporwave-outdated-software-window",
+    "suggested_filename": "vaporwave-outdated-software-window.png",
+    "label": "outdated software window",
+    "family": "vaporwave",
+    "emo": [
+      "remorse",
+      "optimism",
+      "love"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "vaporwave-marble-arcade-arch",
+    "suggested_filename": "vaporwave-marble-arcade-arch.png",
+    "label": "marble arcade arch",
+    "family": "vaporwave",
+    "emo": [
+      "distraction",
+      "love",
+      "sadness"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "vaporwave-pink-floppy-disk",
+    "suggested_filename": "vaporwave-pink-floppy-disk.png",
+    "label": "pink floppy disk",
+    "family": "vaporwave",
+    "emo": [
+      "boredom",
+      "submission",
+      "pensiveness"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "vaporwave-floating-dolphin-outline",
+    "suggested_filename": "vaporwave-floating-dolphin-outline.png",
+    "label": "floating dolphin outline",
+    "family": "vaporwave",
+    "emo": [
+      "love",
+      "awe",
+      "serenity"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "vaporwave-abandoned-mall-fountain",
+    "suggested_filename": "vaporwave-abandoned-mall-fountain.png",
+    "label": "abandoned mall fountain",
+    "family": "vaporwave",
+    "emo": [
+      "sadness",
+      "disapproval",
+      "interest"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "maximalism-stacked-gilded-frames",
+    "suggested_filename": "maximalism-stacked-gilded-frames.png",
+    "label": "stacked gilded frames",
+    "family": "maximalism",
+    "emo": [
+      "overwhelm",
+      "contempt",
+      "distraction"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "maximalism-flower-on-flower-wallpaper",
+    "suggested_filename": "maximalism-flower-on-flower-wallpaper.png",
+    "label": "flower on flower wallpaper",
+    "family": "maximalism",
+    "emo": [
+      "ecstasy",
+      "aggressiveness",
+      "admiration"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "maximalism-chandelier-of-icons",
+    "suggested_filename": "maximalism-chandelier-of-icons.png",
+    "label": "chandelier of icons",
+    "family": "maximalism",
+    "emo": [
+      "amazement",
+      "optimism",
+      "interest"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "maximalism-overlapping-victorian-labels",
+    "suggested_filename": "maximalism-overlapping-victorian-labels.png",
+    "label": "overlapping victorian labels",
+    "family": "maximalism",
+    "emo": [
+      "distraction",
+      "love",
+      "joy"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "maximalism-ornate-cabinet-of-curiosities",
+    "suggested_filename": "maximalism-ornate-cabinet-of-curiosities.png",
+    "label": "ornate cabinet of curiosities",
+    "family": "maximalism",
+    "emo": [
+      "admiration",
+      "submission",
+      "awe"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "maximalism-ribbon-and-rosette-swarm",
+    "suggested_filename": "maximalism-ribbon-and-rosette-swarm.png",
+    "label": "ribbon and rosette swarm",
+    "family": "maximalism",
+    "emo": [
+      "interest",
+      "awe",
+      "overwhelm"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "maximalism-crowded-souvenir-shelf",
+    "suggested_filename": "maximalism-crowded-souvenir-shelf.png",
+    "label": "crowded souvenir shelf",
+    "family": "maximalism",
+    "emo": [
+      "joy",
+      "disapproval",
+      "ecstasy"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "maximalism-exploding-decorative-border",
+    "suggested_filename": "maximalism-exploding-decorative-border.png",
+    "label": "exploding decorative border",
+    "family": "maximalism",
+    "emo": [
+      "awe",
+      "remorse",
+      "amazement"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "pop-art-halftone-soup-can",
+    "suggested_filename": "pop-art-halftone-soup-can.png",
+    "label": "halftone soup can",
+    "family": "pop-art",
+    "emo": [
+      "ecstasy",
+      "aggressiveness",
+      "joy"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "pop-art-comic-speech-burst",
+    "suggested_filename": "pop-art-comic-speech-burst.png",
+    "label": "comic speech burst",
+    "family": "pop-art",
+    "emo": [
+      "contempt",
+      "optimism",
+      "annoyance"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "pop-art-oversized-price-tag",
+    "suggested_filename": "pop-art-oversized-price-tag.png",
+    "label": "oversized price tag",
+    "family": "pop-art",
+    "emo": [
+      "distraction",
+      "love",
+      "optimism"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "pop-art-repeat-lip-print",
+    "suggested_filename": "pop-art-repeat-lip-print.png",
+    "label": "repeat lip print",
+    "family": "pop-art",
+    "emo": [
+      "joy",
+      "submission",
+      "amazement"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "pop-art-bright-telephone-handset",
+    "suggested_filename": "pop-art-bright-telephone-handset.png",
+    "label": "bright telephone handset",
+    "family": "pop-art",
+    "emo": [
+      "annoyance",
+      "awe",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "pop-art-shopping-bag-halo",
+    "suggested_filename": "pop-art-shopping-bag-halo.png",
+    "label": "shopping bag halo",
+    "family": "pop-art",
+    "emo": [
+      "optimism",
+      "disapproval",
+      "ecstasy"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "pop-art-mass-produced-rose",
+    "suggested_filename": "pop-art-mass-produced-rose.png",
+    "label": "mass produced rose",
+    "family": "pop-art",
+    "emo": [
+      "amazement",
+      "remorse",
+      "contempt"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "pop-art-four-panel-celebrity-silhouette",
+    "suggested_filename": "pop-art-four-panel-celebrity-silhouette.png",
+    "label": "four panel celebrity silhouette",
+    "family": "pop-art",
+    "emo": [
+      "overwhelm",
+      "contempt",
+      "distraction"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "abstract-expressionism-wild-black-brushstroke",
+    "suggested_filename": "abstract-expressionism-wild-black-brushstroke.png",
+    "label": "wild black brushstroke",
+    "family": "abstract-expressionism",
+    "emo": [
+      "rage",
+      "optimism",
+      "remorse"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "abstract-expressionism-paint-drip-horizon",
+    "suggested_filename": "abstract-expressionism-paint-drip-horizon.png",
+    "label": "paint drip horizon",
+    "family": "abstract-expressionism",
+    "emo": [
+      "grief",
+      "love",
+      "aggressiveness"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "abstract-expressionism-scraped-ochre-field",
+    "suggested_filename": "abstract-expressionism-scraped-ochre-field.png",
+    "label": "scraped ochre field",
+    "family": "abstract-expressionism",
+    "emo": [
+      "annoyance",
+      "submission",
+      "loathing"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "abstract-expressionism-torn-canvas-edge",
+    "suggested_filename": "abstract-expressionism-torn-canvas-edge.png",
+    "label": "torn canvas edge",
+    "family": "abstract-expressionism",
+    "emo": [
+      "remorse",
+      "awe",
+      "amazement"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "abstract-expressionism-gestural-red-swipe",
+    "suggested_filename": "abstract-expressionism-gestural-red-swipe.png",
+    "label": "gestural red swipe",
+    "family": "abstract-expressionism",
+    "emo": [
+      "aggressiveness",
+      "disapproval",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "abstract-expressionism-dense-charcoal-knot",
+    "suggested_filename": "abstract-expressionism-dense-charcoal-knot.png",
+    "label": "dense charcoal knot",
+    "family": "abstract-expressionism",
+    "emo": [
+      "loathing",
+      "remorse",
+      "rage"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "abstract-expressionism-thrown-ink-splash",
+    "suggested_filename": "abstract-expressionism-thrown-ink-splash.png",
+    "label": "thrown ink splash",
+    "family": "abstract-expressionism",
+    "emo": [
+      "amazement",
+      "contempt",
+      "grief"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "abstract-expressionism-unfinished-color-block",
+    "suggested_filename": "abstract-expressionism-unfinished-color-block.png",
+    "label": "unfinished color block",
+    "family": "abstract-expressionism",
+    "emo": [
+      "overwhelm",
+      "aggressiveness",
+      "annoyance"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "geometric-abstraction-floating-triangle-cluster",
+    "suggested_filename": "geometric-abstraction-floating-triangle-cluster.png",
+    "label": "floating triangle cluster",
+    "family": "geometric-abstraction",
+    "emo": [
+      "interest",
+      "love",
+      "acceptance"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "geometric-abstraction-nested-rectangular-planes",
+    "suggested_filename": "geometric-abstraction-nested-rectangular-planes.png",
+    "label": "nested rectangular planes",
+    "family": "geometric-abstraction",
+    "emo": [
+      "trust",
+      "submission",
+      "optimism"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "geometric-abstraction-offset-color-disks",
+    "suggested_filename": "geometric-abstraction-offset-color-disks.png",
+    "label": "offset color disks",
+    "family": "geometric-abstraction",
+    "emo": [
+      "vigilance",
+      "awe",
+      "serenity"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "geometric-abstraction-interlocking-grid-cells",
+    "suggested_filename": "geometric-abstraction-interlocking-grid-cells.png",
+    "label": "interlocking grid cells",
+    "family": "geometric-abstraction",
+    "emo": [
+      "acceptance",
+      "disapproval",
+      "amazement"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "geometric-abstraction-diagonal-rhythm-bars",
+    "suggested_filename": "geometric-abstraction-diagonal-rhythm-bars.png",
+    "label": "diagonal rhythm bars",
+    "family": "geometric-abstraction",
+    "emo": [
+      "optimism",
+      "remorse",
+      "distraction"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "geometric-abstraction-balanced-color-tiles",
+    "suggested_filename": "geometric-abstraction-balanced-color-tiles.png",
+    "label": "balanced color tiles",
+    "family": "geometric-abstraction",
+    "emo": [
+      "serenity",
+      "contempt",
+      "interest"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "geometric-abstraction-spiral-square-module",
+    "suggested_filename": "geometric-abstraction-spiral-square-module.png",
+    "label": "spiral square module",
+    "family": "geometric-abstraction",
+    "emo": [
+      "amazement",
+      "aggressiveness",
+      "trust"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "geometric-abstraction-fractured-circle-study",
+    "suggested_filename": "geometric-abstraction-fractured-circle-study.png",
+    "label": "fractured circle study",
+    "family": "geometric-abstraction",
+    "emo": [
+      "distraction",
+      "optimism",
+      "vigilance"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "op-art-undulating-stripe-field",
+    "suggested_filename": "op-art-undulating-stripe-field.png",
+    "label": "undulating stripe field",
+    "family": "op-art",
+    "emo": [
+      "amazement",
+      "submission",
+      "distraction"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "op-art-impossible-checkerboard",
+    "suggested_filename": "op-art-impossible-checkerboard.png",
+    "label": "impossible checkerboard",
+    "family": "op-art",
+    "emo": [
+      "apprehension",
+      "awe",
+      "interest"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "op-art-pulsing-concentric-rings",
+    "suggested_filename": "op-art-pulsing-concentric-rings.png",
+    "label": "pulsing concentric rings",
+    "family": "op-art",
+    "emo": [
+      "overwhelm",
+      "disapproval",
+      "terror"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "op-art-staggered-dot-tunnel",
+    "suggested_filename": "op-art-staggered-dot-tunnel.png",
+    "label": "staggered dot tunnel",
+    "family": "op-art",
+    "emo": [
+      "distraction",
+      "remorse",
+      "awe"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "op-art-folded-zigzag-moire",
+    "suggested_filename": "op-art-folded-zigzag-moire.png",
+    "label": "folded zigzag moire",
+    "family": "op-art",
+    "emo": [
+      "interest",
+      "contempt",
+      "vigilance"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "op-art-rotating-radial-lines",
+    "suggested_filename": "op-art-rotating-radial-lines.png",
+    "label": "rotating radial lines",
+    "family": "op-art",
+    "emo": [
+      "terror",
+      "aggressiveness",
+      "amazement"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "op-art-warped-parallel-grid",
+    "suggested_filename": "op-art-warped-parallel-grid.png",
+    "label": "warped parallel grid",
+    "family": "op-art",
+    "emo": [
+      "awe",
+      "optimism",
+      "apprehension"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "op-art-vibrating-diamond-stack",
+    "suggested_filename": "op-art-vibrating-diamond-stack.png",
+    "label": "vibrating diamond stack",
+    "family": "op-art",
+    "emo": [
+      "vigilance",
+      "love",
+      "overwhelm"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "surrealism-eye-inside-keyhole",
+    "suggested_filename": "surrealism-eye-inside-keyhole.png",
+    "label": "eye inside keyhole",
+    "family": "surrealism",
+    "emo": [
+      "awe",
+      "apprehension"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "surrealism-clock-rooted-in-soil",
+    "suggested_filename": "surrealism-clock-rooted-in-soil.png",
+    "label": "clock rooted in soil",
+    "family": "surrealism",
+    "emo": [
+      "pensiveness",
+      "disapproval",
+      "interest"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "surrealism-floating-fish-drawer",
+    "suggested_filename": "surrealism-floating-fish-drawer.png",
+    "label": "floating fish drawer",
+    "family": "surrealism",
+    "emo": [
+      "amazement",
+      "remorse",
+      "love"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "surrealism-doorway-into-cloud",
+    "suggested_filename": "surrealism-doorway-into-cloud.png",
+    "label": "doorway into cloud",
+    "family": "surrealism",
+    "emo": [
+      "apprehension",
+      "contempt",
+      "terror"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "surrealism-hand-holding-a-horizon",
+    "suggested_filename": "surrealism-hand-holding-a-horizon.png",
+    "label": "hand holding a horizon",
+    "family": "surrealism",
+    "emo": [
+      "interest",
+      "aggressiveness",
+      "distraction"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "surrealism-bird-with-book-wings",
+    "suggested_filename": "surrealism-bird-with-book-wings.png",
+    "label": "bird with book wings",
+    "family": "surrealism",
+    "emo": [
+      "love",
+      "optimism",
+      "awe"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "surrealism-faceless-mirror-witness",
+    "suggested_filename": "surrealism-faceless-mirror-witness.png",
+    "label": "faceless mirror witness",
+    "family": "surrealism",
+    "emo": [
+      "terror",
+      "love",
+      "pensiveness"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "surrealism-rainfall-of-teacups",
+    "suggested_filename": "surrealism-rainfall-of-teacups.png",
+    "label": "rainfall of teacups",
+    "family": "surrealism",
+    "emo": [
+      "distraction",
+      "submission",
+      "amazement"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "expressionism-angular-city-walker",
+    "suggested_filename": "expressionism-angular-city-walker.png",
+    "label": "angular city walker",
+    "family": "expressionism",
+    "emo": [
+      "grief",
+      "disapproval",
+      "remorse"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "expressionism-screaming-red-sky",
+    "suggested_filename": "expressionism-screaming-red-sky.png",
+    "label": "screaming red sky",
+    "family": "expressionism",
+    "emo": [
+      "terror",
+      "remorse",
+      "apprehension"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "expressionism-black-woodcut-hands",
+    "suggested_filename": "expressionism-black-woodcut-hands.png",
+    "label": "black woodcut hands",
+    "family": "expressionism",
+    "emo": [
+      "rage",
+      "contempt",
+      "loathing"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "expressionism-distorted-church-spire",
+    "suggested_filename": "expressionism-distorted-church-spire.png",
+    "label": "distorted church spire",
+    "family": "expressionism",
+    "emo": [
+      "remorse",
+      "aggressiveness",
+      "admiration"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "expressionism-yellow-face-in-shadow",
+    "suggested_filename": "expressionism-yellow-face-in-shadow.png",
+    "label": "yellow face in shadow",
+    "family": "expressionism",
+    "emo": [
+      "apprehension",
+      "optimism",
+      "sadness"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "expressionism-crowded-tenement-street",
+    "suggested_filename": "expressionism-crowded-tenement-street.png",
+    "label": "crowded tenement street",
+    "family": "expressionism",
+    "emo": [
+      "loathing",
+      "love",
+      "grief"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "expressionism-blue-horse-outline",
+    "suggested_filename": "expressionism-blue-horse-outline.png",
+    "label": "blue horse outline",
+    "family": "expressionism",
+    "emo": [
+      "admiration",
+      "submission",
+      "terror"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "expressionism-jagged-mountain-portrait",
+    "suggested_filename": "expressionism-jagged-mountain-portrait.png",
+    "label": "jagged mountain portrait",
+    "family": "expressionism",
+    "emo": [
+      "sadness",
+      "awe",
+      "rage"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "memphis-squiggle-laminate-panel",
+    "suggested_filename": "memphis-squiggle-laminate-panel.png",
+    "label": "squiggle laminate panel",
+    "family": "memphis",
+    "emo": [
+      "joy",
+      "remorse",
+      "distraction"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "memphis-stacked-ceramic-shapes",
+    "suggested_filename": "memphis-stacked-ceramic-shapes.png",
+    "label": "stacked ceramic shapes",
+    "family": "memphis",
+    "emo": [
+      "amazement",
+      "contempt",
+      "optimism"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "memphis-confetti-lightning-bolt",
+    "suggested_filename": "memphis-confetti-lightning-bolt.png",
+    "label": "confetti lightning bolt",
+    "family": "memphis",
+    "emo": [
+      "ecstasy",
+      "aggressiveness",
+      "interest"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "memphis-clashing-pattern-vase",
+    "suggested_filename": "memphis-clashing-pattern-vase.png",
+    "label": "clashing pattern vase",
+    "family": "memphis",
+    "emo": [
+      "distraction",
+      "optimism",
+      "love"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "memphis-zigzag-side-table",
+    "suggested_filename": "memphis-zigzag-side-table.png",
+    "label": "zigzag side table",
+    "family": "memphis",
+    "emo": [
+      "optimism",
+      "love",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "memphis-polka-dot-column",
+    "suggested_filename": "memphis-polka-dot-column.png",
+    "label": "polka dot column",
+    "family": "memphis",
+    "emo": [
+      "interest",
+      "submission",
+      "joy"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "memphis-pastel-geometry-party",
+    "suggested_filename": "memphis-pastel-geometry-party.png",
+    "label": "pastel geometry party",
+    "family": "memphis",
+    "emo": [
+      "love",
+      "awe",
+      "amazement"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "memphis-striped-lamp-dome",
+    "suggested_filename": "memphis-striped-lamp-dome.png",
+    "label": "striped lamp dome",
+    "family": "memphis",
+    "emo": [
+      "overwhelm",
+      "disapproval",
+      "ecstasy"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "zine-diy-hand-lettered-page-margin",
+    "suggested_filename": "zine-diy-hand-lettered-page-margin.png",
+    "label": "hand lettered page margin",
+    "family": "zine-diy",
+    "emo": [
+      "interest",
+      "contempt",
+      "aggressiveness"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "zine-diy-xeroxed-local-flyer",
+    "suggested_filename": "zine-diy-xeroxed-local-flyer.png",
+    "label": "xeroxed local flyer",
+    "family": "zine-diy",
+    "emo": [
+      "annoyance",
+      "aggressiveness",
+      "acceptance"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "zine-diy-tape-hinged-photo",
+    "suggested_filename": "zine-diy-tape-hinged-photo.png",
+    "label": "tape hinged photo",
+    "family": "zine-diy",
+    "emo": [
+      "vigilance",
+      "optimism",
+      "contempt"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "zine-diy-stapled-mini-booklet",
+    "suggested_filename": "zine-diy-stapled-mini-booklet.png",
+    "label": "stapled mini booklet",
+    "family": "zine-diy",
+    "emo": [
+      "aggressiveness",
+      "love",
+      "trust"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "zine-diy-scanned-fingerprint",
+    "suggested_filename": "zine-diy-scanned-fingerprint.png",
+    "label": "scanned fingerprint",
+    "family": "zine-diy",
+    "emo": [
+      "acceptance",
+      "submission",
+      "optimism"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "zine-diy-cut-and-paste-manifesto",
+    "suggested_filename": "zine-diy-cut-and-paste-manifesto.png",
+    "label": "cut and paste manifesto",
+    "family": "zine-diy",
+    "emo": [
+      "contempt",
+      "awe",
+      "interest"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "zine-diy-hand-drawn-distribution-map",
+    "suggested_filename": "zine-diy-hand-drawn-distribution-map.png",
+    "label": "hand drawn distribution map",
+    "family": "zine-diy",
+    "emo": [
+      "trust",
+      "disapproval",
+      "annoyance"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "zine-diy-photocopied-music-lineup",
+    "suggested_filename": "zine-diy-photocopied-music-lineup.png",
+    "label": "photocopied music lineup",
+    "family": "zine-diy",
+    "emo": [
+      "optimism",
+      "remorse",
+      "vigilance"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "afrofuturism-cosmic-record-grooves",
+    "suggested_filename": "afrofuturism-cosmic-record-grooves.png",
+    "label": "cosmic record grooves",
+    "family": "afrofuturism",
+    "emo": [
+      "awe",
+      "aggressiveness",
+      "vigilance"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "afrofuturism-ancestral-star-chart",
+    "suggested_filename": "afrofuturism-ancestral-star-chart.png",
+    "label": "ancestral star chart",
+    "family": "afrofuturism",
+    "emo": [
+      "admiration",
+      "optimism",
+      "trust"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "afrofuturism-interstellar-community-garden",
+    "suggested_filename": "afrofuturism-interstellar-community-garden.png",
+    "label": "interstellar community garden",
+    "family": "afrofuturism",
+    "emo": [
+      "optimism",
+      "love",
+      "ecstasy"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "afrofuturism-solar-powered-braid-pattern",
+    "suggested_filename": "afrofuturism-solar-powered-braid-pattern.png",
+    "label": "solar powered braid pattern",
+    "family": "afrofuturism",
+    "emo": [
+      "vigilance",
+      "submission",
+      "interest"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "afrofuturism-synthesizer-constellation",
+    "suggested_filename": "afrofuturism-synthesizer-constellation.png",
+    "label": "synthesizer constellation",
+    "family": "afrofuturism",
+    "emo": [
+      "trust",
+      "awe",
+      "love"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "afrofuturism-afrocentric-future-city",
+    "suggested_filename": "afrofuturism-afrocentric-future-city.png",
+    "label": "afrocentric future city",
+    "family": "afrofuturism",
+    "emo": [
+      "ecstasy",
+      "disapproval",
+      "awe"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "afrofuturism-space-helmet-reflection",
+    "suggested_filename": "afrofuturism-space-helmet-reflection.png",
+    "label": "space helmet reflection",
+    "family": "afrofuturism",
+    "emo": [
+      "interest",
+      "remorse",
+      "admiration"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "afrofuturism-orbiting-story-symbols",
+    "suggested_filename": "afrofuturism-orbiting-story-symbols.png",
+    "label": "orbiting story symbols",
+    "family": "afrofuturism",
+    "emo": [
+      "love",
+      "contempt",
+      "optimism"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "gothic-revival-pointed-arch-window",
+    "suggested_filename": "gothic-revival-pointed-arch-window.png",
+    "label": "pointed arch window",
+    "family": "gothic-revival",
+    "emo": [
+      "awe",
+      "optimism",
+      "admiration"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "gothic-revival-tracery-rose-window",
+    "suggested_filename": "gothic-revival-tracery-rose-window.png",
+    "label": "tracery rose window",
+    "family": "gothic-revival",
+    "emo": [
+      "apprehension",
+      "love",
+      "pensiveness"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "gothic-revival-gargoyle-water-spout",
+    "suggested_filename": "gothic-revival-gargoyle-water-spout.png",
+    "label": "gargoyle water spout",
+    "family": "gothic-revival",
+    "emo": [
+      "terror",
+      "submission",
+      "grief"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "gothic-revival-illuminated-manuscript-vine",
+    "suggested_filename": "gothic-revival-illuminated-manuscript-vine.png",
+    "label": "illuminated manuscript vine",
+    "family": "gothic-revival",
+    "emo": [
+      "admiration",
+      "awe",
+      "serenity"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "gothic-revival-buttress-silhouette",
+    "suggested_filename": "gothic-revival-buttress-silhouette.png",
+    "label": "buttress silhouette",
+    "family": "gothic-revival",
+    "emo": [
+      "pensiveness",
+      "disapproval",
+      "trust"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "gothic-revival-shadowed-cloister",
+    "suggested_filename": "gothic-revival-shadowed-cloister.png",
+    "label": "shadowed cloister",
+    "family": "gothic-revival",
+    "emo": [
+      "grief",
+      "remorse",
+      "awe"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "gothic-revival-stone-carved-leaf",
+    "suggested_filename": "gothic-revival-stone-carved-leaf.png",
+    "label": "stone carved leaf",
+    "family": "gothic-revival",
+    "emo": [
+      "serenity",
+      "contempt",
+      "apprehension"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "gothic-revival-tall-candle-niche",
+    "suggested_filename": "gothic-revival-tall-candle-niche.png",
+    "label": "tall candle niche",
+    "family": "gothic-revival",
+    "emo": [
+      "trust",
+      "aggressiveness",
+      "terror"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "ukiyo-e-great-curving-wave",
+    "suggested_filename": "ukiyo-e-great-curving-wave.png",
+    "label": "great curving wave",
+    "family": "ukiyo-e",
+    "emo": [
+      "amazement",
+      "love",
+      "pensiveness"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "ukiyo-e-kabuki-fan-profile",
+    "suggested_filename": "ukiyo-e-kabuki-fan-profile.png",
+    "label": "kabuki fan profile",
+    "family": "ukiyo-e",
+    "emo": [
+      "interest",
+      "submission",
+      "love"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "ukiyo-e-falling-cherry-petals",
+    "suggested_filename": "ukiyo-e-falling-cherry-petals.png",
+    "label": "falling cherry petals",
+    "family": "ukiyo-e",
+    "emo": [
+      "serenity",
+      "awe"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "ukiyo-e-rain-on-bridge",
+    "suggested_filename": "ukiyo-e-rain-on-bridge.png",
+    "label": "rain on bridge",
+    "family": "ukiyo-e",
+    "emo": [
+      "pensiveness",
+      "disapproval",
+      "admiration"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "ukiyo-e-paper-lantern-street",
+    "suggested_filename": "ukiyo-e-paper-lantern-street.png",
+    "label": "paper lantern street",
+    "family": "ukiyo-e",
+    "emo": [
+      "love",
+      "remorse",
+      "acceptance"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "ukiyo-e-mountain-through-clouds",
+    "suggested_filename": "ukiyo-e-mountain-through-clouds.png",
+    "label": "mountain through clouds",
+    "family": "ukiyo-e",
+    "emo": [
+      "awe",
+      "contempt",
+      "amazement"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "ukiyo-e-woodblock-theater-curtain",
+    "suggested_filename": "ukiyo-e-woodblock-theater-curtain.png",
+    "label": "woodblock theater curtain",
+    "family": "ukiyo-e",
+    "emo": [
+      "admiration",
+      "aggressiveness",
+      "interest"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "ukiyo-e-crane-over-river",
+    "suggested_filename": "ukiyo-e-crane-over-river.png",
+    "label": "crane over river",
+    "family": "ukiyo-e",
+    "emo": [
+      "acceptance",
+      "optimism",
+      "serenity"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "situationism-reworked-advertising-slogan",
+    "suggested_filename": "situationism-reworked-advertising-slogan.png",
+    "label": "reworked advertising slogan",
+    "family": "situationism",
+    "emo": [
+      "contempt",
+      "submission",
+      "disapproval"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "situationism-reversed-city-map",
+    "suggested_filename": "situationism-reversed-city-map.png",
+    "label": "reversed city map",
+    "family": "situationism",
+    "emo": [
+      "interest",
+      "awe",
+      "boredom"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "situationism-wandering-route-arrows",
+    "suggested_filename": "situationism-wandering-route-arrows.png",
+    "label": "wandering route arrows",
+    "family": "situationism",
+    "emo": [
+      "aggressiveness",
+      "disapproval",
+      "vigilance"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "situationism-spectacle-television-head",
+    "suggested_filename": "situationism-spectacle-television-head.png",
+    "label": "spectacle television head",
+    "family": "situationism",
+    "emo": [
+      "disapproval",
+      "remorse",
+      "annoyance"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "situationism-shopping-cart-maze",
+    "suggested_filename": "situationism-shopping-cart-maze.png",
+    "label": "shopping cart maze",
+    "family": "situationism",
+    "emo": [
+      "boredom",
+      "contempt",
+      "amazement"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "situationism-graffiti-over-billboard",
+    "suggested_filename": "situationism-graffiti-over-billboard.png",
+    "label": "graffiti over billboard",
+    "family": "situationism",
+    "emo": [
+      "vigilance",
+      "aggressiveness",
+      "contempt"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "situationism-cutup-commuter-ticket",
+    "suggested_filename": "situationism-cutup-commuter-ticket.png",
+    "label": "cutup commuter ticket",
+    "family": "situationism",
+    "emo": [
+      "annoyance",
+      "optimism",
+      "interest"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "situationism-detourned-luxury-logo",
+    "suggested_filename": "situationism-detourned-luxury-logo.png",
+    "label": "detourned luxury logo",
+    "family": "situationism",
+    "emo": [
+      "amazement",
+      "love",
+      "aggressiveness"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "grunge-design-distressed-type-scrap",
+    "suggested_filename": "grunge-design-distressed-type-scrap.png",
+    "label": "distressed type scrap",
+    "family": "grunge-design",
+    "emo": [
+      "annoyance",
+      "awe",
+      "grief"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "grunge-design-stained-concert-flyer",
+    "suggested_filename": "grunge-design-stained-concert-flyer.png",
+    "label": "stained concert flyer",
+    "family": "grunge-design",
+    "emo": [
+      "pensiveness",
+      "disapproval",
+      "rage"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "grunge-design-scratched-negative-strip",
+    "suggested_filename": "grunge-design-scratched-negative-strip.png",
+    "label": "scratched negative strip",
+    "family": "grunge-design",
+    "emo": [
+      "loathing",
+      "remorse"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "grunge-design-torn-corrugated-layer",
+    "suggested_filename": "grunge-design-torn-corrugated-layer.png",
+    "label": "torn corrugated layer",
+    "family": "grunge-design",
+    "emo": [
+      "grief",
+      "contempt"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "grunge-design-bleeding-ink-handprint",
+    "suggested_filename": "grunge-design-bleeding-ink-handprint.png",
+    "label": "bleeding ink handprint",
+    "family": "grunge-design",
+    "emo": [
+      "rage",
+      "aggressiveness",
+      "overwhelm"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "grunge-design-rusted-photocopy-border",
+    "suggested_filename": "grunge-design-rusted-photocopy-border.png",
+    "label": "rusted photocopy border",
+    "family": "grunge-design",
+    "emo": [
+      "remorse",
+      "optimism",
+      "annoyance"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "grunge-design-crossed-out-brand-label",
+    "suggested_filename": "grunge-design-crossed-out-brand-label.png",
+    "label": "crossed out brand label",
+    "family": "grunge-design",
+    "emo": [
+      "contempt",
+      "love",
+      "pensiveness"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "grunge-design-weathered-poster-wall",
+    "suggested_filename": "grunge-design-weathered-poster-wall.png",
+    "label": "weathered poster wall",
+    "family": "grunge-design",
+    "emo": [
+      "overwhelm",
+      "submission",
+      "loathing"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "y2k-translucent-orb-button",
+    "suggested_filename": "y2k-translucent-orb-button.png",
+    "label": "translucent orb button",
+    "family": "y2k",
+    "emo": [
+      "optimism",
+      "disapproval",
+      "anticipation"
+    ],
+    "cats": [
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "y2k-chrome-liquid-star",
+    "suggested_filename": "y2k-chrome-liquid-star.png",
+    "label": "chrome liquid star",
+    "family": "y2k",
+    "emo": [
+      "amazement",
+      "remorse",
+      "admiration"
+    ],
+    "cats": [
+      "concept"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "y2k-pixel-sparkle-icon",
+    "suggested_filename": "y2k-pixel-sparkle-icon.png",
+    "label": "pixel sparkle icon",
+    "family": "y2k",
+    "emo": [
+      "interest",
+      "contempt",
+      "distraction"
+    ],
+    "cats": [
+      "memory"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "y2k-bubble-interface-tab",
+    "suggested_filename": "y2k-bubble-interface-tab.png",
+    "label": "bubble interface tab",
+    "family": "y2k",
+    "emo": [
+      "anticipation",
+      "aggressiveness",
+      "joy"
+    ],
+    "cats": [
+      "institution"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "y2k-futuristic-flip-phone",
+    "suggested_filename": "y2k-futuristic-flip-phone.png",
+    "label": "futuristic flip phone",
+    "family": "y2k",
+    "emo": [
+      "admiration",
+      "optimism",
+      "awe"
+    ],
+    "cats": [
+      "absurdity"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "y2k-iridescent-cd-disc",
+    "suggested_filename": "y2k-iridescent-cd-disc.png",
+    "label": "iridescent cd disc",
+    "family": "y2k",
+    "emo": [
+      "distraction",
+      "love",
+      "optimism"
+    ],
+    "cats": [
+      "food"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "y2k-rounded-progress-ring",
+    "suggested_filename": "y2k-rounded-progress-ring.png",
+    "label": "rounded progress ring",
+    "family": "y2k",
+    "emo": [
+      "joy",
+      "submission",
+      "amazement"
+    ],
+    "cats": [
+      "concept",
+      "object"
+    ],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  },
+  {
+    "id": "y2k-wireframe-millennium-flower",
+    "suggested_filename": "y2k-wireframe-millennium-flower.png",
+    "label": "wireframe millennium flower",
+    "family": "y2k",
+    "emo": [
+      "awe",
+      "interest"
+    ],
+    "cats": [],
+    "status": "proposed",
+    "source_hint": "Create original artwork or locate rights-cleared archival material; verify attribution and license before importing."
+  }
+]

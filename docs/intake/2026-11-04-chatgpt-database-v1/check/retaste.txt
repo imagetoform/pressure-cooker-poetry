@@ -1,0 +1,300 @@
+sw8 bi1
+um6 sa3
+sw6 sa3 bi2
+um6 sp4
+bi5 sa5
+sw5 so4 sp2
+um8 sw3
+sa6 so3 sw2
+um7 sw4
+sw5 sa4 um2
+sa7 um3
+sa6 bi3 so2
+sw4 bi4 so2
+sw9 so2
+sw5 so3 sa3
+bi8 sa1
+sa6 um4
+sa6 um4
+so8 sp3
+sw5 bi4 so2
+sw5 so3 bi2
+sw4 bi3 sa2
+so8 sa3
+um5 sw4 bi2
+sw7 so3
+sa7 bi2
+um8 sw2
+sw4 bi3 so3
+sw7 so3
+um6 sa4
+sw6 bi3 so2
+sa5 um5
+sp7 um4
+sw6 so3
+bi6 so5
+sw5 um3 sa2
+sa6 sw3
+sw8 um2
+um5 so4 bi2
+sa5 bi5
+um8 sa2
+bi5 sa5
+sw5 so5
+sw8 bi2
+um5 sa3 bi2
+so8 sw2
+sa5 um3 bi2
+sw5 um4 sa2
+so6 sw3 um2
+sp4 um4 sw3
+so5 bi4
+sa5 um4 sw2
+bi5 so4
+bi4 sa4 so2
+bi8 sa3
+sp5 sw4
+bi5 sa4
+so5 sw3 sa2
+um5 sa4 sw2
+sw5 so4
+sa8 so2
+sa7 sw3
+bi6 so4
+so8 sa2
+sw4 bi4 so2
+so6 sp4
+sa7 bi3
+bi5 so3 sw2
+so6 um3 sw2
+bi9 sw1
+sp5 bi4 sa2
+sw5 bi4
+sa8 bi2
+so5 bi4
+sw5 so4
+bi5 so5
+sa7 um3
+so5 bi4 sw2
+so5 sa4 sp2
+sw9 bi1
+sw4 so4 sp3
+sp8 so2
+sa5 bi4 so2
+sa6 bi4
+sp5 so4 sa2
+sw8 bi2
+sp9 so2
+bi7 sa4
+so8 sa1
+sw8 um2
+so5 sw3 bi2
+sw7 so2
+sw6 sa3
+so5 bi4
+bi5 sw3 so2
+bi4 so4 um2
+sp5 um4 sw2
+sw8 so2
+bi6 sp4
+sa8 bi3
+sw5 sa3 so2
+sw7 um3
+sw8 sp2
+sw5 bi5
+sa6 bi4
+sw8 bi2
+sa5 sw4 um2
+sw9 so2
+um5 sw4 so2
+bi8 um2
+so5 sw4
+sp5 so4 sw2
+sa6 sw3
+sw6 um4
+sw6 so3
+bi7 sp4
+sw5 so4 um2
+so6 um3 sw2
+sw5 um4
+bi6 sw4
+sw8 so2
+um6 sw4
+bi6 sw4
+sw5 bi3 sa2
+bi8 sa2
+bi8 sw2
+sw8 bi2
+sa7 bi3
+um6 sp4 sa2
+bi7 sw2
+sw8 so2
+so5 sp4 bi2
+um6 sw5
+sw7 um4
+bi5 sa4 so2
+sw4 bi4 sa2
+bi8 sw2
+so5 bi4 sw2
+sw5 bi3 so2
+so8 sw2
+sw6 um4
+sp5 sw4 um2
+bi9 sa2
+sw4 bi4 sp3
+sa5 sw4 so2
+sw6 um4
+bi6 so4
+bi5 sw4 so2
+um5 sp4 sa2
+bi5 sw5
+sa8 bi2
+bi6 so4
+bi7 sa4
+sw5 bi4 sp2
+sw8 so2
+sw5 bi5
+so7 bi3
+sa5 bi5
+sw7 bi3
+sw8 so2
+bi8 sp3
+so6 sa4
+sw7 so3
+sw6 bi3 so2
+so5 sa5
+sp6 bi4
+sw6 sa4
+sw5 bi4 so2
+bi6 sp4
+bi5 sa5
+bi6 sa4 sp2
+sa9 so1
+so8 sw2
+bi5 sw3 sp2
+sp6 sw4
+so5 sw4 bi2
+so8 sa2
+sw8 so2
+sa8 bi2
+bi6 so4
+sw8 bi3
+sw5 sa5
+bi9 so2
+sw8 so2
+so8 sw2
+sp5 bi5
+so5 sa4 sw2
+bi8 sa2
+bi6 sw3 so2
+sp7 bi4
+sw5 so5
+sw6 sa4
+so8 sa2
+sp6 bi5
+bi5 sa4 um2
+so8 sa2
+sw7 so3
+sw5 bi4 sa2
+so7 sw3
+so5 bi4 sp2
+um5 sw3 so2
+sw7 bi2
+sp5 bi4
+sp6 so4
+sw8 so2
+so7 sw2
+so5 bi4 sw2
+sw6 um4
+sa8 bi2
+sw5 so4 sp2
+sw5 so5
+so6 bi4
+um9 sa2
+bi8 sw2
+bi5 sw4 so2
+sp6 um4
+sa8 bi2
+sw8 so2
+sa6 bi4
+bi8 um2
+um5 sp4 sa2
+bi6 so4
+um5 sa4 sw2
+sw5 sa4
+sp8 sa3
+um5 sp4 sw2
+um8 sa3
+bi5 sa4 so2
+um6 sw5
+so5 sp4 sw2
+um6 sw4
+bi9 sw1
+bi5 so5
+sa8 sw2
+um6 sa4
+so8 sw2
+so6 bi4
+sa6 um4
+um5 so4 sw2
+sw6 um4
+sw7 so3
+um6 sp4
+sp5 um5
+so5 bi3 sa2
+um5 sa4 sw2
+um8 sw3
+sw5 so4 sp2
+um5 sa5
+um7 sa3
+sw7 so3
+so6 bi4
+sw5 bi4 so2
+so9 sa1
+so5 sa4 sw2
+so6 bi4
+so8 sw3
+so5 bi4 sa2
+so6 bi4
+so5 sw5
+sw8 so2
+sa5 bi4 so2
+so8 sa2
+so9 sw2
+so6 sp4
+so8 sa2
+bi6 so4
+so5 bi4 sw2
+so6 bi4
+sw8 so2
+so6 sw4
+so9 sa1
+sp9 so2
+so6 sa4
+so5 sp3 sw2
+sa5 bi3 so3
+so6 bi4
+so8 sp2
+sp5 so4 sw2
+sw5 bi5
+so5 um4 sw2
+so8 sa2
+so5 sp4 sa2
+bi6 so4
+so5 bi3 sw3
+sp6 sa4
+sw8 so2
+so6 bi4
+so6 sa4
+so5 sp5
+bi6 so4
+so6 bi4
+so7 sw2
+so8 sp2
+so5 sw3 sa2
+so8 sa2
+so5 sw4 sp2
+so6 bi4
+sp9 so1
+sp5 so5
+bi5 so4 sp2

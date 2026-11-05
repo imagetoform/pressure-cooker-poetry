@@ -8,7 +8,7 @@ Visitors **only choose ingredients**, from an absurd, overwhelming pantry (satir
 
 ## How it works
 
-1. **Ingredients** (181 in `site/src/pantry-plus.js` plus the starter set) each carry six tastes: sweet, sour, salty, bitter, umami, spicy.
+1. **Ingredients** (481: 28 starters plus 453 in `site/src/pantry-plus.js`) each carry six tastes: sweet, sour, salty, bitter, umami, spicy.
 2. **Tastes** push four hidden dials (energy, clarity, intimacy, chaos), which set the pressure and layout parameters (`site/src/tastes.js`).
 3. **The dartboard** (`site/src/board.js`): each ingredient is a dart thrown at Plutchik's emotion wheel. Its tastes aim it, and strong single tastes land near the center (rage, grief).
 4. **Cutouts and styles** carry emotion tags, never numbers. The room pulls the cutouts and design movements closest to where the darts landed (`site/src/styles.js`, `library/families/`).

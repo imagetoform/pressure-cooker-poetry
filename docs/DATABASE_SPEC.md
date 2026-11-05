@@ -272,18 +272,18 @@ Each movement is a whole kit: its emotion tags, its layout grammar, its motion, 
 | `colors` | 2–5 hex colors |
 | `blurb` | one or two sentences, historically accurate, with dates; honest about a movement's politics (e.g. Futurism's love of war) |
 
-**The 18 movements already in the tree:**
+**The 28 movements in the tree** (10 added Nov 4 2026):
 
 | Branch | Movements |
 |---|---|
-| ornament | Art Nouveau, Art Deco, Psychedelia |
-| order | Minimalism, Swiss/International, Bauhaus, Brutalism |
-| revolt | Constructivism, Dada, Punk |
-| future | Futurism, Cyberpunk, Vaporwave |
-| excess | Maximalism, Pop Art |
-| abstract | Abstract Expressionism, Geometric Abstraction, Op Art |
+| ornament | Art Nouveau, Art Deco, Psychedelia, Gothic Revival, Ukiyo-e |
+| order | Minimalism, Swiss/International (`swiss`), Bauhaus, Brutalism |
+| revolt | Constructivism, Dada, Punk, Zine/DIY, Situationism, Grunge Design |
+| future | Futurism, Cyberpunk, Vaporwave, Afrofuturism, Y2K |
+| excess | Maximalism, Pop Art, Memphis |
+| abstract | Abstract Expressionism, Geometric Abstraction, Op Art, Surrealism, Expressionism |
 
-Room for more, if they're tagged so they fill empty parts of the wheel: Surrealism, Expressionism, Memphis, Zine/DIY, Swiss Punk, Afrofuturism, Socialist Realism (as propaganda to study), Gothic, Ukiyo-e, Situationism, Grunge, Y2K.
+Still unused, if the wheel needs them: Swiss Punk, Socialist Realism (as propaganda to study).
 
 **The six layout grammars** (already built):
 
@@ -317,6 +317,7 @@ Room for more, if they're tagged so they fill empty parts of the wheel: Surreali
 - [ ] Every `emo` word is in the 33-word vocabulary or the alias list
 - [ ] No numbers on any cutout or movement
 - [ ] Ingredient tastes are whole numbers 1–10, 2–4 per ingredient, totals around 8–12
+- [ ] Each ingredient was **tasted for what it means**, one at a time. Tastes handed out by a pattern or by row number fail this check even when every number is legal.
 - [ ] Every id is unique, with no clashes with the existing pantry
 - [ ] Coverage: at least 6 cutouts per wedge and at least 2 per blend
 - [ ] Movement blurbs are accurate (dates, makers, politics)

@@ -99,6 +99,76 @@
     ] }
   ];
 
+  /* ---------- ten more movements (Nov 4 2026) ----------
+     Proposed by ChatGPT from DATABASE_SPEC.md, checked against the spec and
+     history, blurbs corrected where needed. Each joins an existing branch. */
+  var MORE = {
+    abstract: [
+      { id: "surrealism", layout: "cutup", motion: "float", name: "Surrealism", texture: "scan", emo: ["amazement", "awe", "pensiveness"], colors: ["#161925", "#d0bfa8", "#e55d35"], count: 2,
+        blurb: "1924 on. André Breton's manifesto: dreams, automatic writing, the uncanny next to the ordinary. In 1938 Breton and Trotsky wrote the Manifesto for an Independent Revolutionary Art together (Breton and Diego Rivera signed it).",
+        motif: function (r, c) { var ey = f(r.range(70, 95));
+          return svg('<path d="M100 30 a34 34 0 0 1 22 60 l18 80 h-80 l18 -80 a34 34 0 0 1 22 -60z" fill="' + c[0] + '"/>' +
+            '<ellipse cx="100" cy="' + ey + '" rx="22" ry="12" fill="' + c[1] + '"/><circle cx="100" cy="' + ey + '" r="7" fill="' + c[2] + '"/>' +
+            '<path d="M' + f(r.range(10, 40)) + ' 185 q 20 -30 40 0" fill="none" stroke="' + c[2] + '" stroke-width="3"/>'); } },
+      { id: "expressionism", layout: "reliquary", motion: "pulse", name: "Expressionism", texture: null, emo: ["grief", "terror", "admiration"], colors: ["#24202c", "#e5a827", "#b73138"], count: 2,
+        blurb: "c. 1905–1920s. Die Brücke (1905) and Der Blaue Reiter (1911) bent form and colour to show what a thing feels like, not what it looks like. The Nazis branded it \"degenerate art\" in 1937.",
+        motif: function (r, c) { var pts = "10,190 "; for (var k = 1; k < 8; k++) pts += f(k * 25) + "," + f(k % 2 ? r.range(20, 70) : r.range(110, 160)) + " "; pts += "190,190";
+          return svg('<polygon points="' + pts + '" fill="' + c[0] + '"/><path d="M0 40 L200 ' + f(r.range(10, 60)) + ' L200 0 L0 0z" fill="' + c[2] + '"/>' +
+            '<path d="M' + f(r.range(60, 140)) + ' 190 l10 -70 l12 70z" fill="' + c[1] + '"/>'); } }
+    ],
+    excess: [
+      { id: "memphis", layout: "cutup", motion: "pop", name: "Memphis", texture: "benday", emo: ["ecstasy", "distraction", "optimism"], colors: ["#ffdf44", "#00a8ac", "#f17baf", "#1a175a"], count: 3,
+        blurb: "1981–1987. Ettore Sottsass's Milan group: plastic laminate, squiggles, clashing pattern, furniture that laughed at good taste.",
+        motif: function (r, c) { var k = r.int(0, 2);
+          if (k === 0) return svg('<path d="M10 100 q 20 -40 40 0 t 40 0 t 40 0 t 40 0" fill="none" stroke="' + c[3] + '" stroke-width="10" stroke-linecap="round"/>');
+          if (k === 1) return svg('<polygon points="100,20 180,170 20,170" fill="' + c[0] + '" stroke="' + c[3] + '" stroke-width="5"/><circle cx="' + f(r.range(60, 140)) + '" cy="130" r="18" fill="' + c[2] + '"/>');
+          var d = ""; for (var y = 30; y < 200; y += 28) for (var x = 30; x < 200; x += 28) d += '<circle cx="' + x + '" cy="' + y + '" r="5" fill="' + c[1] + '"/>';
+          return svg(d); } }
+    ],
+    revolt: [
+      { id: "zine-diy", layout: "xerox", motion: "jitter", name: "Zine / DIY", texture: "toner", emo: ["interest", "annoyance", "acceptance"], colors: ["#171717", "#f0ece3", "#fa3a70"], count: 3,
+        blurb: "1930s science-fiction fanzines, then punk from the 1970s: a photocopier, a stapler and something to say. Publishing without permission.",
+        motif: function (r, c) { var rot = f(r.range(-8, 8));
+          return svg('<g transform="rotate(' + rot + ' 100 100)"><rect x="30" y="35" width="140" height="130" fill="' + c[1] + '" stroke="' + c[0] + '" stroke-width="3"/>' +
+            '<rect x="70" y="22" width="60" height="22" fill="' + c[2] + '" opacity=".7"/>' +
+            '<path d="M45 80 h' + f(r.range(70, 110)) + ' M45 100 h' + f(r.range(50, 110)) + ' M45 120 h' + f(r.range(40, 100)) + '" stroke="' + c[0] + '" stroke-width="5"/>' +
+            '<path d="M40 150 h8 M152 150 h8" stroke="' + c[0] + '" stroke-width="3"/></g>'); } },
+      { id: "situationism", layout: "ledger", motion: "smear", name: "Situationism", texture: "scan", emo: ["contempt", "interest", "aggressiveness"], colors: ["#111111", "#eae5d8", "#d42f24"], count: 2,
+        blurb: "1957–1972. The Situationist International (Guy Debord, The Society of the Spectacle, 1967): hijack the ads, drift through the city, refuse the life on sale. Its slogans were on the walls of Paris in May 1968.",
+        motif: function (r, c) { var w = pick(r, ["DÉRIVE", "NE TRAVAILLEZ JAMAIS", "SOUS LES PAVÉS", "SPECTACLE"]);
+          return svg('<path d="M20 60 h60 v40 h50 v50 h50" fill="none" stroke="' + c[0] + '" stroke-width="3" stroke-dasharray="6 5"/>' +
+            '<path d="M170 150 l-12 -8 v16z" fill="' + c[2] + '"/><circle cx="' + f(r.range(30, 170)) + '" cy="' + f(r.range(30, 90)) + '" r="16" fill="none" stroke="' + c[2] + '" stroke-width="4"/>' +
+            '<text x="12" y="190" font-family="Archivo, Arial" font-weight="900" font-size="' + (w.length > 10 ? 13 : 24) + '" fill="' + c[0] + '">' + w + '</text>'); } },
+      { id: "grunge-design", layout: "xerox", motion: "smear", name: "Grunge Design", texture: "toner", emo: ["loathing", "annoyance", "pensiveness"], colors: ["#272920", "#aba18b", "#cf632e"], count: 2,
+        blurb: "Late 1980s–1990s. Distressed type and broken layouts, from Seattle gig flyers to David Carson's Ray Gun (1992 on). Legibility on purpose made second.",
+        motif: function (r, c) { var out = ""; for (var k = 0; k < 5; k++) { var y = f(r.range(20, 180)); out += '<rect x="' + f(r.range(-20, 60)) + '" y="' + y + '" width="' + f(r.range(80, 180)) + '" height="' + f(r.range(4, 18)) + '" fill="' + c[k % 3] + '" opacity=".8"/>'; }
+          return svg(out + '<path d="M' + f(r.range(20, 80)) + ' 30 L' + f(r.range(120, 180)) + ' 170" stroke="' + c[0] + '" stroke-width="6"/>'); } }
+    ],
+    future: [
+      { id: "afrofuturism", layout: "reliquary", motion: "rise", name: "Afrofuturism", texture: "dots", emo: ["vigilance", "awe", "admiration"], colors: ["#241345", "#e99d22", "#31c6b4"], count: 2,
+        blurb: "Sun Ra's Arkestra from the 1950s, Octavia Butler, Parliament-Funkadelic; named by Mark Dery in 1993. Black futures imagined by the people the official future left out. A way of seeing more than a single style.",
+        motif: function (r, c) { var out = ""; for (var k = 1; k < 7; k++) out += '<circle cx="100" cy="100" r="' + (k * 14) + '" fill="none" stroke="' + c[k % 2 ? 1 : 2] + '" stroke-width="' + (k === 6 ? 4 : 1.5) + '"/>';
+          var a = r.range(0, 6.28); return svg('<circle cx="100" cy="100" r="96" fill="' + c[0] + '"/>' + out + '<circle cx="' + f(100 + Math.cos(a) * 84) + '" cy="' + f(100 + Math.sin(a) * 84) + '" r="9" fill="' + c[1] + '"/>'); } },
+      { id: "y2k", layout: "manifesto", motion: "flicker", name: "Y2K", texture: "grid", emo: ["anticipation", "amazement", "interest"], colors: ["#d9e4f1", "#7b8cc6", "#24b4cb", "#39314d"], count: 2,
+        blurb: "Late 1990s–early 2000s. Translucent plastic, chrome blobs and bubble buttons: the glossy millennium the dot-com boom was selling. The name came later.",
+        motif: function (r, c) { var id = "y2k" + r.int(0, 99999);
+          return svg('<defs><radialGradient id="' + id + '" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="' + c[2] + '"/><stop offset="1" stop-color="' + c[3] + '"/></radialGradient></defs>' +
+            '<circle cx="100" cy="100" r="70" fill="url(#' + id + ')"/><path d="M' + f(r.range(150, 175)) + ' 30 l6 18 l18 6 l-18 6 l-6 18 l-6 -18 l-18 -6 l18 -6z" fill="' + c[1] + '"/>'); } }
+    ],
+    ornament: [
+      { id: "gothic-revival", layout: "reliquary", motion: "grow", name: "Gothic Revival", texture: null, emo: ["awe", "apprehension", "pensiveness"], colors: ["#17182b", "#834753", "#decda0"], count: 2,
+        blurb: "c. 1740s–1900s. Pointed arches and tracery again, from Walpole's Strawberry Hill to Pugin and the Houses of Parliament; for many, a religious and moral answer to the factory age.",
+        motif: function (r, c) { return svg('<path d="M30 195 V90 Q30 25 100 10 Q170 25 170 90 V195z" fill="' + c[0] + '"/>' +
+            '<path d="M48 195 V95 Q48 45 100 30 Q152 45 152 95 V195z" fill="' + c[1] + '" opacity=".85"/>' +
+            '<circle cx="100" cy="' + f(r.range(70, 85)) + '" r="22" fill="none" stroke="' + c[2] + '" stroke-width="4"/><path d="M100 110 V195 M74 130 H126" stroke="' + c[2] + '" stroke-width="4"/>'); } },
+      { id: "ukiyo-e", layout: "whisper", motion: "slide", name: "Ukiyo-e", texture: null, emo: ["serenity", "interest", "pensiveness"], colors: ["#243c57", "#e3c9a2", "#bd6248"], count: 2,
+        blurb: "17th–19th-century Japan. Woodblock prints of the \"floating world\": actors, courtesans, travellers, Hokusai's waves, sold cheap to city people.",
+        motif: function (r, c) { var out = ""; for (var k = 0; k < 4; k++) { var y = 60 + k * 30; out += '<path d="M0 ' + y + ' q 25 ' + f(r.range(-30, -15)) + ' 50 0 t 50 0 t 50 0 t 50 0" fill="none" stroke="' + c[0] + '" stroke-width="' + (6 - k) + '"/>'; }
+          return svg(out + '<circle cx="' + f(r.range(130, 175)) + '" cy="35" r="18" fill="' + c[2] + '"/>'); } }
+    ]
+  };
+  TREE.forEach(function (b) { (MORE[b.id] || []).forEach(function (m) { b.movements.push(m); }); });
+
   var ALL = [], BY_ID = {};
   TREE.forEach(function (b) { b.movements.forEach(function (m) { m.branch = b.id; m.branchName = b.name; ALL.push(m); BY_ID[m.id] = m; }); });
 

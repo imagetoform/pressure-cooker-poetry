@@ -1,0 +1,4221 @@
+[
+ {
+  "id": "art-nouveau-iris-stem-window",
+  "label": "iris stem window",
+  "family": "art-nouveau",
+  "emo": [
+   "serenity",
+   "love",
+   "pensiveness"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "art-nouveau-iris-stem-window.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-nouveau-hair-and-vine-silhouette",
+  "label": "hair and vine silhouette",
+  "family": "art-nouveau",
+  "emo": [
+   "love",
+   "submission",
+   "acceptance"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "art-nouveau-hair-and-vine-silhouette.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-nouveau-dragonfly-wing-panel",
+  "label": "dragonfly wing panel",
+  "family": "art-nouveau",
+  "emo": [
+   "admiration",
+   "awe",
+   "interest"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "art-nouveau-dragonfly-wing-panel.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-nouveau-curling-iron-gate",
+  "label": "curling iron gate",
+  "family": "art-nouveau",
+  "emo": [
+   "pensiveness",
+   "disapproval",
+   "awe"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "art-nouveau-curling-iron-gate.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-nouveau-moonlit-lily-poster",
+  "label": "moonlit lily poster",
+  "family": "art-nouveau",
+  "emo": [
+   "acceptance",
+   "remorse",
+   "ecstasy"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "art-nouveau-moonlit-lily-poster.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-nouveau-thistle-border",
+  "label": "thistle border",
+  "family": "art-nouveau",
+  "emo": [
+   "interest",
+   "contempt",
+   "serenity"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "art-nouveau-thistle-border.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-nouveau-serpentine-river-map",
+  "label": "serpentine river map",
+  "family": "art-nouveau",
+  "emo": [
+   "awe",
+   "aggressiveness",
+   "love"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "art-nouveau-serpentine-river-map.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-nouveau-peacock-tail-fan",
+  "label": "peacock tail fan",
+  "family": "art-nouveau",
+  "emo": [
+   "ecstasy",
+   "optimism",
+   "admiration"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "art-nouveau-peacock-tail-fan.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-deco-sunburst-elevator-door",
+  "label": "sunburst elevator door",
+  "family": "art-deco",
+  "emo": [
+   "admiration",
+   "submission",
+   "optimism"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "art-deco-sunburst-elevator-door.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-deco-stepped-skyscraper",
+  "label": "stepped skyscraper",
+  "family": "art-deco",
+  "emo": [
+   "vigilance",
+   "awe",
+   "interest"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "art-deco-stepped-skyscraper.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-deco-fan-shaped-theater-light",
+  "label": "fan shaped theater light",
+  "family": "art-deco",
+  "emo": [
+   "ecstasy",
+   "disapproval",
+   "contempt"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "art-deco-fan-shaped-theater-light.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-deco-chrome-train-nose",
+  "label": "chrome train nose",
+  "family": "art-deco",
+  "emo": [
+   "optimism",
+   "remorse",
+   "amazement"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "art-deco-chrome-train-nose.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-deco-geometric-cocktail-glass",
+  "label": "geometric cocktail glass",
+  "family": "art-deco",
+  "emo": [
+   "interest",
+   "contempt",
+   "trust"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "art-deco-geometric-cocktail-glass.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-deco-golden-ticket-booth",
+  "label": "golden ticket booth",
+  "family": "art-deco",
+  "emo": [
+   "contempt",
+   "aggressiveness",
+   "admiration"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "art-deco-golden-ticket-booth.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-deco-marquee-corner",
+  "label": "marquee corner",
+  "family": "art-deco",
+  "emo": [
+   "amazement",
+   "optimism",
+   "vigilance"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "art-deco-marquee-corner.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "art-deco-zigzag-city-skyline",
+  "label": "zigzag city skyline",
+  "family": "art-deco",
+  "emo": [
+   "trust",
+   "love",
+   "ecstasy"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "art-deco-zigzag-city-skyline.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "psychedelia-melting-eye-flower",
+  "label": "melting eye flower",
+  "family": "psychedelia",
+  "emo": [
+   "amazement",
+   "awe",
+   "ecstasy"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "psychedelia-melting-eye-flower.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "psychedelia-spiral-hand-lettering",
+  "label": "spiral hand lettering",
+  "family": "psychedelia",
+  "emo": [
+   "overwhelm",
+   "disapproval",
+   "distraction"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "psychedelia-spiral-hand-lettering.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "psychedelia-radiating-mushroom-cap",
+  "label": "radiating mushroom cap",
+  "family": "psychedelia",
+  "emo": [
+   "awe",
+   "remorse",
+   "apprehension"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "psychedelia-radiating-mushroom-cap.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "psychedelia-liquid-rainbow-pool",
+  "label": "liquid rainbow pool",
+  "family": "psychedelia",
+  "emo": [
+   "ecstasy",
+   "contempt",
+   "love"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "psychedelia-liquid-rainbow-pool.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "psychedelia-interlocking-faces",
+  "label": "interlocking faces",
+  "family": "psychedelia",
+  "emo": [
+   "distraction",
+   "aggressiveness",
+   "interest"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "psychedelia-interlocking-faces.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "psychedelia-vibrating-sun-disk",
+  "label": "vibrating sun disk",
+  "family": "psychedelia",
+  "emo": [
+   "apprehension",
+   "optimism",
+   "amazement"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "psychedelia-vibrating-sun-disk.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "psychedelia-swirling-paisley-serpent",
+  "label": "swirling paisley serpent",
+  "family": "psychedelia",
+  "emo": [
+   "love",
+   "overwhelm"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "psychedelia-swirling-paisley-serpent.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "psychedelia-breathing-poster-frame",
+  "label": "breathing poster frame",
+  "family": "psychedelia",
+  "emo": [
+   "interest",
+   "submission",
+   "awe"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "psychedelia-breathing-poster-frame.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "minimalism-single-red-square",
+  "label": "single red square",
+  "family": "minimalism",
+  "emo": [
+   "serenity",
+   "disapproval",
+   "boredom"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "minimalism-single-red-square.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "minimalism-off-center-black-line",
+  "label": "off center black line",
+  "family": "minimalism",
+  "emo": [
+   "pensiveness",
+   "remorse",
+   "trust"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "minimalism-off-center-black-line.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "minimalism-empty-chair-outline",
+  "label": "empty chair outline",
+  "family": "minimalism",
+  "emo": [
+   "acceptance",
+   "contempt",
+   "apprehension"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "minimalism-empty-chair-outline.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "minimalism-one-small-window",
+  "label": "one small window",
+  "family": "minimalism",
+  "emo": [
+   "boredom",
+   "aggressiveness",
+   "interest"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "minimalism-one-small-window.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "minimalism-narrow-light-beam",
+  "label": "narrow light beam",
+  "family": "minimalism",
+  "emo": [
+   "trust",
+   "optimism",
+   "sadness"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "minimalism-narrow-light-beam.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "minimalism-two-spaced-circles",
+  "label": "two spaced circles",
+  "family": "minimalism",
+  "emo": [
+   "apprehension",
+   "love",
+   "serenity"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "minimalism-two-spaced-circles.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "minimalism-white-field-shadow",
+  "label": "white field shadow",
+  "family": "minimalism",
+  "emo": [
+   "interest",
+   "submission",
+   "pensiveness"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "minimalism-white-field-shadow.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "minimalism-floating-paper-dot",
+  "label": "floating paper dot",
+  "family": "minimalism",
+  "emo": [
+   "sadness",
+   "awe",
+   "acceptance"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "minimalism-floating-paper-dot.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "swiss-asymmetric-grid-rule",
+  "label": "asymmetric grid rule",
+  "family": "swiss",
+  "emo": [
+   "trust",
+   "remorse",
+   "interest"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "swiss-asymmetric-grid-rule.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "swiss-oversized-cropped-numeral",
+  "label": "oversized cropped numeral",
+  "family": "swiss",
+  "emo": [
+   "vigilance",
+   "contempt",
+   "admiration"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "swiss-oversized-cropped-numeral.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "swiss-transit-wayfinding-arrow",
+  "label": "transit wayfinding arrow",
+  "family": "swiss",
+  "emo": [
+   "acceptance",
+   "aggressiveness",
+   "boredom"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "swiss-transit-wayfinding-arrow.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "swiss-modular-clock-face",
+  "label": "modular clock face",
+  "family": "swiss",
+  "emo": [
+   "interest",
+   "optimism",
+   "anticipation"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "swiss-modular-clock-face.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "swiss-red-information-circle",
+  "label": "red information circle",
+  "family": "swiss",
+  "emo": [
+   "admiration",
+   "love",
+   "serenity"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "swiss-red-information-circle.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "swiss-diagonal-baseline",
+  "label": "diagonal baseline",
+  "family": "swiss",
+  "emo": [
+   "boredom",
+   "submission",
+   "trust"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "swiss-diagonal-baseline.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "swiss-negative-space-poster",
+  "label": "negative space poster",
+  "family": "swiss",
+  "emo": [
+   "anticipation",
+   "awe",
+   "vigilance"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "swiss-negative-space-poster.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "swiss-strict-typographic-column",
+  "label": "strict typographic column",
+  "family": "swiss",
+  "emo": [
+   "serenity",
+   "disapproval",
+   "acceptance"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "swiss-strict-typographic-column.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "bauhaus-nested-primary-triangles",
+  "label": "nested primary triangles",
+  "family": "bauhaus",
+  "emo": [
+   "anticipation",
+   "contempt",
+   "optimism"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "bauhaus-nested-primary-triangles.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "bauhaus-steel-tube-chair",
+  "label": "steel tube chair",
+  "family": "bauhaus",
+  "emo": [
+   "trust",
+   "aggressiveness",
+   "admiration"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "bauhaus-steel-tube-chair.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "bauhaus-modular-lamp-shade",
+  "label": "modular lamp shade",
+  "family": "bauhaus",
+  "emo": [
+   "interest",
+   "optimism",
+   "acceptance"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "bauhaus-modular-lamp-shade.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "bauhaus-red-blue-balance",
+  "label": "red blue balance",
+  "family": "bauhaus",
+  "emo": [
+   "optimism",
+   "love",
+   "joy"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "bauhaus-red-blue-balance.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "bauhaus-geometric-dancer",
+  "label": "geometric dancer",
+  "family": "bauhaus",
+  "emo": [
+   "admiration",
+   "submission",
+   "vigilance"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "bauhaus-geometric-dancer.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "bauhaus-workshop-stamp",
+  "label": "workshop stamp",
+  "family": "bauhaus",
+  "emo": [
+   "acceptance",
+   "awe",
+   "anticipation"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "bauhaus-workshop-stamp.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "bauhaus-circle-square-study",
+  "label": "circle square study",
+  "family": "bauhaus",
+  "emo": [
+   "joy",
+   "disapproval",
+   "trust"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "bauhaus-circle-square-study.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "bauhaus-colored-glass-grid",
+  "label": "colored glass grid",
+  "family": "bauhaus",
+  "emo": [
+   "vigilance",
+   "remorse",
+   "interest"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "bauhaus-colored-glass-grid.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "brutalism-cast-concrete-stairwell",
+  "label": "cast concrete stairwell",
+  "family": "brutalism",
+  "emo": [
+   "apprehension",
+   "aggressiveness",
+   "contempt"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "brutalism-cast-concrete-stairwell.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "brutalism-raw-cement-bunker",
+  "label": "raw cement bunker",
+  "family": "brutalism",
+  "emo": [
+   "grief",
+   "optimism",
+   "terror"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "brutalism-raw-cement-bunker.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "brutalism-monolithic-service-tower",
+  "label": "monolithic service tower",
+  "family": "brutalism",
+  "emo": [
+   "admiration",
+   "love",
+   "annoyance"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "brutalism-monolithic-service-tower.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "brutalism-board-formed-wall",
+  "label": "board formed wall",
+  "family": "brutalism",
+  "emo": [
+   "contempt",
+   "submission",
+   "vigilance"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "brutalism-board-formed-wall.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "brutalism-heavy-shadow-overhang",
+  "label": "heavy shadow overhang",
+  "family": "brutalism",
+  "emo": [
+   "terror",
+   "awe",
+   "pensiveness"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "brutalism-heavy-shadow-overhang.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "brutalism-exposed-conduit-knot",
+  "label": "exposed conduit knot",
+  "family": "brutalism",
+  "emo": [
+   "annoyance",
+   "disapproval",
+   "apprehension"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "brutalism-exposed-conduit-knot.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "brutalism-blocky-entrance-sign",
+  "label": "blocky entrance sign",
+  "family": "brutalism",
+  "emo": [
+   "vigilance",
+   "remorse",
+   "grief"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "brutalism-blocky-entrance-sign.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "brutalism-stark-civic-ramp",
+  "label": "stark civic ramp",
+  "family": "brutalism",
+  "emo": [
+   "pensiveness",
+   "contempt",
+   "admiration"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "brutalism-stark-civic-ramp.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "constructivism-red-wedge-through-circle",
+  "label": "red wedge through circle",
+  "family": "constructivism",
+  "emo": [
+   "aggressiveness",
+   "optimism",
+   "rage"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "constructivism-red-wedge-through-circle.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "constructivism-worker-with-megaphone",
+  "label": "worker with megaphone",
+  "family": "constructivism",
+  "emo": [
+   "vigilance",
+   "love",
+   "trust"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "constructivism-worker-with-megaphone.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "constructivism-diagonal-crane-arm",
+  "label": "diagonal crane arm",
+  "family": "constructivism",
+  "emo": [
+   "admiration",
+   "submission",
+   "optimism"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "constructivism-diagonal-crane-arm.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "constructivism-gear-and-banner",
+  "label": "gear and banner",
+  "family": "constructivism",
+  "emo": [
+   "rage",
+   "awe",
+   "anticipation"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "constructivism-gear-and-banner.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "constructivism-staircase-photomontage",
+  "label": "staircase photomontage",
+  "family": "constructivism",
+  "emo": [
+   "trust",
+   "disapproval",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "constructivism-staircase-photomontage.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "constructivism-five-point-industrial-star",
+  "label": "five point industrial star",
+  "family": "constructivism",
+  "emo": [
+   "optimism",
+   "remorse",
+   "aggressiveness"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "constructivism-five-point-industrial-star.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "constructivism-angled-factory-chimney",
+  "label": "angled factory chimney",
+  "family": "constructivism",
+  "emo": [
+   "anticipation",
+   "contempt",
+   "vigilance"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "constructivism-angled-factory-chimney.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "constructivism-bold-propaganda-rays",
+  "label": "bold propaganda rays",
+  "family": "constructivism",
+  "emo": [
+   "overwhelm",
+   "aggressiveness",
+   "admiration"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "constructivism-bold-propaganda-rays.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "dada-upside-down-bowler-hat",
+  "label": "upside down bowler hat",
+  "family": "dada",
+  "emo": [
+   "distraction",
+   "love",
+   "awe"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "dada-upside-down-bowler-hat.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "dada-newspaper-mouth",
+  "label": "newspaper mouth",
+  "family": "dada",
+  "emo": [
+   "contempt",
+   "submission",
+   "annoyance"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "dada-newspaper-mouth.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "dada-collaged-pocket-watch",
+  "label": "collaged pocket watch",
+  "family": "dada",
+  "emo": [
+   "amazement",
+   "awe",
+   "loathing"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "dada-collaged-pocket-watch.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "dada-dislocated-porcelain-eye",
+  "label": "dislocated porcelain eye",
+  "family": "dada",
+  "emo": [
+   "awe",
+   "disapproval",
+   "remorse"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "dada-dislocated-porcelain-eye.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "dada-cutout-type-sentence",
+  "label": "cutout type sentence",
+  "family": "dada",
+  "emo": [
+   "annoyance",
+   "remorse",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "dada-cutout-type-sentence.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "dada-mustached-portrait-frame",
+  "label": "mustached portrait frame",
+  "family": "dada",
+  "emo": [
+   "loathing",
+   "contempt",
+   "distraction"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "dada-mustached-portrait-frame.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "dada-receipt-winged-bird",
+  "label": "receipt winged bird",
+  "family": "dada",
+  "emo": [
+   "remorse",
+   "aggressiveness",
+   "contempt"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "dada-receipt-winged-bird.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "dada-impossible-office-stamp",
+  "label": "impossible office stamp",
+  "family": "dada",
+  "emo": [
+   "overwhelm",
+   "optimism",
+   "amazement"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "dada-impossible-office-stamp.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "punk-safety-pin-heart",
+  "label": "safety pin heart",
+  "family": "punk",
+  "emo": [
+   "aggressiveness",
+   "submission",
+   "annoyance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "punk-safety-pin-heart.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "punk-ripped-gig-ticket",
+  "label": "ripped gig ticket",
+  "family": "punk",
+  "emo": [
+   "anger",
+   "awe",
+   "contempt"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "punk-ripped-gig-ticket.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "punk-stenciled-fist",
+  "label": "stenciled fist",
+  "family": "punk",
+  "emo": [
+   "vigilance",
+   "disapproval",
+   "love"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "punk-stenciled-fist.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "punk-photocopied-bootprint",
+  "label": "photocopied bootprint",
+  "family": "punk",
+  "emo": [
+   "annoyance",
+   "remorse",
+   "rage"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "punk-photocopied-bootprint.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "punk-ransom-note-title",
+  "label": "ransom note title",
+  "family": "punk",
+  "emo": [
+   "contempt",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "punk-ransom-note-title.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "punk-barbed-wire-flower",
+  "label": "barbed wire flower",
+  "family": "punk",
+  "emo": [
+   "love",
+   "aggressiveness"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "punk-barbed-wire-flower.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "punk-spray-painted-stop-sign",
+  "label": "spray painted stop sign",
+  "family": "punk",
+  "emo": [
+   "rage",
+   "optimism",
+   "anger"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "punk-spray-painted-stop-sign.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "punk-torn-anti-authority-badge",
+  "label": "torn anti authority badge",
+  "family": "punk",
+  "emo": [
+   "overwhelm",
+   "love",
+   "vigilance"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "punk-torn-anti-authority-badge.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "futurism-speed-lines-locomotive",
+  "label": "speed lines locomotive",
+  "family": "futurism",
+  "emo": [
+   "anticipation",
+   "awe",
+   "vigilance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "futurism-speed-lines-locomotive.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "futurism-fragmented-running-legs",
+  "label": "fragmented running legs",
+  "family": "futurism",
+  "emo": [
+   "aggressiveness",
+   "disapproval",
+   "terror"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "futurism-fragmented-running-legs.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "futurism-propeller-sun",
+  "label": "propeller sun",
+  "family": "futurism",
+  "emo": [
+   "amazement",
+   "remorse",
+   "admiration"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "futurism-propeller-sun.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "futurism-motorcar-in-motion",
+  "label": "motorcar in motion",
+  "family": "futurism",
+  "emo": [
+   "vigilance",
+   "contempt",
+   "rage"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "futurism-motorcar-in-motion.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "futurism-diagonal-city-towers",
+  "label": "diagonal city towers",
+  "family": "futurism",
+  "emo": [
+   "terror",
+   "aggressiveness",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "futurism-diagonal-city-towers.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "futurism-mechanical-horse",
+  "label": "mechanical horse",
+  "family": "futurism",
+  "emo": [
+   "admiration",
+   "optimism",
+   "anticipation"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "futurism-mechanical-horse.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "futurism-rotating-gear-cloud",
+  "label": "rotating gear cloud",
+  "family": "futurism",
+  "emo": [
+   "rage",
+   "love",
+   "aggressiveness"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "futurism-rotating-gear-cloud.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "futurism-metallic-noise-burst",
+  "label": "metallic noise burst",
+  "family": "futurism",
+  "emo": [
+   "overwhelm",
+   "submission",
+   "amazement"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "futurism-metallic-noise-burst.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "cyberpunk-neon-rain-alley",
+  "label": "neon rain alley",
+  "family": "cyberpunk",
+  "emo": [
+   "apprehension",
+   "disapproval",
+   "vigilance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "cyberpunk-neon-rain-alley.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "cyberpunk-broken-surveillance-lens",
+  "label": "broken surveillance lens",
+  "family": "cyberpunk",
+  "emo": [
+   "contempt",
+   "remorse",
+   "aggressiveness"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "cyberpunk-broken-surveillance-lens.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "cyberpunk-fiber-optic-spine",
+  "label": "fiber optic spine",
+  "family": "cyberpunk",
+  "emo": [
+   "terror",
+   "contempt",
+   "distraction"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "cyberpunk-fiber-optic-spine.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "cyberpunk-corporate-skyscraper-glyph",
+  "label": "corporate skyscraper glyph",
+  "family": "cyberpunk",
+  "emo": [
+   "vigilance",
+   "aggressiveness",
+   "pensiveness"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "cyberpunk-corporate-skyscraper-glyph.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "cyberpunk-hacked-turnstile",
+  "label": "hacked turnstile",
+  "family": "cyberpunk",
+  "emo": [
+   "aggressiveness",
+   "optimism",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "cyberpunk-hacked-turnstile.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "cyberpunk-glitched-billboard-face",
+  "label": "glitched billboard face",
+  "family": "cyberpunk",
+  "emo": [
+   "distraction",
+   "love",
+   "apprehension"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "cyberpunk-glitched-billboard-face.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "cyberpunk-wires-and-roots",
+  "label": "wires and roots",
+  "family": "cyberpunk",
+  "emo": [
+   "pensiveness",
+   "submission",
+   "contempt"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "cyberpunk-wires-and-roots.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "cyberpunk-midnight-data-market",
+  "label": "midnight data market",
+  "family": "cyberpunk",
+  "emo": [
+   "overwhelm",
+   "awe",
+   "terror"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "cyberpunk-midnight-data-market.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "vaporwave-pastel-classical-bust",
+  "label": "pastel classical bust",
+  "family": "vaporwave",
+  "emo": [
+   "pensiveness",
+   "remorse"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "vaporwave-pastel-classical-bust.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "vaporwave-sunset-grid-horizon",
+  "label": "sunset grid horizon",
+  "family": "vaporwave",
+  "emo": [
+   "serenity",
+   "contempt",
+   "distraction"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "vaporwave-sunset-grid-horizon.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "vaporwave-pixelated-palm-tree",
+  "label": "pixelated palm tree",
+  "family": "vaporwave",
+  "emo": [
+   "interest",
+   "aggressiveness",
+   "boredom"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "vaporwave-pixelated-palm-tree.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "vaporwave-outdated-software-window",
+  "label": "outdated software window",
+  "family": "vaporwave",
+  "emo": [
+   "remorse",
+   "optimism",
+   "love"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "vaporwave-outdated-software-window.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "vaporwave-marble-arcade-arch",
+  "label": "marble arcade arch",
+  "family": "vaporwave",
+  "emo": [
+   "distraction",
+   "love",
+   "sadness"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "vaporwave-marble-arcade-arch.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "vaporwave-pink-floppy-disk",
+  "label": "pink floppy disk",
+  "family": "vaporwave",
+  "emo": [
+   "boredom",
+   "submission",
+   "pensiveness"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "vaporwave-pink-floppy-disk.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "vaporwave-floating-dolphin-outline",
+  "label": "floating dolphin outline",
+  "family": "vaporwave",
+  "emo": [
+   "love",
+   "awe",
+   "serenity"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "vaporwave-floating-dolphin-outline.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "vaporwave-abandoned-mall-fountain",
+  "label": "abandoned mall fountain",
+  "family": "vaporwave",
+  "emo": [
+   "sadness",
+   "disapproval",
+   "interest"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "vaporwave-abandoned-mall-fountain.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "maximalism-stacked-gilded-frames",
+  "label": "stacked gilded frames",
+  "family": "maximalism",
+  "emo": [
+   "overwhelm",
+   "contempt",
+   "distraction"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "maximalism-stacked-gilded-frames.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "maximalism-flower-on-flower-wallpaper",
+  "label": "flower on flower wallpaper",
+  "family": "maximalism",
+  "emo": [
+   "ecstasy",
+   "aggressiveness",
+   "admiration"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "maximalism-flower-on-flower-wallpaper.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "maximalism-chandelier-of-icons",
+  "label": "chandelier of icons",
+  "family": "maximalism",
+  "emo": [
+   "amazement",
+   "optimism",
+   "interest"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "maximalism-chandelier-of-icons.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "maximalism-overlapping-victorian-labels",
+  "label": "overlapping victorian labels",
+  "family": "maximalism",
+  "emo": [
+   "distraction",
+   "love",
+   "joy"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "maximalism-overlapping-victorian-labels.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "maximalism-ornate-cabinet-of-curiosities",
+  "label": "ornate cabinet of curiosities",
+  "family": "maximalism",
+  "emo": [
+   "admiration",
+   "submission",
+   "awe"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "maximalism-ornate-cabinet-of-curiosities.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "maximalism-ribbon-and-rosette-swarm",
+  "label": "ribbon and rosette swarm",
+  "family": "maximalism",
+  "emo": [
+   "interest",
+   "awe",
+   "overwhelm"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "maximalism-ribbon-and-rosette-swarm.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "maximalism-crowded-souvenir-shelf",
+  "label": "crowded souvenir shelf",
+  "family": "maximalism",
+  "emo": [
+   "joy",
+   "disapproval",
+   "ecstasy"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "maximalism-crowded-souvenir-shelf.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "maximalism-exploding-decorative-border",
+  "label": "exploding decorative border",
+  "family": "maximalism",
+  "emo": [
+   "awe",
+   "remorse",
+   "amazement"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "maximalism-exploding-decorative-border.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "pop-art-halftone-soup-can",
+  "label": "halftone soup can",
+  "family": "pop-art",
+  "emo": [
+   "ecstasy",
+   "aggressiveness",
+   "joy"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "pop-art-halftone-soup-can.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "pop-art-comic-speech-burst",
+  "label": "comic speech burst",
+  "family": "pop-art",
+  "emo": [
+   "contempt",
+   "optimism",
+   "annoyance"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "pop-art-comic-speech-burst.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "pop-art-oversized-price-tag",
+  "label": "oversized price tag",
+  "family": "pop-art",
+  "emo": [
+   "distraction",
+   "love",
+   "optimism"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "pop-art-oversized-price-tag.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "pop-art-repeat-lip-print",
+  "label": "repeat lip print",
+  "family": "pop-art",
+  "emo": [
+   "joy",
+   "submission",
+   "amazement"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "pop-art-repeat-lip-print.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "pop-art-bright-telephone-handset",
+  "label": "bright telephone handset",
+  "family": "pop-art",
+  "emo": [
+   "annoyance",
+   "awe",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "pop-art-bright-telephone-handset.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "pop-art-shopping-bag-halo",
+  "label": "shopping bag halo",
+  "family": "pop-art",
+  "emo": [
+   "optimism",
+   "disapproval",
+   "ecstasy"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "pop-art-shopping-bag-halo.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "pop-art-mass-produced-rose",
+  "label": "mass produced rose",
+  "family": "pop-art",
+  "emo": [
+   "amazement",
+   "remorse",
+   "contempt"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "pop-art-mass-produced-rose.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "pop-art-four-panel-celebrity-silhouette",
+  "label": "four panel celebrity silhouette",
+  "family": "pop-art",
+  "emo": [
+   "overwhelm",
+   "contempt",
+   "distraction"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "pop-art-four-panel-celebrity-silhouette.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "abstract-expressionism-wild-black-brushstroke",
+  "label": "wild black brushstroke",
+  "family": "abstract-expressionism",
+  "emo": [
+   "rage",
+   "optimism",
+   "remorse"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "abstract-expressionism-wild-black-brushstroke.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "abstract-expressionism-paint-drip-horizon",
+  "label": "paint drip horizon",
+  "family": "abstract-expressionism",
+  "emo": [
+   "grief",
+   "love",
+   "aggressiveness"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "abstract-expressionism-paint-drip-horizon.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "abstract-expressionism-scraped-ochre-field",
+  "label": "scraped ochre field",
+  "family": "abstract-expressionism",
+  "emo": [
+   "annoyance",
+   "submission",
+   "loathing"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "abstract-expressionism-scraped-ochre-field.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "abstract-expressionism-torn-canvas-edge",
+  "label": "torn canvas edge",
+  "family": "abstract-expressionism",
+  "emo": [
+   "remorse",
+   "awe",
+   "amazement"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "abstract-expressionism-torn-canvas-edge.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "abstract-expressionism-gestural-red-swipe",
+  "label": "gestural red swipe",
+  "family": "abstract-expressionism",
+  "emo": [
+   "aggressiveness",
+   "disapproval",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "abstract-expressionism-gestural-red-swipe.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "abstract-expressionism-dense-charcoal-knot",
+  "label": "dense charcoal knot",
+  "family": "abstract-expressionism",
+  "emo": [
+   "loathing",
+   "remorse",
+   "rage"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "abstract-expressionism-dense-charcoal-knot.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "abstract-expressionism-thrown-ink-splash",
+  "label": "thrown ink splash",
+  "family": "abstract-expressionism",
+  "emo": [
+   "amazement",
+   "contempt",
+   "grief"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "abstract-expressionism-thrown-ink-splash.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "abstract-expressionism-unfinished-color-block",
+  "label": "unfinished color block",
+  "family": "abstract-expressionism",
+  "emo": [
+   "overwhelm",
+   "aggressiveness",
+   "annoyance"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "abstract-expressionism-unfinished-color-block.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "geometric-abstraction-floating-triangle-cluster",
+  "label": "floating triangle cluster",
+  "family": "geometric-abstraction",
+  "emo": [
+   "interest",
+   "love",
+   "acceptance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "geometric-abstraction-floating-triangle-cluster.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "geometric-abstraction-nested-rectangular-planes",
+  "label": "nested rectangular planes",
+  "family": "geometric-abstraction",
+  "emo": [
+   "trust",
+   "submission",
+   "optimism"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "geometric-abstraction-nested-rectangular-planes.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "geometric-abstraction-offset-color-disks",
+  "label": "offset color disks",
+  "family": "geometric-abstraction",
+  "emo": [
+   "vigilance",
+   "awe",
+   "serenity"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "geometric-abstraction-offset-color-disks.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "geometric-abstraction-interlocking-grid-cells",
+  "label": "interlocking grid cells",
+  "family": "geometric-abstraction",
+  "emo": [
+   "acceptance",
+   "disapproval",
+   "amazement"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "geometric-abstraction-interlocking-grid-cells.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "geometric-abstraction-diagonal-rhythm-bars",
+  "label": "diagonal rhythm bars",
+  "family": "geometric-abstraction",
+  "emo": [
+   "optimism",
+   "remorse",
+   "distraction"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "geometric-abstraction-diagonal-rhythm-bars.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "geometric-abstraction-balanced-color-tiles",
+  "label": "balanced color tiles",
+  "family": "geometric-abstraction",
+  "emo": [
+   "serenity",
+   "contempt",
+   "interest"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "geometric-abstraction-balanced-color-tiles.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "geometric-abstraction-spiral-square-module",
+  "label": "spiral square module",
+  "family": "geometric-abstraction",
+  "emo": [
+   "amazement",
+   "aggressiveness",
+   "trust"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "geometric-abstraction-spiral-square-module.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "geometric-abstraction-fractured-circle-study",
+  "label": "fractured circle study",
+  "family": "geometric-abstraction",
+  "emo": [
+   "distraction",
+   "optimism",
+   "vigilance"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "geometric-abstraction-fractured-circle-study.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "op-art-undulating-stripe-field",
+  "label": "undulating stripe field",
+  "family": "op-art",
+  "emo": [
+   "amazement",
+   "submission",
+   "distraction"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "op-art-undulating-stripe-field.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "op-art-impossible-checkerboard",
+  "label": "impossible checkerboard",
+  "family": "op-art",
+  "emo": [
+   "apprehension",
+   "awe",
+   "interest"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "op-art-impossible-checkerboard.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "op-art-pulsing-concentric-rings",
+  "label": "pulsing concentric rings",
+  "family": "op-art",
+  "emo": [
+   "overwhelm",
+   "disapproval",
+   "terror"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "op-art-pulsing-concentric-rings.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "op-art-staggered-dot-tunnel",
+  "label": "staggered dot tunnel",
+  "family": "op-art",
+  "emo": [
+   "distraction",
+   "remorse",
+   "awe"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "op-art-staggered-dot-tunnel.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "op-art-folded-zigzag-moire",
+  "label": "folded zigzag moire",
+  "family": "op-art",
+  "emo": [
+   "interest",
+   "contempt",
+   "vigilance"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "op-art-folded-zigzag-moire.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "op-art-rotating-radial-lines",
+  "label": "rotating radial lines",
+  "family": "op-art",
+  "emo": [
+   "terror",
+   "aggressiveness",
+   "amazement"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "op-art-rotating-radial-lines.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "op-art-warped-parallel-grid",
+  "label": "warped parallel grid",
+  "family": "op-art",
+  "emo": [
+   "awe",
+   "optimism",
+   "apprehension"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "op-art-warped-parallel-grid.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "op-art-vibrating-diamond-stack",
+  "label": "vibrating diamond stack",
+  "family": "op-art",
+  "emo": [
+   "vigilance",
+   "love",
+   "overwhelm"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "op-art-vibrating-diamond-stack.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "surrealism-eye-inside-keyhole",
+  "label": "eye inside keyhole",
+  "family": "surrealism",
+  "emo": [
+   "awe",
+   "apprehension"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "surrealism-eye-inside-keyhole.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "surrealism-clock-rooted-in-soil",
+  "label": "clock rooted in soil",
+  "family": "surrealism",
+  "emo": [
+   "pensiveness",
+   "disapproval",
+   "interest"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "surrealism-clock-rooted-in-soil.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "surrealism-floating-fish-drawer",
+  "label": "floating fish drawer",
+  "family": "surrealism",
+  "emo": [
+   "amazement",
+   "remorse",
+   "love"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "surrealism-floating-fish-drawer.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "surrealism-doorway-into-cloud",
+  "label": "doorway into cloud",
+  "family": "surrealism",
+  "emo": [
+   "apprehension",
+   "contempt",
+   "terror"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "surrealism-doorway-into-cloud.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "surrealism-hand-holding-a-horizon",
+  "label": "hand holding a horizon",
+  "family": "surrealism",
+  "emo": [
+   "interest",
+   "aggressiveness",
+   "distraction"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "surrealism-hand-holding-a-horizon.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "surrealism-bird-with-book-wings",
+  "label": "bird with book wings",
+  "family": "surrealism",
+  "emo": [
+   "love",
+   "optimism",
+   "awe"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "surrealism-bird-with-book-wings.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "surrealism-faceless-mirror-witness",
+  "label": "faceless mirror witness",
+  "family": "surrealism",
+  "emo": [
+   "terror",
+   "love",
+   "pensiveness"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "surrealism-faceless-mirror-witness.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "surrealism-rainfall-of-teacups",
+  "label": "rainfall of teacups",
+  "family": "surrealism",
+  "emo": [
+   "distraction",
+   "submission",
+   "amazement"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "surrealism-rainfall-of-teacups.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "expressionism-angular-city-walker",
+  "label": "angular city walker",
+  "family": "expressionism",
+  "emo": [
+   "grief",
+   "disapproval",
+   "remorse"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "expressionism-angular-city-walker.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "expressionism-screaming-red-sky",
+  "label": "screaming red sky",
+  "family": "expressionism",
+  "emo": [
+   "terror",
+   "remorse",
+   "apprehension"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "expressionism-screaming-red-sky.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "expressionism-black-woodcut-hands",
+  "label": "black woodcut hands",
+  "family": "expressionism",
+  "emo": [
+   "rage",
+   "contempt",
+   "loathing"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "expressionism-black-woodcut-hands.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "expressionism-distorted-church-spire",
+  "label": "distorted church spire",
+  "family": "expressionism",
+  "emo": [
+   "remorse",
+   "aggressiveness",
+   "admiration"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "expressionism-distorted-church-spire.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "expressionism-yellow-face-in-shadow",
+  "label": "yellow face in shadow",
+  "family": "expressionism",
+  "emo": [
+   "apprehension",
+   "optimism",
+   "sadness"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "expressionism-yellow-face-in-shadow.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "expressionism-crowded-tenement-street",
+  "label": "crowded tenement street",
+  "family": "expressionism",
+  "emo": [
+   "loathing",
+   "love",
+   "grief"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "expressionism-crowded-tenement-street.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "expressionism-blue-horse-outline",
+  "label": "blue horse outline",
+  "family": "expressionism",
+  "emo": [
+   "admiration",
+   "submission",
+   "terror"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "expressionism-blue-horse-outline.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "expressionism-jagged-mountain-portrait",
+  "label": "jagged mountain portrait",
+  "family": "expressionism",
+  "emo": [
+   "sadness",
+   "awe",
+   "rage"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "expressionism-jagged-mountain-portrait.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "memphis-squiggle-laminate-panel",
+  "label": "squiggle laminate panel",
+  "family": "memphis",
+  "emo": [
+   "joy",
+   "remorse",
+   "distraction"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "memphis-squiggle-laminate-panel.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "memphis-stacked-ceramic-shapes",
+  "label": "stacked ceramic shapes",
+  "family": "memphis",
+  "emo": [
+   "amazement",
+   "contempt",
+   "optimism"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "memphis-stacked-ceramic-shapes.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "memphis-confetti-lightning-bolt",
+  "label": "confetti lightning bolt",
+  "family": "memphis",
+  "emo": [
+   "ecstasy",
+   "aggressiveness",
+   "interest"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "memphis-confetti-lightning-bolt.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "memphis-clashing-pattern-vase",
+  "label": "clashing pattern vase",
+  "family": "memphis",
+  "emo": [
+   "distraction",
+   "optimism",
+   "love"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "memphis-clashing-pattern-vase.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "memphis-zigzag-side-table",
+  "label": "zigzag side table",
+  "family": "memphis",
+  "emo": [
+   "optimism",
+   "love",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "memphis-zigzag-side-table.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "memphis-polka-dot-column",
+  "label": "polka dot column",
+  "family": "memphis",
+  "emo": [
+   "interest",
+   "submission",
+   "joy"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "memphis-polka-dot-column.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "memphis-pastel-geometry-party",
+  "label": "pastel geometry party",
+  "family": "memphis",
+  "emo": [
+   "love",
+   "awe",
+   "amazement"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "memphis-pastel-geometry-party.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "memphis-striped-lamp-dome",
+  "label": "striped lamp dome",
+  "family": "memphis",
+  "emo": [
+   "overwhelm",
+   "disapproval",
+   "ecstasy"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "memphis-striped-lamp-dome.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "zine-diy-hand-lettered-page-margin",
+  "label": "hand lettered page margin",
+  "family": "zine-diy",
+  "emo": [
+   "interest",
+   "contempt",
+   "aggressiveness"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "zine-diy-hand-lettered-page-margin.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "zine-diy-xeroxed-local-flyer",
+  "label": "xeroxed local flyer",
+  "family": "zine-diy",
+  "emo": [
+   "annoyance",
+   "aggressiveness",
+   "acceptance"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "zine-diy-xeroxed-local-flyer.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "zine-diy-tape-hinged-photo",
+  "label": "tape hinged photo",
+  "family": "zine-diy",
+  "emo": [
+   "vigilance",
+   "optimism",
+   "contempt"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "zine-diy-tape-hinged-photo.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "zine-diy-stapled-mini-booklet",
+  "label": "stapled mini booklet",
+  "family": "zine-diy",
+  "emo": [
+   "aggressiveness",
+   "love",
+   "trust"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "zine-diy-stapled-mini-booklet.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "zine-diy-scanned-fingerprint",
+  "label": "scanned fingerprint",
+  "family": "zine-diy",
+  "emo": [
+   "acceptance",
+   "submission",
+   "optimism"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "zine-diy-scanned-fingerprint.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "zine-diy-cut-and-paste-manifesto",
+  "label": "cut and paste manifesto",
+  "family": "zine-diy",
+  "emo": [
+   "contempt",
+   "awe",
+   "interest"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "zine-diy-cut-and-paste-manifesto.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "zine-diy-hand-drawn-distribution-map",
+  "label": "hand drawn distribution map",
+  "family": "zine-diy",
+  "emo": [
+   "trust",
+   "disapproval",
+   "annoyance"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "zine-diy-hand-drawn-distribution-map.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "zine-diy-photocopied-music-lineup",
+  "label": "photocopied music lineup",
+  "family": "zine-diy",
+  "emo": [
+   "optimism",
+   "remorse",
+   "vigilance"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "zine-diy-photocopied-music-lineup.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "afrofuturism-cosmic-record-grooves",
+  "label": "cosmic record grooves",
+  "family": "afrofuturism",
+  "emo": [
+   "awe",
+   "aggressiveness",
+   "vigilance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "afrofuturism-cosmic-record-grooves.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "afrofuturism-ancestral-star-chart",
+  "label": "ancestral star chart",
+  "family": "afrofuturism",
+  "emo": [
+   "admiration",
+   "optimism",
+   "trust"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "afrofuturism-ancestral-star-chart.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "afrofuturism-interstellar-community-garden",
+  "label": "interstellar community garden",
+  "family": "afrofuturism",
+  "emo": [
+   "optimism",
+   "love",
+   "ecstasy"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "afrofuturism-interstellar-community-garden.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "afrofuturism-solar-powered-braid-pattern",
+  "label": "solar powered braid pattern",
+  "family": "afrofuturism",
+  "emo": [
+   "vigilance",
+   "submission",
+   "interest"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "afrofuturism-solar-powered-braid-pattern.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "afrofuturism-synthesizer-constellation",
+  "label": "synthesizer constellation",
+  "family": "afrofuturism",
+  "emo": [
+   "trust",
+   "awe",
+   "love"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "afrofuturism-synthesizer-constellation.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "afrofuturism-afrocentric-future-city",
+  "label": "afrocentric future city",
+  "family": "afrofuturism",
+  "emo": [
+   "ecstasy",
+   "disapproval",
+   "awe"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "afrofuturism-afrocentric-future-city.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "afrofuturism-space-helmet-reflection",
+  "label": "space helmet reflection",
+  "family": "afrofuturism",
+  "emo": [
+   "interest",
+   "remorse",
+   "admiration"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "afrofuturism-space-helmet-reflection.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "afrofuturism-orbiting-story-symbols",
+  "label": "orbiting story symbols",
+  "family": "afrofuturism",
+  "emo": [
+   "love",
+   "contempt",
+   "optimism"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "afrofuturism-orbiting-story-symbols.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "gothic-revival-pointed-arch-window",
+  "label": "pointed arch window",
+  "family": "gothic-revival",
+  "emo": [
+   "awe",
+   "optimism",
+   "admiration"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "gothic-revival-pointed-arch-window.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "gothic-revival-tracery-rose-window",
+  "label": "tracery rose window",
+  "family": "gothic-revival",
+  "emo": [
+   "apprehension",
+   "love",
+   "pensiveness"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "gothic-revival-tracery-rose-window.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "gothic-revival-gargoyle-water-spout",
+  "label": "gargoyle water spout",
+  "family": "gothic-revival",
+  "emo": [
+   "terror",
+   "submission",
+   "grief"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "gothic-revival-gargoyle-water-spout.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "gothic-revival-illuminated-manuscript-vine",
+  "label": "illuminated manuscript vine",
+  "family": "gothic-revival",
+  "emo": [
+   "admiration",
+   "awe",
+   "serenity"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "gothic-revival-illuminated-manuscript-vine.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "gothic-revival-buttress-silhouette",
+  "label": "buttress silhouette",
+  "family": "gothic-revival",
+  "emo": [
+   "pensiveness",
+   "disapproval",
+   "trust"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "gothic-revival-buttress-silhouette.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "gothic-revival-shadowed-cloister",
+  "label": "shadowed cloister",
+  "family": "gothic-revival",
+  "emo": [
+   "grief",
+   "remorse",
+   "awe"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "gothic-revival-shadowed-cloister.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "gothic-revival-stone-carved-leaf",
+  "label": "stone carved leaf",
+  "family": "gothic-revival",
+  "emo": [
+   "serenity",
+   "contempt",
+   "apprehension"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "gothic-revival-stone-carved-leaf.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "gothic-revival-tall-candle-niche",
+  "label": "tall candle niche",
+  "family": "gothic-revival",
+  "emo": [
+   "trust",
+   "aggressiveness",
+   "terror"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "gothic-revival-tall-candle-niche.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "ukiyo-e-great-curving-wave",
+  "label": "great curving wave",
+  "family": "ukiyo-e",
+  "emo": [
+   "amazement",
+   "love",
+   "pensiveness"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "ukiyo-e-great-curving-wave.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "ukiyo-e-kabuki-fan-profile",
+  "label": "kabuki fan profile",
+  "family": "ukiyo-e",
+  "emo": [
+   "interest",
+   "submission",
+   "love"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "ukiyo-e-kabuki-fan-profile.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "ukiyo-e-falling-cherry-petals",
+  "label": "falling cherry petals",
+  "family": "ukiyo-e",
+  "emo": [
+   "serenity",
+   "awe"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "ukiyo-e-falling-cherry-petals.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "ukiyo-e-rain-on-bridge",
+  "label": "rain on bridge",
+  "family": "ukiyo-e",
+  "emo": [
+   "pensiveness",
+   "disapproval",
+   "admiration"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "ukiyo-e-rain-on-bridge.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "ukiyo-e-paper-lantern-street",
+  "label": "paper lantern street",
+  "family": "ukiyo-e",
+  "emo": [
+   "love",
+   "remorse",
+   "acceptance"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "ukiyo-e-paper-lantern-street.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "ukiyo-e-mountain-through-clouds",
+  "label": "mountain through clouds",
+  "family": "ukiyo-e",
+  "emo": [
+   "awe",
+   "contempt",
+   "amazement"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "ukiyo-e-mountain-through-clouds.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "ukiyo-e-woodblock-theater-curtain",
+  "label": "woodblock theater curtain",
+  "family": "ukiyo-e",
+  "emo": [
+   "admiration",
+   "aggressiveness",
+   "interest"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "ukiyo-e-woodblock-theater-curtain.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "ukiyo-e-crane-over-river",
+  "label": "crane over river",
+  "family": "ukiyo-e",
+  "emo": [
+   "acceptance",
+   "optimism",
+   "serenity"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "ukiyo-e-crane-over-river.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "situationism-reworked-advertising-slogan",
+  "label": "reworked advertising slogan",
+  "family": "situationism",
+  "emo": [
+   "contempt",
+   "submission",
+   "disapproval"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "situationism-reworked-advertising-slogan.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "situationism-reversed-city-map",
+  "label": "reversed city map",
+  "family": "situationism",
+  "emo": [
+   "interest",
+   "awe",
+   "boredom"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "situationism-reversed-city-map.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "situationism-wandering-route-arrows",
+  "label": "wandering route arrows",
+  "family": "situationism",
+  "emo": [
+   "aggressiveness",
+   "disapproval",
+   "vigilance"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "situationism-wandering-route-arrows.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "situationism-spectacle-television-head",
+  "label": "spectacle television head",
+  "family": "situationism",
+  "emo": [
+   "disapproval",
+   "remorse",
+   "annoyance"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "situationism-spectacle-television-head.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "situationism-shopping-cart-maze",
+  "label": "shopping cart maze",
+  "family": "situationism",
+  "emo": [
+   "boredom",
+   "contempt",
+   "amazement"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "situationism-shopping-cart-maze.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "situationism-graffiti-over-billboard",
+  "label": "graffiti over billboard",
+  "family": "situationism",
+  "emo": [
+   "vigilance",
+   "aggressiveness",
+   "contempt"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "situationism-graffiti-over-billboard.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "situationism-cutup-commuter-ticket",
+  "label": "cutup commuter ticket",
+  "family": "situationism",
+  "emo": [
+   "annoyance",
+   "optimism",
+   "interest"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "situationism-cutup-commuter-ticket.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "situationism-detourned-luxury-logo",
+  "label": "detourned luxury logo",
+  "family": "situationism",
+  "emo": [
+   "amazement",
+   "love",
+   "aggressiveness"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "situationism-detourned-luxury-logo.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "grunge-design-distressed-type-scrap",
+  "label": "distressed type scrap",
+  "family": "grunge-design",
+  "emo": [
+   "annoyance",
+   "awe",
+   "grief"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "grunge-design-distressed-type-scrap.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "grunge-design-stained-concert-flyer",
+  "label": "stained concert flyer",
+  "family": "grunge-design",
+  "emo": [
+   "pensiveness",
+   "disapproval",
+   "rage"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "grunge-design-stained-concert-flyer.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "grunge-design-scratched-negative-strip",
+  "label": "scratched negative strip",
+  "family": "grunge-design",
+  "emo": [
+   "loathing",
+   "remorse"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "grunge-design-scratched-negative-strip.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "grunge-design-torn-corrugated-layer",
+  "label": "torn corrugated layer",
+  "family": "grunge-design",
+  "emo": [
+   "grief",
+   "contempt"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "grunge-design-torn-corrugated-layer.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "grunge-design-bleeding-ink-handprint",
+  "label": "bleeding ink handprint",
+  "family": "grunge-design",
+  "emo": [
+   "rage",
+   "aggressiveness",
+   "overwhelm"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "grunge-design-bleeding-ink-handprint.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "grunge-design-rusted-photocopy-border",
+  "label": "rusted photocopy border",
+  "family": "grunge-design",
+  "emo": [
+   "remorse",
+   "optimism",
+   "annoyance"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "grunge-design-rusted-photocopy-border.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "grunge-design-crossed-out-brand-label",
+  "label": "crossed out brand label",
+  "family": "grunge-design",
+  "emo": [
+   "contempt",
+   "love",
+   "pensiveness"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "grunge-design-crossed-out-brand-label.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "grunge-design-weathered-poster-wall",
+  "label": "weathered poster wall",
+  "family": "grunge-design",
+  "emo": [
+   "overwhelm",
+   "submission",
+   "loathing"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "grunge-design-weathered-poster-wall.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "y2k-translucent-orb-button",
+  "label": "translucent orb button",
+  "family": "y2k",
+  "emo": [
+   "optimism",
+   "disapproval",
+   "anticipation"
+  ],
+  "cats": [
+   "object"
+  ],
+  "status": "wanted",
+  "file": "y2k-translucent-orb-button.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "y2k-chrome-liquid-star",
+  "label": "chrome liquid star",
+  "family": "y2k",
+  "emo": [
+   "amazement",
+   "remorse",
+   "admiration"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "status": "wanted",
+  "file": "y2k-chrome-liquid-star.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "y2k-pixel-sparkle-icon",
+  "label": "pixel sparkle icon",
+  "family": "y2k",
+  "emo": [
+   "interest",
+   "contempt",
+   "distraction"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "status": "wanted",
+  "file": "y2k-pixel-sparkle-icon.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "y2k-bubble-interface-tab",
+  "label": "bubble interface tab",
+  "family": "y2k",
+  "emo": [
+   "anticipation",
+   "aggressiveness",
+   "joy"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "status": "wanted",
+  "file": "y2k-bubble-interface-tab.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "y2k-futuristic-flip-phone",
+  "label": "futuristic flip phone",
+  "family": "y2k",
+  "emo": [
+   "admiration",
+   "optimism",
+   "awe"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "status": "wanted",
+  "file": "y2k-futuristic-flip-phone.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "y2k-iridescent-cd-disc",
+  "label": "iridescent cd disc",
+  "family": "y2k",
+  "emo": [
+   "distraction",
+   "love",
+   "optimism"
+  ],
+  "cats": [
+   "food"
+  ],
+  "status": "wanted",
+  "file": "y2k-iridescent-cd-disc.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "y2k-rounded-progress-ring",
+  "label": "rounded progress ring",
+  "family": "y2k",
+  "emo": [
+   "joy",
+   "submission",
+   "amazement"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "status": "wanted",
+  "file": "y2k-rounded-progress-ring.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ },
+ {
+  "id": "y2k-wireframe-millennium-flower",
+  "label": "wireframe millennium flower",
+  "family": "y2k",
+  "emo": [
+   "awe",
+   "interest"
+  ],
+  "cats": [],
+  "status": "wanted",
+  "file": "y2k-wireframe-millennium-flower.png",
+  "src": null,
+  "fallback": null,
+  "source": null,
+  "notes": "tags are a first guess; re-tag from the real image"
+ }
+]

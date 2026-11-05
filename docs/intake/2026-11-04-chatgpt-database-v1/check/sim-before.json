@@ -1,0 +1,113 @@
+{
+ "N": 6000,
+ "darts": 12855,
+ "bull": 850,
+ "rings": {
+  "core": 5445,
+  "intense": 2859,
+  "mild": 3701,
+  "pots with bull": 850
+ },
+ "petals": {
+  "disgust": 2537,
+  "joy": 3349,
+  "anger": 987,
+  "anticipation": 894,
+  "sadness": 1866,
+  "surprise": 776,
+  "trust": 1034,
+  "fear": 562
+ },
+ "perIngRings": {
+  "core": 84,
+  "intense": 44,
+  "mild": 53
+ },
+ "prim": {
+  "brutalism": 526,
+  "psychedelia": 311,
+  "punk": 251,
+  "pop-art": 1128,
+  "art-deco": 275,
+  "bauhaus": 98,
+  "op-art": 112,
+  "minimalism": 216,
+  "vaporwave": 336,
+  "art-nouveau": 117,
+  "abstract-expressionism": 892,
+  "dada": 163,
+  "maximalism": 807,
+  "swiss": 135,
+  "constructivism": 120,
+  "futurism": 249,
+  "cyberpunk": 189,
+  "geometric-abstraction": 75
+ },
+ "sec": {
+  "constructivism": 195,
+  "pop-art": 306,
+  "brutalism": 277,
+  "futurism": 300,
+  "punk": 147,
+  "vaporwave": 256,
+  "swiss": 115,
+  "cyberpunk": 125,
+  "maximalism": 467,
+  "abstract-expressionism": 543,
+  "dada": 234,
+  "geometric-abstraction": 158,
+  "art-deco": 236,
+  "psychedelia": 339,
+  "minimalism": 116,
+  "art-nouveau": 114,
+  "bauhaus": 91,
+  "op-art": 116
+ },
+ "branch": {
+  "order": 975,
+  "ornament": 703,
+  "revolt": 534,
+  "excess": 1935,
+  "abstract": 1079,
+  "future": 774
+ },
+ "fam": {
+  "ledger": 775,
+  "reliquary": 828,
+  "xerox": 554,
+  "cutup": 2724,
+  "manifesto": 765,
+  "whisper": 354
+ },
+ "layoutFrom": {
+  "style": 4471,
+  "pressure": 1529
+ },
+ "assets": {
+  "smokestacks": 1535,
+  "infomercial": 3124,
+  "red-wedge": 1149,
+  "barcode": 1786,
+  "scribble": 1958,
+  "crow": 945,
+  "halftone-moon": 930,
+  "kit4-002": 1978,
+  "eye": 1158,
+  "torn-scrap": 1455,
+  "rubber-stamp": 969,
+  "gear": 1368,
+  "loaf": 1213,
+  "ember-cluster": 1170,
+  "valve": 1277,
+  "gauge": 1269,
+  "kit4-001": 533,
+  "registration": 1161,
+  "arrow": 1179
+ },
+ "dupInRoom": 0,
+ "nondeterministic": 0,
+ "ingredients": 181,
+ "styles": 18,
+ "assetCount": 19,
+ "unpickedAssets": []
+}
