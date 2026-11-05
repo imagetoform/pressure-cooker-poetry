@@ -2,11 +2,33 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - add OPENROUTER_API_KEY + allow Actions PRs, say publish; Claude - re-run constructivism intake with crops
+next: Brandon - make pcp-database preset, upload deliveries, add OPENROUTER_API_KEY + allow Actions PRs; Claude - process deliveries, publish when movements fill
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-05 09:23 — Published to production (kits, 481 ingredients, 28 movements, 2 library cutouts) + OpenRouter preset
+
+### What was asked
+"Lets update the live site, and use the database of graphics we have so far or do we have any yet, in fact write me a preset i can put into openrouter to create said database properly".
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Library | kept constructivism-proun-99 and constructivism-gan-cover from cutouts/run-1 (the uncropped whole image came out clean). Resized to 900 px and 128-colour quantised (617->57 KB, 916->93 KB), status "kept", added to library/cutouts/manifest.json on main. Red wedge, ROSTA and VKhUTEMAS were left out (they need crops or failed). Commit 1e5c653 |
+| Pre-publish checks | test.js-test4.js pass (only the old kit4 404s); sim 2000 pots: deterministic, no repeated cutouts, both library cutouts get picked (~20% of rooms each) |
+| Deploy | publish/ = dist/index.html + assets/cutouts/ (2 PNGs) + netlify.toml; previous page saved as tmp/live-2026-11-02.html. Netlify deploy-site tool -> local deploy-tool/node_modules/.bin/netlify-mcp in publish/ (proxy URL [secret removed; the deploy-site tool issues a fresh one each time]). **Deploy 6aec9eda53a8f7258ab0b2dd ready.** Rollback target: previous deploy 6ae8f67b4c83d484435703db |
+| Verify live | live md5 bbc1cc246236ff120680f96eaf565398 == dist; /assets/cutouts/constructivism-proun-99.png 200; Playwright desktop: 481 tiles, 28 kits, 28 styles, 2 library assets, lab controls hidden, cooking through the UI gives a kit room (pop-art slab button, texture, ornament); phone: room renders, no overflow, no JS errors |
+| Preset | tools/cutouts/prompts/openrouter-preset.md: OpenRouter preset `pcp-database` for chat (settings table + system prompt): one movement per message; scout PD/CC0 on allowlisted hosts with the licence read on the page; keep + crop; tag by looking, with `looked` true/false; 4 kit snippets; self-critic; one JSON delivery for library/intake. Built from superbot.md's wheel/movements/rules. run.py intake now records `looked` and flags `tags-unseen` |
+
+### Result
+Live: the dartboard and style tree build (Nov 4), 481 re-tasted ingredients, 28 movements, the 480-part kits, and 2 library cutouts. No movement is database-only yet (needs 6).
+
+### Open / notes
+- Brandon: make the `pcp-database` preset, run it per movement, upload deliveries to library/intake (GitHub web upload works from a phone). Add the OPENROUTER_API_KEY secret so crops work; tick "Allow GitHub Actions to create and approve pull requests".
+- After a merge, the next publish must ship dist/ with assets/cutouts/.
+- Coupons from before today rebuild differently (the engine changed with the dartboard build, and the pantry and pool grew).
 
 ## 2026-11-05 09:09 — Kits (480 parts) + database-only rooms
 
