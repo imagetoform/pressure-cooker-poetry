@@ -2,11 +2,38 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - publish yes/no + style-tuning call (see 18:50 entry); Claude - finish OpenRouter intake (see top entry)
+next: Brandon - add OPENROUTER_API_KEY secret + first Cutouts run; publish yes/no + style tuning (see 18:50)
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-04 21:34 — Cutout pipeline built (scout / find / pick / cut / tag / snippets) and pushed
+
+### What was asked
+Brandon: a prompt or workflow for OpenRouter (or Gemini or Muse) that finds the shopping-list images, cuts them out, files them into their aesthetic families and tags mood by looking at the visual context (a ski mask tagged violent or aggressive, depending on the scene). Mid-turn he added: he'd make an OpenRouter preset as the scout, image cutter and code-snippet agent; sheer volume is the point, for random but unified collage rooms.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Design | The model (preset) is the brain: scout, pick, tag, snippets. GitHub Actions is the hands: search the collections, download, rembg cutout, validate, file, PR + zip. A preset can't download or cut images itself; told Brandon |
+| tools/cutouts/run.py | modes cutouts / scout / snippets / all. Find = Commons API + AIC API + Openverse (cc0,pdm), licence filter from the collections' own metadata, so the model never supplies URLs. Downloads only from a host allowlist, 30 MB cap, re-checked after redirects. Cut = rembg `isnet-general-use` (rembg 2.0.86; the name is in sessions/dis_general_use.py), alpha trim, max 1200 px, fails under 2% coverage. Tag = vision model on a checkerboard composite; aliases resolved, words outside the 33 dropped, one retry. Snippets validated: no @import, no external url(), no scripts, every selector scoped to body[data-sty=id], licence CC0/MIT/Apache/BSD, source URL required when borrowed. Manifest records carry full provenance and status "new" |
+| prompts/ | pick.md, tag.md (ski-mask context examples; never tag from identity; satire aims up), scout.md (aims at wheel gaps per movement), snippets.md, preset-system.md (system prompt for @preset/pcp-scout; also sent as the system message when no preset is used) |
+| catalog.js | node vm loads site/src/board.js + styles.js -> library/catalog.json (33 words, aliases, petals, dyads, 28 movements) |
+| .github/workflows/cutouts.yml | workflow_dispatch inputs mode/movement/limit/model, passed via env (no ${ } in shell); actions pinned by SHA (checkout v7.0.1 3d3c42e, setup-python v7.1.0 6d4fd22, upload-artifact v7.0.2 cf430e0); concurrency group; commits to branch cutouts/run-N, gh pr create, zip artifact |
+| OpenRouter facts checked | presets are called as model "@preset/slug" and can store tools incl. openrouter:web_search (openrouter.ai/docs/guides/features/presets). Vision models exist: google/gemini-3.8-flash (default), meta/muse-spark-1.3 (from the public /api/v1/models list) |
+| Tests | offline stub test (/root/tasks/pcp-site-update/tmp/stub_test.py, run in a copy at tmp/cutout-test): all modes end to end; alias fury->rage; bad words and categories dropped; 3 unsafe snippets rejected; scout added an item. Request-shape test: system+user messages, image_url parts, web_search tool only for scout/snippets, no system message with a preset |
+| Docs | docs/CUTOUT_PIPELINE.md (setup: OPENROUTER_API_KEY repo secret, allow Actions to create PRs, preset recipe; run; review; not done yet); library/cutouts/README.md pointer |
+| Commit | c4637bd on main, pushed (the workflow file push was accepted) |
+
+### Result
+The pipeline is in the repo, but it has never run against the real internet or a real model: this sandbox can't reach Commons, AIC, Openverse or rembg's model download (403/429/500 through the proxy). The first real run happens in Actions once Brandon adds the secret.
+
+### Open / notes
+- Brandon: add the OPENROUTER_API_KEY secret, tick "allow Actions to create PRs", optionally create preset pcp-scout, then run Actions -> Cutouts (start small: movement punk, limit 4).
+- On the first real run, watch for: Commons extmetadata licence strings, AIC IIIF size 1686 (may need 843), Openverse anonymous rate limits, and how fast rembg's model downloads on the runner.
+- Not wired into the site yet: the build doesn't read library/cutouts/manifest.json or ship assets/cutouts/; kit snippets need a seeded per-room variant picker.
+- Still open from 18:50: publish yes/no; Pop Art/Maximalism and layout-override tuning.
 
 ## 2026-11-04 18:58 — OpenRouter intake started (paused), `next` shortened
 
