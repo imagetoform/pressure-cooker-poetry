@@ -7,3 +7,4 @@ deploy-tool/
 .DS_Store
 __pycache__/
 *.pyc
+.netlify/

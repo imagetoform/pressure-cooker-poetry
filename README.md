@@ -40,4 +40,6 @@ cd .. && node tools/test.js       # needs Playwright
 
 The site is a single static `index.html` on Netlify (site `pressurecookerpoetry`). Upload the whole `site/dist/` folder as a deploy: `index.html` plus `assets/cutouts/`, which the build fills from `library/cutouts/manifest.json`.
 
+For automatic deploys, connect this GitHub repository to the existing Netlify project, choose `main` as the production branch, and use the build command and publish directory in `netlify.toml`. GitHub Actions rebuilds every pull request and checks that `site/dist/` matches the source files. Do not create a second Netlify project for the same domain.
+
 **Database-only rooms.** Once a movement has 6 library cutouts, its rooms stop using the layouts' built-in background art and stand-in drawings. They use only library cutouts and the movement's kit; the layout still arranges the poem. Movements below 6 keep the old art. The line is `DB_MIN` in `site/tools/build_library.py`.

@@ -31,7 +31,12 @@ def collect(repo_root, dist_dir):
     man_path = os.path.join(repo_root, "library", "cutouts", "manifest.json")
     manifest = json.load(open(man_path, encoding="utf-8")) if os.path.exists(man_path) else []
     out_dir = os.path.join(dist_dir, "assets", "cutouts")
-    if os.path.isdir(out_dir): shutil.rmtree(out_dir)   # only what the manifest still lists
+    # Keep the directory itself: OneDrive can make it a reparse point on Windows.
+    # Clear only generated PNGs so removed manifest entries leave no stale assets.
+    if os.path.isdir(out_dir):
+        for name in os.listdir(out_dir):
+            if name.endswith(".png"):
+                os.unlink(os.path.join(out_dir, name))
     assets, per = [], {}
     for m in manifest:
         if m.get("status") == "rejected": continue
