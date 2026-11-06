@@ -8,6 +8,19 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-05 22:11 — Sent Brandon the preset's system prompt on its own
+
+### What was asked
+"So i just paste that in system prompt of the preset on open router?"
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Extract | lines 31-168 of tools/cutouts/prompts/openrouter-preset.md (inside the ````text fence) -> pcp-database-system-prompt.txt in this folder, 138 lines; sent as a file |
+
+### Result
+Told him: paste only that text into the System prompt box, replacing the old one; the rest of openrouter-preset.md is setup notes for him, not prompt.
+
 ## 2026-11-05 17:57 — Movements 29-30 live: Rococo and Mexican Muralism & Rasquache (deploy 6aed17b74e29ff90a1c4a2bc)
 
 ### What was asked
