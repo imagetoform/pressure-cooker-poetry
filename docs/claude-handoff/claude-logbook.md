@@ -1,8 +1,30 @@
 ---
 done_when: the reader edition uses the founder's rights-cleared cutout library instead of drawn stand-ins, and the founder approves it
-next: founder picks one spec (dartboard vs DATABASE_SPEC), decides on intensity-flip fix and wobble size; also tries doodle recognition live
+next: founder decides on merging branch claude/import-prototypes into main of imagetoform/pressure-cooker-poetry; also: poems are public in that repo (decide), spec decisions, doodle test
 ---
 # Pressure Cooker Poetry: reader edition
+
+## 2026-11-09 03:49: Moved everything to imagetoform/pressure-cooker-poetry; AgentForge parked
+
+### What was asked
+Move all Pressure Cooker Poetry files to the pressure-cooker-poetry GitHub repo and focus there from now on; leave AgentForge (imagetoform/AF) for later.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Repo | added imagetoform/pressure-cooker-poetry (push), cloned to /home/user/pressure-cooker-poetry |
+| Branch | claude/import-prototypes (commit 137eca4), pushed. NOT merged to main: main is Netlify production for the live site |
+| Contents | prototypes/ (5 pages renamed: index.html -> reader-edition.html, build.py, corpus/corpus.sample.txt, README), docs/claude-handoff/ (HANDOFF.md with paths updated, cutout-coverage-audit.md, muse-fusion-brief.md, dartboard-sim/sim.py, claude-logbook.md), .gitignore adds prototypes/corpus/corpus.txt and prototypes/dist/ |
+| Private corpus | copied locally to prototypes/corpus/corpus.txt (gitignored, verified); build works there |
+| AF | left as is (branch claude/pressure-cooker-poetry-design-hdk1w3 keeps an older copy); nothing deleted |
+
+### Findings
+- The repo is the LIVE site source: site/live/index.html is the original site, site/dist is deployed, docs/DATABASE_SPEC.md is the live spec (Plutchik dartboard, 481 ingredients, 28 movements). So pcp-dartboard-system.md (20 families) was never built.
+- The repo is PUBLIC and the full 56 poems are already inside site/live and site/dist ("Hans Jenny" found). The founder may not know; flagged.
+- CI (site-build.yml) only rebuilds site/ and diffs site/dist; prototypes don't affect it.
+
+### Open / notes
+- From now on, work in /home/user/pressure-cooker-poetry. Its CLAUDE.md (if any) loads via register_repo_root.
 
 ## 2026-11-09 03:44: Wrote handoff markdown
 
