@@ -1,0 +1,636 @@
+<title>Core Sample</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&display=swap");
+
+:root{
+  --bg:#15120f;
+  --panel:#1e1a16;
+  --ink:#f0eadf;
+  --mute:#b3aa98;
+  --rule:#3d342b;
+  --focus:#ffd98a;
+  --arson:#e39a52;
+  --stard:#a3c2e3;
+  --serif:"Literata",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--bg)}
+body{margin:0;color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:72px;align-items:start}
+main{min-width:0;padding:64px 0 120px}
+
+.kicker{font-family:var(--mono);font-size:12px;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0}
+.masthead h1{font-weight:500;font-size:clamp(52px,8vw,112px);line-height:.92;letter-spacing:-.025em;margin:18px 0 28px}
+.lede{font-size:21px;line-height:1.55;max-width:31em;margin:0}
+.stats{font-family:var(--mono);font-size:12px;color:var(--mute);margin:24px 0 0}
+.books{list-style:none;margin:36px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.books a{--c:var(--stard);display:block;height:100%;padding:20px 22px;border:1px solid var(--rule);border-top:3px solid var(--c);border-radius:4px;color:var(--ink);text-decoration:none}
+.books a:hover{background:var(--panel)}
+.bt{display:block;font-size:24px;line-height:1.2}
+.ba{display:block;font-family:var(--mono);font-size:12px;line-height:1.55;color:var(--mute);margin-top:10px}
+
+.import{margin-top:48px;padding:22px 24px;border:1px solid var(--focus);border-radius:4px;background:var(--panel)}
+.import p{margin:12px 0 16px}
+.import-actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font-family:var(--mono);font-size:13px;color:var(--bg);background:var(--ink);border:1px solid var(--ink);border-radius:999px;padding:9px 16px;cursor:pointer}
+.btn.quiet{background:transparent;color:var(--ink);border-color:var(--rule)}
+.linkish{font-family:var(--mono);font-size:12px;background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+
+.book{margin-top:112px}
+.book-title{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--c);margin:0 0 10px}
+.book-after{font-size:17px;font-style:italic;color:var(--mute);margin:0 0 8px;max-width:40em}
+.move{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:56px 0 0;border-top:1px solid var(--rule);padding-top:20px}
+
+.stratum{position:relative;padding:30px 0 34px;border-top:1px solid var(--rule);background:color-mix(in srgb,var(--c) var(--tint,0%),transparent);transition:background-color .6s ease}
+.stratum::before{content:"";position:absolute;left:-20px;top:0;bottom:0;width:var(--w,1.5px);background:var(--c);border-radius:1px}
+.s-title{font-weight:500;font-size:clamp(26px,3.2vw,36px);line-height:1.12;letter-spacing:-.01em;margin:0 0 12px}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;font-family:var(--mono);font-size:12px;color:var(--mute)}
+.tag{border:1px solid var(--rule);border-radius:999px;padding:1px 9px}
+.dwell{color:var(--ink)}
+.stanza{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:start;padding:20px 0;border-top:1px dotted var(--rule)}
+.verse{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-size:19px;line-height:1.72;max-width:36em}
+.brk{font-family:var(--mono);color:var(--mute);text-align:center;margin:18px 0}
+.drill{font-family:var(--mono);font-size:12px;color:var(--ink);background:transparent;border:1px solid var(--rule);border-radius:999px;padding:6px 12px;cursor:pointer;white-space:nowrap}
+.drill:hover{border-color:var(--c)}
+.drill.on{background:var(--c);border-color:var(--c);color:#15120f}
+
+.core{position:sticky;top:28px;max-height:calc(100vh - 56px);display:flex;flex-direction:column;min-height:0}
+.core-toggle{display:none}
+.core-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:14px}
+.core-head h2{font-family:var(--serif);font-weight:500;font-size:26px;margin:0}
+.core-body{display:flex;flex-direction:column;min-height:0;flex:1 1 auto}
+.cap{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0;padding:10px 0}
+.empty{font-size:15px;color:var(--mute);padding:18px;margin:0;border:1px dashed var(--rule);border-radius:4px}
+.layers{display:flex;flex-direction:column;min-height:120px;flex:1 1 auto;overflow:auto;border:1px solid var(--rule);border-radius:4px;background:var(--bg)}
+.layer{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:8px;flex:none;width:100%;padding:12px 16px 12px 18px;background:repeating-linear-gradient(180deg,transparent 0 17px,color-mix(in srgb,var(--c) 9%,transparent) 17px 18px),color-mix(in srgb,var(--c) 14%,var(--bg));transition:height .6s ease;border-top:1px solid color-mix(in srgb,var(--c) 75%,transparent);border-left:4px solid var(--c);cursor:pointer;overflow:hidden}
+.layer:disabled{cursor:default;opacity:.6}
+.layer:focus-visible{outline:2px solid var(--focus);outline-offset:-3px}
+.l-meta{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mute);text-transform:uppercase}
+.l-text{margin:0;font-size:15px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.share{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.status{font-family:var(--mono);font-size:12px;color:var(--mute);margin:0;min-height:1em}
+#link{font-family:var(--mono);font-size:11px;color:var(--ink);background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:8px;width:100%}
+
+.foot{margin-top:120px;border-top:1px solid var(--rule);padding-top:20px;font-family:var(--mono);font-size:12px;line-height:1.6;color:var(--mute);max-width:40em}
+
+dialog{width:min(680px,calc(100vw - 32px));max-height:86vh;padding:0;border:1px solid var(--rule);border-radius:6px;background:var(--panel);color:var(--ink);font-family:var(--serif)}
+dialog::backdrop{background:rgba(8,6,5,.74)}
+dialog[open]{display:flex;flex-direction:column}
+.r-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:22px 26px 16px;border-bottom:1px solid var(--rule)}
+.r-head h2{font-weight:500;font-size:30px;line-height:1.15;margin:8px 0 0}
+.r-body{overflow:auto;padding:26px 30px 40px}
+.r-note{font-family:var(--mono);font-size:12px;color:var(--mute);margin:0 0 20px}
+.r-verse{font-size:20px;line-height:1.75;margin:0 0 1.3em}
+.r-body .brk{margin:0 0 1.3em}
+
+@media (max-width:899px){
+  .wrap{display:block;padding:0 16px}
+  main{padding:40px 0 150px}
+  .books{grid-template-columns:1fr}
+  .book{margin-top:88px}
+  .stratum::before{left:-9px;width:min(var(--w,1.5px),5px)}
+  .stanza{grid-template-columns:1fr;gap:12px}
+  .drill{justify-self:start}
+  .verse{font-size:18px}
+  .foot{margin-top:72px}
+  .core{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:min(78vh,640px);z-index:30;background:var(--panel);border-top:1px solid var(--rule);padding:0 16px 16px;border-radius:14px 14px 0 0;transform:translateY(calc(100% - 58px));transition:transform .3s ease}
+  .core.open{transform:none}
+  .core-toggle{display:flex;justify-content:space-between;align-items:center;width:100%;height:58px;background:none;border:0;color:var(--ink);font-family:var(--mono);font-size:13px;padding:0;cursor:pointer}
+  .core-head{display:none}
+  .layers{max-height:52vh}
+  dialog{width:calc(100vw - 24px)}
+}
+@media (prefers-reduced-motion: reduce){
+  .core{transition:none!important}
+}
+</style>
+
+<div class="wrap">
+  <main id="main">
+    <header class="masthead">
+      <p class="kicker">Brandon Rhodes · poems from two chapbooks</p>
+      <h1>Core Sample</h1>
+      <p class="lede">Each poem is a stratum. Stay with one and the core records how long. Drill a stanza and it settles into your core, oldest layer at the bottom.</p>
+      <p class="stats" id="stats"></p>
+      <ul class="books" id="index"></ul>
+    </header>
+
+    <section id="import" class="import" hidden aria-labelledby="import-h">
+      <h2 id="import-h" class="kicker">A carried core</h2>
+      <p id="import-text"></p>
+      <div class="import-actions">
+        <button type="button" id="take" class="btn">Take these into my core</button>
+        <button type="button" id="dismiss" class="btn quiet">Leave them</button>
+      </div>
+    </section>
+
+    <div id="books"></div>
+
+    <footer class="foot">
+      <p>Your core is kept only in this browser. Poem text is shown exactly as written. Read whole opens any poem in one calm column.</p>
+    </footer>
+  </main>
+
+  <aside id="core" class="core" aria-label="Your core">
+    <button type="button" id="core-toggle" class="core-toggle" aria-expanded="false" aria-controls="core-body">
+      <span>Your core</span><span id="toggle-count"></span>
+    </button>
+    <div class="core-head">
+      <h2>Your core</h2>
+      <span id="count" class="kicker"></span>
+    </div>
+    <div id="core-body" class="core-body">
+      <p class="cap">Surface · this browser</p>
+      <div id="empty" class="empty">Nothing drilled yet. Stay with a poem, then drill a stanza you want to carry down.</div>
+      <div id="layers" class="layers"></div>
+      <p class="cap">Bedrock · oldest first</p>
+      <div class="share">
+        <button type="button" id="share" class="btn quiet">Copy a link to my core</button>
+        <p id="share-status" class="status" aria-live="polite"></p>
+        <input id="link" type="text" readonly hidden aria-label="Link to your core">
+      </div>
+    </div>
+  </aside>
+</div>
+
+<dialog id="reader" aria-labelledby="r-title">
+  <div class="r-head">
+    <div>
+      <p class="kicker" id="r-meta"></p>
+      <h2 id="r-title"></h2>
+    </div>
+    <button type="button" class="btn quiet" id="rclose">Close</button>
+  </div>
+  <div class="r-body" id="r-body"></div>
+</dialog>
+
+<script type="text/plain" id="corpus" data-source="sample">
+=BOOK arsonist | The Arsonist's Gospels | after Vallejo · Lorca · Baraka · Cesaire · Rimbaud · Mayakovsky · Szymborska · Paz · Celan · Carson
+=MOVE I | Genesis of the Unowned
+=POEM 1 | First Mark | excerpt
+That cooling
+was not personal.
+It was structural —
+the system
+maintaining its temperature
+the only way systems can:
+by making you
+the variable
+that needed adjusting.
+
+You were never the problem.
+You were the frequency
+they hadn't scheduled.
+=POEM 5 | What Was Always There | excerpt
+It is still there.
+
+Patient as a door.
+Certain as a door.
+
+Waiting
+not for permission —
+
+for you.
+=MOVE II | The Hydra's Inventory
+=POEM 7 | What the Algorithm Does | excerpt
+Make the thing
+that breaks the pattern.
+Post nothing.
+Make everything.
+=BOOK stardust | The Genealogy of Stardust | after the voices of Plath · Ginsberg · Bukowski · Merwin · Rilke
+=MOVE I | Before the Name
+=POEM 1 | Stardust, Before the Genealogy | excerpt
+I did not choose my atoms.
+They were lent to me
+by stars that had already spent themselves
+on the whole question of existing —
+=MOVE V | Genealogy
+=POEM 29 | Still Here | excerpt
+still here
+
+still burning
+
+that's enough
+
+that is
+more than enough
+</script>
+<script>
+(function(){
+  'use strict';
+
+  var STORE_KEY = 'core-sample.v1';
+  var $ = function(s){ return document.querySelector(s); };
+
+  function make(tag, cls, text){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  function fnv(s){
+    var h = 0x811c9dc5;
+    for (var i = 0; i < s.length; i++){ h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); }
+    return (h >>> 0).toString(36);
+  }
+
+  function colorFor(id){ return /arson/i.test(id) ? 'var(--arson)' : 'var(--stard)'; }
+  function trim(s){ return s.trim(); }
+
+  function toStanzas(lines){
+    var out = [], cur = [], brk = false;
+    function push(){
+      if (cur.length){
+        var text = cur.join('\n');
+        out.push({ text: text, h: fnv(text), brk: brk });
+        cur = []; brk = false;
+      }
+    }
+    lines.forEach(function(ln){
+      var t = ln.trim();
+      if (t === ''){ push(); return; }
+      if (t === '*'){ push(); brk = true; return; }
+      cur.push(ln);
+    });
+    push();
+    return out;
+  }
+
+  function parse(text){
+    var books = [], poems = [], byKey = new Map();
+    var book = null, move = null, poem = null, lines = [];
+    function flush(){
+      if (poem) poem.stanzas = toStanzas(lines);
+      poem = null; lines = [];
+    }
+    text.replace(/\r/g, '').split('\n').forEach(function(raw){
+      if (raw.indexOf('=BOOK ') === 0){
+        flush();
+        var p = raw.split('|').map(trim);
+        book = { id: p[0].slice(6).trim(), title: p[1] || '', after: p.slice(2).join(' | '), poems: [] };
+        books.push(book); move = null; return;
+      }
+      if (raw.indexOf('=MOVE ') === 0){
+        flush();
+        var q = raw.split('|').map(trim);
+        move = { num: q[0].slice(6), title: q[1] || '' };
+        return;
+      }
+      if (raw.indexOf('=POEM ') === 0){
+        flush();
+        var r = raw.split('|').map(trim);
+        var num = r[0].slice(6);
+        poem = {
+          key: (book ? book.id : 'anon') + '.' + num,
+          num: num,
+          title: r[1] || '',
+          excerpt: r.slice(2).some(function(x){ return x.toLowerCase() === 'excerpt'; }),
+          book: book, move: move, stanzas: []
+        };
+        if (book) book.poems.push(poem);
+        poems.push(poem);
+        byKey.set(poem.key, poem);
+        return;
+      }
+      if (poem) lines.push(raw);
+    });
+    flush();
+    return { books: books, poems: poems, byKey: byKey };
+  }
+
+  var corpusEl = $('#corpus');
+  var corpus = parse(corpusEl.textContent || '');
+  var edition = corpusEl.getAttribute('data-source') === 'full' ? 'full text' : 'public sample';
+
+  /* ---------- per-viewer storage (optional; the page works without it) ---------- */
+  var data = { kept: [], dwell: {} };
+  function load(){
+    try{
+      var raw = localStorage.getItem(STORE_KEY);
+      if (!raw) return;
+      var o = JSON.parse(raw);
+      if (o && Array.isArray(o.kept)){
+        data.kept = o.kept.filter(function(e){ return e && typeof e.k === 'string' && typeof e.h === 'string'; });
+      }
+      if (o && o.dwell && typeof o.dwell === 'object') data.dwell = o.dwell;
+    }catch(e){}
+  }
+  function save(){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(data)); }catch(e){}
+  }
+
+  function isKept(k, h){
+    return data.kept.some(function(e){ return e.k === k && e.h === h; });
+  }
+
+  function fmt(sec){
+    var m = Math.floor(sec / 60), s = Math.floor(sec % 60);
+    return m ? (m + 'm ' + s + 's') : (s + 's');
+  }
+
+  /* ---------- index ---------- */
+  var totalStanzas = 0;
+  function renderIndex(){
+    var ul = $('#index'); ul.textContent = '';
+    corpus.books.forEach(function(b){
+      var li = make('li');
+      var a = make('a');
+      a.href = '#' + b.id;
+      a.style.setProperty('--c', colorFor(b.id));
+      a.appendChild(make('span', 'bt', b.title));
+      if (b.after) a.appendChild(make('span', 'ba', b.after));
+      li.appendChild(a); ul.appendChild(li);
+    });
+    corpus.poems.forEach(function(p){ totalStanzas += p.stanzas.length; });
+    $('#stats').textContent = corpus.books.length + ' books · ' + corpus.poems.length + ' poems · ' + totalStanzas + ' stanzas · ' + edition;
+  }
+
+  /* ---------- text ---------- */
+  var strata = {};      // poem key -> { art, dw }
+  var drills = [];      // { b, k, h }
+  var io = null;
+  var active = new Set();
+
+  function brkNode(){
+    var d = make('div', 'brk', '*');
+    d.setAttribute('role', 'separator');
+    d.setAttribute('aria-label', 'section break');
+    return d;
+  }
+
+  function poemNode(p){
+    var art = make('article', 'stratum');
+    art.id = 'p-' + p.key.replace(/\./g, '-');
+    art.setAttribute('data-key', p.key);
+
+    var head = make('header');
+    head.appendChild(make('h3', 's-title', p.title));
+    var meta = make('div', 'meta');
+    meta.appendChild(make('span', '', 'No. ' + p.num));
+    if (p.excerpt) meta.appendChild(make('span', 'tag', 'excerpt in this edition'));
+    var dw = make('span', 'dwell', '');
+    meta.appendChild(dw);
+    var rd = make('button', 'linkish', 'Read whole');
+    rd.type = 'button';
+    rd.addEventListener('click', function(){ openReader(p, null, rd); });
+    meta.appendChild(rd);
+    head.appendChild(meta);
+    art.appendChild(head);
+
+    p.stanzas.forEach(function(s, i){
+      if (s.brk) art.appendChild(brkNode());
+      var row = make('div', 'stanza');
+      row.appendChild(make('p', 'verse', s.text));
+      var b = make('button', 'drill', 'Drill');
+      b.type = 'button';
+      b.setAttribute('aria-pressed', 'false');
+      b.setAttribute('aria-label', 'Drill stanza ' + (i + 1) + ' of ' + p.title + ' into your core');
+      b.addEventListener('click', function(){ toggleKeep(p, s); });
+      row.appendChild(b);
+      art.appendChild(row);
+      drills.push({ b: b, k: p.key, h: s.h });
+    });
+
+    strata[p.key] = { art: art, dw: dw };
+    return art;
+  }
+
+  function renderBooks(){
+    var host = $('#books'); host.textContent = '';
+    corpus.books.forEach(function(b){
+      var sec = make('section', 'book');
+      sec.id = b.id;
+      sec.style.setProperty('--c', colorFor(b.id));
+      sec.appendChild(make('h2', 'book-title', b.title));
+      if (b.after) sec.appendChild(make('p', 'book-after', b.after));
+      var lastMove = null;
+      b.poems.forEach(function(p){
+        var mk = p.move ? (p.move.num + '|' + p.move.title) : null;
+        if (p.move && mk !== lastMove){
+          lastMove = mk;
+          sec.appendChild(make('p', 'move', 'Movement ' + p.move.num + ' · ' + p.move.title));
+        }
+        sec.appendChild(poemNode(p));
+      });
+      host.appendChild(sec);
+    });
+    if (!corpus.poems.length) host.appendChild(make('p', 'empty', 'No poems found in this edition.'));
+  }
+
+  function syncDrills(){
+    drills.forEach(function(d){
+      var on = isKept(d.k, d.h);
+      d.b.setAttribute('aria-pressed', String(on));
+      d.b.classList.toggle('on', on);
+      d.b.textContent = on ? 'In core' : 'Drill';
+    });
+  }
+
+  function updateDwell(k){
+    var st = strata[k];
+    if (!st) return;
+    var sec = (data.dwell[k] || 0) / 1000;
+    st.dw.textContent = sec >= 1 ? 'stayed ' + fmt(sec) : '';
+    st.art.style.setProperty('--w', Math.min(8, 1.5 + Math.sqrt(sec) * 0.8).toFixed(2) + 'px');
+    st.art.style.setProperty('--tint', Math.min(14, Math.sqrt(sec) * 2).toFixed(1) + '%');
+  }
+
+  /* ---------- core ---------- */
+  var layerEls = [];
+
+  function layerNode(e){
+    var p = corpus.byKey.get(e.k);
+    var s = p ? p.stanzas.find(function(x){ return x.h === e.h; }) : null;
+    var b = make('button', 'layer');
+    b.type = 'button';
+    b.style.setProperty('--c', colorFor(e.k));
+    if (!p || !s){
+      b.disabled = true;
+      var miss = make('span', 'l-meta', 'not in this edition');
+      b.appendChild(miss);
+      b.appendChild(make('p', 'l-text', 'A stanza from another edition of the text.'));
+      return { node: b, meta: null, p: null };
+    }
+    var meta = make('span', 'l-meta', p.title);
+    b.appendChild(meta);
+    b.appendChild(make('p', 'l-text', s.text));
+    b.setAttribute('aria-label', 'Read ' + p.title + ' whole');
+    b.addEventListener('click', function(){ openReader(p, s.h, b); });
+    return { node: b, meta: meta, p: p, k: e.k };
+  }
+
+  function renderCore(){
+    var host = $('#layers'); host.textContent = ''; layerEls = [];
+    var n = data.kept.length;
+    $('#empty').hidden = n > 0;
+    $('#count').textContent = n + (n === 1 ? ' layer' : ' layers');
+    $('#toggle-count').textContent = n + (n === 1 ? ' layer' : ' layers');
+    for (var i = n - 1; i >= 0; i--){
+      var L = layerNode(data.kept[i]);
+      host.appendChild(L.node);
+      layerEls.push({ node: L.node, meta: L.meta, p: L.p, k: data.kept[i].k });
+    }
+    updateLayers();
+  }
+
+  function updateLayers(){
+    layerEls.forEach(function(L){
+      var sec = (data.dwell[L.k] || 0) / 1000;
+      L.node.style.height = (124 + Math.min(110, Math.round(Math.sqrt(sec) * 9))) + 'px';
+      if (L.meta && L.p){
+        L.meta.textContent = L.p.title + (sec >= 1 ? ' · stayed ' + fmt(sec) : '');
+      }
+    });
+  }
+
+  function toggleKeep(p, s){
+    var i = data.kept.findIndex(function(e){ return e.k === p.key && e.h === s.h; });
+    if (i >= 0) data.kept.splice(i, 1);
+    else data.kept.push({ k: p.key, h: s.h });
+    save(); syncDrills(); renderCore();
+    $('#share-status').textContent = '';
+  }
+
+  /* ---------- carried core (from a link) ---------- */
+  function readHash(){
+    var m = /^#core=(.*)$/.exec(location.hash);
+    if (!m || !m[1]) return null;
+    var items = [], missing = 0;
+    m[1].split(',').forEach(function(tok){
+      var parts = tok.split('~');
+      if (parts.length !== 2){ missing++; return; }
+      var p = corpus.byKey.get(parts[0]);
+      var ok = p && p.stanzas.some(function(s){ return s.h === parts[1]; });
+      if (ok) items.push({ k: parts[0], h: parts[1] }); else missing++;
+    });
+    return { items: items, missing: missing };
+  }
+
+  function clearHash(){
+    try{ history.replaceState(null, '', location.pathname + location.search); }catch(e){}
+  }
+
+  function showImport(imp){
+    var box = $('#import');
+    if (!imp || (!imp.items.length && !imp.missing)){ box.hidden = true; return; }
+    box.hidden = false;
+    var n = imp.items.length;
+    var msg = n
+      ? 'A core was carried here: ' + n + (n === 1 ? ' layer' : ' layers') + ' from this text.'
+      : 'A core was carried here, but none of its layers can be placed in this edition.';
+    if (n && imp.missing) msg += ' ' + imp.missing + ' could not be placed in this edition.';
+    $('#import-text').textContent = msg;
+    $('#take').hidden = !n;
+  }
+
+  $('#take').addEventListener('click', function(){
+    var imp = readHash();
+    if (imp){
+      imp.items.forEach(function(it){
+        if (!isKept(it.k, it.h)) data.kept.push(it);
+      });
+      save(); syncDrills(); renderCore();
+    }
+    clearHash(); showImport(null);
+  });
+  $('#dismiss').addEventListener('click', function(){ clearHash(); showImport(null); });
+
+  /* ---------- share ---------- */
+  $('#share').addEventListener('click', function(){
+    var status = $('#share-status');
+    var field = $('#link');
+    if (!data.kept.length){ status.textContent = 'Drill a stanza first.'; field.hidden = true; return; }
+    var base = location.href.split('#')[0];
+    var link = base + '#core=' + data.kept.map(function(e){ return e.k + '~' + e.h; }).join(',');
+    field.value = link;
+    field.hidden = false;
+    field.focus(); field.select();
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(link).then(
+        function(){ status.textContent = 'Link copied.'; },
+        function(){ status.textContent = 'Copy the selected link.'; });
+    } else {
+      status.textContent = 'Copy the selected link.';
+    }
+  });
+
+  /* ---------- reader ---------- */
+  var reader = $('#reader');
+  var lastFocus = null;
+
+  function openReader(p, stanzaH, opener){
+    lastFocus = opener || document.activeElement;
+    $('#r-title').textContent = p.title;
+    $('#r-meta').textContent = (p.book ? p.book.title : '') + (p.move ? ' · Movement ' + p.move.num + ' · ' + p.move.title : '') + ' · No. ' + p.num;
+    var body = $('#r-body'); body.textContent = '';
+    if (p.excerpt) body.appendChild(make('p', 'r-note', 'This edition holds an excerpt of the poem.'));
+    var target = null;
+    p.stanzas.forEach(function(s){
+      if (s.brk) body.appendChild(brkNode());
+      var v = make('p', 'verse r-verse', s.text);
+      body.appendChild(v);
+      if (stanzaH && s.h === stanzaH) target = v;
+    });
+    body.scrollTop = 0;
+    if (!reader.open) reader.showModal();
+    if (target){
+      target.setAttribute('tabindex', '-1');
+      target.scrollIntoView({ block: 'center' });
+      target.focus({ preventScroll: true });
+    }
+  }
+
+  $('#rclose').addEventListener('click', function(){ reader.close(); });
+  reader.addEventListener('close', function(){
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  });
+
+  /* ---------- phone sheet ---------- */
+  var coreEl = $('#core'), toggle = $('#core-toggle');
+  toggle.addEventListener('click', function(){
+    var open = coreEl.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
+  /* ---------- presence: dwell time per poem ---------- */
+  if ('IntersectionObserver' in window){
+    io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var k = e.target.getAttribute('data-key');
+        if (e.isIntersecting) active.add(k); else active.delete(k);
+      });
+    }, { rootMargin: '-30% 0px -40% 0px' });
+  }
+
+  var ticks = 0;
+  setInterval(function(){
+    if (document.visibilityState !== 'visible' || active.size === 0) return;
+    var share = 1000 / active.size;
+    active.forEach(function(k){
+      data.dwell[k] = (data.dwell[k] || 0) + share;
+      updateDwell(k);
+    });
+    if (++ticks % 5 === 0){ save(); updateLayers(); }
+  }, 1000);
+
+  window.addEventListener('pagehide', save);
+
+  /* ---------- start ---------- */
+  load();
+  renderIndex();
+  renderBooks();
+  if (io) Object.keys(strata).forEach(function(k){ io.observe(strata[k].art); });
+  Object.keys(strata).forEach(updateDwell);
+  renderCore();
+  syncDrills();
+  showImport(readHash());
+})();
+</script>

@@ -8,3 +8,7 @@ deploy-tool/
 __pycache__/
 *.pyc
 .netlify/
+
+# Prototypes: private full corpus and builds stay local
+prototypes/corpus/corpus.txt
+prototypes/dist/

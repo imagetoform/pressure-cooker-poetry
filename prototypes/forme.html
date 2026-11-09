@@ -1,0 +1,873 @@
+<title>The Forme</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Pressure Cooker Poetry, THE FORME: the poem is the one incompressible element; every recipe packs and locks a different printed room around it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Bodoni+Moda:ital,opsz,wght@1,6..96,400..900&family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Space+Mono:wght@400;700&display=swap">
+<style>
+/* Layout: the viewport is a locked chase. The plate (SVG) fills it edge to edge with
+   cells that share one rule and leave no void; the poem is real HTML text set on its
+   reserved cell; the Case drawer slides up from the bottom edge over the plate.
+   One committed look: ink-black chrome, plate colours come from the recipe. */
+:root {
+  --chrome: #111111;
+  --chrome-2: #1d1d1d;
+  --rule: #f4f4f0;
+  --text: #f4f4f0;
+  --text-2: #a9a9a3;
+  --hot: #d6ff2e;
+  --f-mono: 'Space Mono', 'Courier New', monospace;
+  --f-read: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+  --f-fit: 'Roboto Flex', 'Arial Narrow', sans-serif;
+  --handle: 52px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--chrome); color: var(--text); }
+body { font-family: var(--f-mono); overflow-x: hidden; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--hot); outline-offset: 2px; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+#plate { position: relative; width: 100%; overflow: hidden; }
+#plate svg { position: absolute; left: 0; top: 0; display: block; }
+#ghost { pointer-events: none; z-index: 4; }
+.cellg { transition: transform 0.3s cubic-bezier(.2, .9, .2, 1), opacity 0.3s; }
+.locking .cellg { transform: var(--from); }
+.retract .cellg { transform: var(--from); opacity: 0; }
+.jolt { animation: jolt 0.05s steps(1) 1; }
+@keyframes jolt { 0% { transform: translateY(1px); } 100% { transform: none; } }
+.pass { transition: opacity 0.12s steps(2); }
+.locking .pass { opacity: 0; }
+
+#poem { position: absolute; z-index: 3; overflow: hidden; font-family: var(--f-read); }
+.ptype .in { padding: var(--mat, 40px); }
+.ptype h1 { font-family: var(--f-read); font-style: italic; font-weight: 600; font-size: 1.375rem; line-height: 1.2; margin: 0 0 0.35rem; text-wrap: balance; }
+.ptype .src { font-family: var(--f-mono); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1.5rem; opacity: 0.78; }
+.ptype .body { font-size: var(--pfs, 19px); line-height: 1.55; font-optical-sizing: auto; }
+.ptype p { margin: 0 0 1.1em; }
+.ptype .ln { display: block; padding-left: 1.5em; text-indent: -1.5em; }
+.ptype .gauge { display: block; font-family: var(--f-mono); font-size: 0.625rem; letter-spacing: 0.1em; opacity: 0.6; margin-bottom: 0.3rem; }
+#measure-poem { position: absolute; left: -9999px; top: 0; visibility: hidden; }
+
+/* ---------- the Case drawer ---------- */
+#case { position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; background: var(--chrome); border-top: 3px solid var(--rule); max-height: min(78vh, 640px); display: flex; flex-direction: column; transform: translateY(calc(100% - var(--handle) - env(safe-area-inset-bottom, 0px))); transition: transform 0.28s cubic-bezier(.2, .9, .2, 1); padding-bottom: env(safe-area-inset-bottom, 0px); }
+#case.open { transform: translateY(0); }
+.handle { display: flex; align-items: stretch; min-height: var(--handle); border-bottom: 1px solid #333; padding-left: max(0px, env(safe-area-inset-left, 0px)); padding-right: max(0px, env(safe-area-inset-right, 0px)); }
+.handle > * { border-right: 1px solid #333; }
+.handle button { background: none; border: 0; cursor: pointer; padding: 0 1rem; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; min-height: var(--handle); }
+.handle button:hover { background: var(--chrome-2); }
+#toggle { font-weight: 700; color: var(--hot); }
+#slug { flex: 1; min-width: 0; display: flex; align-items: center; padding: 0 1rem; font-size: 0.75rem; letter-spacing: 0.06em; color: var(--text-2); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+#lock { background: var(--hot) !important; color: #111 !important; font-weight: 700; }
+.case-body { overflow-y: auto; padding: 0 max(16px, env(safe-area-inset-right, 0px)) 1rem max(16px, env(safe-area-inset-left, 0px)); }
+.decks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-left: 1px solid #333; border-top: 1px solid #333; margin-top: 1rem; }
+.deck { border-right: 1px solid #333; border-bottom: 1px solid #333; min-width: 0; }
+.deck h2 { margin: 0; padding: 0.55rem 0.75rem; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid #333; display: flex; justify-content: space-between; gap: 0.5rem; }
+.deck h2 span { color: var(--text-2); font-weight: 400; }
+.slugs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.slugs button { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0.6rem; align-items: center; text-align: left; background: none; border: 0; border-right: 1px solid #262626; border-bottom: 1px solid #262626; padding: 0.5rem 0.6rem; cursor: pointer; min-height: 3.25rem; }
+.slugs button:hover { background: var(--chrome-2); }
+.slugs button[aria-pressed="true"] { background: var(--rule); color: #111; }
+.slugs button[aria-pressed="true"] .sil rect { stroke: #111; }
+.slugs .nm { font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.06em; display: block; }
+.slugs .ds { font-size: 0.6875rem; color: var(--text-2); display: block; line-height: 1.3; }
+.slugs button[aria-pressed="true"] .ds { color: #444; }
+.sil { width: 44px; height: 28px; display: block; }
+.sil rect { fill: none; stroke: var(--text-2); stroke-width: 1; }
+.sil rect.p { fill: var(--hot); stroke: none; }
+.dials { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.5rem; padding: 1rem 0 0.25rem; }
+.dial label { display: flex; justify-content: space-between; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.dial output { color: var(--hot); font-variant-numeric: tabular-nums; }
+.dial input { width: 100%; accent-color: var(--hot); min-height: 2.25rem; }
+.dial p { margin: 0; font-size: 0.6875rem; color: var(--text-2); }
+.presets { display: flex; flex-wrap: wrap; gap: 0.5rem; padding-top: 0.75rem; align-items: center; }
+.presets span { font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-2); }
+.presets button { background: none; border: 1px solid #444; padding: 0.35rem 0.6rem; cursor: pointer; font-size: 0.75rem; min-height: 2.5rem; }
+.presets button:hover { border-color: var(--hot); color: var(--hot); }
+
+/* ---------- the Rack (archive) ---------- */
+#rack { position: fixed; inset: 0 0 auto 0; bottom: var(--handle); z-index: 15; background: var(--chrome); overflow-y: auto; padding: 1rem max(16px, env(safe-area-inset-right, 0px)) 2rem max(16px, env(safe-area-inset-left, 0px)); padding-top: calc(1rem + env(safe-area-inset-top, 0px)); }
+#rack h2 { font-family: var(--f-fit); font-variation-settings: 'wdth' 25, 'wght' 900; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 0.9; margin: 0 0 1rem; text-transform: uppercase; }
+#rack h3 { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--hot); margin: 1.25rem 0 0.25rem; font-weight: 400; }
+#rack ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid #333; }
+#rack li button { width: 100%; display: grid; grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 9rem); gap: 0.75rem; align-items: center; background: none; border: 0; border-bottom: 1px solid #333; padding: 0; cursor: pointer; text-align: left; min-height: 2.75rem; }
+#rack li button:hover { background: var(--chrome-2); }
+#rack .no { font-size: 0.75rem; color: var(--text-2); padding-left: 0.5rem; }
+#rack .tt { font-family: var(--f-read); font-size: 1rem; }
+#rack .sliver { height: 2.75rem; display: block; width: 100%; }
+
+@media (max-width: 760px) {
+  .decks { grid-template-columns: minmax(0, 1fr); }
+  .slugs { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .slugs button { flex: 0 0 auto; width: 11.5rem; scroll-snap-align: start; }
+  .dials { grid-template-columns: minmax(0, 1fr); }
+  .handle button { padding: 0 0.7rem; font-size: 0.75rem; }
+  #slug { display: none; }
+  #toggle { flex: 1; text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+
+<main>
+  <div id="plate" aria-label="Poem plate">
+    <svg id="svg" aria-hidden="true"></svg>
+    <article id="poem" class="ptype" aria-labelledby="poemTitle"><div class="in"><h1 id="poemTitle"></h1><p class="src" id="poemSrc"></p><div class="body" id="poemBody"></div></div></article>
+    <svg id="ghost" aria-hidden="true"></svg>
+  </div>
+</main>
+<div id="measure-poem" aria-hidden="true"></div>
+<svg id="measure" aria-hidden="true" width="0" height="0" style="position:absolute;left:-9999px"><text id="mtext"></text></svg>
+
+<section id="case" aria-label="The Case: ingredients">
+  <div class="handle">
+    <button id="toggle" type="button" aria-expanded="false" aria-controls="caseBody">▲ Add to the pot</button>
+    <div id="slug"></div>
+    <button id="proof" type="button" aria-pressed="false">Proof</button>
+    <button id="rackBtn" type="button" aria-expanded="false" aria-controls="rack">Rack</button>
+    <button id="lock" type="button">Lock</button>
+  </div>
+  <div class="case-body" id="caseBody">
+    <div class="decks" id="decks"></div>
+    <div class="dials">
+      <div class="dial"><label for="pressure">Pressure <output id="pOut"></output></label><input id="pressure" type="range" min="0" max="100" step="1"><p>Squeezes the furniture, thickens rules, adds cells. Drag to feel it; release to lock.</p></div>
+      <div class="dial"><label for="entropy">Entropy <output id="eOut"></output></label><input id="entropy" type="range" min="0" max="100" step="1"><p>Loosens the cuts and lets the grammar take exceptions. Never adds noise.</p></div>
+    </div>
+    <div class="presets" id="presets"><span>Session 2 recipes</span></div>
+  </div>
+</section>
+<nav id="rack" hidden aria-label="Rack: every poem"><h2>The Rack</h2><div id="rackList"></div></nav>
+<div class="sr" aria-live="polite" id="live"></div>
+
+<script type="text/plain" id="corpus" data-source="sample">
+=BOOK arsonist | The Arsonist's Gospels | after Vallejo · Lorca · Baraka · Cesaire · Rimbaud · Mayakovsky · Szymborska · Paz · Celan · Carson
+=MOVE I | Genesis of the Unowned
+=POEM 1 | First Mark | excerpt
+That cooling
+was not personal.
+It was structural —
+the system
+maintaining its temperature
+the only way systems can:
+by making you
+the variable
+that needed adjusting.
+
+You were never the problem.
+You were the frequency
+they hadn't scheduled.
+=POEM 5 | What Was Always There | excerpt
+It is still there.
+
+Patient as a door.
+Certain as a door.
+
+Waiting
+not for permission —
+
+for you.
+=MOVE II | The Hydra's Inventory
+=POEM 7 | What the Algorithm Does | excerpt
+Make the thing
+that breaks the pattern.
+Post nothing.
+Make everything.
+=BOOK stardust | The Genealogy of Stardust | after the voices of Plath · Ginsberg · Bukowski · Merwin · Rilke
+=MOVE I | Before the Name
+=POEM 1 | Stardust, Before the Genealogy | excerpt
+I did not choose my atoms.
+They were lent to me
+by stars that had already spent themselves
+on the whole question of existing —
+=MOVE V | Genealogy
+=POEM 29 | Still Here | excerpt
+still here
+
+still burning
+
+that's enough
+
+that is
+more than enough
+</script>
+
+<script>
+(() => {
+'use strict';
+const GRAMMAR = 'v1';
+const $ = (id) => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+/* ================= inks and stocks ================= */
+const INK = {
+  black: '#111111', vermilion: '#D2431F', blue: '#1D4ED8', silver: '#A7A9AC', pink: '#FF2D95',
+  oxblood: '#5E1A10', acid: '#C8F31D', orange: '#FF5A1F', cobalt: '#1B2FD6', paper: '#F4F4F0',
+};
+/* ================= the three decks =================
+   Each deck owns a different kind of thing. Burn: ink, force and what gets cut away.
+   Binder: structure. Weather: field, direction and stock. Authored placeholders: six per deck. */
+const BURN = [
+  { id: 'BT', name: 'Blowtorch', ds: '3 inks, hot solids, apertures', inks: ['black', 'vermilion', 'blue', 'silver'], solid: 0.42, screen: 0.12, bite: 'aperture', heat: 1 },
+  { id: 'EM', name: 'Ember', ds: '1 ink, screens, incisions', inks: ['pink', 'oxblood'], solid: 0.18, screen: 0.34, bite: 'incision', heat: 0.35 },
+  { id: 'CO', name: 'Coal', ds: 'black and silver, deep bites', inks: ['black', 'silver'], solid: 0.5, screen: 0.18, bite: 'notch', heat: 0.6 },
+  { id: 'AC', name: 'Acid', ds: 'acid over black, incisions', inks: ['black', 'acid'], solid: 0.36, screen: 0.2, bite: 'incision', heat: 0.8 },
+  { id: 'FL', name: 'Flare', ds: 'orange and cobalt overprint', inks: ['orange', 'cobalt', 'black'], solid: 0.4, screen: 0.14, bite: 'aperture', heat: 0.9 },
+  { id: 'SM', name: 'Smoulder', ds: 'oxblood, slow solids', inks: ['oxblood', 'black', 'silver'], solid: 0.46, screen: 0.22, bite: 'notch', heat: 0.45 },
+];
+const BINDER = [
+  { id: 'ST', name: 'Staple', ds: 'guillotine, 9 cells, heavy rule', cut: 'guillotine', rule: 14, cells: 9 },
+  { id: 'WX', name: 'Wax', ds: 'spiral around the poem, hairline', cut: 'spiral', rule: 1, cells: 8 },
+  { id: 'RV', name: 'Rivet', ds: 'lattice, many small cells', cut: 'lattice', rule: 6, cells: 26 },
+  { id: 'SP', name: 'Spine', ds: 'column stack', cut: 'column', rule: 8, cells: 13 },
+  { id: 'TW', name: 'Twine', ds: 'nested frames', cut: 'nested', rule: 3, cells: 20 },
+  { id: 'MO', name: 'Mortar', ds: 'few cells, slab rules', cut: 'guillotine', rule: 20, cells: 5 },
+];
+const WEATHER = [
+  { id: 'GA', name: 'Gale', ds: 'newsprint, piles right', stock: '#D9D2C2', dir: 'right', grad: 0.85, image: 0.14 },
+  { id: 'FG', name: 'Fog', ds: 'black stock, centred', stock: '#191919', dir: 'center', grad: 0.15, image: 0.04 },
+  { id: 'SL', name: 'Still', ds: 'white stock, even', stock: '#F4F4F0', dir: 'center', grad: 0.05, image: 0.08 },
+  { id: 'SQ', name: 'Squall', ds: 'canary, piles left', stock: '#F2D43A', dir: 'left', grad: 0.75, image: 0.12 },
+  { id: 'DR', name: 'Drought', ds: 'foundry lead, sinks', stock: '#A9ADB0', dir: 'down', grad: 0.6, image: 0.1 },
+  { id: 'FR', name: 'Frost', ds: 'cold white, rises', stock: '#DFE6EA', dir: 'up', grad: 0.6, image: 0.06 },
+];
+const DECKS = [['burn', 'Burn', 'ink + removal', BURN], ['binder', 'Binder', 'structure', BINDER], ['weather', 'Weather', 'field + stock', WEATHER]];
+const byId = (deck, id) => deck.find((d) => d.id === id) || deck[0];
+
+/* ================= determinism =================
+   recipe -> independent sub-seeds per hidden dimension, so changing Weather never
+   reshuffles Binder's cuts. */
+function sfc32(a, b, c, d) {
+  return () => { a |= 0; b |= 0; c |= 0; d |= 0; const t = (((a + b) | 0) + d) | 0; d = (d + 1) | 0; a = b ^ (b >>> 9); b = (c + (c << 3)) | 0; c = (c << 21) | (c >>> 11); c = (c + t) | 0; return (t >>> 0) / 4294967296; };
+}
+function seeded(str) {
+  const h = (salt) => { let x = 2166136261 >>> 0; for (const ch of salt + str) { x ^= ch.charCodeAt(0); x = Math.imul(x, 16777619); } return x >>> 0; };
+  const r = sfc32(h('a'), h('b'), h('c'), h('d')); for (let i = 0; i < 12; i++) r(); return r;
+}
+function sub(rc, dim) {
+  const k = {
+    cut: [rc.binder, rc.P, rc.E, rc.poem],
+    field: [rc.weather, rc.poem],
+    fill: [rc.burn, rc.weather, rc.E, rc.poem],
+    type: [rc.burn, rc.binder, rc.poem, rc.P],
+  }[dim];
+  return seeded(GRAMMAR + '|' + dim + '|' + k.join('|'));
+}
+const recipeCode = (rc) => `RECIPE ${GRAMMAR}·${rc.burn}${rc.binder}${rc.weather} · ${byId(BURN, rc.burn).name}+${byId(BINDER, rc.binder).name}+${byId(WEATHER, rc.weather).name} · P${rc.P} E${rc.E}`.toUpperCase();
+
+/* ================= corpus ================= */
+function parseCorpus(src) {
+  const books = []; let book = null, move = null, poem = null;
+  for (const raw of src.split('\n')) {
+    const line = raw.replace(/\s+$/, '');
+    if (line.startsWith('=BOOK ')) { const [id, title, after] = line.slice(6).split(' | '); book = { id: id.trim(), title, after: after || '', movements: [] }; books.push(book); poem = null; continue; }
+    if (line.startsWith('=MOVE ')) { const [num, title] = line.slice(6).split(' | '); move = { num: num.trim(), title, poems: [] }; book.movements.push(move); poem = null; continue; }
+    if (line.startsWith('=POEM ')) { const [num, title, flag] = line.slice(6).split(' | '); poem = { id: book.id + '-' + num.trim(), num: +num, title: title.trim(), excerpt: (flag || '').trim() === 'excerpt', book, move, stanzas: [[]] }; move.poems.push(poem); continue; }
+    if (!poem) continue;
+    if (line.trim() === '') { if (poem.stanzas[poem.stanzas.length - 1].length) poem.stanzas.push([]); } else poem.stanzas[poem.stanzas.length - 1].push(line);
+  }
+  const poems = [];
+  for (const b of books) for (const m of b.movements) for (const p of m.poems) {
+    if (!p.stanzas[p.stanzas.length - 1].length) p.stanzas.pop();
+    /* fragment allow-list: whole short lines, verbatim, 1-4 words, not ending mid-thought */
+    p.frags = [...new Set(p.stanzas.flat().filter((l) => { const n = l.trim().split(/\s+/).length; return n >= 1 && n <= 4 && /[A-Za-z]{3}/.test(l) && !/[—,:-]\s*$/.test(l) && l.trim() !== '*'; }).map((l) => l.trim()))];
+    poems.push(p);
+  }
+  return { books, poems };
+}
+
+/* ================= contrast ================= */
+function lum(hex) { const c = hex.replace('#', ''); const v = [0, 2, 4].map((i) => parseInt(c.slice(i, i + 2), 16) / 255).map((x) => (x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4)); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; }
+function contrast(a, b) { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+
+/* ================= the solver =================
+   1. reserve the poem cell (incompressible), 2. guillotine the rest into regions,
+   3. keep the largest as the giant, 4. split until the binder's cell count is met,
+   biased toward the weather's wall. Pure geometry: same inputs, same tree. */
+function solve(rc, W, H, pb, opt = {}) {
+  const B = byId(BINDER, rc.binder), Wx = byId(WEATHER, rc.weather);
+  const P = rc.P / 100, E = rc.E / 100;
+  const rCut = sub(rc, 'cut'), rField = sub(rc, 'field');
+  const k = opt.scale || 1;
+  const R = Math.max(1, Math.round(B.rule * (0.55 + P * 0.9) * k));
+  const strip = opt.mini ? 0 : 26;
+  const Hc = H - strip;
+  const minC = opt.mini ? 2 : Math.max(26, R * 3);
+  const mobile = !opt.mini ? W < 700 : !!opt.mobile;
+  const regions = [];
+  let poem;
+  if (mobile) {
+    const s = Math.round(clamp(W * 0.11, 30 * k, 52 * k));
+    const band = Math.round(64 * k);
+    regions.push({ x: 0, y: 0, w: s, h: Hc, spine: 'L' }, { x: W - s, y: 0, w: s, h: Hc, spine: 'R' });
+    regions.push({ x: s, y: 0, w: W - 2 * s, h: band, band: true });
+    poem = { x: s, y: band, w: W - 2 * s, h: pb.h };
+    const rest = Hc - band - pb.h;
+    if (rest > 0) regions.push({ x: s, y: band + pb.h, w: W - 2 * s, h: rest });
+  } else {
+    let pw = Math.min(pb.w, W - 2 * minC), ph = pb.h;
+    const fx = W - pw, fy = Hc - ph;
+    const r1 = rField(), r2 = rField();
+    let x = { right: 0.1 + r1 * 0.2, left: 0.68 + r1 * 0.2, center: 0.42 + r1 * 0.16, up: 0.25 + r1 * 0.4, down: 0.25 + r1 * 0.4 }[Wx.dir] * fx;
+    let y = { up: 0.62 + r2 * 0.25, down: 0.08 + r2 * 0.2 }[Wx.dir];
+    y = (y === undefined ? 0.18 + r2 * 0.4 : y) * fy;
+    x = Math.round(x); y = Math.round(y);
+    if (x < minC) { pw += x; x = 0; }
+    if (W - x - pw < minC) pw = W - x;
+    if (y < minC) { ph += y; y = 0; }
+    if (Hc - y - ph < minC) ph = Hc - y;
+    poem = { x, y, w: pw, h: ph };
+    const X2 = x + pw, Y2 = y + ph;
+    if (B.cut === 'spiral') {
+      regions.push({ x: 0, y: 0, w: X2, h: y }, { x: X2, y: 0, w: W - X2, h: Y2 }, { x, y: Y2, w: W - x, h: Hc - Y2 }, { x: 0, y, w: x, h: Hc - y });
+    } else if (rCut() < 0.5) {
+      regions.push({ x: 0, y: 0, w: W, h: y }, { x: 0, y: Y2, w: W, h: Hc - Y2 }, { x: 0, y, w: x, h: ph }, { x: X2, y, w: W - X2, h: ph });
+    } else {
+      regions.push({ x: 0, y: 0, w: x, h: Hc }, { x: X2, y: 0, w: W - X2, h: Hc }, { x, y: 0, w: pw, h: y }, { x, y: Y2, w: pw, h: Hc - Y2 });
+    }
+  }
+  let cells = regions.filter((r) => r.w >= 1 && r.h >= 1).map((r) => ({ ...r, depth: 0 }));
+  const free = cells.filter((c) => !c.spine && !c.band);
+  const giant = free.sort((a, b) => b.w * b.h - a.w * a.h)[0];
+  if (giant) giant.giant = true;
+  const target = Math.round(B.cells * (0.75 + P * 0.6)) + cells.length - 1;
+  const area = W * Hc;
+  const wall = (c) => {
+    const cx = (c.x + c.w / 2) / W, cy = (c.y + c.h / 2) / Hc, g = Wx.grad * 3;
+    return 1 + g * ({ right: cx, left: 1 - cx, down: cy, up: 1 - cy, center: 1 - Math.hypot(cx - 0.5, cy - 0.5) * 1.4 }[Wx.dir]);
+  };
+  const can = (c) => !c.spine && !c.band && (c.w >= 2 * minC || c.h >= 2 * minC) && !(c.giant && c.w * c.h < area * 0.62);
+  let guard = 0;
+  while (cells.length < target && guard++ < 400) {
+    const pool = cells.filter(can);
+    if (!pool.length) break;
+    let tot = 0; const wts = pool.map((c) => { const w = c.w * c.h * wall(c) * (c.giant ? 0.35 : 1); tot += w; return w; });
+    let r = rCut() * tot, pickI = 0;
+    for (; pickI < pool.length - 1; pickI++) { r -= wts[pickI]; if (r <= 0) break; }
+    const c = pool[pickI];
+    let vertical; // true = cut along x (side by side)
+    if (B.cut === 'column') vertical = c.w >= 2 * minC;
+    else if (B.cut === 'nested') { const above = c.y + c.h <= poem.y || c.y >= poem.y + poem.h; vertical = above ? c.h < 2 * minC : c.w >= 2 * minC; }
+    else if (B.cut === 'spiral') vertical = c.depth % 2 === 0 ? c.w >= 2 * minC : c.h < 2 * minC;
+    else { vertical = c.w > c.h; if (rCut() < E * 0.35) vertical = !vertical; }
+    if (vertical && c.w < 2 * minC) vertical = false;
+    if (!vertical && c.h < 2 * minC) vertical = true;
+    const len = vertical ? c.w : c.h;
+    let ratio;
+    if (B.cut === 'lattice') ratio = 0.5;
+    else if (B.cut === 'nested') ratio = 0.22 + rCut() * 0.14;
+    else if (B.cut === 'spiral') ratio = 0.382;
+    else ratio = 0.5 + (rCut() * 2 - 1) * (0.12 + E * 0.3);
+    let cut = Math.round(clamp(len * ratio, minC, len - minC));
+    if (B.cut === 'nested' || B.cut === 'spiral') {
+      /* the thin band goes on the side facing the poem, so frames close around it */
+      const toward = vertical ? (c.x + c.w / 2 < poem.x + poem.w / 2) : (c.y + c.h / 2 < poem.y + poem.h / 2);
+      if (toward) cut = len - cut;
+    }
+    const a = vertical ? { x: c.x, y: c.y, w: cut, h: c.h } : { x: c.x, y: c.y, w: c.w, h: cut };
+    const b = vertical ? { x: c.x + cut, y: c.y, w: c.w - cut, h: c.h } : { x: c.x, y: c.y + cut, w: c.w, h: c.h - cut };
+    a.depth = b.depth = c.depth + 1;
+    if (c.giant) { if (a.w * a.h >= b.w * b.h) a.giant = true; else b.giant = true; }
+    cells.splice(cells.indexOf(c), 1, a, b);
+  }
+  return { W, H, Hc, strip, R, poem, cells, mobile, minC };
+}
+
+/* ================= fit-type =================
+   Furniture type is set fit-to-cell: the width axis is solved so glyphs touch the
+   cell's rules on all four sides; pressure drives the weight. */
+const FAM = {
+  flex: { css: "'Roboto Flex'", w: [25, 151] },
+  any: { css: "'Anybody'", w: [50, 150] },
+  bodoni: { css: "'Bodoni Moda'", w: [100, 100], italic: true },
+};
+const mt = $('mtext');
+const cv = document.createElement('canvas').getContext('2d');
+const vcache = new Map();
+function vmetric(text, fam, wght) {
+  const key = fam + wght + text;
+  if (vcache.has(key)) return vcache.get(key);
+  cv.font = `${FAM[fam].italic ? 'italic ' : ''}${wght} 100px ${FAM[fam].css}`;
+  const m = cv.measureText(text);
+  const v = { a: Math.max(1, m.actualBoundingBoxAscent), d: Math.max(0, m.actualBoundingBoxDescent) };
+  vcache.set(key, v); return v;
+}
+function mlen(text, fam, fs, wdth, wght) {
+  mt.textContent = text;
+  mt.setAttribute('font-size', fs);
+  mt.style.fontFamily = FAM[fam].css;
+  mt.style.fontStyle = FAM[fam].italic ? 'italic' : 'normal';
+  mt.style.fontVariationSettings = `'wdth' ${wdth}, 'wght' ${wght}`;
+  return mt.getComputedTextLength() || 1;
+}
+function splitLines(words, k) {
+  if (k === 1) return [words.join(' ')];
+  const total = words.join(' ').length, per = total / k, out = []; let cur = [];
+  for (const w of words) { cur.push(w); if (cur.join(' ').length >= per && out.length < k - 1) { out.push(cur.join(' ')); cur = []; } }
+  if (cur.length) out.push(cur.join(' '));
+  return out;
+}
+/* plan a fit; returns {score, lines:[{text,fs,wdth,base}], ...} without touching the plate */
+function planFit(box, text, o) {
+  const vert = !!o.vertical;
+  const W0 = (vert ? box.h : box.w), H0 = (vert ? box.w : box.h);
+  if (W0 < 8 || H0 < 8) return null;
+  const words = text.split(/\s+/).filter(Boolean);
+  let best = null;
+  for (let k = 1; k <= Math.min(o.maxLines || 3, words.length); k++) {
+    const lines = splitLines(words, k);
+    if (lines.length !== k) continue;
+    const lh = H0 / k, vm = vmetric(text, o.fam, o.wght);
+    const fs = lh * 0.94 * 100 / (vm.a + vm.d);
+    let worst = 0; const out = [];
+    for (let i = 0; i < k; i++) {
+      const l100 = mlen(lines[i], o.fam, fs, 100, o.wght);
+      const [lo, hi] = FAM[o.fam].w;
+      const wdth = clamp(100 * W0 / l100, lo, hi);
+      const lw = lo === hi ? l100 : mlen(lines[i], o.fam, fs, wdth, o.wght);
+      worst = Math.max(worst, Math.abs(Math.log(W0 / lw)));
+      out.push({ text: lines[i], fs, wdth, base: i * lh + (lh - (vm.a + vm.d) * fs / 100) / 2 + vm.a * fs / 100 });
+    }
+    if (!best || worst < best.score) best = { score: worst, lines: out, W0, H0 };
+  }
+  return best;
+}
+function drawFit(parent, box, plan, o) {
+  const g = el('g');
+  if (o.vertical === 90) g.setAttribute('transform', `translate(${box.x + box.w} ${box.y}) rotate(90)`);
+  else if (o.vertical === 270) g.setAttribute('transform', `translate(${box.x} ${box.y + box.h}) rotate(-90)`);
+  else g.setAttribute('transform', `translate(${box.x} ${box.y})`);
+  for (const l of plan.lines) {
+    const t = el('text', { x: 0, y: l.base.toFixed(2), 'font-size': l.fs.toFixed(2), fill: o.color, textLength: plan.W0.toFixed(2), lengthAdjust: 'spacingAndGlyphs' });
+    t.style.fontFamily = FAM[o.fam].css;
+    if (FAM[o.fam].italic) t.style.fontStyle = 'italic';
+    t.style.fontVariationSettings = `'wdth' ${l.wdth.toFixed(1)}, 'wght' ${o.wght}`;
+    t.textContent = l.text;
+    g.appendChild(t);
+  }
+  parent.appendChild(g);
+}
+function el(name, attrs = {}) { const e = document.createElementNS(NS, name); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); return e; }
+
+/* ================= fills =================
+   No void: every cell is a solid plane, fit-type, a rule stack, a line-screen, a
+   posterized line-cut, or the one quoin wedge (the only diagonal on the plate). */
+function render(rc, L, poemObj, opts = {}) {
+  const Bu = byId(BURN, rc.burn), Wx = byId(WEATHER, rc.weather), Bi = byId(BINDER, rc.binder);
+  const P = rc.P / 100, E = rc.E / 100;
+  const rFill = sub(rc, 'fill'), rType = sub(rc, 'type');
+  const stock = Wx.stock, dark = lum(stock) < 0.2;
+  let inks = Bu.inks.map((n) => INK[n]).filter((c) => contrast(c, stock) >= 1.7);
+  if (!inks.length) inks = [dark ? INK.paper : INK.black];
+  const ruleInk = dark ? inks[0] : (contrast(INK.black, stock) > 4 ? INK.black : inks[0]);
+  const heat = inks.find((c) => c !== INK.black && c !== INK.silver) || inks[0];
+  const svg = $('svg');
+  svg.setAttribute('width', L.W); svg.setAttribute('height', L.H); svg.setAttribute('viewBox', `0 0 ${L.W} ${L.H}`);
+  svg.textContent = '';
+  const defs = el('defs'); svg.appendChild(defs);
+  svg.appendChild(el('rect', { x: 0, y: 0, width: L.W, height: L.H, fill: stock }));
+  const passes = inks.map((c, i) => { const g = el('g', { class: 'pass' }); g.style.transitionDelay = (i * 0.12) + 's'; if (!dark) g.style.mixBlendMode = 'multiply'; return { c, g }; });
+  const passOf = (c) => (passes.find((p) => p.c === c) || passes[0]).g;
+  const inset = L.R / 2 + 1;
+  const inner = (c) => ({ x: c.x + inset, y: c.y + inset, w: c.w - 2 * inset, h: c.h - 2 * inset });
+  const names = [Bu.name, Bi.name, Wx.name].map((s) => s.toUpperCase());
+  const code = `${Bu.id}${Bi.id}${Wx.id}`;
+  const wght = Math.round(380 + P * 560 + Bu.heat * 60);
+  const fragsOK = poemObj.frags.slice();
+  const pickInk = (avoid) => { const pool = inks.filter((c) => c !== avoid); return pool.length ? pool[Math.floor(rFill() * pool.length)] : inks[0]; };
+  const textOn = (bg) => (contrast(stock, bg) >= 3 ? stock : (contrast(INK.paper, bg) >= 3 ? INK.paper : INK.black));
+  const below = (c) => !L.mobile && Math.abs(c.y - (L.poem.y + L.poem.h)) < 2 && c.x < L.poem.x + L.poem.w && c.x + c.w > L.poem.x;
+  let quoinUsed = false, fragUsed = 0;
+  const cells = L.cells.slice().sort((a, b) => (b.giant - a.giant));
+  const cellGroups = [];
+
+  function fitCandidates(c) {
+    const pool = [];
+    const long = Math.max(c.w, c.h) / Math.min(c.w, c.h);
+    if (long > 3.2) pool.push(names.join(' + '), names[Math.floor(rType() * 3)], poemObj.title);
+    else pool.push(names[Math.floor(rType() * 3)], code, String(poemObj.num).padStart(2, '0'), 'PCP');
+    if (!below(c) && fragUsed < 2 && fragsOK.length) pool.push({ frag: fragsOK[Math.floor(rType() * fragsOK.length)] });
+    return pool;
+  }
+  const used = new Map();
+  function placeFit(g, c, color, opt = {}) {
+    const box = inner(c);
+    const tall = c.h > c.w * 1.8;
+    const orients = opt.giant ? [0, rType() < 0.5 ? 90 : 270] : [tall ? (rType() < 0.5 || L.mobile ? 90 : 270) : 0];
+    const cands = opt.texts ? opt.texts : fitCandidates(c);
+    let best = null;
+    for (const cand of cands) for (const vertical of orients) {
+      const isFrag = typeof cand === 'object';
+      const text = isFrag ? cand.frag : cand;
+      const fam = isFrag ? 'bodoni' : (opt.fam || (rType() < 0.25 ? 'any' : 'flex'));
+      const o = { fam, wght: isFrag ? Math.min(900, wght) : wght, vertical, maxLines: opt.maxLines || 3 };
+      const plan = planFit(box, text, o);
+      if (!plan) continue;
+      const score = plan.score + (used.get(text) || 0) * 0.45 + (opt.giant && text.length < 5 ? 0.35 : 0);
+      if (!best || score < best.score) best = { plan, o, isFrag, text, score };
+    }
+    if (!best || best.plan.score > (opt.giant ? 0.9 : 0.75)) return false;
+    if (best.isFrag) fragUsed++;
+    used.set(best.text, (used.get(best.text) || 0) + 1);
+    drawFit(g, box, best.plan, { ...best.o, color });
+    return true;
+  }
+  for (const c of cells) {
+    const g = el('g', { class: 'cellg' });
+    const ink = pickInk();
+    const minSide = Math.min(c.w, c.h), aspect = Math.max(c.w, c.h) / Math.max(1, minSide);
+    let kind;
+    if (c.spine) kind = 'spine';
+    else if (c.band) kind = 'band';
+    else if (c.giant) kind = 'giant';
+    else if (minSide < 22) kind = rFill() < 0.6 ? 'solid' : 'rules';
+    else if (!quoinUsed && aspect < 2.2 && minSide > 60 && rFill() < 0.18 + E * 0.45) kind = 'quoin';
+    else {
+      const w = { solid: Bu.solid, fit: 0.3 + P * 0.2, rules: 0.1, screen: Bu.screen, image: Wx.image * (minSide > 90 ? 1 : 0) };
+      let t = rFill() * Object.values(w).reduce((a, b) => a + b, 0);
+      kind = 'fit'; for (const [k, v] of Object.entries(w)) { t -= v; if (t <= 0) { kind = k; break; } }
+    }
+    const pg = passOf(ink);
+    if (kind === 'spine' || kind === 'band') {
+      const text = kind === 'band' ? poemObj.title : (c.spine === 'L' ? names.join(' · ') : `${code} · ${poemObj.book.title.toUpperCase()}`);
+      const color = kind === 'band' ? INK.black : ink;
+      if (kind === 'band') { g.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h, fill: heat })); }
+      const box = inner(c);
+      const vertical = kind === 'spine' ? (c.spine === 'L' ? 270 : 90) : 0;
+      const plan = planFit(box, text, { fam: 'flex', wght, vertical, maxLines: 1 }) || null;
+      if (plan) drawFit(kind === 'band' ? g : pg, box, plan, { fam: 'flex', wght, vertical, color: kind === 'band' ? textOn(heat) : color });
+    } else if (kind === 'giant') {
+      const knock = rFill() < 0.55;
+      const giantInk = knock ? (dark ? heat : (rFill() < 0.6 ? INK.black : heat)) : heat;
+      if (knock) {
+        g.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h, fill: giantInk }));
+        const titleWords = poemObj.title.split(/\s+/).filter((w) => w.length > 3);
+        const placed = placeFit(g, c, textOn(giantInk), { texts: [poemObj.title, ...titleWords], maxLines: 6, fam: 'flex', giant: true })
+          || placeFit(g, c, textOn(giantInk), { texts: names, fam: 'any', maxLines: 1, giant: true });
+        if (!placed) bite(g, c, Bu.bite, rFill, stock, 0.6);
+      } else {
+        const second = inks.find((x) => x !== giantInk && x !== INK.silver);
+        const gtxt = [names[0]];
+        if (second && E > 0.15) { const gg = el('g', { transform: `translate(${(2 + E * 6).toFixed(1)} ${(2 + E * 6).toFixed(1)})` }); placeFit(gg, c, second, { texts: gtxt, fam: 'any', maxLines: 1, giant: true }); used.clear(); passOf(second).appendChild(gg); }
+        if (!placeFit(pg, c, giantInk, { texts: gtxt, fam: 'any', maxLines: 1, giant: true })) { pg.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h, fill: giantInk })); bite(g, c, Bu.bite, rFill, stock, 0.8); }
+      }
+    } else if (kind === 'solid') {
+      pg.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h, fill: ink }));
+      bite(g, c, Bu.bite, rFill, stock, 1);
+    } else if (kind === 'fit') {
+      if (rFill() < 0.35) { g.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h, fill: ink })); placeFit(g, c, textOn(ink)); }
+      else if (!placeFit(pg, c, ink)) pg.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h, fill: ink }));
+    } else if (kind === 'rules') {
+      const horiz = c.w >= c.h, n = Math.max(3, Math.round((horiz ? c.h : c.w) / (6 + rFill() * 8)));
+      const step = (horiz ? c.h : c.w) / n;
+      for (let i = 1; i < n; i++) pg.appendChild(horiz ? el('line', { x1: c.x, x2: c.x + c.w, y1: c.y + i * step, y2: c.y + i * step, stroke: ink, 'stroke-width': Math.max(1, step * 0.18) }) : el('line', { y1: c.y, y2: c.y + c.h, x1: c.x + i * step, x2: c.x + i * step, stroke: ink, 'stroke-width': Math.max(1, step * 0.18) }));
+    } else if (kind === 'screen') {
+      const id = 'sc' + Math.round(rFill() * 1e9), s = 3 + Math.round(rFill() * 4), horiz = rFill() < 0.5;
+      const pat = el('pattern', { id, width: s, height: s, patternUnits: 'userSpaceOnUse' });
+      pat.appendChild(horiz ? el('rect', { x: 0, y: 0, width: s, height: Math.max(1, s * (0.3 + P * 0.3)), fill: ink }) : el('rect', { x: 0, y: 0, width: Math.max(1, s * (0.3 + P * 0.3)), height: s, fill: ink }));
+      defs.appendChild(pat);
+      pg.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h, fill: `url(#${id})` }));
+    } else if (kind === 'image') {
+      /* posterized line-cut: two inks, concentric bands from one corner, clipped to the cell */
+      const id = 'cl' + Math.round(rFill() * 1e9);
+      const cp = el('clipPath', { id }); cp.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h })); defs.appendChild(cp);
+      const ink2 = pickInk(ink);
+      const gi = el('g', { 'clip-path': `url(#${id})` });
+      const half = rFill() < 0.5;
+      gi.appendChild(el('rect', half ? { x: c.x, y: c.y + c.h * 0.55, width: c.w, height: c.h * 0.45, fill: ink2 } : { x: c.x + c.w * 0.55, y: c.y, width: c.w * 0.45, height: c.h, fill: ink2 }));
+      const cx = c.x + (rFill() < 0.5 ? 0 : c.w), cy = c.y + (rFill() < 0.5 ? 0 : c.h), maxR = Math.hypot(c.w, c.h), band = 6 + rFill() * 10;
+      for (let r = band; r < maxR; r += band * 2) gi.appendChild(el('circle', { cx, cy, r, fill: 'none', stroke: ink, 'stroke-width': band * (0.5 + P * 0.4) }));
+      pg.appendChild(gi);
+    } else if (kind === 'quoin') {
+      quoinUsed = true;
+      const ink2 = pickInk(ink), flip = rFill() < 0.5;
+      pg.appendChild(el('polygon', { points: flip ? `${c.x},${c.y} ${c.x + c.w},${c.y} ${c.x},${c.y + c.h}` : `${c.x},${c.y} ${c.x + c.w},${c.y + c.h} ${c.x},${c.y + c.h}`, fill: ink }));
+      passOf(ink2).appendChild(el('polygon', { points: flip ? `${c.x + c.w},${c.y} ${c.x + c.w},${c.y + c.h} ${c.x},${c.y + c.h}` : `${c.x},${c.y} ${c.x + c.w},${c.y} ${c.x + c.w},${c.y + c.h}`, fill: ink2 }));
+    }
+    c.kind = kind;
+    cellGroups.push({ c, g });
+  }
+  /* each cell's knockouts and type sit in its own group; ink passes lay down above stock */
+  for (const p of passes) svg.appendChild(p.g);
+  for (const { c, g } of cellGroups) {
+    const dx = c.x + c.w / 2 < L.W / 2 ? -1 : 1, dy = c.y + c.h / 2 < L.Hc / 2 ? -1 : 1;
+    const horiz = c.w < c.h;
+    g.style.setProperty('--from', horiz ? `translateX(${dx * 46}px)` : `translateY(${dy * 46}px)`);
+    svg.appendChild(g);
+  }
+  /* shared contours: every cell edge is the same rule, drawn once */
+  const rules = el('g', { stroke: ruleInk, 'stroke-width': L.R, fill: 'none', 'shape-rendering': 'crispEdges' });
+  for (const c of L.cells) rules.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h }));
+  rules.appendChild(el('rect', { x: L.poem.x, y: L.poem.y, width: L.poem.w, height: L.poem.h }));
+  rules.appendChild(el('rect', { x: L.R / 2, y: L.R / 2, width: L.W - L.R, height: L.H - L.R }));
+  svg.appendChild(rules);
+  /* recipe strip on the floor rule */
+  if (L.strip) {
+    svg.appendChild(el('rect', { x: 0, y: L.Hc, width: L.W, height: L.strip, fill: ruleInk }));
+    const t = el('text', { x: 10 + L.R, y: L.Hc + L.strip / 2 + 4, fill: stock, 'font-size': 11, 'letter-spacing': 1.2 });
+    t.style.fontFamily = "'Space Mono', monospace";
+    const total = poemObj.book.movements.reduce((n, m) => n + m.poems.length, 0);
+    t.textContent = `${recipeCode(rc)} · ${poemObj.book.id.toUpperCase()} ${String(poemObj.num).padStart(2, '0')} · ${total} IN BOOK`;
+    svg.appendChild(t);
+  }
+  return { stock, ruleInk, dark };
+}
+/* Burn removes: apertures, incisions and notches are cut out of solid planes */
+function bite(g, c, kind, r, stock, scale) {
+  if (Math.min(c.w, c.h) < 70 || r() < 0.35) return;
+  if (kind === 'aperture') { const w = c.w * (0.18 + r() * 0.2) * scale, h = c.h * (0.18 + r() * 0.2) * scale; g.appendChild(el('rect', { x: c.x + (c.w - w) * (0.2 + r() * 0.6), y: c.y + (c.h - h) * (0.2 + r() * 0.6), width: w, height: h, fill: stock })); }
+  else if (kind === 'incision') { const horiz = c.w > c.h; const t = 3 + r() * 3; g.appendChild(el('rect', horiz ? { x: c.x + c.w * 0.08, y: c.y + c.h * (0.25 + r() * 0.5), width: c.w * 0.84, height: t, fill: stock } : { x: c.x + c.w * (0.25 + r() * 0.5), y: c.y + c.h * 0.08, width: t, height: c.h * 0.84, fill: stock })); }
+  else { const s = Math.min(c.w, c.h) * (0.22 + r() * 0.15); g.appendChild(el('rect', { x: r() < 0.5 ? c.x : c.x + c.w - s, y: r() < 0.5 ? c.y : c.y + c.h - s, width: s, height: s, fill: stock })); }
+}
+
+/* ================= poem cell ================= */
+function poemFont(W) { return W < 700 ? 17 : 19; }
+function setPoemHTML(host, poem) {
+  host.textContent = '';
+  let n = 0;
+  for (const st of poem.stanzas) {
+    const p = document.createElement('p');
+    if (poem.stanzas.length > 3) { const gauge = document.createElement('span'); gauge.className = 'gauge'; gauge.setAttribute('aria-hidden', 'true'); gauge.textContent = String(++n).padStart(2, '0'); p.appendChild(gauge); }
+    for (const line of st) { const s = document.createElement('span'); s.className = 'ln'; s.textContent = line; p.appendChild(s); }
+    host.appendChild(p);
+  }
+}
+function measurePoem(poem, W) {
+  const m = $('measure-poem'); const fs = poemFont(W);
+  const mat = W < 700 ? 18 : 40;
+  m.innerHTML = '';
+  const art = document.createElement('div'); art.className = 'ptype';
+  art.style.setProperty('--mat', mat + 'px'); art.style.setProperty('--pfs', fs + 'px');
+  art.innerHTML = '<div class="in"><h1></h1><p class="src"></p><div class="body"></div></div>';
+  art.querySelector('h1').textContent = poem.title;
+  art.querySelector('.src').textContent = srcLine(poem);
+  setPoemHTML(art.querySelector('.body'), poem);
+  m.appendChild(art);
+  art.style.display = 'inline-block'; art.style.whiteSpace = 'nowrap';
+  const natural = art.getBoundingClientRect().width;
+  art.style.display = 'block'; art.style.whiteSpace = '';
+  const maxW = W < 700 ? W - 2 * Math.round(clamp(W * 0.11, 30, 52)) : Math.min(W * 0.46, 36 * fs + 2 * mat);
+  const w = Math.ceil(Math.min(natural + 2, maxW));
+  art.style.width = w + 'px';
+  const h = Math.ceil(art.getBoundingClientRect().height) + 2;
+  return { w, h, fs, mat };
+}
+const srcLine = (poem) => `${poem.book.title} · ${poem.move.num} · No. ${poem.num}${poem.excerpt ? ' · excerpt' : ''}`;
+function placePoem(L, poem, look, pb) {
+  const host = $('poem');
+  const ink = look.dark ? INK.paper : INK.black;
+  let bg = byId(WEATHER, state.rc.weather).stock;
+  if (contrast(ink, bg) < 7) bg = look.dark ? '#111111' : INK.paper; /* legibility floor: 7:1 in the poem cell */
+  const i = L.R / 2;
+  Object.assign(host.style, { left: (L.poem.x + i) + 'px', top: (L.poem.y + i) + 'px', width: (L.poem.w - 2 * i) + 'px', height: (L.poem.h - 2 * i) + 'px', background: bg, color: ink });
+  host.style.setProperty('--mat', (pb.mat - i) + 'px');
+  host.style.setProperty('--pfs', pb.fs + 'px');
+  $('poemTitle').textContent = poem.title;
+  $('poemSrc').textContent = srcLine(poem);
+  setPoemHTML($('poemBody'), poem);
+}
+
+/* ================= state, lock, proof ================= */
+let CORPUS, state = { rc: { burn: 'BT', binder: 'ST', weather: 'GA', P: 70, E: 30, poem: 'arsonist-5' }, proof: false, L: null, pb: null };
+function poemOf(rc) { return CORPUS.poems.find((p) => p.id === rc.poem) || CORPUS.poems[0]; }
+function viewH() { return Math.max(420, innerHeight - 52); }
+function layoutFor(rc, W) {
+  const poem = poemOf(rc);
+  const pb = measurePoem(poem, W);
+  const H0 = viewH();
+  const H = W < 700 ? Math.max(H0, 64 + pb.h + 220 + 26) : Math.max(H0, pb.h + 2 * Math.max(90, H0 * 0.12) + 26);
+  return { L: solve(rc, W, H, pb), pb, poem };
+}
+function lock(animate = true) {
+  const W = document.documentElement.clientWidth;
+  const { L, pb, poem } = layoutFor(state.rc, W);
+  state.L = L; state.pb = pb;
+  const plate = $('plate');
+  plate.style.height = L.H + 'px';
+  $('ghost').textContent = '';
+  if (state.proof) { renderProof(L, poem, pb); return; }
+  const look = render(state.rc, L, poem);
+  placePoem(L, poem, look, pb);
+  $('poem').hidden = false;
+  if (animate && !reduce.matches) {
+    const svg = $('svg');
+    svg.classList.add('locking'); void svg.getBoundingClientRect();
+    requestAnimationFrame(() => { svg.classList.remove('locking'); setTimeout(() => { plate.classList.remove('jolt'); void plate.offsetWidth; plate.classList.add('jolt'); }, 300 + 120 * 3); });
+  }
+  updateSlug(poem);
+  const h = `#forme-${state.rc.burn}-${state.rc.binder}-${state.rc.weather}-${state.rc.P}-${state.rc.E}-${state.rc.poem}`;
+  if (location.hash !== h) { suppressHash = true; history.replaceState(null, '', h); }
+  try { localStorage.setItem('forme.last.' + poem.id, JSON.stringify(state.rc)); } catch { /* per-viewer convenience only */ }
+  $('live').textContent = `Locked: ${poem.title}. ${byId(BURN, state.rc.burn).name}, ${byId(BINDER, state.rc.binder).name}, ${byId(WEATHER, state.rc.weather).name}.`;
+}
+/* Proof is a structural state: the slicing tree collapses to a single-cell chase */
+function renderProof(L, poem, pb) {
+  const W = L.W, Wx = byId(WEATHER, state.rc.weather);
+  const dark = lum(Wx.stock) < 0.2;
+  const ink = dark ? INK.paper : INK.black;
+  let stock = Wx.stock; if (contrast(ink, stock) < 7) stock = dark ? '#111111' : INK.paper;
+  const svg = $('svg'); svg.textContent = '';
+  const H = Math.max(viewH(), pb.h + 160);
+  $('plate').style.height = H + 'px';
+  svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.appendChild(el('rect', { x: 0, y: 0, width: W, height: H, fill: stock }));
+  const R = Math.max(2, Math.min(8, L.R));
+  svg.appendChild(el('rect', { x: R / 2, y: R / 2, width: W - R, height: H - R, fill: 'none', stroke: ink, 'stroke-width': R }));
+  const t = el('text', { x: W < 700 ? 14 : 28, y: H - 16, fill: ink, 'font-size': 11, 'letter-spacing': 1.2, opacity: 0.7 }); t.style.fontFamily = "'Space Mono', monospace"; t.textContent = recipeCode(state.rc) + ' · PROOF'; svg.appendChild(t);
+  const x = W < 700 ? R : Math.round(Math.min(W * 0.16, (W - pb.w) / 2));
+  const host = $('poem');
+  Object.assign(host.style, { left: x + 'px', top: (W < 700 ? R : 72) + 'px', width: (W < 700 ? W - 2 * R : pb.w) + 'px', height: 'auto', background: 'transparent', color: ink });
+  host.style.setProperty('--mat', pb.mat + 'px');
+  host.style.setProperty('--pfs', pb.fs + 'px');
+  $('poemTitle').textContent = poem.title;
+  setPoemHTML($('poemBody'), poem);
+}
+function setProof(on) {
+  state.proof = on;
+  $('proof').setAttribute('aria-pressed', String(on));
+  $('proof').textContent = on ? 'Re-lock' : 'Proof';
+  if (on && !reduce.matches) { const s = $('svg'); s.classList.add('retract'); setTimeout(() => { s.classList.remove('retract'); lock(false); }, 300); }
+  else lock(true);
+}
+
+/* ================= the Case ================= */
+let suppressHash = false, pending = null;
+function updateSlug(poem) { $('slug').textContent = `${recipeCode(state.rc)} · ${poem.title}`; }
+function silhouette(rc) {
+  const s = el('svg', { viewBox: '0 0 44 28', class: 'sil' });
+  const W = 440, H = 280, pb = { w: state.pb ? Math.min(160, state.pb.w * 440 / Math.max(1, state.L.W)) : 150, h: state.pb ? Math.min(200, state.pb.h * 280 / Math.max(1, state.L.H)) : 150 };
+  const L = solve(rc, W, H, pb, { mini: true, scale: 0.1 });
+  s.appendChild(el('rect', { class: 'p', x: L.poem.x / 10, y: L.poem.y / 10, width: L.poem.w / 10, height: L.poem.h / 10 }));
+  for (const c of L.cells) s.appendChild(el('rect', { x: c.x / 10 + 0.5, y: c.y / 10 + 0.5, width: Math.max(0, c.w / 10 - 1), height: Math.max(0, c.h / 10 - 1) }));
+  return s;
+}
+function buildCase() {
+  const host = $('decks'); host.textContent = '';
+  for (const [key, label, what, deck] of DECKS) {
+    const d = document.createElement('div'); d.className = 'deck';
+    d.innerHTML = `<h2>${label} <span>${what}</span></h2><div class="slugs" role="group" aria-label="${label}"></div>`;
+    const row = d.querySelector('.slugs');
+    for (const ing of deck) {
+      const b = document.createElement('button'); b.type = 'button'; b.dataset.key = key; b.dataset.id = ing.id;
+      b.setAttribute('aria-pressed', String(state.rc[key] === ing.id));
+      const rc = { ...state.rc, [key]: ing.id };
+      b.appendChild(silhouette(rc));
+      const t = document.createElement('span'); t.innerHTML = '<span class="nm"></span><span class="ds"></span>';
+      t.querySelector('.nm').textContent = ing.name.toUpperCase(); t.querySelector('.ds').textContent = ing.ds;
+      b.appendChild(t);
+      b.addEventListener('click', () => { state.rc[key] = ing.id; state.proof = false; $('proof').setAttribute('aria-pressed', 'false'); $('proof').textContent = 'Proof'; lock(true); buildCase(); });
+      b.addEventListener('pointerenter', () => ghost(rc)); b.addEventListener('focus', () => ghost(rc));
+      b.addEventListener('pointerleave', clearGhost); b.addEventListener('blur', clearGhost);
+      row.appendChild(b);
+    }
+    host.appendChild(d);
+  }
+}
+/* hovering a slug draws the new slicing tree as ghost rules before you commit */
+function ghost(rc) {
+  if (!state.L || state.proof) return;
+  const L = solve(rc, state.L.W, state.L.H, state.pb);
+  const g = $('ghost'); g.textContent = '';
+  g.setAttribute('width', L.W); g.setAttribute('height', L.H); g.setAttribute('viewBox', `0 0 ${L.W} ${L.H}`);
+  const col = '#d6ff2e';
+  for (const c of L.cells) g.appendChild(el('rect', { x: c.x, y: c.y, width: c.w, height: c.h, fill: 'none', stroke: col, 'stroke-width': 2, 'stroke-dasharray': '7 5' }));
+  g.appendChild(el('rect', { x: L.poem.x, y: L.poem.y, width: L.poem.w, height: L.poem.h, fill: 'none', stroke: col, 'stroke-width': 3 }));
+}
+function clearGhost() { $('ghost').textContent = ''; }
+
+const pIn = $('pressure'), eIn = $('entropy');
+function syncDials() { pIn.value = state.rc.P; eIn.value = state.rc.E; $('pOut').textContent = state.rc.P; $('eOut').textContent = state.rc.E; }
+/* the signature moment: dragging pressure squeezes the furniture's weight live; release re-locks */
+pIn.addEventListener('input', () => {
+  $('pOut').textContent = pIn.value;
+  const w = Math.round(380 + pIn.value / 100 * 560 + 60);
+  for (const t of $('svg').querySelectorAll('text')) if (t.style.fontVariationSettings) t.style.fontVariationSettings = t.style.fontVariationSettings.replace(/'wght' \d+/, `'wght' ${w}`);
+});
+pIn.addEventListener('change', () => { state.rc.P = +pIn.value; lock(true); buildCase(); });
+eIn.addEventListener('input', () => { $('eOut').textContent = eIn.value; });
+eIn.addEventListener('change', () => { state.rc.E = +eIn.value; lock(true); buildCase(); });
+
+$('toggle').addEventListener('click', () => {
+  const open = !$('case').classList.contains('open');
+  $('case').classList.toggle('open', open);
+  $('toggle').setAttribute('aria-expanded', String(open));
+  $('toggle').textContent = open ? '▼ Close the case' : '▲ Add to the pot';
+});
+$('lock').addEventListener('click', () => { state.proof = false; $('proof').setAttribute('aria-pressed', 'false'); $('proof').textContent = 'Proof'; lock(true); });
+$('proof').addEventListener('click', () => setProof(!state.proof));
+addEventListener('keydown', (e) => {
+  if (e.target.closest('input, textarea')) return;
+  if (e.key === 'p' || e.key === 'P') setProof(!state.proof);
+  if (e.key === 'Escape') { $('rack').hidden = true; $('rackBtn').setAttribute('aria-expanded', 'false'); }
+});
+
+/* ================= the Rack ================= */
+function buildRack() {
+  const host = $('rackList'); host.textContent = '';
+  for (const b of CORPUS.books) {
+    const h = document.createElement('h3'); h.textContent = b.title; host.appendChild(h);
+    const ol = document.createElement('ol');
+    for (const m of b.movements) for (const p of m.poems) {
+      const li = document.createElement('li'), bt = document.createElement('button'); bt.type = 'button';
+      let rc = null; try { rc = JSON.parse(localStorage.getItem('forme.last.' + p.id) || 'null'); } catch { rc = null; }
+      rc = rc || { ...state.rc, poem: p.id };
+      const Bu = byId(BURN, rc.burn), Wx = byId(WEATHER, rc.weather);
+      const stripes = Bu.inks.map((n) => INK[n]).filter((c) => contrast(c, Wx.stock) >= 1.7);
+      bt.innerHTML = '<span class="no"></span><span class="tt"></span><svg class="sliver" viewBox="0 0 90 10" preserveAspectRatio="none" aria-hidden="true"></svg>';
+      bt.querySelector('.no').textContent = String(p.num).padStart(2, '0');
+      bt.querySelector('.tt').textContent = p.title;
+      const sv = bt.querySelector('svg');
+      sv.appendChild(el('rect', { x: 0, y: 0, width: 90, height: 10, fill: Wx.stock }));
+      const r = seeded(p.id + rc.burn); let x = 0;
+      while (x < 90) { const w = 4 + r() * 22; const c = stripes[Math.floor(r() * stripes.length)] || '#111'; if (r() < 0.65) sv.appendChild(el('rect', { x, y: 0, width: w, height: 10, fill: c })); x += w; sv.appendChild(el('rect', { x, y: 0, width: 1, height: 10, fill: '#111' })); x += 1; }
+      bt.addEventListener('click', () => { state.rc = { ...rc, poem: p.id }; $('rack').hidden = true; $('rackBtn').setAttribute('aria-expanded', 'false'); syncDials(); lock(true); buildCase(); scrollTo(0, 0); });
+      li.appendChild(bt); ol.appendChild(li);
+    }
+    host.appendChild(ol);
+  }
+}
+$('rackBtn').addEventListener('click', () => { const r = $('rack'); const open = r.hidden; if (open) buildRack(); r.hidden = !open; $('rackBtn').setAttribute('aria-expanded', String(open)); });
+
+/* Session 2's three mockups, as recipes */
+const PRESETS = [
+  ['1 · High density', { burn: 'BT', binder: 'ST', weather: 'GA', P: 74, E: 28 }],
+  ['2 · Quiet mono', { burn: 'EM', binder: 'WX', weather: 'FG', P: 35, E: 18 }],
+  ['3 · Tall lattice', { burn: 'AC', binder: 'RV', weather: 'SL', P: 60, E: 40 }],
+];
+for (const [label, rc] of PRESETS) {
+  const b = document.createElement('button'); b.type = 'button'; b.textContent = label;
+  b.addEventListener('click', () => { state.rc = { ...state.rc, ...rc }; state.proof = false; syncDials(); lock(true); buildCase(); });
+  $('presets').appendChild(b);
+}
+
+function readHash() {
+  const m = /^#forme-([A-Z]{2})-([A-Z]{2})-([A-Z]{2})-(\d{1,3})-(\d{1,3})-([a-z]+-\d+)$/.exec(location.hash);
+  if (!m) return false;
+  state.rc = { burn: m[1], binder: m[2], weather: m[3], P: clamp(+m[4], 0, 100), E: clamp(+m[5], 0, 100), poem: m[6] };
+  return true;
+}
+addEventListener('hashchange', () => { if (suppressHash) { suppressHash = false; return; } if (readHash()) { syncDials(); lock(true); buildCase(); } });
+let rz = 0, lastW = 0;
+addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { const w = document.documentElement.clientWidth; if (w !== lastW) { lastW = w; lock(false); buildCase(); } }, 150); });
+
+(async function boot() {
+  const src = $('corpus');
+  let text = src.textContent;
+  if (src.dataset.source !== 'full') { try { const r = await fetch('corpus/corpus.txt', { cache: 'no-store' }); if (r.ok) { const t = await r.text(); if (t.includes('=POEM')) text = t; } } catch { /* sample */ } }
+  CORPUS = parseCorpus(text);
+  readHash();
+  if (!CORPUS.poems.find((p) => p.id === state.rc.poem)) state.rc.poem = (CORPUS.poems.find((p) => /always there/i.test(p.title)) || CORPUS.poems[0]).id;
+  /* fit-type needs real metrics, so nothing locks until the faces are in */
+  const loads = ["400 20px 'Roboto Flex'", "900 20px 'Roboto Flex'", "900 20px 'Anybody'", "italic 700 20px 'Bodoni Moda'", "400 20px 'Source Serif 4'", "italic 600 20px 'Source Serif 4'", "400 11px 'Space Mono'"];
+  try { await Promise.race([Promise.all(loads.map((f) => document.fonts.load(f))), new Promise((r) => setTimeout(r, 2500))]); } catch { /* fall back to system faces */ }
+  await document.fonts.ready;
+  lastW = document.documentElement.clientWidth;
+  syncDials();
+  lock(true);
+  buildCase();
+})();
+})();
+</script>

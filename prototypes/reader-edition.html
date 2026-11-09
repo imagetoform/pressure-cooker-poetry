@@ -1,0 +1,1177 @@
+<title>Pressure Cooker Poetry</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="A reader-driven generative edition of Pressure Cooker Poetry. Bring your words; the cooker finds the poem and builds the frame around you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@1,900&family=Special+Elite&display=swap">
+<style>
+/* Layout: a vermilion intake band where the reader loads the cooker, then a full-bleed
+   edition stage whose ground, grid and collage change per layout family, while the poem
+   sheet (the control layer) stays paper, ink and legible. Single committed palette from
+   the Living Cover brief: no cream, no soft gradients, no centered compositions. */
+:root {
+  --vermilion: #d9381e;
+  --ink: #0c0c0c;
+  --paper: #f4f4f0;
+  --cobalt: #1b2fd6;
+  --cobalt-deep: #14229e;
+  --acid: #d6ff2e;
+  --tape: rgba(255, 236, 102, 0.78);
+  --ink-2: #3b3b37;      /* secondary text on paper */
+  --paper-2: #b9b9b1;    /* secondary text on ink */
+  --shadow: rgba(0, 0, 0, 0.42);
+
+  --f-display: 'Anton', 'Impact', 'Haettenschweiler', sans-serif;
+  --f-poetic: 'Playfair Display', 'Georgia', serif;
+  --f-type: 'Special Elite', 'Courier New', monospace;
+  --f-read: 'Libre Caslon Text', 'Iowan Old Style', 'Georgia', serif;
+
+  --gutter-l: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--ink); }
+body { background: var(--ink); color: var(--paper); font-family: var(--f-read); font-size: 16px; line-height: 1.5; overflow-x: hidden; }
+button, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--acid); outline-offset: 3px; }
+.wrap { padding-left: var(--gutter-l); padding-right: var(--gutter-r); max-width: 90rem; margin: 0 auto; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- furniture ---------- */
+.label { font-family: var(--f-type); font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.35; }
+.form-slip { background: var(--paper); color: var(--ink); padding: 0.5rem 0.75rem; box-shadow: 4px 6px 0 var(--shadow); display: inline-block; }
+.tape { position: absolute; width: 5.5rem; height: 1.6rem; background: var(--tape); clip-path: polygon(0 0, 100% 8%, 96% 50%, 100% 92%, 0 100%, 4% 50%); pointer-events: none; }
+
+/* ---------- masthead ---------- */
+.mast { background: var(--ink); border-bottom: 6px solid var(--acid); }
+.mast .wrap { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; align-items: center; justify-content: space-between; padding-block: 0.75rem; }
+.wordmark { font-family: var(--f-display); font-size: clamp(1.25rem, 2.6vw, 1.75rem); letter-spacing: 0.04em; line-height: 1; margin: 0; color: var(--paper); }
+.wordmark i { font-family: var(--f-poetic); font-weight: 900; color: var(--acid); letter-spacing: 0; }
+.privacy { color: var(--paper-2); max-width: 34rem; margin: 0; }
+.privacy b { color: var(--acid); font-weight: 400; }
+.sample-note { background: var(--acid); color: var(--ink); }
+.sample-note .wrap { padding-block: 0.5rem; margin-top: 0; margin-bottom: 0; }
+
+/* ---------- intake ---------- */
+.intake { background: var(--vermilion); position: relative; overflow: hidden; }
+.intake .wrap { padding-block: 2.5rem 3rem; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 2rem 3rem; align-items: start; position: relative; }
+.intake h1 { grid-column: 1 / -1; margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(3rem, 9.5vw, 9.5rem); line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase; position: relative; text-wrap: balance; max-width: 15ch; }
+.intake h1 .pass { display: block; }
+.intake h1 .pass-b { position: absolute; inset: 0; color: var(--cobalt); transform: translate(calc(var(--mis, 4) * 1px), calc(var(--mis, 4) * 1px)); z-index: 0; transition: transform 0.25s steps(3); }
+.intake h1 .pass-a { position: relative; color: var(--ink); z-index: 1; }
+.intake h1 em { font-family: var(--f-poetic); font-style: italic; font-weight: 900; text-transform: none; color: var(--paper); }
+.intake h1 .pass-b em { color: var(--cobalt); }
+
+.loader { display: grid; gap: 1rem; min-width: 0; }
+.slip-field { background: var(--paper); color: var(--ink); padding: 1rem 1rem 0.75rem; box-shadow: 6px 9px 0 var(--shadow); transform: rotate(-0.6deg); position: relative; }
+.slip-field label { display: block; margin-bottom: 0.5rem; color: var(--ink-2); }
+#ingredients { width: 100%; min-height: 8.5rem; resize: vertical; border: 0; border-top: 2px solid var(--ink); background: transparent; color: var(--ink); font-family: var(--f-read); font-size: 1.25rem; line-height: 1.55; padding: 0.75rem 0 0.25rem; outline: none; }
+#ingredients::placeholder { color: #6d6d66; font-style: italic; }
+.slip-field:focus-within { box-shadow: 6px 9px 0 var(--ink), 0 0 0 3px var(--acid); }
+.slip-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; color: var(--ink-2); padding-top: 0.5rem; border-top: 1px dashed var(--ink-2); }
+.deal { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.deal .label { color: var(--ink); background: var(--paper); padding: 0.2rem 0.5rem; }
+.chip { border: 2px solid var(--ink); background: var(--ink); color: var(--paper); font-family: var(--f-type); font-size: 0.9375rem; padding: 0.35rem 0.7rem; min-height: 2.75rem; cursor: pointer; box-shadow: 3px 4px 0 var(--shadow); }
+.chip:hover { background: var(--acid); color: var(--ink); }
+.chip:active { transform: translate(2px, 3px); box-shadow: 1px 1px 0 var(--shadow); }
+.go { justify-self: start; border: 0; background: var(--acid); color: var(--ink); font-family: var(--f-display); font-size: clamp(1.75rem, 3.5vw, 2.75rem); letter-spacing: 0.04em; padding: 0.4rem 1.4rem 0.35rem; cursor: pointer; box-shadow: 7px 9px 0 var(--ink); transform: rotate(-2deg); text-transform: uppercase; min-height: 3rem; }
+.go:hover { background: var(--paper); }
+.go:active { transform: rotate(-2deg) translate(4px, 6px); box-shadow: 2px 3px 0 var(--ink); }
+.go small { font-family: var(--f-type); font-size: 0.875rem; letter-spacing: 0.06em; display: block; text-transform: none; }
+
+.readings { display: grid; gap: 1rem; min-width: 0; }
+.gauge-card { background: var(--ink); color: var(--paper); padding: 1rem; box-shadow: 6px 9px 0 var(--shadow); transform: rotate(1deg); display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 1rem; align-items: center; }
+.gauge-card svg { width: 100%; height: auto; display: block; }
+.gauge-needle { transform-origin: 100px 100px; transition: transform 0.35s cubic-bezier(.3, 1.6, .5, 1); }
+.gauge-card.hot .gauge-wobble { animation: tremble 0.9s ease-in-out infinite; transform-origin: 100px 100px; }
+@keyframes tremble { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(2deg); } }
+.psi { font-family: var(--f-display); font-size: 2.5rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.psi small { font-family: var(--f-type); font-size: 0.875rem; color: var(--paper-2); }
+.meters { display: grid; gap: 0.35rem; margin-top: 0.5rem; }
+.meter { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr) 2.5rem; gap: 0.5rem; align-items: center; font-family: var(--f-type); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--paper-2); }
+.meter .bar { height: 0.5rem; background: #2a2a28; position: relative; }
+.meter .bar i { position: absolute; inset: 0 auto 0 0; background: var(--acid); width: 0; transition: width 0.3s; }
+.meter output { text-align: right; font-variant-numeric: tabular-nums; color: var(--paper); }
+
+.heat { background: var(--paper); color: var(--ink); padding: 0.75rem 1rem 1rem; box-shadow: 6px 9px 0 var(--shadow); transform: rotate(-0.8deg); }
+.heat h2 { font-family: var(--f-type); font-weight: 400; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.5rem; color: var(--ink-2); }
+.heat ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; }
+.heat li button { width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 4.5rem; gap: 0.75rem; align-items: center; text-align: left; background: none; border: 0; padding: 0.4rem 0; border-bottom: 1px solid #d5d5ce; cursor: pointer; min-height: 2.75rem; }
+.heat li button:hover .t { text-decoration: underline; text-decoration-thickness: 2px; }
+.heat .t { font-family: var(--f-read); font-size: 1.0625rem; line-height: 1.25; }
+.heat .b { display: block; font-family: var(--f-type); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.heat .h { height: 0.6rem; background: #e2e2db; position: relative; }
+.heat .h i { position: absolute; inset: 0 auto 0 0; background: var(--vermilion); }
+.heat .empty { font-style: italic; color: var(--ink-2); }
+
+.board { position: relative; min-height: 6rem; grid-column: 1 / -1; }
+.board .label { color: var(--ink); background: var(--paper); padding: 0.2rem 0.5rem; display: inline-block; margin-bottom: 0.75rem; }
+.board-tiles { display: flex; flex-wrap: wrap; gap: 0.75rem 0.6rem; align-items: center; min-height: 4rem; }
+
+/* ransom tiles: the reader's own words as collage material */
+.tile { display: inline-flex; align-items: center; justify-content: center; line-height: 1; padding: 0.3em 0.35em 0.22em; box-shadow: 4px 6px 0 var(--shadow); transform: rotate(var(--r, 0deg)); white-space: nowrap; user-select: none; }
+.tile.f-display { font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.02em; }
+.tile.f-poetic { font-family: var(--f-poetic); font-style: italic; font-weight: 900; }
+.tile.f-type { font-family: var(--f-type); }
+.tile.c-paper { background: var(--paper); color: var(--ink); }
+.tile.c-ink { background: var(--ink); color: var(--paper); }
+.tile.c-acid { background: var(--acid); color: var(--ink); }
+.tile.c-cobalt { background: var(--cobalt); color: var(--paper); }
+.tile.c-verm { background: var(--paper); color: var(--vermilion); }
+.tile.c-ink-acid { background: var(--ink); color: var(--acid); }
+.tile.torn { clip-path: polygon(0 6%, 9% 0, 100% 4%, 96% 100%, 5% 94%); box-shadow: none; }
+.tile.unknown { opacity: 0.72; box-shadow: none; outline: 2px dashed currentColor; outline-offset: -5px; }
+.board .tile { font-size: clamp(1.25rem, 2.6vw, 2rem); }
+.board .tile.pop { animation: drop 0.42s cubic-bezier(.2, 1.4, .4, 1) both; }
+@keyframes drop { from { transform: translateY(-18px) rotate(calc(var(--r, 0deg) * -2)); opacity: 0; } }
+
+/* ---------- edition stage ---------- */
+.edition { --ground: var(--vermilion); background: var(--ground); position: relative; transition: background-color 0.4s; }
+.edition[data-family="cosmic"] { --ground: var(--ink); }
+.edition[data-family="collage"] { --ground: var(--vermilion); }
+.edition[data-family="diagram"] { --ground: var(--cobalt); }
+.edition[data-family="monolith"] { --ground: var(--vermilion); }
+
+.stage { position: relative; overflow: hidden; }
+.stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.field { position: absolute; left: 0; right: 0; top: 0; height: min(100%, 48rem); pointer-events: none; z-index: 2; }
+.field .tile { position: absolute; font-size: var(--fs, 2rem); transform: translate(calc(var(--px, 0) * var(--d, 0) * 1px), calc(var(--py, 0) * var(--d, 0) * 1px)) rotate(var(--r, 0deg)); transition: transform 0.25s ease-out; }
+.field .tile.enter { animation: drop 0.5s cubic-bezier(.2, 1.4, .4, 1) both; animation-delay: var(--delay, 0s); }
+.monolith-word { position: absolute; left: -0.04em; top: -0.08em; font-family: var(--f-display); text-transform: uppercase; font-size: clamp(7rem, 27vw, 26rem); line-height: 0.84; letter-spacing: -0.02em; white-space: nowrap; color: var(--ink); }
+.monolith-word.b { color: var(--cobalt); transform: translate(0.035em, 0.03em); }
+.cut { filter: drop-shadow(2.5px 0 0 var(--paper)) drop-shadow(-2.5px 0 0 var(--paper)) drop-shadow(0 2.5px 0 var(--paper)) drop-shadow(0 -2.5px 0 var(--paper)) drop-shadow(5px 9px 0 rgba(0, 0, 0, 0.38)); position: absolute; overflow: visible; }
+.annot { position: absolute; font-family: var(--f-type); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--paper); background: var(--cobalt-deep); padding: 0.2rem 0.45rem; border: 1px solid var(--paper); }
+.grain { position: absolute; inset: 0; pointer-events: none; z-index: 6; mix-blend-mode: multiply; opacity: 0.28; }
+
+.stage-grid { position: relative; z-index: 3; display: grid; grid-template-columns: var(--cols, minmax(0, 1fr) minmax(0, 38rem) minmax(0, 17rem)); gap: 2rem; align-items: start; padding-block: var(--pad-top, 6rem) 4rem; }
+.edition[data-family="cosmic"] .stage-grid { --cols: minmax(0, 1.1fr) minmax(0, 37rem) minmax(0, 16rem); --pad-top: 9rem; }
+.edition[data-family="collage"] .stage-grid { --cols: minmax(0, 0.45fr) minmax(0, 38rem) minmax(0, 1fr); --pad-top: 14rem; }
+.edition[data-family="diagram"] .stage-grid { --cols: minmax(0, 1.3fr) minmax(0, 36rem) minmax(0, 15rem); --pad-top: 7rem; }
+.edition[data-family="monolith"] .stage-grid { --cols: minmax(0, 0.12fr) minmax(0, 38rem) minmax(0, 1fr); --pad-top: clamp(10rem, 22vw, 20rem); }
+
+.slip-col { grid-column: 1; grid-row: 1; display: grid; gap: 1rem; align-content: start; justify-items: start; min-width: 0; }
+.edition[data-family="collage"] .slip-col, .edition[data-family="monolith"] .slip-col { grid-column: 3; grid-row: 1; }
+.edition[data-family="collage"] .sheet, .edition[data-family="monolith"] .sheet { grid-row: 1 / span 2; }
+.sheet { grid-column: 2; grid-row: 1; background: var(--paper); color: var(--ink); padding: clamp(1.5rem, 3.5vw, 3rem) clamp(1.25rem, 3.5vw, 3rem) 2.5rem; box-shadow: 10px 14px 0 var(--shadow); position: relative; min-width: 0; transform: rotate(var(--sheet-r, 0deg)); }
+.edition[data-family="collage"] .sheet { --sheet-r: -0.7deg; }
+.edition[data-family="monolith"] .sheet { --sheet-r: 0.4deg; }
+.sheet.enter { animation: rise 0.6s cubic-bezier(.2, .9, .3, 1) both; }
+@keyframes rise { from { transform: translateY(40px) rotate(-2.5deg); opacity: 0; } }
+.margin { grid-column: 3; grid-row: 1 / span 2; display: grid; gap: 1.25rem; align-content: start; min-width: 0; }
+.edition[data-family="collage"] .margin, .edition[data-family="monolith"] .margin { grid-column: 3; grid-row: 2; }
+
+.sheet .kicker { color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; border-bottom: 2px solid var(--ink); padding-bottom: 0.6rem; margin-bottom: 1.25rem; }
+.sheet h2 { font-family: var(--f-poetic); font-style: italic; font-weight: 900; font-size: clamp(2rem, 4.2vw, 3.25rem); line-height: 1.02; margin: 0 0 1.75rem; text-wrap: balance; }
+.sheet .excerpt { display: inline-block; background: var(--acid); padding: 0.1rem 0.4rem; margin: -1rem 0 1.25rem; }
+.poem { font-size: clamp(1.0625rem, 1.35vw, 1.1875rem); line-height: 1.62; max-width: 34em; }
+.poem p { margin: 0 0 1.35em; }
+.poem .ln { display: block; padding-left: 1.4em; text-indent: -1.4em; }
+.poem .sep { text-align: left; letter-spacing: 1em; color: var(--ink-2); }
+.poem .w { cursor: pointer; border-radius: 1px; }
+.poem .w:hover { background: rgba(214, 255, 46, 0.55); }
+.poem mark { background: linear-gradient(transparent 52%, var(--acid) 52%, var(--acid) 92%, transparent 92%); color: inherit; padding: 0 0.05em; }
+.sheet .colophon { margin-top: 2rem; padding-top: 0.75rem; border-top: 1px solid var(--ink); color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.immutable { position: absolute; right: -0.75rem; top: -1rem; transform: rotate(7deg); border: 3px solid var(--cobalt); color: var(--cobalt); background: var(--paper); font-family: var(--f-type); font-size: 0.75rem; letter-spacing: 0.12em; padding: 0.25rem 0.5rem; text-align: center; line-height: 1.2; }
+
+.panel { background: var(--paper); color: var(--ink); padding: 0.9rem 1rem 1rem; box-shadow: 6px 8px 0 var(--shadow); position: relative; width: 100%; max-width: 22rem; }
+.panel h3 { margin: 0 0 0.5rem; font-family: var(--f-type); font-weight: 400; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.panel.dark { background: var(--ink); color: var(--paper); }
+.panel.dark h3 { color: var(--paper-2); }
+.panel.acid { background: var(--acid); }
+.why { font-size: 0.9375rem; line-height: 1.5; margin: 0 0 0.75rem; }
+.why b { font-family: var(--f-display); font-weight: 400; font-size: 1.25rem; letter-spacing: 0.03em; text-transform: uppercase; display: block; line-height: 1.1; }
+.axes { display: grid; gap: 0.3rem; }
+.axis { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 0.5rem; align-items: center; font-family: var(--f-type); font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.axis .bar { height: 0.55rem; background: #dcdcd4; position: relative; }
+.axis .bar i { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+.axis .bar s { position: absolute; top: -3px; bottom: -3px; width: 3px; background: var(--vermilion); text-decoration: none; }
+.axes-key { font-family: var(--f-type); font-size: 0.6875rem; color: var(--ink-2); margin-top: 0.5rem; line-height: 1.4; }
+.axes-key i { display: inline-block; width: 0.8rem; height: 0.5rem; background: var(--ink); vertical-align: middle; }
+.axes-key s { display: inline-block; width: 3px; height: 0.8rem; background: var(--vermilion); vertical-align: middle; margin-left: 0.5rem; }
+.actions { display: grid; gap: 0.5rem; }
+.btn { border: 2px solid var(--ink); background: var(--ink); color: var(--paper); font-family: var(--f-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 1.125rem; padding: 0.45rem 0.8rem 0.35rem; min-height: 2.75rem; cursor: pointer; text-align: left; box-shadow: 3px 4px 0 var(--shadow); }
+.btn:hover { background: var(--acid); color: var(--ink); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--paper); }
+.btn:active { transform: translate(2px, 3px); box-shadow: none; }
+.follow { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.follow .chip { font-size: 0.875rem; }
+.hint { font-size: 0.8125rem; color: var(--ink-2); margin: 0.5rem 0 0; font-style: italic; }
+.dark .hint { color: var(--paper-2); }
+
+.note-form textarea { width: 100%; min-height: 5.5rem; border: 0; border-top: 2px solid var(--ink); background: transparent; font-family: var(--f-type); font-size: 0.9375rem; line-height: 1.45; padding: 0.5rem 0; color: var(--ink); resize: vertical; outline: none; }
+.note-form:focus-within { box-shadow: 6px 8px 0 var(--shadow), 0 0 0 3px var(--acid); }
+.notes { display: grid; gap: 1.1rem; margin-top: 0.25rem; }
+.note { background: var(--paper); color: var(--ink); padding: 1rem 0.9rem 0.6rem; font-family: var(--f-type); font-size: 0.9375rem; line-height: 1.45; box-shadow: 4px 6px 0 var(--shadow); position: relative; transform: rotate(var(--r, 1deg)); white-space: pre-wrap; overflow-wrap: anywhere; }
+.note .tape { top: -0.7rem; left: 30%; transform: rotate(-6deg); width: 4.5rem; height: 1.3rem; }
+.note footer { display: flex; justify-content: space-between; gap: 0.5rem; margin-top: 0.5rem; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); }
+.note footer button { background: none; border: 0; padding: 0; font: inherit; color: var(--vermilion); cursor: pointer; text-decoration: underline; min-height: 1.5rem; }
+
+/* ---------- path + shelf ---------- */
+.path-band { background: var(--ink); border-top: 6px solid var(--acid); }
+.path-band .wrap { padding-block: 2rem; display: grid; gap: 1rem; }
+.path-band h2, .shelf h2 { font-family: var(--f-display); font-weight: 400; text-transform: uppercase; letter-spacing: 0.03em; font-size: clamp(1.75rem, 3.5vw, 2.75rem); line-height: 1; margin: 0; }
+.path-band h2 em, .shelf h2 em { font-family: var(--f-poetic); font-weight: 900; color: var(--acid); text-transform: none; }
+.path { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem 0.4rem; align-items: center; }
+.path li { display: flex; align-items: center; gap: 0.4rem; }
+.path li + li::before { content: "→"; color: var(--acid); font-family: var(--f-type); }
+.path .step-word { font-family: var(--f-type); background: var(--acid); color: var(--ink); padding: 0.25rem 0.5rem; }
+.path button { background: var(--paper); color: var(--ink); border: 0; font-family: var(--f-read); font-style: italic; padding: 0.35rem 0.6rem; cursor: pointer; min-height: 2.5rem; box-shadow: 3px 4px 0 rgba(255, 255, 255, 0.12); }
+.path button:hover { background: var(--acid); }
+.path .current button { outline: 3px solid var(--vermilion); }
+.path-empty { color: var(--paper-2); font-style: italic; margin: 0; }
+
+.shelf { background: var(--ink); }
+.shelf .wrap { padding-block: 1rem 4rem; display: grid; gap: 1.5rem; }
+.shelf-intro { color: var(--paper-2); max-width: 40rem; margin: 0; }
+.books { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 2.5rem; }
+.book h3 { font-family: var(--f-poetic); font-style: italic; font-weight: 900; font-size: 1.75rem; margin: 0; line-height: 1.1; color: var(--paper); }
+.book .after { color: var(--paper-2); margin: 0.25rem 0 1rem; }
+.mov { margin: 0 0 1.25rem; }
+.mov h4 { margin: 0 0 0.35rem; color: var(--acid); font-family: var(--f-type); font-weight: 400; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.mov ol { list-style: none; margin: 0; padding: 0; }
+.mov li button { width: 100%; display: grid; grid-template-columns: 2rem minmax(0, 1fr) 3.5rem; gap: 0.5rem; align-items: center; text-align: left; background: none; border: 0; border-bottom: 1px solid #262624; padding: 0.4rem 0; cursor: pointer; color: var(--paper); min-height: 2.5rem; }
+.mov li button:hover .tt { color: var(--acid); }
+.mov .n { font-family: var(--f-type); font-size: 0.75rem; color: var(--paper-2); font-variant-numeric: tabular-nums; }
+.mov .tt { font-size: 1rem; line-height: 1.3; }
+.mov .read-mark { font-family: var(--f-type); font-size: 0.6875rem; color: var(--acid); margin-left: 0.4rem; letter-spacing: 0.06em; }
+.mov .hb { height: 0.45rem; background: #262624; position: relative; }
+.mov .hb i { position: absolute; inset: 0 auto 0 0; background: var(--vermilion); }
+
+.foot { background: var(--ink); border-top: 1px solid #262624; color: var(--paper-2); }
+.foot .wrap { padding-block: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; align-items: center; }
+.forget { background: none; border: 2px solid var(--paper-2); color: var(--paper); font-family: var(--f-type); padding: 0.4rem 0.8rem; cursor: pointer; min-height: 2.75rem; }
+.forget.armed { border-color: var(--vermilion); background: var(--vermilion); }
+
+.toast { position: fixed; left: var(--gutter-l); bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); background: var(--acid); color: var(--ink); font-family: var(--f-type); padding: 0.6rem 0.9rem; box-shadow: 4px 6px 0 var(--ink); z-index: 50; transform: rotate(-1deg); }
+
+/* ---------- narrow ---------- */
+@media (max-width: 1100px) {
+  .edition .stage-grid, .edition[data-family] .stage-grid { --cols: minmax(0, 1fr) minmax(0, 36rem) minmax(0, 15rem); }
+  .edition[data-family="collage"] .stage-grid, .edition[data-family="monolith"] .stage-grid { --cols: minmax(0, 0.1fr) minmax(0, 36rem) minmax(0, 1fr); }
+}
+@media (max-width: 900px) {
+  .intake .wrap { grid-template-columns: minmax(0, 1fr); }
+  .edition .stage-grid, .edition[data-family] .stage-grid { grid-template-columns: minmax(0, 1fr); --pad-top: 15rem; }
+  .edition[data-family="monolith"] .stage-grid { --pad-top: 12rem; }
+  .edition[data-family] .sheet, .edition[data-family] .margin, .edition[data-family] .slip-col { grid-column: 1; grid-row: auto; }
+  .slip-col { order: 0; } .sheet { order: 1; } .margin { order: 2; }
+  .panel { max-width: none; }
+  .field { height: 17rem; }
+  .immutable { right: 0.5rem; }
+}
+@media (max-width: 520px) {
+  .gauge-card { grid-template-columns: minmax(0, 1fr); }
+  .gauge-card svg { max-width: 14rem; }
+  .meter { grid-template-columns: 5.5rem minmax(0, 1fr) 2.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .field .tile { transform: rotate(var(--r, 0deg)) !important; }
+}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="wordmark">PRESSURE COOKER <i>Poetry</i></p>
+    <p class="label privacy">Reader edition. The cooker reads only what you type here and shows you all of it. <b>Nothing leaves this browser.</b></p>
+  </div>
+</header>
+<div class="sample-note" id="sampleNote" hidden><p class="wrap label">Sample excerpts only. The full manuscripts load from a private file that is not published.</p></div>
+
+<main>
+  <section class="intake" aria-labelledby="intakeTitle">
+    <div class="wrap">
+      <h1 id="intakeTitle" aria-label="What are you putting in the cooker?">
+        <span class="pass pass-b" aria-hidden="true">What are <em>you</em> putting in the cooker?</span>
+        <span class="pass pass-a" aria-hidden="true">What are <em>you</em> putting in the cooker?</span>
+      </h1>
+
+      <div class="loader">
+        <div class="slip-field">
+          <span class="tape" style="left:-1rem;top:-0.6rem;transform:rotate(-24deg)" aria-hidden="true"></span>
+          <label for="ingredients" class="label">Form PCP-002 · Ingredients, in your own words</label>
+          <textarea id="ingredients" spellcheck="false" placeholder="A word. A line. A wound. Tonight's weather. Whatever is rattling around in the vessel."></textarea>
+          <div class="slip-foot label"><span id="recog">0 words recognized</span><span id="tempoNote">Type freely. How you type counts too.</span></div>
+        </div>
+        <div class="deal" id="deal" aria-label="Words to start with">
+          <span class="label">Or start from a word</span>
+        </div>
+        <button class="go" id="go" type="button">Pressurize<small>cook my edition</small></button>
+      </div>
+
+      <div class="readings">
+        <div class="gauge-card" id="gaugeCard">
+          <svg viewBox="0 0 200 122" role="img" aria-labelledby="gaugeLabel">
+            <title id="gaugeLabel">Pressure gauge</title>
+            <g class="gauge-wobble">
+              <path d="M18 100 A82 82 0 0 1 182 100" fill="none" stroke="#2a2a28" stroke-width="16"/>
+              <path d="M150.2 35.2 A82 82 0 0 1 182 100" fill="none" stroke="#d9381e" stroke-width="16"/>
+              <g id="ticks" stroke="#f4f4f0" stroke-width="2"></g>
+              <g id="tickLabels" fill="#b9b9b1" font-family="Special Elite, Courier New, monospace" font-size="10" text-anchor="middle"></g>
+              <g class="gauge-needle" id="needle"><line x1="100" y1="100" x2="100" y2="28" stroke="#d6ff2e" stroke-width="4" stroke-linecap="round"/></g>
+              <circle cx="100" cy="100" r="7" fill="#f4f4f0"/>
+              <text x="100" y="118" text-anchor="middle" fill="#b9b9b1" font-family="Special Elite, Courier New, monospace" font-size="9" letter-spacing="1.5">PSI · VALVE AT 15</text>
+            </g>
+          </svg>
+          <div>
+            <div class="psi" aria-live="off"><span id="psi">0.0</span> <small>PSI</small></div>
+            <div class="meters">
+              <div class="meter"><span>Tempo</span><span class="bar"><i id="mTempo"></i></span><output id="oTempo">0</output></div>
+              <div class="meter"><span>Hesitation</span><span class="bar"><i id="mHes"></i></span><output id="oHes">0</output></div>
+              <div class="meter"><span>Intensity</span><span class="bar"><i id="mInt"></i></span><output id="oInt">0</output></div>
+              <div class="meter"><span>Weight</span><span class="bar"><i id="mLen"></i></span><output id="oLen">0</output></div>
+            </div>
+          </div>
+        </div>
+        <div class="heat">
+          <h2>Heating up as you type</h2>
+          <ol id="heatList"><li class="empty">Your words will warm the poems that share them.</li></ol>
+        </div>
+      </div>
+
+      <div class="board" aria-hidden="true">
+        <span class="label">Your words, cut and pasted. These become the collage.</span>
+        <div class="board-tiles" id="boardTiles"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="edition" id="edition" data-family="cosmic" aria-labelledby="poemTitle">
+    <div class="stage" id="stage">
+      <canvas id="stageCanvas" aria-hidden="true"></canvas>
+      <div class="field" id="field" aria-hidden="true"></div>
+      <div class="wrap stage-grid">
+        <div class="slip-col">
+          <div class="form-slip label" id="formSlip">Form PCP-002<br>House edition<br>Bring your own words above</div>
+        </div>
+        <article class="sheet" id="sheet">
+          <div class="immutable" aria-hidden="true">TEXT AS<br>WRITTEN</div>
+          <div class="kicker label" id="kicker"></div>
+          <h2 id="poemTitle">Loading the manuscript</h2>
+          <div id="excerptFlag"></div>
+          <div class="poem" id="poem"></div>
+          <div class="colophon label" id="colophon"></div>
+        </article>
+        <aside class="margin" aria-label="Your edition">
+          <div class="panel">
+            <h3>How you shaped this edition</h3>
+            <p class="why" id="why"></p>
+            <div class="axes" id="axes"></div>
+            <p class="axes-key"><i></i> this poem <s></s> you</p>
+          </div>
+          <div class="panel acid">
+            <h3>Keep going</h3>
+            <div class="actions">
+              <button class="btn" id="next" type="button">Next poem from your words</button>
+              <button class="btn ghost" id="recook" type="button">Back to the cooker</button>
+              <button class="btn ghost" id="copy" type="button">Copy edition recipe</button>
+            </div>
+          </div>
+          <div class="panel dark">
+            <h3>Follow a word through the books</h3>
+            <div class="follow" id="follow"></div>
+            <p class="hint">Or tap any word in the poem. It joins your ingredients and the cooker finds where else it burns.</p>
+          </div>
+          <form class="panel note-form" id="noteForm">
+            <h3><label for="note">Write back</label></h3>
+            <textarea id="note" placeholder="A line in response. A variation. What this poem did to you."></textarea>
+            <div class="actions"><button class="btn" type="submit">Pin to the margin</button></div>
+            <p class="hint">The poem stays as written. Your note sits beside it, saved only in this browser.</p>
+          </form>
+          <div class="notes" id="notes"></div>
+        </aside>
+      </div>
+      <svg class="grain" aria-hidden="true" width="100%" height="100%"><filter id="grainF"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/></filter><rect width="100%" height="100%" filter="url(#grainF)"/></svg>
+    </div>
+  </section>
+
+  <section class="path-band" aria-labelledby="pathTitle">
+    <div class="wrap">
+      <h2 id="pathTitle">Your <em>path</em> through the writing</h2>
+      <ol class="path" id="path"></ol>
+    </div>
+  </section>
+
+  <section class="shelf" aria-labelledby="shelfTitle">
+    <div class="wrap">
+      <h2 id="shelfTitle">The <em>whole</em> pantry</h2>
+      <p class="shelf-intro">Every poem, in the order it was written. The red bar shows how much each one shares with what you brought. Open any of them; the frame will still be yours.</p>
+      <div class="books" id="books"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="label">Engine <span id="engineVer"></span> · same words, same room</p>
+    <button class="forget" id="forget" type="button">Forget me</button>
+  </div>
+</footer>
+<div class="sr" aria-live="polite" id="live"></div>
+<div class="toast" id="toast" hidden></div>
+
+<script type="text/plain" id="corpus" data-source="sample">
+=BOOK arsonist | The Arsonist's Gospels | after Vallejo · Lorca · Baraka · Cesaire · Rimbaud · Mayakovsky · Szymborska · Paz · Celan · Carson
+=MOVE I | Genesis of the Unowned
+=POEM 1 | First Mark | excerpt
+That cooling
+was not personal.
+It was structural —
+the system
+maintaining its temperature
+the only way systems can:
+by making you
+the variable
+that needed adjusting.
+
+You were never the problem.
+You were the frequency
+they hadn't scheduled.
+=POEM 5 | What Was Always There | excerpt
+It is still there.
+
+Patient as a door.
+Certain as a door.
+
+Waiting
+not for permission —
+
+for you.
+=MOVE II | The Hydra's Inventory
+=POEM 7 | What the Algorithm Does | excerpt
+Make the thing
+that breaks the pattern.
+Post nothing.
+Make everything.
+=BOOK stardust | The Genealogy of Stardust | after the voices of Plath · Ginsberg · Bukowski · Merwin · Rilke
+=MOVE I | Before the Name
+=POEM 1 | Stardust, Before the Genealogy | excerpt
+I did not choose my atoms.
+They were lent to me
+by stars that had already spent themselves
+on the whole question of existing —
+=MOVE V | Genealogy
+=POEM 29 | Still Here | excerpt
+still here
+
+still burning
+
+that's enough
+
+that is
+more than enough
+</script>
+
+<script>
+(() => {
+'use strict';
+const ENGINE = 'pcp-reader/1.0.0';
+const $ = (id) => document.getElementById(id);
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+/* ================= deterministic randomness =================
+   Same words + same rhythm + same poem = same room. Every visual choice draws from a
+   named stream, so changing one channel (tiles) never shifts another (canvas). */
+function hash(str) {
+  let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+  for (let i = 0; i < str.length; i++) {
+    const c = str.charCodeAt(i);
+    h1 = Math.imul(h1 ^ c, 2654435761);
+    h2 = Math.imul(h2 ^ c, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (h2 >>> 0) * 4096 + (h1 >>> 20);
+}
+function mulberry32(a) {
+  return () => {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+const streams = (seed) => (name) => mulberry32(hash(seed + ':' + name) >>> 0);
+const pick = (rng, arr) => arr[Math.floor(rng() * arr.length)];
+const clamp = (v, lo = 0, hi = 1) => Math.max(lo, Math.min(hi, v));
+
+/* ================= corpus ================= */
+function parseCorpus(src) {
+  const books = [];
+  let book = null, move = null, poem = null;
+  for (const raw of src.split('\n')) {
+    const line = raw.replace(/\s+$/, '');
+    if (line.startsWith('=BOOK ')) {
+      const [id, title, after] = line.slice(6).split(' | ');
+      book = { id: id.trim(), title, after: after || '', movements: [] };
+      books.push(book); poem = null; continue;
+    }
+    if (line.startsWith('=MOVE ')) {
+      const [num, title] = line.slice(6).split(' | ');
+      move = { num: num.trim(), title, poems: [] };
+      book.movements.push(move); poem = null; continue;
+    }
+    if (line.startsWith('=POEM ')) {
+      const [num, title, flag] = line.slice(6).split(' | ');
+      poem = { id: book.id + '/' + num.trim(), num: +num, title: title.trim(), excerpt: (flag || '').trim() === 'excerpt', book, move, stanzas: [[]] };
+      move.poems.push(poem); continue;
+    }
+    if (!poem) continue;
+    if (line.trim() === '') { if (poem.stanzas[poem.stanzas.length - 1].length) poem.stanzas.push([]); }
+    else poem.stanzas[poem.stanzas.length - 1].push(line);
+  }
+  const poems = [];
+  for (const b of books) for (const m of b.movements) for (const p of m.poems) {
+    if (!p.stanzas[p.stanzas.length - 1].length) p.stanzas.pop();
+    poems.push(p);
+  }
+  return { books, poems };
+}
+
+/* ================= language ================= */
+const STOP = new Set(('a about above after again against all also am an and any are as at be because been before being below between both but by can could did do does doing down during each even ever every few for from further had has have having he her here hers herself him himself his how i if in into is it its itself just like me more most my myself no nor not now of off on once one only or other our ours out over own same she should so some such than that the their theirs them themselves then there these they this those through to too under until up upon very was we were what when where which while who whom why will with would yet you your yours yourself yourselves don didn doesn isn wasn won couldn shouldn wouldn ve ll re d m s t thing things way still').split(' '));
+function rawStem(w) {
+  w = w.replace(/[’']s$/, '').replace(/[’']/g, '');
+  if (w.length > 5 && w.endsWith('ing')) w = w.slice(0, -3);
+  else if (w.length > 4 && w.endsWith('ied')) w = w.slice(0, -3) + 'y';
+  else if (w.length > 4 && w.endsWith('ed')) w = w.slice(0, -2);
+  else if (w.length > 4 && w.endsWith('ies')) w = w.slice(0, -3) + 'y';
+  else if (w.length > 3 && w.endsWith('s') && !w.endsWith('ss') && !w.endsWith('us')) w = w.slice(0, -1);
+  if (w.length > 3 && /([b-df-hj-np-tv-z])\1$/.test(w) && !/(ll|ss|ff|zz)$/.test(w)) w = w.slice(0, -1);
+  return w;
+}
+let canon = new Map();
+const stem = (w) => { const s = rawStem(w); return canon.get(s) || s; };
+const WORD_RE = /[A-Za-z0-9’']+/g;
+function tokens(text) {
+  const out = [];
+  for (const m of text.toLowerCase().matchAll(WORD_RE)) {
+    const w = m[0].replace(/^[’']+|[’']+$/g, '');
+    if (w.length < 2 && !/\d/.test(w)) continue;
+    if (STOP.has(w.replace(/[’']/g, ''))) continue;
+    out.push(stem(w));
+  }
+  return out;
+}
+
+/* Six axes read out of the books themselves. A reader activates them; a poem has them. */
+const AXES = {
+  fire:    'fire flame flames burn burning burned arsonist make making made maker makers hands fury rage spark coal warm warming heat started start brush canvas',
+  cosmos:  'star stars stardust carbon atoms atom universe frequency cosmic night galaxy sky matter chord om sand light dark molecule forged existence',
+  wound:   'grief fear pain cry crying wound wounds drink drinking bottles bottle shame stigma tic 3am depression anxiety alone lonely loneliness silence death broken hurt sad worry despair damage',
+  machine: 'market algorithm institution empire gold golden bull screen screens news system systems money price grant committee product scroll scrolling phone capital work job quarterly transaction consumer content monetized',
+  body:    'body bodies jaw ribs blood skin bone bones feet throat breath breathe nervous spine shoulders heart hand mouth eyes',
+  tender:  'soft love tender tenderness forgive forgiveness stay staying enough home mother brother father gentle kind hold held belong recognize',
+};
+const AXIS_NAMES = Object.keys(AXES);
+/* adverbs and hinges that recur everywhere but carry no image of their own */
+let FOLLOW_SKIP = new Set();
+const FOLLOW_SKIP_WORDS = 'without mostly keep actual actually specifically really almost slightly exactly always never already quite perhaps maybe another other every something anything nothing everything someone anyone thought know knew want said says tell told come came going went made make become became'.split(' ');
+let AXIS_SETS = {};
+
+/* ================= model ================= */
+let CORPUS = null, IDF = new Map(), VOCAB = new Set();
+function indexCorpus(c) {
+  const all = new Set();
+  for (const p of c.poems) for (const st of p.stanzas) for (const l of st) for (const m of l.toLowerCase().matchAll(WORD_RE)) all.add(rawStem(m[0]));
+  canon = new Map();
+  for (const s of all) if (all.has(s + 'e')) canon.set(s, s + 'e');
+  AXIS_SETS = {};
+  for (const a of AXIS_NAMES) AXIS_SETS[a] = new Set(AXES[a].split(' ').map(stem));
+  FOLLOW_SKIP = new Set(FOLLOW_SKIP_WORDS.map(stem));
+  const df = new Map();
+  for (const p of c.poems) {
+    p.text = p.stanzas.map((s) => s.join('\n')).join('\n\n');
+    p.toks = tokens(p.text);
+    p.tf = new Map();
+    for (const t of p.toks) p.tf.set(t, (p.tf.get(t) || 0) + 1);
+    for (const t of p.tf.keys()) df.set(t, (df.get(t) || 0) + 1);
+  }
+  const N = c.poems.length;
+  IDF = new Map(); VOCAB = new Set(df.keys());
+  for (const [t, d] of df) IDF.set(t, Math.log((N + 1) / d) + 0.35);
+  const axMax = Object.fromEntries(AXIS_NAMES.map((a) => [a, 1e-9]));
+  for (const p of c.poems) {
+    p.vec = weigh(p.tf);
+    p.axesRaw = axisCounts(p.toks, p.toks.length);
+    for (const a of AXIS_NAMES) axMax[a] = Math.max(axMax[a], p.axesRaw[a]);
+  }
+  for (const p of c.poems) p.axes = Object.fromEntries(AXIS_NAMES.map((a) => [a, p.axesRaw[a] / axMax[a]]));
+}
+function weigh(tf) {
+  const v = new Map(); let n = 0;
+  for (const [t, c] of tf) { const idf = IDF.get(t); if (!idf) continue; const w = (1 + Math.log(c)) * idf; v.set(t, w); n += w * w; }
+  v.norm = Math.sqrt(n) || 1; return v;
+}
+function axisCounts(toks, len) {
+  const o = {};
+  for (const a of AXIS_NAMES) { let k = 0; for (const t of toks) if (AXIS_SETS[a].has(t)) k++; o[a] = k / Math.max(1, Math.sqrt(len)); }
+  return o;
+}
+function cos(a, b) { let s = 0; const [sm, lg] = a.size < b.size ? [a, b] : [b, a]; for (const [t, w] of sm) { const o = lg.get(t); if (o) s += w * o; } return s / (a.norm * b.norm); }
+function axisCos(a, b) { let s = 0, na = 0, nb = 0; for (const k of AXIS_NAMES) { s += a[k] * b[k]; na += a[k] ** 2; nb += b[k] ** 2; } return na && nb ? s / Math.sqrt(na * nb) : 0; }
+
+/* ================= the reader =================
+   The reader is the input that matters most. Words count, and so does the hand that typed
+   them: tempo, hesitation (deletions), intensity (caps, exclamations), and weight. */
+const typing = { keys: 0, back: 0, active: 0, last: 0, pauses: 0 };
+const followed = [];
+function readReader(text) {
+  const full = [text, ...followed].join(' ');
+  const toks = tokens(full);
+  const tf = new Map(); for (const t of toks) tf.set(t, (tf.get(t) || 0) + 1);
+  const known = toks.filter((t) => VOCAB.has(t));
+  const letters = full.replace(/[^A-Za-z]/g, '');
+  const caps = letters ? (full.replace(/[^A-Z]/g, '').length / letters.length) : 0;
+  const bangs = (full.match(/!/g) || []).length;
+  const tempo = typing.active > 400 ? clamp((typing.keys / (typing.active / 1000)) / 7) : (text ? 0.25 : 0);
+  const hesitation = clamp(typing.back / Math.max(1, typing.keys + typing.back) * 2.5);
+  const intensity = clamp(caps * 1.3 + bangs * 0.12 + (/\?{2,}|!{2,}/.test(full) ? 0.15 : 0));
+  const weight = clamp(toks.length / 28);
+  const axesRaw = axisCounts(toks, Math.max(1, toks.length));
+  const peak = Math.max(0, ...AXIS_NAMES.map((a) => axesRaw[a]));
+  const axes = Object.fromEntries(AXIS_NAMES.map((a) => [a, peak ? axesRaw[a] / peak : 0]));
+  const pressure = clamp(0.3 * tempo + 0.25 * intensity + 0.27 * weight + 0.18 * clamp(peak * 1.5) + (text ? 0.06 : 0));
+  return { text, full, toks, known, vec: weigh(tf), axes, tempo, hesitation, intensity, weight, pressure,
+    signature: [full.trim().toLowerCase().replace(/\s+/g, ' '), tempo.toFixed(1), hesitation.toFixed(1), intensity.toFixed(1)].join('|') };
+}
+function rank(reader, exclude = new Set()) {
+  const rng = mulberry32(hash('rank|' + reader.signature) >>> 0);
+  return CORPUS.poems.filter((p) => !exclude.has(p.id)).map((p) => {
+    const lex = reader.vec.size ? cos(reader.vec, p.vec) : 0;
+    const ax = axisCos(reader.axes, p.axes);
+    return { p, score: 0.74 * lex + 0.26 * ax + rng() * 0.015 };
+  }).sort((a, b) => b.score - a.score);
+}
+function chooseFamily(r) {
+  const a = r.axes;
+  const s = {
+    monolith: r.pressure * 1.25 + a.fire * 0.55 + r.intensity * 0.5,
+    diagram: a.machine * 1.25 + (1 - r.hesitation) * 0.12 + r.weight * 0.15,
+    collage: a.wound * 0.95 + a.body * 0.8 + r.tempo * 0.2,
+    cosmic: a.cosmos * 1.0 + a.tender * 0.8 + r.hesitation * 0.7 + (r.known.length ? 0 : 0.3),
+  };
+  const fam = Object.entries(s).sort((x, y) => y[1] - x[1])[0][0];
+  const top = AXIS_NAMES.filter((k) => a[k] > 0.5).sort((x, y) => a[y] - a[x]);
+  const named = top.length ? top.slice(0, 2).join(' and ') : 'nothing the books recognize yet';
+  const why = {
+    monolith: `You came in hot: ${psi(r.pressure)} PSI${r.intensity > 0.3 ? ', with your voice raised' : ''}. Your heaviest word goes on the wall at a size it can't fit.`,
+    diagram: `Your words lean on ${named}. The frame draws the system out as a blueprint and wires your words to where they appear in the poem.`,
+    collage: `You brought ${named}${r.tempo > 0.5 ? ', fast' : ''}. The frame tears your words into tiles and tapes them over each other.`,
+    cosmic: r.hesitation > 0.35 ? `You took words back as you typed. The frame gives your words room and puts them in orbit around the poem.` : `Your words lean on ${named}. The frame opens into dark space and puts your words in orbit around the poem.`,
+  }[fam];
+  return { family: fam, why };
+}
+const FAMILY_NAMES = { cosmic: 'Cosmic Editorial', collage: 'Collage Organism', diagram: 'Diagrammatic Choir', monolith: 'Monolithic Manifesto' };
+const psi = (p) => (p * 15).toFixed(1);
+
+/* ================= tiles ================= */
+const TILE_FONTS = ['f-display', 'f-poetic', 'f-type'];
+const TILE_COLORS = ['c-paper', 'c-ink', 'c-acid', 'c-cobalt', 'c-verm', 'c-ink-acid'];
+function tileFor(word, known, rng) {
+  const own = mulberry32(hash('tile|' + word) >>> 0); /* a word always wears the same cut */
+  const el = document.createElement('span');
+  el.className = `tile ${pick(own, TILE_FONTS)} ${pick(own, TILE_COLORS)}${own() < 0.22 ? ' torn' : ''}${known ? '' : ' unknown'}`;
+  el.style.setProperty('--r', ((rng ? rng() : own()) * 16 - 8).toFixed(1) + 'deg');
+  el.textContent = word;
+  return el;
+}
+function readerWords(r, max = 12) {
+  const seen = new Set(), out = [];
+  for (const m of r.full.matchAll(WORD_RE)) {
+    const w = m[0].replace(/^[’']+|[’']+$/g, '');
+    const k = w.toLowerCase();
+    if (!k || seen.has(k) || STOP.has(k.replace(/[’']/g, ''))) continue;
+    seen.add(k); out.push({ w, known: VOCAB.has(stem(k)) });
+  }
+  out.sort((a, b) => (b.known - a.known) || (b.w.length - a.w.length));
+  return out.slice(0, max);
+}
+
+/* ================= intake (live) ================= */
+const ing = $('ingredients');
+let reader = null, lastBoard = '';
+function drawTicks() {
+  const g = $('ticks'), lg = $('tickLabels');
+  for (let i = 0; i <= 15; i++) {
+    const a = Math.PI * (1 - i / 15), r1 = 74, r2 = i % 5 ? 68 : 62;
+    const l = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    l.setAttribute('x1', 100 + r1 * Math.cos(a)); l.setAttribute('y1', 100 - r1 * Math.sin(a));
+    l.setAttribute('x2', 100 + r2 * Math.cos(a)); l.setAttribute('y2', 100 - r2 * Math.sin(a));
+    g.appendChild(l);
+    if (i % 5 === 0) {
+      const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      t.setAttribute('x', 100 + 50 * Math.cos(a)); t.setAttribute('y', 104 - 50 * Math.sin(a)); t.textContent = i;
+      lg.appendChild(t);
+    }
+  }
+}
+function setMeter(id, v) { $('m' + id).style.width = (v * 100).toFixed(0) + '%'; $('o' + id).textContent = Math.round(v * 100); }
+function updateIntake() {
+  reader = readReader(ing.value);
+  const r = reader;
+  $('needle').style.transform = `rotate(${(-90 + r.pressure * 180).toFixed(1)}deg)`;
+  $('psi').textContent = psi(r.pressure);
+  $('gaugeCard').classList.toggle('hot', r.pressure > 0.72);
+  setMeter('Tempo', r.tempo); setMeter('Hes', r.hesitation); setMeter('Int', r.intensity); setMeter('Len', r.weight);
+  document.querySelector('.intake').style.setProperty('--mis', (3 + r.pressure * 14).toFixed(0));
+  const uniqKnown = new Set(r.known).size, uniqAll = new Set(r.toks).size;
+  $('recog').textContent = `${uniqKnown} of ${uniqAll} word${uniqAll === 1 ? '' : 's'} recognized by the books`;
+  const hl = $('heatList'); hl.textContent = '';
+  if (!r.vec.size) { hl.innerHTML = '<li class="empty">Your words will warm the poems that share them.</li>'; }
+  else {
+    const top = rank(r).slice(0, 4), max = top[0].score || 1;
+    for (const { p, score } of top) {
+      const li = document.createElement('li'), b = document.createElement('button');
+      b.type = 'button';
+      b.innerHTML = `<span><span class="t"></span><span class="b"></span></span><span class="h"><i style="width:${Math.max(6, score / max * 100).toFixed(0)}%"></i></span>`;
+      b.querySelector('.t').textContent = p.title;
+      b.querySelector('.b').textContent = p.book.title;
+      b.addEventListener('click', () => cook(p, 'chosen from the heat list'));
+      li.appendChild(b); hl.appendChild(li);
+    }
+  }
+  const words = readerWords(r, 14), key = words.map((x) => x.w).join('|');
+  if (key !== lastBoard) {
+    const prev = new Set(lastBoard.split('|')); lastBoard = key;
+    const bt = $('boardTiles'); bt.textContent = '';
+    for (const { w, known } of words) { const t = tileFor(w, known); if (!prev.has(w)) t.classList.add('pop'); bt.appendChild(t); }
+  }
+  renderShelfHeat();
+}
+let raf = 0;
+ing.addEventListener('input', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(updateIntake); saveDraft(); });
+ing.addEventListener('keydown', (e) => {
+  const now = performance.now();
+  if (typing.last) { const gap = now - typing.last; if (gap < 2000) typing.active += gap; else typing.pauses++; }
+  typing.last = now;
+  if (e.key === 'Backspace' || e.key === 'Delete') typing.back++;
+  else if (e.key.length === 1) typing.keys++;
+});
+$('go').addEventListener('click', () => {
+  const r = readReader(ing.value);
+  if (!r.full.trim()) { ing.focus(); toast('Put something in first. One word is enough.'); return; }
+  const best = rank(r)[0];
+  cook(best.p, 'cooked from your words', { scroll: true });
+});
+$('recook').addEventListener('click', () => { document.querySelector('.intake').scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' }); ing.focus({ preventScroll: true }); });
+
+const DEAL = ['door', 'frequency', 'hands', '3am', 'fire', 'carbon', 'silence', 'soft', 'algorithm', 'permission', 'stardust', 'room'];
+function dealChips() {
+  const d = $('deal'), rng = mulberry32(hash(new Date().toDateString()) >>> 0);
+  const words = DEAL.slice().sort(() => rng() - 0.5).slice(0, 6).filter((w) => VOCAB.has(stem(w)));
+  for (const w of words) {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = w;
+    b.addEventListener('click', () => { ing.value = (ing.value.trim() ? ing.value.trimEnd() + ' ' : '') + w; updateIntake(); saveDraft(); ing.focus(); });
+    d.appendChild(b);
+  }
+}
+
+/* ================= edition ================= */
+const state = { path: [], visited: new Set(), current: null, house: true, startedAt: 0 };
+let editionReader = null, editionSeed = '', canvasJob = null;
+
+function cook(poem, how, opts = {}) {
+  const house = !!opts.house;
+  const r = house ? readReader('door') : readReader(ing.value);
+  if (house) Object.assign(r, { pressure: 0.32, tempo: 0.3, hesitation: 0.2 });
+  editionReader = r;
+  const { family, why } = chooseFamily(r);
+  editionSeed = [ENGINE, poem.id, r.signature].join('|');
+  const S = streams(editionSeed);
+  const ed = $('edition');
+  ed.dataset.family = family;
+  state.current = poem; state.house = house; state.startedAt = Date.now();
+  if (!house) {
+    state.visited.add(poem.id);
+    const last = state.path[state.path.length - 1];
+    if (!last || last.poem !== poem.id) state.path.push({ poem: poem.id, via: opts.via || (state.path.length ? null : (r.text.trim().split(/\s+/).slice(0, 3).join(' ') || null)) });
+    saveSession();
+  }
+  renderSheet(poem, r);
+  renderSlip(poem, r, family, house);
+  renderWhy(poem, r, family, why, house);
+  renderFollow(poem, r);
+  renderNotes(poem);
+  renderPath();
+  renderShelfHeat();
+  buildField(poem, r, family, S);
+  const redraw = () => { if (state.current === poem) drawCanvas(family, streams(editionSeed), poem); };
+  requestAnimationFrame(redraw);
+  setTimeout(redraw, reduceMotion.matches ? 50 : 800);
+  document.fonts?.ready.then(redraw);
+  if (!reduceMotion.matches) { const s = $('sheet'); s.classList.remove('enter'); void s.offsetWidth; s.classList.add('enter'); }
+  $('live').textContent = house ? '' : `Edition cooked: ${poem.title}, from ${poem.book.title}. ${FAMILY_NAMES[family]}.`;
+  if (opts.scroll) $('edition').scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+}
+
+function renderSheet(poem, r) {
+  const mine = new Set(r.known);
+  $('kicker').innerHTML = '';
+  for (const t of [poem.book.title, `Movement ${poem.move.num} · ${poem.move.title}`, `No. ${poem.num}`]) { const s = document.createElement('span'); s.textContent = t; $('kicker').appendChild(s); }
+  $('poemTitle').textContent = poem.title;
+  $('excerptFlag').innerHTML = poem.excerpt ? '<span class="excerpt label">Excerpt · sample corpus</span>' : '';
+  const host = $('poem'); host.textContent = '';
+  for (const st of poem.stanzas) {
+    const p = document.createElement('p');
+    if (st.length === 1 && st[0].trim() === '*') { p.className = 'sep'; p.textContent = '*'; host.appendChild(p); continue; }
+    for (const line of st) {
+      const ln = document.createElement('span'); ln.className = 'ln';
+      let last = 0;
+      for (const m of line.matchAll(WORD_RE)) {
+        if (m.index > last) ln.appendChild(document.createTextNode(line.slice(last, m.index)));
+        const w = m[0], k = stem(w.toLowerCase().replace(/^[’']+|[’']+$/g, ''));
+        const isStop = STOP.has(w.toLowerCase().replace(/[’']/g, ''));
+        const el = document.createElement(mine.has(k) && !isStop ? 'mark' : 'span');
+        el.textContent = w;
+        if (!isStop && w.length > 2) { el.classList.add('w'); el.dataset.word = w.toLowerCase().replace(/^[’']+|[’']+$/g, '').replace(/[’']s$/, ''); }
+        ln.appendChild(el);
+        last = m.index + w.length;
+      }
+      if (last < line.length) ln.appendChild(document.createTextNode(line.slice(last)));
+      p.appendChild(ln);
+    }
+    host.appendChild(p);
+  }
+  const shared = [...new Set(r.known.filter((t) => poem.tf.has(t)))];
+  const col = $('colophon'); col.innerHTML = '';
+  const bits = [`${poem.toks.length} working words`, shared.length ? `${shared.length} shared with you` : 'no words shared yet', `after ${poem.book.after.replace(/^after (the voices of )?/, '')}`];
+  for (const b of bits) { const s = document.createElement('span'); s.textContent = b; col.appendChild(s); }
+}
+$('poem').addEventListener('click', (e) => {
+  const w = e.target.closest('.w'); if (!w || !w.dataset.word) return;
+  followWord(w.dataset.word);
+});
+function followWord(word) {
+  if (!followed.includes(word)) followed.push(word);
+  const r = readReader(ing.value);
+  const nextOne = rank(r, state.visited).find(({ p }) => p.tf.has(stem(word))) || rank(r, state.visited)[0];
+  if (!nextOne) { toast('You have read every poem on this path. Start a new one from the cooker.'); return; }
+  cook(nextOne.p, 'followed a word', { via: word });
+  updateIntake();
+  $('edition').scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+}
+
+function renderSlip(poem, r, family, house) {
+  const no = String(hash(editionSeed) % 10000).padStart(4, '0');
+  const slip = $('formSlip');
+  slip.innerHTML = '';
+  const lines = house
+    ? ['Form PCP-002', 'House edition, cooked from "door"', 'Bring your own words above']
+    : ['Form PCP-002', `Reader edition no. ${no}`, `Cooked at ${psi(r.pressure)} PSI`, FAMILY_NAMES[family], 'Time under pressure <span id="tup">0:00</span>'];
+  slip.innerHTML = lines.join('<br>');
+}
+setInterval(() => {
+  const t = document.getElementById('tup'); if (!t || state.house) return;
+  const s = Math.floor((Date.now() - state.startedAt) / 1000);
+  t.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+}, 1000);
+
+function renderWhy(poem, r, family, why, house) {
+  $('why').innerHTML = '';
+  const b = document.createElement('b'); b.textContent = FAMILY_NAMES[family];
+  const t = document.createTextNode(house ? 'This is a house edition. Type in the cooker above and the frame becomes yours.' : why);
+  $('why').append(b, t);
+  const ax = $('axes'); ax.textContent = '';
+  for (const a of AXIS_NAMES) {
+    const row = document.createElement('div'); row.className = 'axis';
+    row.innerHTML = `<span>${a}</span><span class="bar"><i style="width:${(poem.axes[a] * 100).toFixed(0)}%"></i><s style="left:calc(${(r.axes[a] * 100).toFixed(0)}% - 1.5px)"></s></span>`;
+    ax.appendChild(row);
+  }
+}
+function renderFollow(poem, r) {
+  const mine = new Set(r.toks);
+  const loneIdf = Math.log((CORPUS.poems.length + 1) / 1) + 0.35;
+  const onAxis = (t) => AXIS_NAMES.some((a) => AXIS_SETS[a].has(t));
+  const cand = [...poem.tf.entries()].filter(([t]) => !mine.has(t) && t.length > 3 && !/\d/.test(t) && !FOLLOW_SKIP.has(t) && (IDF.get(t) || 0) < loneIdf - 0.01)
+    .map(([t, c]) => ({ t, s: (1 + Math.log(c)) * (IDF.get(t) || 0) * (onAxis(t) ? 1.8 : 1) })).sort((a, b) => b.s - a.s);
+  const surface = new Map();
+  for (const m of poem.text.matchAll(WORD_RE)) { const w = m[0].toLowerCase().replace(/^[’']+|[’']+$/g, '').replace(/[’']s$/, ''); const k = stem(w); if (!surface.has(k)) surface.set(k, w); }
+  const box = $('follow'); box.textContent = '';
+  for (const { t } of cand.slice(0, 7)) {
+    const w = surface.get(t) || t;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'chip'; b.textContent = w;
+    b.addEventListener('click', () => followWord(w));
+    box.appendChild(b);
+  }
+}
+$('next').addEventListener('click', () => {
+  const r = readReader(ing.value);
+  const nx = rank(r, state.visited)[0];
+  if (!nx) { toast('That was the last poem left on your path.'); return; }
+  cook(nx.p, 'next from your words', { via: null });
+});
+
+/* ---------- the collage field ---------- */
+function buildField(poem, r, family, S) {
+  const field = $('field'); field.textContent = '';
+  const rng = S('tiles'), place = S('place');
+  const words = readerWords(r, family === 'monolith' ? 6 : 11);
+  const narrow = innerWidth < 900;
+  if (family === 'monolith' && words.length) {
+    const charge = ({ w, known }) => { const k = stem(w.toLowerCase()); const ax = AXIS_NAMES.some((a) => AXIS_SETS[a].has(k)) ? 2 : 0; return (known ? 1 : 0) + ax + (IDF.get(k) || 0) * 0.3 + (w === w.toUpperCase() && /[A-Z]/.test(w) ? 0.2 : 0); };
+    const heavy = words.slice().sort((a, b) => charge(b) - charge(a))[0].w;
+    for (const cls of ['b', '']) { const m = document.createElement('div'); m.className = 'monolith-word ' + cls; m.textContent = heavy; field.appendChild(m); }
+  }
+  if (family === 'collage') field.appendChild(cutout('eye', place, narrow));
+  if (family === 'collage' || family === 'monolith') field.appendChild(cutout('sticker', place, narrow));
+  if (family === 'diagram') {
+    const labels = ['Fig. 1 · Shared frequency', `Load: ${psi(r.pressure)} psi`, 'Reader → Text', `Choir of ${Math.max(1, words.length)} voices`];
+    labels.forEach((t, i) => { const a = document.createElement('span'); a.className = 'annot'; a.textContent = t; a.style.left = (4 + place() * (narrow ? 60 : 30)) + '%'; a.style.top = (6 + i * (narrow ? 20 : 22) + place() * 4) + '%'; field.appendChild(a); });
+  }
+  const sizes = { cosmic: [1.1, 2.4], collage: [1.6, 3.6], diagram: [1.1, 2], monolith: [1.4, 2.6] }[family];
+  words.forEach(({ w, known }, i) => {
+    const t = tileFor(w, known, rng);
+    if (family === 'cosmic') { t.classList.remove('f-display', 'f-type'); t.classList.add('f-poetic'); }
+    const fs = sizes[0] + rng() * (sizes[1] - sizes[0]) * (known ? 1 : 0.6);
+    t.style.setProperty('--fs', fs.toFixed(2) + 'rem');
+    let x, y;
+    if (narrow) { x = place() * 78; y = 4 + place() * 72; }
+    else if (family === 'cosmic') { const a = place() * Math.PI * 2, rad = 18 + place() * 22; x = 22 + Math.cos(a) * rad; y = 44 + Math.sin(a) * rad * 1.6; }
+    else if (family === 'diagram') { x = 6 + place() * 26; y = 22 + (i / Math.max(1, words.length)) * 70 + place() * 4; }
+    else if (family === 'monolith') { x = 58 + place() * 34; y = 50 + place() * 44; }
+    else { x = place() < 0.5 ? place() * 24 : 62 + place() * 32; y = place() * 88; }
+    t.style.left = clamp(x, 0, 90) + '%'; t.style.top = clamp(y, 0, 92) + '%';
+    t.style.setProperty('--d', (0.4 + rng() * 1.4).toFixed(2));
+    t.style.zIndex = String(2 + Math.floor(rng() * 6));
+    t.dataset.stem = stem(w.toLowerCase());
+    if (!reduceMotion.matches) { t.classList.add('enter'); t.style.setProperty('--delay', (0.15 + i * 0.06).toFixed(2) + 's'); }
+    field.appendChild(t);
+  });
+  if (family !== 'diagram') {
+    for (let i = 0; i < (family === 'collage' ? 3 : 1); i++) {
+      const tp = document.createElement('span'); tp.className = 'tape';
+      tp.style.left = (place() * 85) + '%'; tp.style.top = (place() * 80) + '%'; tp.style.transform = `rotate(${(place() * 70 - 35).toFixed(0)}deg)`; tp.style.zIndex = '9';
+      field.appendChild(tp);
+    }
+  }
+}
+function cutout(kind, place, narrow) {
+  const ns = 'http://www.w3.org/2000/svg';
+  const s = document.createElementNS(ns, 'svg'); s.classList.add('cut');
+  if (kind === 'eye') {
+    s.setAttribute('viewBox', '0 0 320 200');
+    s.innerHTML = '<g stroke="#0c0c0c" stroke-width="7" stroke-linecap="round"><line x1="47.5" y1="73.7" x2="30" y2="48"/><line x1="85" y1="55" x2="68" y2="24"/><line x1="122.5" y1="43.7" x2="112" y2="10"/><line x1="160" y1="40" x2="160" y2="4"/><line x1="197.5" y1="43.7" x2="208" y2="10"/><line x1="235" y1="55" x2="252" y2="24"/><line x1="272.5" y1="73.7" x2="290" y2="48"/></g><path d="M10 100 Q160 -20 310 100 Q160 220 10 100 Z" fill="#f4f4f0" stroke="#0c0c0c" stroke-width="6" stroke-linejoin="round"/><circle cx="160" cy="100" r="52" fill="#1b2fd6" stroke="#0c0c0c" stroke-width="5"/><circle cx="160" cy="100" r="38" fill="none" stroke="#d6ff2e" stroke-width="4" stroke-dasharray="6 5"/><circle cx="160" cy="92" r="17" fill="#0c0c0c"/><polygon points="150,100 170,100 178,134 142,134" fill="#0c0c0c"/><circle cx="150" cy="84" r="5" fill="#f4f4f0"/>';
+    Object.assign(s.style, { width: narrow ? '9rem' : '15rem', left: (narrow ? 55 : 66 + place() * 20) + '%', top: (narrow ? 2 : 4 + place() * 8) + '%', transform: `rotate(${(place() * 14 - 4).toFixed(0)}deg)`, zIndex: '4' });
+  } else {
+    s.setAttribute('viewBox', '0 0 260 260');
+    s.innerHTML = '<polygon points="255,130 230,149.9 245.5,177.8 214.8,186.7 218.4,218.4 186.7,214.8 177.8,245.5 149.9,230 130,255 110.1,230 82.2,245.5 73.3,214.8 41.6,218.4 45.2,186.7 14.5,177.8 30,149.9 5,130 30,110.1 14.5,82.2 45.2,73.3 41.6,41.6 73.3,45.2 82.2,14.5 110.1,30 130,5 149.9,30 177.8,14.5 186.7,45.2 218.4,41.6 214.8,73.3 245.5,82.2 230,110.1" fill="#d6ff2e" stroke="#0c0c0c" stroke-width="5"/><g transform="rotate(-8 130 130)" text-anchor="middle" fill="#0c0c0c"><text x="130" y="96" font-family="Special Elite, Courier New, monospace" font-size="19" letter-spacing="2">COOKED FOR</text><text x="130" y="168" font-family="Anton, Impact, sans-serif" font-size="84">ONE</text><text x="130" y="204" font-family="Anton, Impact, sans-serif" font-size="33" letter-spacing="1">READER</text></g>';
+    Object.assign(s.style, { width: narrow ? '6.5rem' : '10rem', left: (narrow ? 4 : 4 + place() * 14) + '%', top: (narrow ? 58 : 50 + place() * 30) + '%', transform: `rotate(${(place() * 24 - 6).toFixed(0)}deg)`, zIndex: '8' });
+    s.setAttribute('role', 'img'); s.setAttribute('aria-label', 'Sticker reading: cooked for one reader');
+  }
+  return s;
+}
+
+/* ---------- canvas: orbits, blueprint, wires ---------- */
+function drawCanvas(family, S, poem) {
+  const cv = $('stageCanvas'), stage = $('stage');
+  const W = stage.clientWidth, H = stage.clientHeight, dpr = Math.min(1.5, devicePixelRatio || 1);
+  cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+  const g = cv.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+  const rng = S('canvas');
+  const css = getComputedStyle(document.documentElement);
+  const C = (n) => css.getPropertyValue(n).trim();
+  const sheet = $('sheet').getBoundingClientRect(), sr = stage.getBoundingClientRect();
+  const sx = sheet.left - sr.left, sy = sheet.top - sr.top;
+  if (family === 'cosmic') {
+    g.fillStyle = C('--paper');
+    for (let i = 0; i < Math.min(900, W * H / 2600); i++) { const r = rng() < 0.94 ? rng() * 1.1 + 0.3 : rng() * 2.4 + 1; g.globalAlpha = 0.25 + rng() * 0.7; g.beginPath(); g.arc(rng() * W, rng() * H, r, 0, 7); g.fill(); }
+    g.globalAlpha = 1;
+    const cx = W * (0.2 + rng() * 0.12), cy = Math.min(H * 0.35, 420);
+    g.fillStyle = C('--cobalt'); g.beginPath(); g.arc(cx, cy, Math.min(W, 900) * 0.2, 0, 7); g.fill();
+    g.fillStyle = 'rgba(244,244,240,0.26)';
+    const rad = Math.min(W, 900) * 0.2;
+    for (let y = cy - rad; y < cy + rad; y += 12) for (let x = cx - rad; x < cx + rad; x += 12) if ((x - cx) ** 2 + (y - cy) ** 2 < rad * rad) { g.beginPath(); g.arc(x, y, 2, 0, 7); g.fill(); }
+    g.strokeStyle = C('--paper-2'); g.lineWidth = 1;
+    for (let i = 0; i < 4; i++) { g.globalAlpha = 0.35; g.setLineDash(i % 2 ? [3, 7] : []); g.beginPath(); g.ellipse(cx, cy, rad * (1.3 + i * 0.45), rad * (0.55 + i * 0.25), -0.25 + rng() * 0.2, 0, Math.PI * 2); g.stroke(); }
+    g.setLineDash([]); g.globalAlpha = 1;
+  } else if (family === 'diagram') {
+    g.strokeStyle = 'rgba(244,244,240,0.14)'; g.lineWidth = 1;
+    for (let x = 0; x < W; x += 24) { g.beginPath(); g.moveTo(x + 0.5, 0); g.lineTo(x + 0.5, H); g.stroke(); }
+    for (let y = 0; y < H; y += 24) { g.beginPath(); g.moveTo(0, y + 0.5); g.lineTo(W, y + 0.5); g.stroke(); }
+    g.strokeStyle = 'rgba(244,244,240,0.32)';
+    for (let x = 0; x < W; x += 120) { g.beginPath(); g.moveTo(x + 0.5, 0); g.lineTo(x + 0.5, H); g.stroke(); }
+    wires(g, sr, sheet, C);
+  } else if (family === 'collage') {
+    g.fillStyle = 'rgba(12,12,12,0.16)';
+    for (let i = 0; i < 3; i++) { const x = rng() * W, y = rng() * Math.min(H, 900), r = 60 + rng() * 160; for (let yy = y - r; yy < y + r; yy += 9) for (let xx = x - r; xx < x + r; xx += 9) if ((xx - x) ** 2 + (yy - y) ** 2 < r * r) { g.beginPath(); g.arc(xx, yy, 1.8, 0, 7); g.fill(); } }
+    wires(g, sr, sheet, C, true);
+  } else if (family === 'monolith') {
+    g.fillStyle = C('--ink');
+    const y = Math.min(H - 60, sy + sheet.height * (0.35 + rng() * 0.3));
+    g.save(); g.translate(0, y); g.rotate(-0.05); g.fillRect(-40, 0, W + 80, 64); g.restore();
+  }
+}
+/* connect each of the reader's tiles to the place its word appears in the poem */
+function wires(g, sr, sheet, C, subtle) {
+  const sl = sheet.left - sr.left, sR = sheet.right - sr.left;
+  const marks = [...$('poem').querySelectorAll('mark')];
+  const tiles = [...$('field').querySelectorAll('.tile')];
+  g.lineWidth = subtle ? 1.5 : 1.25; g.setLineDash(subtle ? [2, 5] : [6, 4]);
+  g.strokeStyle = subtle ? 'rgba(12,12,12,0.55)' : C('--acid');
+  for (const t of tiles) {
+    const m = marks.find((mk) => stem(mk.textContent.toLowerCase().replace(/[’']s$/, '')) === t.dataset.stem);
+    if (!m) continue;
+    const tr = t.getBoundingClientRect(), mr = m.getBoundingClientRect();
+    const x1 = tr.left - sr.left + tr.width / 2, y1 = tr.top - sr.top + tr.height / 2;
+    const rightSide = x1 > (sl + sR) / 2;
+    const x2 = rightSide ? sR : sl, y2 = mr.top - sr.top + mr.height / 2;
+    g.beginPath(); g.moveTo(x1, y1); g.bezierCurveTo((x1 + x2) / 2, y1, (x1 + x2) / 2, y2, x2, y2); g.stroke();
+    g.fillStyle = subtle ? C('--ink') : C('--acid'); g.beginPath(); g.arc(x2, y2, 4, 0, 7); g.fill();
+  }
+  g.setLineDash([]);
+}
+let rz = 0;
+new ResizeObserver(() => { clearTimeout(rz); rz = setTimeout(() => { if (state.current) { const S = streams(editionSeed); drawCanvas($('edition').dataset.family, S, state.current); } }, 120); }).observe($('stage'));
+$('stage').addEventListener('pointermove', (e) => {
+  if (reduceMotion.matches || e.pointerType === 'touch') return;
+  const r = $('stage').getBoundingClientRect();
+  const f = $('field');
+  f.style.setProperty('--px', (((e.clientX - r.left) / r.width - 0.5) * -14).toFixed(1));
+  f.style.setProperty('--py', (((e.clientY - r.top) / Math.min(r.height, 800) - 0.5) * -10).toFixed(1));
+});
+
+/* ================= path, shelf, notes ================= */
+function poemById(id) { return CORPUS.poems.find((p) => p.id === id); }
+function renderPath() {
+  const ol = $('path'); ol.textContent = '';
+  if (!state.path.length) { const li = document.createElement('li'); li.innerHTML = '<p class="path-empty">Nothing yet. Your first edition starts the trail; every word you follow adds a step.</p>'; ol.appendChild(li); return; }
+  state.path.forEach((step, i) => {
+    const p = poemById(step.poem); if (!p) return;
+    if (step.via) { const w = document.createElement('li'); w.innerHTML = '<span class="step-word"></span>'; w.firstChild.textContent = step.via; ol.appendChild(w); }
+    const li = document.createElement('li'); if (state.current && state.current.id === p.id && i === state.path.length - 1) li.className = 'current';
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = p.title;
+    b.addEventListener('click', () => { cook(p, 'returned', { scroll: true }); });
+    li.appendChild(b); ol.appendChild(li);
+  });
+}
+function renderShelf() {
+  const host = $('books'); host.textContent = '';
+  for (const b of CORPUS.books) {
+    const div = document.createElement('div'); div.className = 'book';
+    const h = document.createElement('h3'); h.textContent = b.title;
+    const a = document.createElement('p'); a.className = 'label after'; a.textContent = b.after;
+    div.append(h, a);
+    for (const m of b.movements) {
+      const mv = document.createElement('div'); mv.className = 'mov';
+      const h4 = document.createElement('h4'); h4.textContent = `Movement ${m.num} · ${m.title}`;
+      const ol = document.createElement('ol');
+      for (const p of m.poems) {
+        const li = document.createElement('li'), bt = document.createElement('button');
+        bt.type = 'button'; bt.dataset.id = p.id;
+        bt.innerHTML = '<span class="n"></span><span class="tt"></span><span class="hb"><i></i></span>';
+        bt.querySelector('.n').textContent = String(p.num).padStart(2, '0');
+        bt.querySelector('.tt').textContent = p.title;
+        bt.addEventListener('click', () => cook(p, 'chosen from the pantry', { scroll: true }));
+        li.appendChild(bt); ol.appendChild(li);
+      }
+      mv.append(h4, ol); div.appendChild(mv);
+    }
+    host.appendChild(div);
+  }
+}
+function renderShelfHeat() {
+  const r = reader || readReader('');
+  const scores = new Map(r.vec.size ? rank(r).map(({ p, score }) => [p.id, score]) : []);
+  const max = Math.max(1e-9, ...scores.values());
+  for (const bt of document.querySelectorAll('.mov button')) {
+    const s = scores.get(bt.dataset.id) || 0;
+    bt.querySelector('.hb i').style.width = (s / max * 100).toFixed(0) + '%';
+    const tt = bt.querySelector('.tt');
+    const read = state.visited.has(bt.dataset.id);
+    let mk = tt.querySelector('.read-mark');
+    if (read && !mk) { mk = document.createElement('span'); mk.className = 'read-mark'; mk.textContent = 'READ'; tt.appendChild(mk); }
+    if (!read && mk) mk.remove();
+    bt.setAttribute('aria-label', `${bt.querySelector('.tt').firstChild.textContent}${read ? ', read' : ''}${s ? `, shares ${Math.round(s / max * 100)} percent heat with your words` : ''}`);
+  }
+}
+
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode: notes last for this visit */ } },
+  del(k) { try { localStorage.removeItem(k); } catch { /* ignore */ } },
+};
+let NOTES = store.get('pcp.notes', {});
+function renderNotes(poem) {
+  const host = $('notes'); host.textContent = '';
+  (NOTES[poem.id] || []).forEach((n, i) => {
+    const d = document.createElement('div'); d.className = 'note'; d.style.setProperty('--r', ((hash(n.t + '') % 50) / 10 - 2.5).toFixed(1) + 'deg');
+    d.innerHTML = '<span class="tape" aria-hidden="true"></span><div class="txt"></div><footer><span></span><button type="button">Remove</button></footer>';
+    d.querySelector('.txt').textContent = n.text;
+    d.querySelector('footer span').textContent = 'You · ' + new Date(n.t).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+    d.querySelector('button').addEventListener('click', () => { NOTES[poem.id].splice(i, 1); store.set('pcp.notes', NOTES); renderNotes(poem); });
+    host.appendChild(d);
+  });
+}
+$('noteForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const v = $('note').value.trim(); if (!v || !state.current) return;
+  (NOTES[state.current.id] = NOTES[state.current.id] || []).push({ t: Date.now(), text: v });
+  store.set('pcp.notes', NOTES); $('note').value = ''; renderNotes(state.current); toast('Pinned beside the poem.');
+});
+
+function saveDraft() { store.set('pcp.draft', { text: ing.value, typing, followed }); }
+function saveSession() { store.set('pcp.path', state.path); }
+
+$('copy').addEventListener('click', () => {
+  if (!state.current) return;
+  const r = editionReader, { family } = chooseFamily(r);
+  const recipe = JSON.stringify({ engine: ENGINE, content: state.current.id, title: state.current.title,
+    inputs: { words: r.full.trim(), tempo: +r.tempo.toFixed(2), hesitation: +r.hesitation.toFixed(2), intensity: +r.intensity.toFixed(2), weight: +r.weight.toFixed(2) },
+    pressure_psi: +psi(r.pressure), family: FAMILY_NAMES[family], seed: hash(editionSeed) }, null, 2);
+  const done = () => toast('Recipe copied. Same recipe, same room.');
+  navigator.clipboard?.writeText(recipe).then(done, () => fallbackCopy(recipe, done)) ?? fallbackCopy(recipe, done);
+});
+function fallbackCopy(text, done) {
+  const t = document.createElement('textarea'); t.value = text; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+  document.body.appendChild(t); t.select();
+  try { document.execCommand('copy'); done(); } catch { toast('Copy was blocked. Select the recipe text by hand.'); }
+  t.remove();
+}
+
+let forgetTimer = 0;
+$('forget').addEventListener('click', () => {
+  const b = $('forget');
+  if (!b.classList.contains('armed')) { b.classList.add('armed'); b.textContent = 'Tap again to erase your words, path and notes'; forgetTimer = setTimeout(() => { b.classList.remove('armed'); b.textContent = 'Forget me'; }, 4000); return; }
+  clearTimeout(forgetTimer);
+  ['pcp.notes', 'pcp.draft', 'pcp.path'].forEach(store.del);
+  NOTES = {}; followed.length = 0; Object.assign(typing, { keys: 0, back: 0, active: 0, last: 0, pauses: 0 });
+  state.path = []; state.visited.clear(); ing.value = ''; lastBoard = '';
+  b.classList.remove('armed'); b.textContent = 'Forget me';
+  updateIntake(); cook(houseStart(), 'house', { house: true }); toast('Forgotten. Nothing of yours remains in this browser.');
+});
+
+let toastT = 0;
+function toast(msg) { const t = $('toast'); t.textContent = msg; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2600); }
+
+/* ================= boot ================= */
+function houseStart() { return CORPUS.poems.find((p) => p.tf.has(stem('door')) && /always there/i.test(p.title)) || rank(readReader('door'))[0].p; }
+async function loadCorpus() {
+  const el = $('corpus');
+  let src = el.textContent, source = el.dataset.source;
+  if (source !== 'full') {
+    try { const res = await fetch('corpus/corpus.txt', { cache: 'no-store' }); if (res.ok) { const t = await res.text(); if (t.includes('=POEM')) { src = t; source = 'full'; } } } catch { /* stays on sample */ }
+  }
+  $('sampleNote').hidden = source === 'full';
+  return parseCorpus(src);
+}
+(async function boot() {
+  $('engineVer').textContent = ENGINE;
+  drawTicks();
+  CORPUS = await loadCorpus();
+  indexCorpus(CORPUS);
+  renderShelf();
+  dealChips();
+  const draft = store.get('pcp.draft', null);
+  if (draft) { ing.value = draft.text || ''; Object.assign(typing, draft.typing || {}); typing.last = 0; (draft.followed || []).forEach((w) => followed.push(w)); }
+  const saved = store.get('pcp.path', []);
+  state.path = saved.filter((s) => poemById(s.poem)); state.path.forEach((s) => state.visited.add(s.poem));
+  updateIntake();
+  const last = state.path[state.path.length - 1];
+  if (last && ing.value.trim()) cook(poemById(last.poem), 'resumed');
+  else cook(houseStart(), 'house', { house: true });
+})();
+})();
+</script>

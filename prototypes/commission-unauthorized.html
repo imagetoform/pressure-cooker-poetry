@@ -1,0 +1,887 @@
+<title>The Unauthorized Thing</title>
+<meta name="description" content="Pressure Cooker Poetry: the poems of Brandon Rhodes, answered one mark at a time. Make a mark on the wall; a line of the poems answers; every line opens into its whole poem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --wall:#1b2226;            /* the cool room; JS warms it */
+  --ink:#f3ede3;             /* poem text */
+  --ink-2:#c9c1b4;           /* secondary text, still >7:1 on the wall */
+  --ink-3:#9d968b;
+  --sheet:#14110e;           /* reading sheet */
+  --edge:rgba(243,237,227,.16);
+  --accent:#e9a15a;
+  --f-poem:'Newsreader',Georgia,'Times New Roman',serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#1b2226;color:var(--ink);overflow:hidden}
+body{background:var(--wall);font-family:var(--f-poem);-webkit-font-smoothing:antialiased;transition:background-color 2.4s ease}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- the wall ---------- */
+#wall{position:fixed;inset:0;touch-action:none;cursor:crosshair;outline:none}
+#wall canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#wall:focus-visible{outline:none}
+#wall:focus-visible::after{content:"";position:absolute;inset:6px;border:1px dashed rgba(233,161,90,.55);pointer-events:none}
+#kbrush{position:absolute;width:18px;height:18px;margin:-9px 0 0 -9px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;display:none}
+#wall:focus-visible #kbrush{display:block}
+
+/* ---------- chrome ---------- */
+header,footer,#intro,nav,.pin{user-select:none;-webkit-user-select:none}
+header{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:18px 22px;pointer-events:none;z-index:5}
+.mast{pointer-events:auto;line-height:1.15}
+.mast b{display:block;font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.mast span{font-family:var(--f-poem);font-style:italic;font-size:15px;color:var(--ink-2)}
+nav{display:flex;gap:6px;pointer-events:auto;flex-wrap:wrap;justify-content:flex-end}
+/* controls are wall labels, like the answers: a dark card with a rule of paint down its left edge */
+nav{gap:8px}
+nav button{position:relative;background:rgba(14,11,9,.62);border:0;border-radius:0;padding:8px 12px 8px 14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;text-transform:lowercase;color:var(--ink);cursor:pointer;overflow:hidden}
+nav button::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--rule,#ece6da);transition:width .25s ease}
+nav button:hover::before{width:4px}
+nav button[aria-pressed="true"]{color:#14110e}
+nav button[aria-pressed="true"]::before{width:100%;z-index:-1}
+nav button[aria-pressed="true"]{z-index:0}
+nav button:disabled{opacity:.4;cursor:default}nav button:disabled::before{width:2px}
+#bUndo{--rule:#d77f8e}
+#bIndex{--rule:#ece6da}#bMine{--rule:#e9a15a}#bBack{--rule:#c48a5c}#bSound{--rule:#7cc4b4}
+footer{position:fixed;left:22px;bottom:16px;right:22px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;pointer-events:none;z-index:4;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--ink-2)}
+footer .hint{max-width:60ch;text-align:right}
+
+/* ---------- opening ---------- */
+#intro{position:fixed;inset:0;display:grid;place-items:center;pointer-events:none;z-index:3;padding:24px}
+#intro .in{max-width:620px;text-align:left}
+#intro h1{font-family:var(--f-poem);font-weight:300;font-size:clamp(52px,9vw,112px);line-height:.92;letter-spacing:-.02em;margin:0 0 22px;color:var(--ink)}
+#intro h1 em{font-style:italic;color:var(--accent)}
+#intro .how{max-width:60ch!important}
+#intro p{font-size:clamp(17px,1.6vw,20px);line-height:1.5;color:var(--ink-2);margin:0 0 10px;max-width:40ch}
+#intro .how{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.05em;color:var(--ink-3);margin-top:22px;line-height:1.7}
+#intro .how kbd{font-family:inherit;border:1px solid var(--edge);border-radius:4px;padding:0 5px;color:var(--ink-2)}
+#intro .back{display:none;color:var(--ink)}
+#intro .coarse{display:none}
+@media (pointer:coarse){#intro .coarse{display:inline}#intro .fine{display:none}}
+#intro.gone{opacity:0;transition:opacity .9s ease}
+#intro.returning{place-items:start center;padding-top:84px}
+#intro.returning .in>*:not(.back){display:none}
+#intro.returning .back{display:block;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;background:rgba(14,11,9,.7);padding:9px 14px;border-left:2px solid var(--accent);margin:0}
+
+/* ---------- answers (fragments on the wall) ---------- */
+#answers{position:fixed;inset:0;pointer-events:none;z-index:2}
+.ans{position:absolute;pointer-events:none;background:rgba(14,11,9,.62);padding:10px 14px 8px 16px!important;border-radius:0 3px 3px 0;max-width:min(380px,74vw);padding:2px 0 0 14px;border-left:2px solid var(--c,#ccc);opacity:1;transition:opacity 1.2s ease,transform 1.2s ease}
+.ans.enter{opacity:0;transform:translateY(6px)}
+.ans .saw{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.05em;color:var(--ink-2);margin:-2px 0 6px}
+.ans .saw i{font-style:normal;color:var(--ink-3)}
+.ans .desc{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.07em;color:var(--ink-2);margin-bottom:6px;text-transform:lowercase}
+.ans button{pointer-events:auto}
+#wall,#answers,.ans,.ans .frag{user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.ans .frag{font-size:clamp(18px,1.65vw,23px);line-height:1.32;color:var(--ink);text-shadow:0 1px 14px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.6);}
+.ans .frag span{display:block;padding-left:1em;text-indent:-1em}
+.ans .open{margin-top:8px;background:none;border:0;padding:4px 0;font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;color:var(--ink);cursor:pointer;text-decoration:underline;text-decoration-color:var(--c);text-underline-offset:4px;text-decoration-thickness:1.5px;text-align:left}
+.ans .open:hover{color:#fff}
+.ans .fold{position:absolute;top:6px;right:-28px;width:22px;height:22px;border-radius:50%;border:1px solid var(--edge);background:rgba(0,0,0,.25);color:var(--ink-2);font-family:var(--f-mono);font-size:11px;line-height:1;cursor:pointer;padding:0}
+.pin{position:absolute;pointer-events:auto;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:1.5px solid var(--c);background:rgba(12,10,8,.55);color:var(--ink);font-family:var(--f-mono);font-size:10.5px;cursor:pointer;padding:0;display:grid;place-items:center}
+.pin:hover{background:rgba(12,10,8,.85)}
+
+/* ---------- sheets (reader, index, wall) ---------- */
+.sheet{position:fixed;top:0;right:0;bottom:0;width:min(560px,100vw);background:var(--sheet);border-left:1px solid var(--edge);z-index:20;display:flex;flex-direction:column;transform:translateX(102%);transition:transform .55s cubic-bezier(.2,.7,.2,1);visibility:hidden}
+.sheet.open{transform:none;visibility:visible}
+.sheet .bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 18px;border-bottom:1px solid var(--edge);font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;color:var(--ink-2)}
+.sheet .bar button{background:none;border:1px solid var(--edge);border-radius:999px;padding:6px 12px;font-family:var(--f-mono);font-size:11px;cursor:pointer;color:var(--ink)}
+.sheet .bar button:disabled{opacity:.35;cursor:default}
+.sheet{user-select:text;-webkit-user-select:text}
+.sheet .body{touch-action:pan-y;overflow:auto;padding:30px clamp(22px,4vw,48px) 80px;flex:1;overscroll-behavior:contain}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:19;opacity:0;pointer-events:none;transition:opacity .4s}
+.scrim.on{opacity:1;pointer-events:auto}
+
+.poem .where{font-family:var(--f-mono);font-size:11px;letter-spacing:.07em;color:var(--ink-2);line-height:1.7;margin-bottom:18px}
+.poem h2{font-weight:400;font-size:clamp(30px,3.2vw,40px);line-height:1.08;margin:0 0 6px;letter-spacing:-.01em}
+.poem .num{font-family:var(--f-mono);font-size:11px;color:var(--ink-3);letter-spacing:.1em}
+.poem .text{margin-top:28px;font-size:clamp(18px,1.5vw,20px);line-height:1.55;color:var(--ink)}
+.poem .st{margin:0 0 1.15em}
+.poem .ln{display:block;padding-left:1.4em;text-indent:-1.4em}
+.poem .ln.hit mark{color:inherit;background:linear-gradient(transparent 60%,color-mix(in srgb,var(--c) 42%,transparent) 60%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.poem .brk{text-align:center;margin:0 0 1.15em;color:var(--ink-2)}
+.poem .note{font-family:var(--f-mono);font-size:11px;color:var(--ink-3);margin-top:30px;line-height:1.6;border-top:1px solid var(--edge);padding-top:14px}
+
+.idx h3{font-family:var(--f-poem);font-weight:400;font-style:italic;font-size:26px;margin:4px 0 2px}
+.idx .after{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.04em;margin-bottom:18px;line-height:1.6}
+.idx h4{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:22px 0 6px}
+.idx ol{list-style:none;margin:0 0 10px;padding:0}
+.idx li button{display:flex;gap:12px;align-items:baseline;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid rgba(243,237,227,.07);padding:9px 0;font-size:18px;cursor:pointer;color:var(--ink)}
+.idx li button:hover{color:#fff}
+.idx li .n{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-3);min-width:2.4em}
+.idx li .dot{width:8px;height:8px;border-radius:50%;background:var(--c);flex:none;align-self:center;margin-left:auto}
+.idx .intro{font-size:17px;line-height:1.5;color:var(--ink-2);margin:0 0 20px}
+
+.mine .pic{margin:0 0 20px;border:1px solid var(--edge)}
+.mine .pic img{display:block;width:100%;height:auto}
+.mine p.lead{font-size:18px;line-height:1.5;color:var(--ink-2);margin:0 0 22px}
+.mine .entry{border-left:2px solid var(--c);padding:2px 0 2px 14px;margin:0 0 22px}
+.mine .entry .desc{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-2);letter-spacing:.06em;margin-bottom:6px}
+.mine .entry .frag{font-size:18px;line-height:1.4}
+.mine .entry .frag span{display:block}
+.mine .entry button{background:none;border:0;padding:4px 0;margin-top:4px;font-family:var(--f-mono);font-size:11px;color:var(--ink);text-decoration:underline;text-decoration-color:var(--c);text-underline-offset:4px;cursor:pointer}
+.mine .danger{margin-top:26px;background:none;border:1px solid var(--edge);border-radius:999px;padding:8px 14px;font-family:var(--f-mono);font-size:11px;cursor:pointer;color:var(--ink-2)}
+
+body.stepback #answers,body.stepback footer{opacity:0;pointer-events:none}
+body.stepback #answers *{pointer-events:none}
+#answers,footer{transition:opacity .8s}
+
+@media (max-width:640px){
+  header{padding:12px 14px;flex-direction:column;gap:9px}
+  #intro.returning{padding-top:100px}
+  .mast b{font-size:10px;letter-spacing:.14em}
+  .mast span{font-size:13px}
+  nav{gap:5px;justify-content:flex-start;flex-wrap:nowrap}
+  nav button{padding:6px 7px 6px 9px;font-size:10px;letter-spacing:0}
+  .ans{max-width:none;right:14px}
+  .ans .fold{right:8px;top:8px}
+  footer{left:14px;right:14px;bottom:12px;font-size:10px}
+  footer .hint{display:none}
+  .ans{max-width:72vw}
+  .ans .frag{font-size:17px}
+  .sheet{width:100vw;border-left:0}
+  #intro .in{padding-top:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+}
+</style>
+
+<div id="wall" tabindex="0" role="application" aria-roledescription="drawing surface" aria-label="The wall. Draw a mark with a mouse or finger, or with the arrow keys and Enter. Each mark is answered by a line of poetry." aria-describedby="kbhelp">
+  <canvas id="ground" aria-hidden="true"></canvas>
+  <canvas id="paint" aria-hidden="true"></canvas>
+  <div id="kbrush"></div>
+</div>
+<p id="kbhelp" class="sr">Arrow keys draw, holding Shift makes longer steps, Enter or Space finishes the mark, Escape abandons it. Answers appear as text after each mark and are announced.</p>
+
+<header>
+  <div class="mast"><b>Pressure Cooker Poetry</b><span>poems by Brandon Rhodes</span></div>
+  <nav aria-label="Reading">
+    <button id="bIndex" type="button">all poems</button>
+    <button id="bMine" type="button">your wall</button>
+    <button id="bBack" type="button" aria-pressed="false">step back</button>
+    <button id="bSound" type="button" aria-pressed="false">sound off</button>
+    <button id="bUndo" type="button" aria-keyshortcuts="Control+Z Meta+Z" disabled>undo</button>
+  </nav>
+</header>
+
+<div id="intro">
+  <div class="in">
+    <p class="back">your wall is where you left it &middot; make another mark</p>
+    <h1>Make a mark.<br><em>Any</em> mark.</h1>
+    <p>Nothing here is graded. Each mark you make is answered by a few lines from the poems of Brandon Rhodes, chosen by how your hand moved. Every answer opens into its whole poem.</p>
+    <p class="how"><span class="fine">drag anywhere &middot; or focus the wall and use <kbd>&larr;</kbd><kbd>&uarr;</kbd><kbd>&rarr;</kbd><kbd>&darr;</kbd> then <kbd>enter</kbd></span><span class="coarse">draw with a finger, anywhere</span><br>prefer to simply read? open <b>all poems</b></p>
+  </div>
+</div>
+
+<div id="answers" aria-live="polite"></div>
+<p id="status" class="sr" role="status" aria-live="polite"></p>
+
+<footer>
+  <div id="count">the room is cool</div>
+  <div class="hint" id="hint">kept only in this browser &middot; nothing is posted</div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+
+<section class="sheet" id="reader" role="dialog" aria-modal="true" aria-labelledby="rTitle">
+  <div class="bar">
+    <button type="button" id="rPrev">&larr; prev</button>
+    <span id="rPos"></span>
+    <button type="button" id="rNext">next &rarr;</button>
+    <button type="button" class="x" data-close>close</button>
+  </div>
+  <div class="body"><article class="poem" id="rBody"></article></div>
+</section>
+
+<section class="sheet" id="index" role="dialog" aria-modal="true" aria-labelledby="iTitle">
+  <div class="bar"><span id="iTitle">ALL POEMS</span><button type="button" data-close>close</button></div>
+  <div class="body idx" id="iBody"></div>
+</section>
+
+<section class="sheet" id="mine" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="bar"><span id="mTitle">YOUR WALL</span><button type="button" data-close>close</button></div>
+  <div class="body mine" id="mBody"></div>
+</section>
+
+<script type="text/plain" id="corpus" data-source="sample">
+=BOOK arsonist | The Arsonist's Gospels | after Vallejo · Lorca · Baraka · Cesaire · Rimbaud · Mayakovsky · Szymborska · Paz · Celan · Carson
+=MOVE I | Genesis of the Unowned
+=POEM 1 | First Mark | excerpt
+That cooling
+was not personal.
+It was structural —
+the system
+maintaining its temperature
+the only way systems can:
+by making you
+the variable
+that needed adjusting.
+
+You were never the problem.
+You were the frequency
+they hadn't scheduled.
+=POEM 5 | What Was Always There | excerpt
+It is still there.
+
+Patient as a door.
+Certain as a door.
+
+Waiting
+not for permission —
+
+for you.
+=MOVE II | The Hydra's Inventory
+=POEM 7 | What the Algorithm Does | excerpt
+Make the thing
+that breaks the pattern.
+Post nothing.
+Make everything.
+=BOOK stardust | The Genealogy of Stardust | after the voices of Plath · Ginsberg · Bukowski · Merwin · Rilke
+=MOVE I | Before the Name
+=POEM 1 | Stardust, Before the Genealogy | excerpt
+I did not choose my atoms.
+They were lent to me
+by stars that had already spent themselves
+on the whole question of existing —
+=MOVE V | Genealogy
+=POEM 29 | Still Here | excerpt
+still here
+
+still burning
+
+that's enough
+
+that is
+more than enough
+</script>
+
+<script>
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s);
+const RM=matchMedia('(prefers-reduced-motion: reduce)');
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+
+/* ================= corpus ================= */
+const src=$('#corpus');
+const SOURCE=src.dataset.source||'sample';
+const books=[],poems=[];
+(function parse(text){
+  let book=null,move=null,poem=null,stanza=null;
+  const endStanza=()=>{if(poem&&stanza&&stanza.length){poem.blocks.push({t:'st',lines:stanza});}stanza=null;};
+  for(const raw of text.replace(/\r/g,'').split('\n')){
+    if(raw.startsWith('=BOOK ')){endStanza();const p=raw.slice(6).split(' | ');book={id:p[0].trim(),title:(p[1]||'').trim(),after:(p.slice(2).join(' | ')||'').trim(),moves:[]};books.push(book);move=null;poem=null;continue;}
+    if(raw.startsWith('=MOVE ')){endStanza();const p=raw.slice(6).split(' | ');move={num:p[0].trim(),title:(p[1]||'').trim(),poems:[]};book&&book.moves.push(move);poem=null;continue;}
+    if(raw.startsWith('=POEM ')){endStanza();const p=raw.slice(6).split(' | ');poem={n:p[0].trim(),title:(p[1]||'').trim(),excerpt:p.slice(2).some(x=>x.trim()==='excerpt'),book,move,blocks:[],lines:[]};poem.key=book.id+'-'+poem.n;poem.i=poems.length;poems.push(poem);move&&move.poems.push(poem);continue;}
+    if(!poem)continue;
+    if(raw.trim()===''){endStanza();continue;}
+    if(raw.trim()==='*'){endStanza();poem.blocks.push({t:'br'});continue;}
+    if(!stanza)stanza=[];
+    const li={text:raw,idx:poem.lines.length,st:poem.blocks.length};
+    stanza.push(li);poem.lines.push(li);
+  }
+  endStanza();
+})(src.textContent);
+const byKey=Object.fromEntries(poems.map(p=>[p.key,p]));
+
+/* ================= themes: what a line is made of ================= */
+const THEMES={
+  fire:{c:'#e8693a',name:'fire',re:/\b(fire|fires|burn\w*|flame\w*|arson\w*|heat|warm\w*|spark\w*|fury|violen\w*|duende|blaze|lit|ignit\w*|started|revolution)\b/},
+  dark:{c:'#7f9be0',name:'the dark',re:/\b(dark\w*|door\w*|down\w*|night|3am|4am|drink\w*|fear\w*|death|mortal\w*|ashamed|shame|grief|cry\w*|wall|alone|silen\w*|afraid|collapse\w*)\b/},
+  star:{c:'#f1d48b',name:'stars',re:/\b(star|stars|carbon|atom\w*|sky|light|universe|stardust|cosm\w*|scatter\w*|morning|existing|existence|oldest|matter)\b/},
+  stone:{c:'#c48a5c',name:'stone & time',re:/\b(stone|canyon\w*|river|water|geolog\w*|time|patien\w*|slow\w*|still|years|centur\w*|wear\w*|carv\w*|forgiv\w*|stay\w*|durable|permanent|waiting)\b/},
+  body:{c:'#d77f8e',name:'the body',re:/\b(hand|hands|body|bone\w*|ribs|jaw|blood|foot|feet|throat|shoulders|face|skin|breath\w*|knelt|kneel\w*|soles|cell)\b/},
+  system:{c:'#a9b4ba',name:'the system',re:/\b(market\w*|algorithm\w*|institution\w*|system\w*|grade\w*|committee\w*|school|curriculum|price|product\w*|monetiz\w*|criteria|assess\w*|permission|consensus|review|scheduled|model|unit|consumer)\b/},
+  voice:{c:'#7cc4b4',name:'frequency',re:/\b(frequenc\w*|song|note|chord|sound\w*|voice|hum\w*|glass|tuning|echo\w*|vibrat\w*|resonat\w*|music|melody|rhythm|om|listen\w*|hear\w*|loud\w*)\b/},
+  make:{c:'#ece6da',name:'making',re:/\b(make|makes|making|made|maker\w*|mark|marks|canvas|brush|paint\w*|poem|thing|surface|begin|create|unauthorized|art)\b/},
+};
+const TK=Object.keys(THEMES);
+for(const p of poems)for(const l of p.lines){
+  const low=l.text.toLowerCase();l.th={};
+  for(const k of TK){const m=low.match(new RegExp(THEMES[k].re.source,'g'));l.th[k]=m?m.length:0;}
+  l.words=(low.match(/[a-z0-9']+/g)||[]).length;
+}
+
+/* ================= state ================= */
+const KEY='unauthorized-wall-v1';
+let S=store.get(KEY);
+if(!S||!Array.isArray(S.marks))S={marks:[],visits:0};
+S.visits=(S.visits||0)+1;
+// drop answers that do not exist in this edition of the corpus
+S.marks=S.marks.filter(m=>m&&Array.isArray(m.pts)&&m.pts.length&&m.ans&&byKey[m.ans.key]&&byKey[m.ans.key].lines.length>=m.ans.start+m.ans.count);
+const save=()=>store.set(KEY,S);
+save();
+
+/* ================= canvases ================= */
+const wall=$('#wall'),ground=$('#ground'),paint=$('#paint'),gx=ground.getContext('2d'),px=paint.getContext('2d');
+let W=0,H=0,DPR=1;
+function rng(seed){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function hex2rgb(h){const n=parseInt(h.slice(1),16);return[n>>16&255,n>>8&255,n&255];}
+function mix(a,b,t){return a.map((v,i)=>Math.round(v+(b[i]-v)*t));}
+const COOL=hex2rgb('#1b2226'),WARM=hex2rgb('#2c1a12');
+function warmth(){return Math.min(1,S.marks.length/10);}
+function applyWarmth(){
+  const t=warmth(),c=mix(COOL,WARM,t);
+  const css=`rgb(${c.join(',')})`;
+  document.body.style.backgroundColor=css;
+  document.documentElement.style.setProperty('--wall',css);
+  drawGround();
+  const n=S.marks.length;
+  const words=['the room is cool','the room is cool','the room is less cool','the room is changing','the room is warming','the room is warming','the room is warm','the room is warm','the room is warm','the room is warm','the room is yours'];
+  $('#count').textContent=(n?`${n} mark${n>1?'s':''} · ${new Set(S.marks.map(m=>m.ans.key)).size} poem${new Set(S.marks.map(m=>m.ans.key)).size>1?'s':''} answered · `:'')+words[Math.min(n,10)];
+}
+function drawGround(){
+  const t=warmth(),c=mix(COOL,WARM,t);
+  gx.setTransform(DPR,0,0,DPR,0,0);
+  gx.fillStyle=`rgb(${c.join(',')})`;gx.fillRect(0,0,W,H);
+  // a plaster wall: soft uneven light, pooled warmth where the marks are
+  const g=gx.createRadialGradient(W*.32,H*.28,0,W*.32,H*.28,Math.max(W,H)*.9);
+  g.addColorStop(0,'rgba(255,255,255,0.035)');g.addColorStop(1,'rgba(0,0,0,0.22)');
+  gx.fillStyle=g;gx.fillRect(0,0,W,H);
+  for(const m of S.marks){
+    const e=m.pts[m.pts.length-1];const [r,gg,b]=hex2rgb(THEMES[m.theme].c);
+    const rad=Math.min(W,H)*.45;
+    const gr=gx.createRadialGradient(e[0]*W,e[1]*H,0,e[0]*W,e[1]*H,rad);
+    gr.addColorStop(0,`rgba(${r},${gg},${b},0.06)`);gr.addColorStop(1,`rgba(${r},${gg},${b},0)`);
+    gx.fillStyle=gr;gx.fillRect(0,0,W,H);
+  }
+  // grain
+  gx.drawImage(grain,0,0,W,H);
+}
+const grain=document.createElement('canvas');
+(function(){grain.width=grain.height=512;const g=grain.getContext('2d');const id=g.createImageData(512,512);const r=rng(7);
+  for(let i=0;i<id.data.length;i+=4){const v=r();const s=v<.5?0:255;id.data[i]=id.data[i+1]=id.data[i+2]=s;id.data[i+3]=Math.floor(Math.abs(v-.5)*22);}
+  g.putImageData(id,0,0);})();
+
+function resize(){
+  DPR=Math.min(2,window.devicePixelRatio||1);W=innerWidth;H=innerHeight;
+  for(const c of [ground,paint]){c.width=Math.round(W*DPR);c.height=Math.round(H*DPR);}
+  applyWarmth();redrawAll(true);layoutAnswers();
+}
+
+/* ----- the brush: bristles that load, drag and run dry ----- */
+function resample(P,step){ // even spacing so the brush behaves the same for mouse, finger and keys
+  const out=[P[0]];let acc=0;
+  for(let i=1;i<P.length;i++){
+    let a=out[out.length-1];const b=P[i];let d=Math.hypot(b[0]-a[0],b[1]-a[1]);
+    while(acc+d>=step){const t=(step-acc)/d;const n=[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];out.push(n);a=n;d=Math.hypot(b[0]-a[0],b[1]-a[1]);acc=0;}
+    acc+=d;
+  }
+  if(out.length<2)out.push(P[P.length-1]);
+  return out;
+}
+function vnoise(r){const v=[];for(let i=0;i<64;i++)v.push(r());return x=>{const i=Math.floor(x),f=x-i,s=f*f*(3-2*f);return v[i&63]*(1-s)+v[(i+1)&63]*s;};}
+// the room's temperature reaches into the pigment: early marks are made in a cold room, later ones in a warm one
+const COLDTINT=[150,172,190],WARMTINT=[255,170,96];
+function tint(hex,w){const c=hex2rgb(hex);const g=(c[0]+c[1]+c[2])/3;
+  const cold=c.map(v=>v+(g-v)*.28);                     // a cold room greys the colour a little
+  const a=mix(cold,COLDTINT,.16),b=mix(c,WARMTINT,.14);
+  return mix(a,b,Math.max(0,Math.min(1,w)));}
+function strokePath(ctx,pts,color,seed,widthBase,w){
+  const r=rng(seed);const base=tint(color,w==null?.5:w);
+  const sc=Math.max(.62,Math.min(W,H)/900);
+  const rgba=(c,a)=>`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${Math.max(0,Math.min(1,a)).toFixed(3)})`;
+  const shade=k=>base.map(v=>Math.max(0,Math.min(255,v*k)));
+  let P=pts.map(p=>[p[0]*W,p[1]*H,p[2]]);
+  if(P.length<3||pathLen(P)<8){ // a single touch: the brush pressed down and lifted, paint squashed outward
+    const [x,y]=P[0];const R=(9+widthBase*.9)*sc;
+    ctx.fillStyle=rgba(base,.22);ctx.beginPath();ctx.arc(x,y,R*.55,0,7);ctx.fill();
+    for(let i=0;i<160;i++){const a=r()*Math.PI*2,d=Math.pow(r(),.55)*R;const k=.7+r()*.6;
+      ctx.fillStyle=rgba(shade(k),.08+r()*.34*(1-d/R*.5));ctx.beginPath();
+      ctx.ellipse(x+Math.cos(a)*d,y+Math.sin(a)*d,(1+r()*3.2)*sc,(.5+r()*1.4)*sc,a,0,7);ctx.fill();}
+    return;
+  }
+  P=resample(P,2.5);
+  const n=P.length,len=pathLen(P);
+  const vel=[];for(let i=0;i<n;i++){const a=P[Math.max(0,i-3)],b=P[Math.min(n-1,i+3)];vel.push(Math.hypot(b[0]-a[0],b[1]-a[1])/Math.max(6,b[2]-a[2]));}
+  for(let pass=0;pass<2;pass++)for(let k=1;k<n-1;k++)vel[k]=(vel[k-1]+vel[k]*2+vel[k+1])/4;
+  const vMean=vel.reduce((a,b)=>a+b,0)/n;
+  const quick=Math.max(0,Math.min(1,(vMean-.35)/1.4)); // 0 = a slow, loaded hand; 1 = a flick
+  // width follows the hand: slow is loaded and heavy, quick is lean
+  // a quick hand does not make a thin line: the brush stays broad but only some hairs touch
+  const wd=vel.map(v=>Math.max(18,Math.min(38,widthBase*2.6/(0.7+v*.28)))*sc);
+  for(let pass=0;pass<3;pass++)for(let k=1;k<n-1;k++)wd[k]=(wd[k-1]+wd[k]*2+wd[k+1])/4;
+  const taper=i=>{const t=i/(n-1);return Math.min(1,t/.05+.35,(1-t)/(.1+quick*.15)+.12);};
+  const nrm=[];for(let i=0;i<n;i++){const a=P[Math.max(0,i-2)],c=P[Math.min(n-1,i+2)];let nx=-(c[1]-a[1]),ny=c[0]-a[0];const l=Math.hypot(nx,ny)||1;nrm.push([nx/l,ny/l]);}
+  // at a sharp corner the hairs bunch together instead of fanning out (no ghost outlines)
+  const pinch=[];for(let i=0;i<n;i++){const a=nrm[Math.max(0,i-3)],c=nrm[Math.min(n-1,i+3)];pinch.push(Math.max(.3,(a[0]*c[0]+a[1]*c[1]+1)/2));}
+  for(let pass=0;pass<2;pass++)for(let k=1;k<n-1;k++)pinch[k]=Math.min(pinch[k],(pinch[k-1]+pinch[k]*2+pinch[k+1])/4);
+  // paint load along the stroke: heavy where the brush lands, then it runs out
+  const capacity=(520+widthBase*40)*sc*(1.2-quick*.3);
+  const loadAt=d=>d<capacity?1-.3*(d/capacity):Math.max(0,.7-(d-capacity)/(capacity*1.3));
+  const dist=[0];for(let i=1;i<n;i++)dist.push(dist[i-1]+Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]));
+  ctx.lineCap='round';ctx.lineJoin='round';
+  // the body: a translucent wash, thick when slow, almost absent when quick so the bristles show
+  const washA=.16*(1-quick*.8);
+  for(let i=1;i<n;i++){const L=loadAt(dist[i]);if(L<=0)break;ctx.lineWidth=wd[i]*taper(i)*pinch[i]*.8;ctx.strokeStyle=rgba(base,washA*L+(dist[i]<14*sc?.12:0));ctx.beginPath();ctx.moveTo(P[i-1][0],P[i-1][1]);ctx.lineTo(P[i][0],P[i][1]);ctx.stroke();}
+  // bristles
+  const N=Math.round(24+widthBase*1.6);
+  const splay=quick*1.1;                        // a flick separates the bristles as it leaves
+  for(let b=0;b<N;b++){
+    const off=(r()+r()+r()-1.5)/1.5;
+    const edge=Math.abs(off)>.72;
+    const sheen=b<3&&quick<.5;                     // a few lighter hairs catch the light in a loaded stroke
+    const k=sheen?1.25+r()*.15:edge&&quick<.5?.62+r()*.12:.74+r()*.5;
+    const col=shade(k);
+    let alpha=(.18+r()*.5)*(1-Math.abs(off)*.35);
+    if(edge&&quick<.5)alpha*=1.45;                 // paint pushed to the edges of a slow stroke
+    if(sheen)alpha=.3;
+    ctx.lineWidth=(.5+r()*r()*(3.4-quick*1.6))*sc;
+    const nz=vnoise(r);
+    const freq=(.05+r()*.12)*(1-quick*.75);        // quick strokes break into long streaks, slow ones barely break
+    const phase=r()*40;
+    const own=.8+r()*.5;                           // each hair carries a slightly different share of the paint
+    let prev=null;
+    for(let i=0;i<n;i++){
+      const t=i/(n-1);
+      const o=off*wd[i]*taper(i)*pinch[i]*.5*(1+splay*Math.pow(t,3));
+      const x=P[i][0]+nrm[i][0]*o,y=P[i][1]+nrm[i][1]*o;
+      if(prev){
+        const L=Math.min(1,loadAt(dist[i]/own)*1.05);
+        const dryness=.12+Math.abs(off)*.3*(1-quick*.3)+(1-L)*.62+Math.min(.34,vel[i]*.09);
+        if(L>0&&nz(i*freq+phase)>dryness){ctx.strokeStyle=rgba(col,alpha*(.45+.55*L));ctx.beginPath();ctx.moveTo(prev[0],prev[1]);ctx.lineTo(x,y);ctx.stroke();}
+      }
+      prev=[x,y];
+    }
+  }
+}
+function pathLen(P){let s=0;for(let i=1;i<P.length;i++)s+=Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]);return s;}
+const cache=document.createElement('canvas'),cx=cache.getContext('2d');
+function rebuildCache(){cache.width=paint.width;cache.height=paint.height;cx.setTransform(DPR,0,0,DPR,0,0);cx.clearRect(0,0,W,H);S.marks.forEach((m,i)=>strokePath(cx,m.pts,THEMES[m.theme].c,m.seed,m.wb,m.w!=null?m.w:Math.min(1,i/10)));}
+function redrawAll(rebuild){if(rebuild||cache.width!==paint.width||cache.height!==paint.height)rebuildCache();px.setTransform(1,0,0,1,0,0);px.clearRect(0,0,paint.width,paint.height);px.drawImage(cache,0,0);px.setTransform(DPR,0,0,DPR,0,0);}
+
+/* ================= reading the mark ================= */
+function readMark(pts){ // pts in px with t
+  const L=pathLen(pts),m=Math.min(W,H);
+  const dur=Math.max(1,pts[pts.length-1][2]-pts[0][2]);
+  const v=L/dur; // px per ms
+  const dx=pts[pts.length-1][0]-pts[0][0],dy=pts[pts.length-1][1]-pts[0][1];
+  let turn=0,sharp=0,hes=0;
+  for(let i=2;i<pts.length;i++){
+    const a1=Math.atan2(pts[i-1][1]-pts[i-2][1],pts[i-1][0]-pts[i-2][0]),a2=Math.atan2(pts[i][1]-pts[i-1][1],pts[i][0]-pts[i-1][0]);
+    let d=Math.abs(a2-a1);if(d>Math.PI)d=2*Math.PI-d;
+    const seg=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);
+    if(seg>2){turn+=d;if(d>1.05)sharp++;}
+  }
+  for(let i=1;i<pts.length;i++)if(pts[i][2]-pts[i-1][2]>220)hes++;
+  const f={L:L/m,v,dot:L<m*.02,dyN:L?dy/L:0,dxN:L?dx/L:0,turnPerLen:L?turn/(L/m):0,sharp,hes,
+    closed:L>m*.15&&Math.hypot(dx,dy)<L*.18,dur};
+  f.slow=v<.35;f.fast=v>1.1;f.long=f.L>.55;f.short=f.L<.14;
+  f.desc=describe(f);
+  return f;
+}
+function describe(f){
+  if(f.dot)return['a single touch'+(f.dur>600?', held':'')];
+  const out=[];
+  out.push(f.long?'long':f.short?'short':'');
+  out.push(f.slow?'slow':f.fast?'quick':'');
+  if(f.closed)out.push('closed on itself');
+  else if(f.sharp>=3)out.push('broken '+(f.sharp>6?'many times':'in places'));
+  else if(f.turnPerLen>5)out.push('curving');
+  if(!f.closed){if(f.dyN>.4)out.push('descending');else if(f.dyN<-.4)out.push('rising');else out.push('level');}
+  if(f.hes===1)out.push('it hesitated once');else if(f.hes>1)out.push(`it hesitated ${f.hes>3?'often':f.hes===2?'twice':'three times'}`);
+  return out.filter(Boolean);
+}
+function themeScores(f,r){
+  const s=Object.fromEntries(TK.map(k=>[k,r()*.6]));
+  if(f.dot){s.make+=3;s.body+=1.6;s.star+=.6;}
+  else{
+    s.dark+=Math.max(0,f.dyN)*2.4+f.hes*.7;
+    s.star+=Math.max(0,-f.dyN)*2.6;
+    s.fire+=(f.fast?1.6:0)+Math.min(2,f.sharp*.35);
+    s.system+=(f.sharp>=3?.9:0)+(Math.abs(f.dyN)<.25&&!f.closed&&f.turnPerLen<3?1.3:0);
+    s.stone+=(f.slow?1.7:0)+(f.long?.8:0);
+    s.voice+=(f.closed?2.8:0)+(f.turnPerLen>5?1.1:0);
+    s.body+=(f.short?1:0)+(Math.abs(f.dyN)<.3?.4:0);
+    s.make+=.5;
+  }
+  return s;
+}
+function choose(f,seed){
+  const r=rng(seed);
+  const s=themeScores(f,r);
+  const ranked=TK.slice().sort((a,b)=>s[b]-s[a]);
+  const T=ranked[0],T2=ranked[1];
+  const seen=new Set(S.marks.map(m=>m.ans.key+':'+m.ans.start));
+  const useCount={};S.marks.forEach(m=>useCount[m.ans.key]=(useCount[m.ans.key]||0)+1);
+  const target=f.dot?4:f.fast?5:f.slow?13:8; // words: quick hands get short lines, slow hands long ones
+  let best=null,bs=-1e9;
+  for(const p of poems)for(const l of p.lines){
+    if(seen.has(p.key+':'+l.idx))continue;
+    const frag=fragmentFrom(p,l,target);
+    const wc=frag.reduce((a,x)=>a+x.words,0);
+    let sc=l.th[T]*3+l.th[T2]*1.2;
+    for(const x of frag.slice(1))sc+=x.th[T]*1.2;
+    sc-=Math.abs(wc-target)*.18;
+    sc-=(useCount[p.key]||0)*1.6;
+    if(l.words<2&&frag.length<2)sc-=1;
+    // prefer answers that begin where a thought begins and end where it rests
+    const st=p.blocks[l.st].lines,pos=st.indexOf(l),prevL=pos>0?st[pos-1].text:'';
+    const startsThought=pos===0||/[.?!:—]\s*$/.test(prevL);
+    const last=frag[frag.length-1],lastPos=st.indexOf(last);
+    const rests=lastPos===st.length-1||/[.?!:—]\s*$/.test(last.text);
+    sc+=(startsThought?1.6:0)+(rests?1.2:0);
+    if(!startsThought&&/^(and|or|that|which|but|to|of|the|a|in|by|as|with|for|from)\b/i.test(l.text.trim()))sc-=1.4;
+    sc+=r()*1.4;
+    if(sc>bs){bs=sc;best={p,l,frag};}
+  }
+  if(!best){ // everything has been seen: begin again with gentler rules
+    const p=poems[Math.floor(r()*poems.length)];const l=p.lines[Math.floor(r()*p.lines.length)];best={p,l,frag:fragmentFrom(p,l,target)};
+  }
+  return {theme:T,ans:{key:best.p.key,start:best.frag[0].idx,count:best.frag.length}};
+}
+// a fragment is a run of consecutive lines from one stanza, beginning at the chosen line
+function fragmentFrom(p,l,target){
+  const st=p.blocks[l.st]?p.blocks[l.st].lines:[l];
+  const out=[l];let wc=l.words;
+  let j=st.indexOf(l)+1;
+  while(j>0&&j<st.length&&out.length<4&&wc<target){out.push(st[j]);wc+=st[j].words;j++;}
+  return out;
+}
+const linesOf=a=>byKey[a.key].lines.slice(a.start,a.start+a.count);
+
+/* ================= drawing interaction ================= */
+let cur=null;
+const now=()=>performance.now();
+wall.addEventListener('pointerdown',e=>{
+  if(e.button>0)return;
+  e.preventDefault();
+  try{wall.setPointerCapture(e.pointerId);}catch(err){}
+  cur={pts:[[e.clientX,e.clientY,now()]],seed:(Math.random()*2**31)|0,id:e.pointerId};
+  cancelLooks();
+  hideIntro();
+});
+wall.addEventListener('pointermove',e=>{
+  if(!cur||cur.id!==e.pointerId)return;
+  let evs=e.getCoalescedEvents?e.getCoalescedEvents():[];if(!evs.length)evs=[e];
+  for(const ev of evs){const last=cur.pts[cur.pts.length-1];if(Math.hypot(ev.clientX-last[0],ev.clientY-last[1])>=2)cur.pts.push([ev.clientX,ev.clientY,now()]);}
+  livePreview();
+});
+const endPointer=e=>{if(!cur||cur.id!==e.pointerId)return;const pts=cur.pts;const seed=cur.seed;cur=null;finish(pts,seed);};
+wall.addEventListener('pointerup',endPointer);
+wall.addEventListener('pointercancel',e=>{cur=null;redrawAll();});
+
+function livePreview(){
+  // draw the stroke-so-far on top (cheap: redraw all + current)
+  redrawAll();
+  if(!cur||cur.pts.length<2)return;
+  const n=cur.pts.map(p=>[p[0]/W,p[1]/H,p[2]]);
+  strokePath(px,n,'#ece6da',cur.seed,9,warmth());
+}
+function finish(pts,seed){
+  if(!pts.length)return;
+  const f=readMark(pts);
+  const pick=choose(f,seed);
+  const wb=f.dot?10:f.slow?13:f.fast?9:10;
+  const mark={pts:pts.map(p=>[+(p[0]/W).toFixed(4),+(p[1]/H).toFixed(4),Math.round(p[2]-pts[0][2])]),seed,wb,theme:pick.theme,w:+warmth().toFixed(2),ans:pick.ans,desc:f.desc,at:Date.now(),open:true};
+  S.marks.push(mark);
+  // older answers fold into numbered pins so the wall stays legible
+  const keep=innerWidth<640?1:3;
+  S.marks.forEach((m,i)=>{if(i<S.marks.length-keep)m.open=false;});
+  save();
+  redrawAll(true);
+  applyWarmth();
+  tone(mark);
+  renderAnswers(S.marks.length-1);
+  updateUndo();
+  recognise(mark);
+}
+
+/* keyboard drawing */
+const kb=$('#kbrush');let kpos=null,kcur=null;
+wall.addEventListener('focus',()=>{if(!kpos)kpos=[W*.5,H*.55];kb.style.left=kpos[0]+'px';kb.style.top=kpos[1]+'px';});
+wall.addEventListener('keydown',e=>{
+  const dirs={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]};
+  if(dirs[e.key]){
+    e.preventDefault();hideIntro();
+    if(!kpos)kpos=[W*.5,H*.55];
+    if(!kcur){kcur={pts:[[kpos[0],kpos[1],now()]],seed:(Math.random()*2**31)|0};cancelLooks();}
+    const step=e.shiftKey?Math.min(W,H)*.09:Math.min(W,H)*.03;const [ddx,ddy]=dirs[e.key];
+    const last=kcur.pts[kcur.pts.length-1];const t0=now();
+    // interpolate so the brush has a path, not a jump
+    for(let i=1;i<=6;i++){kcur.pts.push([Math.max(4,Math.min(W-4,last[0]+ddx*step*i/6)),Math.max(4,Math.min(H-4,last[1]+ddy*step*i/6)),t0+(i-6)*8]);}
+    kpos=kcur.pts[kcur.pts.length-1].slice(0,2);kb.style.left=kpos[0]+'px';kb.style.top=kpos[1]+'px';
+    cur=null;redrawAll();strokePath(px,kcur.pts.map(p=>[p[0]/W,p[1]/H,p[2]]),'#ece6da',kcur.seed,9,warmth());
+  }else if(e.key==='Enter'||e.key===' '){
+    e.preventDefault();hideIntro();
+    if(!kpos)kpos=[W*.5,H*.55];
+    const k=kcur||{pts:[[kpos[0],kpos[1],now()]],seed:(Math.random()*2**31)|0};kcur=null;finish(k.pts,k.seed);
+  }else if(e.key==='Escape'&&kcur){kcur=null;redrawAll();}
+});
+
+/* ================= answers on the wall ================= */
+const ansBox=$('#answers');
+function esc(s){return s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function renderAnswers(fresh=-1){
+  ansBox.innerHTML='';
+  S.marks.forEach((m,i)=>{
+    const c=THEMES[m.theme].c;const p=byKey[m.ans.key];
+    if(m.open){
+      const d=document.createElement('div');d.className='ans'+(i===fresh&&!RM.matches?' enter':'');d.style.setProperty('--c',c);d.dataset.i=i;
+      d.innerHTML=`<div class="desc">${esc(m.desc.join(' · '))}</div>${sawLine(m)}<div class="frag">${linesOf(m.ans).map(l=>`<span>${esc(l.text)}</span>`).join('')}</div><button class="open" type="button">read “${esc(p.title)}” whole</button><button class="fold" type="button" aria-label="fold this answer into its mark">–</button>`;
+      d.querySelector('.open').onclick=()=>openPoem(p,m);
+      d.querySelector('.fold').onclick=()=>{m.open=false;save();renderAnswers();};
+      ansBox.appendChild(d);
+      if(i===fresh&&!RM.matches)requestAnimationFrame(()=>requestAnimationFrame(()=>d.classList.remove('enter')));
+    }else{
+      const b=document.createElement('button');b.className='pin';b.type='button';b.style.setProperty('--c',c);b.dataset.i=i;b.textContent=i+1;
+      b.setAttribute('aria-label',`mark ${i+1}: answered by ${p.title}. Show the answer.`);
+      b.onclick=()=>{m.open=true;save();renderAnswers(i);};
+      ansBox.appendChild(b);
+    }
+  });
+  layoutAnswers();
+}
+function layoutAnswers(){
+  const placed=[];
+  const top=innerWidth<640?64:76,bottom=H-(innerWidth<640?34:46);
+  const els=[...ansBox.children];
+  // pins first, at the end of their marks
+  for(const el of els){const m=S.marks[+el.dataset.i];if(!m)continue;const e=m.pts[m.pts.length-1];
+    if(el.classList.contains('pin')){el.style.left=Math.max(16,Math.min(W-16,e[0]*W))+'px';el.style.top=Math.max(top,Math.min(bottom,e[1]*H))+'px';}}
+  // obstacles: the paint itself and the pins, so an answer never sits on a mark if it can help it
+  const obs=[];
+  for(const m of S.marks){const st=Math.max(1,Math.floor(m.pts.length/40));for(let i=0;i<m.pts.length;i+=st)obs.push([m.pts[i][0]*W,m.pts[i][1]*H]);}
+  for(const el of els)if(el.classList.contains('pin'))placed.push({x:parseFloat(el.style.left)-16,y:parseFloat(el.style.top)-16,w:32,h:32});
+  const phone=innerWidth<640;
+  // open answers, newest first gets best spot
+  for(const el of els.filter(x=>x.classList.contains('ans')).reverse()){
+    const m=S.marks[+el.dataset.i];const e=m.pts[m.pts.length-1];const ex=e[0]*W,ey=e[1]*H;
+    const w=el.offsetWidth,h=el.offsetHeight;
+    if(phone){ // on a phone the newest answer is a wall label, docked low; pins stay on the marks
+      const y=bottom-h-8;el.style.left='14px';el.style.top=y+'px';placed.push({x:14,y,w,h});continue;
+    }
+    const cand=[[ex+22,ey-12],[ex-w-22,ey-12],[ex+22,ey-h+12],[ex-w-22,ey-h+12],[ex-w/2,ey+26],[ex-w/2,ey-h-26]];
+    for(let k=1;k<9;k++)cand.push([ex+22,ey-12+k*40],[ex+22,ey-12-k*40],[ex-w-22,ey+k*40],[16,ey+k*44],[16,ey-k*44]);
+    let best=null,bs=1e18;
+    for(const [x0,y0] of cand){
+      const x=Math.max(14,Math.min(W-w-30,x0)),y=Math.max(top,Math.min(bottom-h,y0));
+      let ov=0;for(const r of placed){const ix=Math.max(0,Math.min(x+w,r.x+r.w)-Math.max(x,r.x)),iy=Math.max(0,Math.min(y+h,r.y+r.h)-Math.max(y,r.y));ov+=ix*iy;}
+      for(const o of obs)if(o[0]>x-6&&o[0]<x+w+6&&o[1]>y-6&&o[1]<y+h+6)ov+=900;
+      const dist=Math.hypot(x-x0,y-y0);const sc=ov*4+dist*2+Math.hypot(x-ex,y-ey)*.3;
+      if(sc<bs){bs=sc;best=[x,y];}
+    }
+    el.style.left=best[0]+'px';el.style.top=best[1]+'px';placed.push({x:best[0]-8,y:best[1]-8,w:w+16,h:h+16});
+  }
+}
+
+/* ================= sheets ================= */
+const scrim=$('#scrim');let openSheet=null,lastFocus=null;
+function show(sh){
+  if(openSheet&&openSheet!==sh)openSheet.classList.remove('open');
+  if(!openSheet)lastFocus=document.activeElement;
+  openSheet=sh;sh.classList.add('open');scrim.classList.add('on');
+  setTimeout(()=>{(sh.querySelector('.body h2,.body h3')||sh.querySelector('[data-close]')).focus({preventScroll:true});},RM.matches?0:60);
+}
+function hide(){if(!openSheet)return;openSheet.classList.remove('open');scrim.classList.remove('on');openSheet=null;if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+scrim.onclick=hide;
+document.querySelectorAll('[data-close]').forEach(b=>b.onclick=hide);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&openSheet){e.preventDefault();hide();}
+  if((e.ctrlKey||e.metaKey)&&!e.shiftKey&&!e.altKey&&(e.key==='z'||e.key==='Z')&&!openSheet){e.preventDefault();undo();}
+  if(e.key==='Tab'&&openSheet){const f=[...openSheet.querySelectorAll('button:not(:disabled),[tabindex="0"]')];if(!f.length)return;const a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}}
+  if(openSheet&&openSheet.id==='reader'&&!e.target.closest('button')){if(e.key==='ArrowRight'){step(1);}if(e.key==='ArrowLeft'){step(-1);}}
+});
+
+let curPoem=null;
+function openPoem(p,mark){
+  curPoem=p;
+  const hits={};S.marks.forEach(m=>{if(m.ans.key===p.key)for(let k=0;k<m.ans.count;k++)hits[m.ans.start+k]=THEMES[m.theme].c;});
+  let h=`<div class="where">${esc(p.book.title)}<br>${p.move?esc(p.move.num)+' · '+esc(p.move.title):''}</div><div class="num">${esc(p.n)}</div><h2 id="rTitle" tabindex="-1">${esc(p.title)}</h2><div class="text">`;
+  for(const b of p.blocks){
+    if(b.t==='br'){h+='<p class="brk">*</p>';continue;}
+    h+='<p class="st">'+b.lines.map(l=>`<span class="ln${hits[l.idx]?' hit':''}"${hits[l.idx]?` style="--c:${hits[l.idx]}"`:''}>${hits[l.idx]?'<mark>'+esc(l.text)+'</mark>':esc(l.text)}</span>`).join('')+'</p>';
+  }
+  h+='</div>';
+  const notes=[];
+  if(p.excerpt)notes.push('This is an excerpt published in the public sample, shown exactly as written.');
+  if(Object.keys(hits).length)notes.push('Underlined: the lines that answered your marks. The poem is otherwise exactly as written.');
+  if(notes.length)h+=`<p class="note">${notes.join('<br>')}</p>`;
+  $('#rBody').innerHTML=h;
+  $('#rPos').textContent=`${p.i+1} / ${poems.length}`;
+  $('#rPrev').disabled=p.i===0;$('#rNext').disabled=p.i===poems.length-1;
+  $('#reader .body').scrollTop=0;
+  show($('#reader'));
+  if(mark){const first=$('#rBody .ln.hit');}
+}
+function step(d){const n=poems[curPoem.i+d];if(n){openPoem(n);}}
+$('#rPrev').onclick=()=>step(-1);$('#rNext').onclick=()=>step(1);
+
+function buildIndex(){
+  const answered={};S.marks.forEach(m=>answered[m.ans.key]=THEMES[m.theme].c);
+  let h=`<p class="intro">${poems.length} poems${SOURCE==='sample'?' (public sample excerpts)':''}, in the order of the books. Each opens whole; the arrow keys move between them.</p>`;
+  for(const b of books){
+    h+=`<h3>${esc(b.title)}</h3><div class="after">${esc(b.after)}</div>`;
+    for(const mv of b.moves){if(!mv.poems.length)continue;
+      h+=`<h4>${esc(mv.num)} · ${esc(mv.title)}</h4><ol>`+mv.poems.map(p=>`<li><button type="button" data-k="${esc(p.key)}"><span class="n">${esc(p.n)}</span><span>${esc(p.title)}</span>${answered[p.key]?`<span class="dot" style="--c:${answered[p.key]}" title="answered one of your marks"></span><span class="sr">(answered one of your marks)</span>`:''}</button></li>`).join('')+'</ol>';}
+  }
+  $('#iBody').innerHTML=h;
+  $('#iBody').querySelectorAll('button[data-k]').forEach(b=>b.onclick=()=>openPoem(byKey[b.dataset.k]));
+}
+$('#bIndex').onclick=()=>{buildIndex();show($('#index'));};
+
+function buildMine(){
+  const n=S.marks.length;
+  let h=n?`<figure class="pic"><img alt="Your wall as it stands: ${n} mark${n>1?'s':''}" src="${snapshot()}"></figure><p class="lead">${n} mark${n>1?'s':''}, answered by ${new Set(S.marks.map(m=>m.ans.key)).size} of ${poems.length} poems. This wall exists only in this browser. Nothing here is posted or scored.${recogOn?' With your permission, a small picture of your marks is shown to Claude only to guess what they depict; the poems never leave the page.':''}</p>`
+        :`<p class="lead">Nothing yet. Close this and make a mark on the wall.</p>`;
+  S.marks.forEach((m,i)=>{const p=byKey[m.ans.key];
+    h+=`<div class="entry" style="--c:${THEMES[m.theme].c}"><div class="desc">${i+1} · ${esc(m.desc.join(' · '))}${m.saw?' · looks like: '+esc(m.saw)+' (Claude’s guess)':''}</div><div class="frag">${linesOf(m.ans).map(l=>`<span>${esc(l.text)}</span>`).join('')}</div><button type="button" data-k="${esc(p.key)}">“${esc(p.title)}”, whole</button></div>`;});
+  if(n)h+=`<button type="button" class="danger" id="wipe">begin a new wall</button>`;
+  $('#mBody').innerHTML=h;
+  $('#mBody').querySelectorAll('button[data-k]').forEach(b=>b.onclick=()=>openPoem(byKey[b.dataset.k]));
+  const w=$('#wipe');if(w)w.onclick=()=>{if(!confirm('Clear this wall? The poems stay; only your marks go.'))return;S.marks=[];save();hide();redrawAll(true);applyWarmth();renderAnswers();$('#intro').classList.remove('gone','returning');introGone=false;};
+}
+function snapshot(){try{const c=document.createElement('canvas');const k=Math.min(1,900/W);c.width=Math.round(W*k);c.height=Math.round(H*k);const g=c.getContext('2d');g.drawImage(ground,0,0,c.width,c.height);g.drawImage(cache,0,0,c.width,c.height);return c.toDataURL('image/jpeg',.85);}catch(e){return '';}}
+$('#bMine').onclick=()=>{buildMine();show($('#mine'));};
+
+$('#bBack').onclick=e=>{const on=document.body.classList.toggle('stepback');e.currentTarget.setAttribute('aria-pressed',on);e.currentTarget.textContent=on?'come close':'step back';};
+
+/* ================= sound: the glass answering the fork ================= */
+let AC=null,soundOn=false;
+$('#bSound').onclick=e=>{soundOn=!soundOn;e.currentTarget.setAttribute('aria-pressed',soundOn);e.currentTarget.textContent=soundOn?'sound on':'sound off';if(soundOn&&!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(err){}}if(AC&&AC.state==='suspended')AC.resume();};
+function tone(m){
+  if(!soundOn||!AC)return;
+  const e=m.pts[m.pts.length-1];
+  const base=[196,220,247,262,294,330,349,392][TK.indexOf(m.theme)]*(1+(1-e[1])*.5);
+  const t=AC.currentTime;const out=AC.createGain();out.gain.value=.0001;out.connect(AC.destination);
+  out.gain.exponentialRampToValueAtTime(.16,t+.02);out.gain.exponentialRampToValueAtTime(.0001,t+4.5);
+  [[1,1],[2.756,.35],[5.404,.12]].forEach(([r,a])=>{const o=AC.createOscillator(),g=AC.createGain();o.frequency.value=base*r;g.gain.value=a;o.connect(g).connect(out);o.start(t);o.stop(t+4.6);});
+}
+
+/* ================= intro ================= */
+/* ================= undo ================= */
+const statusEl=$('#status');
+function say(t){statusEl.textContent='';setTimeout(()=>statusEl.textContent=t,30);}
+function updateUndo(){const b=$('#bUndo');b.disabled=!S.marks.length;b.setAttribute('aria-label',S.marks.length?`undo mark ${S.marks.length}`:'undo (no marks)');}
+function undo(){
+  if(kcur){kcur=null;redrawAll();return;}
+  const m=S.marks.pop();if(!m)return;
+  const ctl=looking.get(m);if(ctl){ctl.abort();looking.delete(m);}
+  const keep=innerWidth<640?1:3;
+  S.marks.forEach((x,i)=>{if(i>=S.marks.length-keep)x.open=true;});
+  save();redrawAll(true);applyWarmth();renderAnswers();updateUndo();
+  if(!S.marks.length){introGone=false;$('#intro').classList.remove('gone','returning');}
+  say(`Mark removed. ${S.marks.length} mark${S.marks.length===1?'':'s'} left.`);
+}
+$('#bUndo').onclick=undo;
+
+/* ================= what the drawing depicts =================
+   Only a picture of the visitor's marks is sent, and only after they finish a mark.
+   Claude's answer is a guess about the drawing; the passage is always found here, locally,
+   in the poems, and shown exactly as written. Claude's words are never shown as poetry. */
+let samplerP=null,recogOn=false,recogOff=false,backoffUntil=0;
+const looking=new Map();
+function cancelLooks(){for(const c of looking.values())c.abort();}
+function getSampler(){
+  if(!samplerP){
+    samplerP=(async()=>{
+      try{
+        const use=window.claude&&window.claude.use;if(typeof use!=='function')return null;
+        const s=await Promise.race([use.call(window.claude,'sample'),new Promise(r=>setTimeout(()=>r(null),10000))]);
+        if(!s||typeof s.json!=='function'||typeof s.limits!=='function')return null;
+        const lim=await s.limits().catch(()=>null);
+        if(!lim||!lim.images)return null;
+        recogOn=true;$('#hint').textContent='kept in this browser · with your permission, drawings are shown to Claude only to see what they depict · the poems never leave the page';
+        return s;
+      }catch(e){return null;}
+    })();
+  }
+  return samplerP;
+}
+function sawLine(m){
+  if(m.saw)return `<div class="saw">looks like: ${esc(m.saw)} <i>(Claude’s guess)</i></div>`;
+  if(looking.has(m))return `<div class="saw"><i>looking at your drawing…</i></div>`;
+  return '';
+}
+function drawingBlob(mark){
+  // the newest mark plus any earlier marks close to it: a doodle is often several strokes
+  const box=m=>{let x0=1,y0=1,x1=0,y1=0;for(const p of m.pts){x0=Math.min(x0,p[0]);y0=Math.min(y0,p[1]);x1=Math.max(x1,p[0]);y1=Math.max(y1,p[1]);}return[x0*W,y0*H,x1*W,y1*H];};
+  let b=box(mark);const near=Math.min(W,H)*.12;const grp=[mark];
+  for(let pass=0;pass<2;pass++)for(const m of S.marks){if(grp.includes(m))continue;const c=box(m);
+    if(c[0]<b[2]+near&&c[2]>b[0]-near&&c[1]<b[3]+near&&c[3]>b[1]-near){grp.push(m);b=[Math.min(b[0],c[0]),Math.min(b[1],c[1]),Math.max(b[2],c[2]),Math.max(b[3],c[3])];}}
+  const pad=40,side=Math.max(b[2]-b[0],b[3]-b[1])+pad*2,cxm=(b[0]+b[2])/2,cym=(b[1]+b[3])/2;
+  const N=384,c=document.createElement('canvas');c.width=c.height=N;const g=c.getContext('2d');
+  g.fillStyle=getComputedStyle(document.body).backgroundColor||'#1b2226';g.fillRect(0,0,N,N);
+  const k=N/side;g.setTransform(k,0,0,k,-(cxm-side/2)*k,-(cym-side/2)*k);
+  grp.sort((a,b2)=>S.marks.indexOf(a)-S.marks.indexOf(b2)).forEach(m=>strokePath(g,m.pts,THEMES[m.theme].c,m.seed,m.wb,m.w));
+  return new Promise(res=>c.toBlob(res,'image/png'));
+}
+const STOP=new Set('a an the of and or to in on at by for with from as is it its be this that these those into over under up down out off very some any thing things something'.split(' '));
+function stem(w){w=w.toLowerCase().replace(/[^a-z]/g,'');if(w.length>5)w=w.replace(/(ing|ings|ed|es|ly|er|ers|ness|ment|ance|ence)$/,'');if(w.length>3)w=w.replace(/s$/,'');if(w.length>4)w=w.replace(/e$/,'');return w;}
+const stems=t=>(t.toLowerCase().match(/[a-z']+/g)||[]).map(stem).filter(x=>x&&!STOP.has(x));
+function findByMeaning(depicts,assoc){
+  const terms=new Map();// stem-sequence -> weight
+  const add=(phrase,wPhrase,wWord)=>{const st=stems(phrase);if(!st.length)return;if(st.length>1)terms.set(st.join(' '),Math.max(terms.get(st.join(' '))||0,wPhrase));for(const x of st)if(x.length>2)terms.set(x,Math.max(terms.get(x)||0,wWord));};
+  add(depicts,4,2.2);assoc.forEach(a=>add(a,3,1));
+  const others=S.marks.slice(0,-1);
+  const seen=new Set(others.map(m=>m.ans.key+':'+m.ans.start));
+  const used={};others.forEach(m=>used[m.ans.key]=(used[m.ans.key]||0)+1);
+  let best=null,bs=0;
+  for(const p of poems)for(const b of p.blocks){if(b.t!=='st')continue;const L=b.lines;
+    for(let i=0;i<L.length;i++)for(let n=1;n<=4&&i+n<=L.length;n++){
+      const seq=stems(L.slice(i,i+n).map(l=>l.text).join(' '));const joined=' '+seq.join(' ')+' ';
+      let sc=0;for(const [t,w] of terms)if(joined.includes(' '+t+' '))sc+=w;
+      if(!sc)continue;
+      // the first and last lines must carry something, so the passage is about the thing, not padded
+      const first=' '+stems(L[i].text).join(' ')+' ',last=' '+stems(L[i+n-1].text).join(' ')+' ';
+      let edge=false;for(const t of terms.keys())if(first.includes(' '+t+' ')){edge=true;break;}
+      if(!edge)continue;
+      const startsThought=i===0||/[.?!:—]\s*$/.test(L[i-1].text),rests=i+n===L.length||/[.?!:—]\s*$/.test(L[i+n-1].text);
+      sc+=(startsThought?.8:0)+(rests?.6:0)-(n-1)*.35-(used[p.key]||0)*.6-(seen.has(p.key+':'+L[i].idx)?3:0);
+      if(sc>bs){bs=sc;best={key:p.key,start:L[i].idx,count:n};}
+    }}
+  return bs>=2.6?best:null;
+}
+async function recognise(mark){
+  if(recogOff||Date.now()<backoffUntil)return;
+  const ctl=new AbortController();looking.set(mark,ctl);
+  const timer=setTimeout(()=>ctl.abort(),7000);
+  let shown=false;const showLooking=setTimeout(()=>{if(looking.has(mark)&&recogOn){shown=true;renderAnswers();}},250);
+  try{
+    // wait for the hand to rest: a doodle is often several strokes, and the next stroke cancels this look
+    await new Promise(r=>{const t=setTimeout(r,1100);ctl.signal.addEventListener('abort',()=>{clearTimeout(t);r();});});
+    if(ctl.signal.aborted)return;
+    const s=await getSampler();
+    if(!s||ctl.signal.aborted){return;}
+    const blob=await drawingBlob(mark);if(!blob)return;
+    const prompt='The image shows a visitor’s hand-drawn doodle: painted brush strokes on a dark wall. Guess what it depicts. Reply with JSON only, no other text: {"depicts": "short noun phrase for your best guess of what the drawing represents, or \\"abstract\\" if it is not recognisably anything", "confidence": number from 0 to 1, "associations": [8 to 12 single words or short phrases: the object, its parts, what it does, what it evokes, synonyms]}';
+    const r=await s.json(prompt,{images:[blob],modelTier:'quick',signal:ctl.signal});
+    if(!S.marks.includes(mark))return;
+    const dep=r&&typeof r.depicts==='string'?r.depicts.trim().slice(0,60):'';
+    const conf=r&&typeof r.confidence==='number'?r.confidence:0;
+    const assoc=r&&Array.isArray(r.associations)?r.associations.filter(x=>typeof x==='string').map(x=>x.slice(0,40)).slice(0,14):[];
+    if(!dep||/^abstract/i.test(dep)||conf<.45)return;
+    // the guess is noted either way; the answer changes only when a passage truly fits
+    mark.saw=dep;
+    const found=findByMeaning(dep,assoc);
+    if(found){mark.ans=found;mark.by='depiction';}
+    save();
+  }catch(e){
+    const code=e&&e.code;
+    if(code==='not_granted'||code==='images_unavailable'){recogOff=true;recogOn=false;$('#hint').textContent='kept only in this browser · nothing is posted';}
+    else if(code==='rate_limited')backoffUntil=Date.now()+90000;
+  }finally{
+    clearTimeout(timer);clearTimeout(showLooking);
+    const was=looking.get(mark)===ctl;looking.delete(mark);
+    if(was&&S.marks.includes(mark)&&(shown||mark.saw))renderAnswers(mark.saw?S.marks.indexOf(mark):-1);
+  }
+}
+
+let introGone=false;
+function hideIntro(){if(introGone)return;introGone=true;$('#intro').classList.add('gone');}
+if(S.marks.length){$('#intro').classList.add('returning');}
+
+addEventListener('resize',()=>{clearTimeout(resize.t);resize.t=setTimeout(resize,80);});
+resize();
+renderAnswers();
+updateUndo();
+
+})();
+</script>

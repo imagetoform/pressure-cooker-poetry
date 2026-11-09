@@ -1,0 +1,640 @@
+<title>Sound Makes Form</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{
+  --bg:#08090b; --panel:#0e1114; --plate:#111519; --line:#252c33; --ink:#ece9e2; --mute:#a3acb4; --dim:#69737c;
+  --sand:#ebe6d8; --hot:#ff5a3c; --hotsoft:#ff8a70;
+  --serif:'Instrument Serif',Georgia,serif; --read:'Literata',Georgia,serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:var(--read);-webkit-text-size-adjust:100%}
+body{background:#08090b;min-height:100dvh;overflow-x:hidden}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--hot);outline-offset:3px;border-radius:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#app{display:grid;grid-template-rows:auto 1fr;height:100dvh;min-height:560px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 28px;border-bottom:1px solid #15191d}
+.brand{font:500 11px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+.brand b{color:var(--ink);font-weight:500}
+nav{display:flex;gap:6px}
+.pill{white-space:nowrap;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;padding:10px 12px;border:1px solid var(--line);border-radius:999px;color:var(--mute);min-height:36px}
+.pill:hover{color:var(--ink);border-color:#3a444d}
+.pill[aria-pressed="true"]{color:#08090b;background:var(--sand);border-color:var(--sand)}
+main{display:grid;grid-template-columns:minmax(340px,430px) 1fr;min-height:0}
+body.reading main{grid-template-columns:600px 1fr}
+body.reading #side{visibility:hidden}
+#side{padding:28px 28px 20px;display:flex;flex-direction:column;gap:18px;min-height:0;overflow-y:auto}
+h1{font:400 clamp(44px,5.4vw,76px)/.94 var(--serif);margin:0;letter-spacing:-.01em}
+h1 em{color:var(--hotsoft)}
+.lede{font:400 15px/1.55 var(--read);color:var(--mute);margin:0;max-width:34ch}
+#cap{min-height:150px;border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:10px}
+.frag{font:italic 400 22px/1.3 var(--read);margin:0;transition:opacity .2s;min-height:2.6em}
+.capmeta{font:500 11px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:0;min-height:1.5em}
+.capmeta.hot{color:var(--hot)}
+.go{align-self:flex-start;font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;background:var(--hot);color:#12090a;padding:13px 16px;border-radius:2px;min-height:44px}
+.go:hover{background:var(--hotsoft)}
+.go[hidden]{display:none}
+#tools{display:flex;gap:16px;align-items:flex-end;flex-wrap:wrap}
+#chartBox{position:relative;width:200px;height:200px;flex:none}
+#chart{width:100%;height:100%;display:block;border:1px solid var(--line);background:var(--panel);touch-action:none;cursor:crosshair;border-radius:2px}
+#chartBox .cl{position:absolute;font:400 9px/1 var(--mono);letter-spacing:.1em;color:var(--dim);text-transform:uppercase;pointer-events:none}
+.btns{display:flex;flex-direction:column;gap:8px;align-items:flex-start;flex:1;min-width:140px}
+.lnk{font:500 11px/1.35 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);text-align:left;padding:10px 0;border-bottom:1px solid var(--line);min-height:40px}
+.lnk:hover{color:var(--ink);border-color:var(--hot)}
+.lnk[disabled]{opacity:.35;cursor:default}
+#stat{font:400 12px/1.5 var(--mono);color:var(--dim);margin:0}
+#forget{margin-top:auto;font:400 11px/1 var(--mono);color:var(--dim);text-decoration:underline;padding:8px 0;align-self:flex-start}
+#stage{display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;padding:16px}
+#plateBox{position:relative;width:100px;height:100px}
+#plate{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:crosshair;
+  background:radial-gradient(circle at 50% 46%,#171c21 0%,#0f1317 68%,#0b0e11 100%);border:1px solid #2a323a;border-radius:3px;
+  box-shadow:0 30px 80px -30px #000, inset 0 0 90px #000a}
+#plate.lock{box-shadow:0 0 0 1px #ff5a3c55,0 0 90px -20px #ff5a3c66, inset 0 0 90px #000a}
+#hud{position:absolute;left:10px;bottom:8px;font:400 10px/1 var(--mono);color:var(--dim);letter-spacing:.1em;pointer-events:none}
+/* overlays */
+.sheet{position:fixed;z-index:20;background:var(--panel);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+.sheet[hidden]{display:none}
+#reader{top:0;left:0;bottom:0;width:min(600px,100%);border-right:1px solid var(--line);box-shadow:30px 0 80px -30px #000}
+.rin{padding:26px clamp(20px,4vw,48px) 60px;max-width:640px;margin:0 auto}
+.rtop{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:34px}
+.rmeta{font:500 11px/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.rmeta i{font-style:normal;color:var(--hot)}
+#rtitle{font:400 clamp(34px,4.4vw,48px)/1.02 var(--serif);margin:0 0 30px;outline:none}
+.poem{font:400 18.5px/1.62 var(--read);color:#f2efe8}
+.st{margin:0 0 1.5em}
+.ln{display:block;padding-left:1.6em;text-indent:-1.6em;white-space:pre-wrap;overflow-wrap:anywhere}
+.brk{text-align:center;margin:0 0 1.5em;color:var(--hotsoft);letter-spacing:.3em}
+.xnote{font:400 11px/1.4 var(--mono);color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-top:-14px;margin-bottom:26px}
+.rfoot{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 22px}
+#index{inset:0}
+.iin{padding:26px clamp(18px,5vw,64px) 80px;max-width:1100px;margin:0 auto}
+.ihead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:24px}
+.ihead h2{font:400 clamp(36px,6vw,60px)/1 var(--serif);margin:0}
+.bk{margin:34px 0 8px}
+.bk h3{font:400 28px/1.1 var(--serif);margin:0}
+.bk p{font:400 12px/1.5 var(--mono);color:var(--dim);margin:6px 0 0}
+.mv{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--hotsoft);margin:22px 0 4px}
+.pl{display:flex;gap:14px;align-items:baseline;width:100%;text-align:left;padding:10px 0;border-bottom:1px solid #1a2026;min-height:44px;font:400 17px/1.3 var(--read)}
+.pl:hover{color:var(--hotsoft)}
+.pl .n{font:400 11px/1 var(--mono);color:var(--dim);width:2.2em;flex:none}
+.pl .h{margin-left:auto;font:500 10px/1 var(--mono);color:var(--hot);letter-spacing:.1em;text-transform:uppercase}
+.fig{font:italic 400 17px/1.5 var(--read);color:var(--mute)}
+@media (max-width:860px){
+  body{overflow-y:auto}
+  #app{display:block;height:auto;min-height:100dvh}
+  header{padding:12px 16px;position:sticky;top:0;background:var(--bg);z-index:5}
+  .brand span{display:none}
+  main{display:flex;flex-direction:column}
+  #stage{order:1;padding:14px 16px 4px}
+  #side{order:2;padding:14px 16px 28px;overflow:visible;gap:14px}
+  h1{font-size:44px}
+  .lede{max-width:none;font-size:14px}
+  #cap{min-height:128px}
+  .frag{font-size:19px}
+  #chartBox{width:150px;height:150px}
+  #reader{width:100%;border-right:0}
+  .poem{font-size:17px}
+}
+@media (max-height:700px) and (min-width:861px){ #cap{min-height:110px} #chartBox{width:150px;height:150px} }
+body.calm *{animation:none!important;transition:none!important}
+</style>
+<div id="app">
+<header>
+  <div class="brand"><b>Pressure Cooker Poetry</b> <span>· Brandon Rhodes</span></div>
+  <nav aria-label="Controls">
+    <button class="pill" id="bSound" aria-pressed="false" title="Play the plate's tones">Sound</button>
+    <button class="pill" id="bStill" aria-pressed="false" title="Stop all motion; the sand settles at once">Still</button>
+    <button class="pill" id="bIndex">All poems</button>
+  </nav>
+</header>
+<main>
+  <section id="side" aria-label="Tuning">
+    <div>
+      <h1>Sound <em>makes</em> form.</h1>
+    </div>
+    <p class="lede" id="lede">A plate of sand, silent until a frequency touches it. Move through the frequencies. Where a poem is tuned to the plate, the sand will find its shape, and it will answer.</p>
+    <div id="cap">
+      <p class="frag" id="frag"></p>
+      <p class="capmeta" id="meta"></p>
+      <button class="go" id="open" hidden>Read the whole poem</button>
+    </div>
+    <div id="tools">
+      <div id="chartBox"><canvas id="chart" aria-label="Map of frequencies. Pointer or touch to tune."></canvas></div>
+      <div class="btns">
+        <button class="lnk" id="bNext">Take me to one I have not heard</button>
+        <button class="lnk" id="bFig" disabled>Show my figure</button>
+        <p id="stat"></p>
+      </div>
+    </div>
+    <button id="forget" hidden>Forget what I have heard</button>
+  </section>
+  <section id="stage">
+    <div id="plateBox">
+      <canvas id="plate" tabindex="0" role="application" aria-label="The plate. Arrow keys change the frequency, shift for larger steps. Enter opens a poem that is answering. N goes to a poem you have not heard."></canvas>
+      <div id="hud" aria-hidden="true"></div>
+    </div>
+  </section>
+</main>
+</div>
+<div class="sr" id="live" aria-live="polite"></div>
+<aside class="sheet" id="reader" role="dialog" aria-modal="true" aria-labelledby="rtitle" hidden>
+  <div class="rin">
+    <div class="rtop"><div class="rmeta" id="rmeta"></div><button class="pill" id="rclose">Back to the plate</button></div>
+    <h2 id="rtitle" tabindex="-1"></h2>
+    <div id="xnote"></div>
+    <article class="poem" id="rbody"></article>
+    <div class="rfoot"><button class="lnk" id="rprev"></button><button class="lnk" id="rnext"></button></div>
+  </div>
+</aside>
+<aside class="sheet" id="index" role="dialog" aria-modal="true" aria-labelledby="ihead" hidden>
+  <div class="iin">
+    <div class="ihead"><h2 id="ihead">Every poem, quietly</h2><button class="pill" id="iclose">Close</button></div>
+    <p class="fig" id="ihelp">No motion, no tuning. Choose a poem and read it whole.</p>
+    <div id="ilist"></div>
+  </div>
+</aside>
+<script type="text/plain" id="corpus" data-source="sample">
+=BOOK arsonist | The Arsonist's Gospels | after Vallejo · Lorca · Baraka · Cesaire · Rimbaud · Mayakovsky · Szymborska · Paz · Celan · Carson
+=MOVE I | Genesis of the Unowned
+=POEM 1 | First Mark | excerpt
+That cooling
+was not personal.
+It was structural —
+the system
+maintaining its temperature
+the only way systems can:
+by making you
+the variable
+that needed adjusting.
+
+You were never the problem.
+You were the frequency
+they hadn't scheduled.
+=POEM 5 | What Was Always There | excerpt
+It is still there.
+
+Patient as a door.
+Certain as a door.
+
+Waiting
+not for permission —
+
+for you.
+=MOVE II | The Hydra's Inventory
+=POEM 7 | What the Algorithm Does | excerpt
+Make the thing
+that breaks the pattern.
+Post nothing.
+Make everything.
+=BOOK stardust | The Genealogy of Stardust | after the voices of Plath · Ginsberg · Bukowski · Merwin · Rilke
+=MOVE I | Before the Name
+=POEM 1 | Stardust, Before the Genealogy | excerpt
+I did not choose my atoms.
+They were lent to me
+by stars that had already spent themselves
+on the whole question of existing —
+=MOVE V | Genealogy
+=POEM 29 | Still Here | excerpt
+still here
+
+still burning
+
+that's enough
+
+that is
+more than enough
+</script>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const PI=Math.PI;
+/* ---------- corpus ---------- */
+function parse(txt){
+  const books=[],poems=[];let book=null,move=null,cur=null,ord=0;
+  txt.replace(/\r/g,'').split('\n').forEach(line=>{
+    if(line.startsWith('=BOOK ')){const p=line.slice(6).split(' | ');book={id:p[0].trim(),title:(p[1]||'').trim(),after:(p[2]||'').trim(),n:books.length};books.push(book);cur=null;}
+    else if(line.startsWith('=MOVE ')){const p=line.slice(6).split(' | ');move={num:p[0].trim(),title:(p[1]||'').trim()};cur=null;}
+    else if(line.startsWith('=POEM ')){const p=line.slice(6).split(' | ');cur={key:(book?book.id:'x')+':'+p[0].trim(),num:p[0].trim(),title:(p[1]||'').trim(),excerpt:(p[2]||'').trim()==='excerpt',book,move,lines:[],idx:ord++};poems.push(cur);}
+    else if(cur)cur.lines.push(line);
+  });
+  poems.forEach(p=>{while(p.lines.length&&p.lines[p.lines.length-1].trim()==='')p.lines.pop();while(p.lines.length&&p.lines[0].trim()==='')p.lines.shift();});
+  return {books,poems};
+}
+const C=parse($('corpus').textContent);
+const poems=C.poems,books=C.books,NP=poems.length;
+/* ---------- where each poem lives in frequency ---------- */
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const LO=1.4,HI=10.3,SPLIT=12.4;
+(function layout(){
+  const placed=[];
+  poems.forEach(p=>{
+    const r=rng(hash(p.key));let best=null,bs=-1;
+    for(let k=0;k<160;k++){
+      const a=LO+r()*(HI-LO-1),b=a+.9+r()*(HI-a-.9);
+      const s=a+b;if(b>HI)continue;
+      if((p.book.n%2===0)!==(s<SPLIT))continue;
+      let m=9;for(const q of placed)m=Math.min(m,Math.hypot(q.a-a,q.b-b));
+      if(m>bs){bs=m;best={a,b};}
+    }
+    if(!best){best={a:LO+r()*5,b:6+r()*4};}
+    p.a=best.a;p.b=best.b;placed.push(p);
+    const cand=p.lines.filter(l=>{const t=l.trim();return t&&t!=='*'&&t.length>=16&&t.length<=66;});
+    const pool=cand.length?cand:p.lines.filter(l=>l.trim()&&l.trim()!=='*');
+    p.frag=pool.length?pool[hash(p.key+'f')%pool.length].trim():p.title;
+  });
+})();
+const SP=Math.sqrt(31/Math.max(NP,1));
+const RVIS=Math.min(1.8,Math.max(.6,.9*SP)),RMAG=Math.min(.6,Math.max(.25,.4*SP));
+/* ---------- memory (optional) ---------- */
+let found=new Set(),lastPos=null,visits=0;
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function lsDel(k){try{localStorage.removeItem(k);}catch(e){}}
+try{const f=JSON.parse(lsGet('rp_found')||'[]');f.forEach(k=>{if(poems.some(p=>p.key===k))found.add(k);});}catch(e){}
+try{lastPos=JSON.parse(lsGet('rp_pos')||'null');}catch(e){}
+visits=parseInt(lsGet('rp_visits')||'0',10)||0;lsSet('rp_visits',String(visits+1));
+function saveFound(){lsSet('rp_found',JSON.stringify([...found]));}
+/* ---------- state ---------- */
+const mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+let userStill=lsGet('rp_still')==='1';
+let calm=mq.matches||userStill;
+let target={a:5.5,b:5.5},cur={a:5.5,b:5.5},prev={a:5.5,b:5.5};
+let touched=false,figure=false,locked=null,lockT=0,dragging=false;
+let near=null,nearD=99,trail=[],readerOpen=false,indexOpen=false,reading=null;
+const plate=$('plate'),pctx=plate.getContext('2d');
+const chart=$('chart'),cctx=chart.getContext('2d');
+const mobile=matchMedia('(max-width:860px)').matches;
+let NSAND=calm?12000:(mobile?12000:22000);
+let sx=new Float32Array(NSAND),sy=new Float32Array(NSAND);
+for(let i=0;i<NSAND;i++){sx[i]=Math.random();sy[i]=Math.random();}
+if(lastPos&&typeof lastPos.a==='number'){target={a:lastPos.a,b:lastPos.b};cur={a:lastPos.a,b:lastPos.b};prev={a:cur.a,b:cur.b};touched=true;}
+function norm(a,b){return a<=b?{a,b,sw:false}:{a:b,b:a,sw:true};}
+function terms(){
+  if(figure){const fl=poems.filter(p=>found.has(p.key)).slice(-7);if(fl.length){const w=1/Math.sqrt(fl.length);return fl.map(p=>({a:p.a,b:p.b,w}));}}
+  return [{a:cur.a,b:cur.b,w:1}];
+}
+/* ---------- sand ---------- */
+let W=100,H=100,DPR=1,lastEnergy=.3;
+const GCOL=['rgb(235,230,216)','rgb(255,98,66)','rgb(120,190,214)','rgb(240,176,80)','rgb(170,210,150)','rgb(230,140,180)','rgb(200,200,200)'];
+function step(T,energy,draw){
+  const n=T.length;let paths=null;
+  if(draw){paths=[];for(let k=0;k<=n;k++)paths.push(new Path2D());}
+  const sz=Math.max(1.5,1.55*DPR),half=sz/2;
+  for(let i=0;i<NSAND;i++){
+    const t=T[n===1?0:i%n];const A=t.a*PI,B=t.b*PI;
+    let x=sx[i],y=sy[i];
+    const f=Math.cos(A*x)*Math.cos(B*y)-Math.cos(B*x)*Math.cos(A*y);
+    const af=f<0?-f:f;
+    const d=energy*(af*.9+.006);
+    x+=(Math.random()-.5)*d;y+=(Math.random()-.5)*d;
+    if(x<0)x=-x;else if(x>1)x=2-x;if(y<0)y=-y;else if(y>1)y=2-y;
+    sx[i]=x;sy[i]=y;
+    if(draw){const g=af<.16?(n===1?0:i%n):n;paths[g].rect(x*W-half,y*H-half,sz,sz);}
+  }
+  return {paths,n};
+}
+function settle(iters){
+  const T=terms();
+  for(let k=0;k<iters;k++){step(T,1.5*(1-k/iters)+.04,false);}
+}
+const SAND=[235,230,216],HOT=[255,90,60];
+function mix(a,b,t){return `rgb(${a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',')})`;}
+function paint(r,lockAmt){
+  pctx.clearRect(0,0,W,H);
+  pctx.fillStyle='rgba(120,134,146,.5)';pctx.fill(r.paths[r.n]);
+  for(let k=0;k<r.n;k++){pctx.fillStyle=r.n===1?mix(SAND,HOT,lockAmt*.85):GCOL[k%GCOL.length];pctx.fill(r.paths[k]);}
+}
+function drawPlate(P,lockAmt){
+  const T=terms();
+  const e=P.energy;
+  const r=step(T,e,true);
+  paint(r,lockAmt);
+  /* mounting bolt and touch ring */
+  pctx.fillStyle='#05070a';pctx.strokeStyle='#39434c';pctx.lineWidth=1;
+  pctx.beginPath();pctx.arc(W/2,H/2,5*DPR,0,PI*2);pctx.fill();pctx.stroke();
+}
+/* ---------- chart ---------- */
+let CW=100;
+function cx(a){return (a-1)/10*CW;}
+function cy(b){return (1-(b-1)/10)*CW;}
+function drawChart(){
+  const c=cctx;c.clearRect(0,0,CW,CW);
+  c.lineWidth=1;c.strokeStyle='#1b2127';
+  for(let i=1;i<=11;i++){c.beginPath();c.moveTo(cx(i),0);c.lineTo(cx(i),CW);c.moveTo(0,cy(i));c.lineTo(CW,cy(i));c.stroke();}
+  c.strokeStyle='#33404a';c.setLineDash([3,4]);c.beginPath();c.moveTo(cx(1),cy(1));c.lineTo(cx(11),cy(11));c.stroke();c.setLineDash([]);
+  if(trail.length>1){c.strokeStyle='rgba(255,138,112,.35)';c.lineWidth=1;c.beginPath();trail.forEach((t,i)=>{i?c.lineTo(cx(t.a),cy(t.b)):c.moveTo(cx(t.a),cy(t.b));});c.stroke();}
+  poems.forEach(p=>{
+    const hf=found.has(p.key);
+    [[p.a,p.b,1],[p.b,p.a,.45]].forEach(([a,b,al])=>{
+      const x=cx(a),y=cy(b);
+      if(hf){c.fillStyle=`rgba(255,90,60,${al})`;c.beginPath();c.arc(x,y,3.4,0,PI*2);c.fill();}
+      else{c.fillStyle=`rgba(163,172,180,${.34*al+(p===near&&al===1?.5:0)})`;c.beginPath();c.arc(x,y,1.7,0,PI*2);c.fill();}
+    });
+  });
+  if(near&&nearD<RVIS){
+    const q=norm(cur.a,cur.b),pa=near.a,pb=near.b;
+    const px=q.sw?pb:pa,py=q.sw?pa:pb;
+    c.strokeStyle=`rgba(255,90,60,${.7*(1-nearD/RVIS)})`;c.beginPath();c.arc(cx(px),cy(py),RVIS*CW/10*(nearD/RVIS)+3,0,PI*2);c.stroke();
+  }
+  const x=cx(cur.a),y=cy(cur.b);
+  c.strokeStyle=locked?'#ff5a3c':'#ece9e2';c.lineWidth=1.3;c.beginPath();c.arc(x,y,5.5,0,PI*2);c.stroke();
+  c.beginPath();c.moveTo(x-9,y);c.lineTo(x-3,y);c.moveTo(x+3,y);c.lineTo(x+9,y);c.moveTo(x,y-9);c.lineTo(x,y-3);c.moveTo(x,y+3);c.lineTo(x,y+9);c.stroke();
+}
+/* ---------- sizing ---------- */
+function resize(){
+  const box=$('plateBox'),stage=$('stage');
+  const sw=stage.clientWidth-32,sh=stage.clientHeight-32;
+  let P=mobile||innerWidth<=860?Math.min(innerWidth-32,460):Math.max(260,Math.min(sw,sh,860));
+  box.style.width=P+'px';box.style.height=P+'px';
+  DPR=Math.min(2,window.devicePixelRatio||1);
+  W=plate.width=Math.round(P*DPR);H=plate.height=Math.round(P*DPR);
+  const cs=$('chartBox').clientWidth;CW=chart.width=Math.round(cs*DPR);chart.height=CW;
+  cctx.setTransform(1,0,0,1,0,0);
+  CWs=cs;
+  if(calm){settle(120);}
+}
+let CWs=200;
+new ResizeObserver(()=>resize()).observe(document.body);
+/* ---------- input ---------- */
+function setTargetFrom(el,ev){
+  const r=el.getBoundingClientRect();
+  const x=Math.min(1,Math.max(0,(ev.clientX-r.left)/r.width)),y=Math.min(1,Math.max(0,(ev.clientY-r.top)/r.height));
+  target={a:1+x*10,b:1+(1-y)*10};
+  touched=true;figure=false;$('bFig').setAttribute('aria-pressed','false');
+}
+function bindDrag(el){
+  el.addEventListener('pointerdown',e=>{if(readerOpen)return;dragging=true;try{el.setPointerCapture(e.pointerId);}catch(_){}
+    setTargetFrom(el,e);audioInit(false);if(calm)commit();if(locked&&el===plate&&dTarget()<.2&&tapCount++>=0){}});
+  el.addEventListener('pointermove',e=>{if(!dragging)return;setTargetFrom(el,e);});
+  const up=e=>{if(!dragging)return;dragging=false;if(calm)commit();};
+  el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);
+}
+let tapCount=0;
+function dTarget(){return Math.hypot(target.a-cur.a,target.b-cur.b);}
+bindDrag(plate);bindDrag(chart);
+plate.addEventListener('keydown',e=>{
+  const s=e.shiftKey?.6:.12;let m=true;
+  if(e.key==='ArrowLeft')target.a-=s;else if(e.key==='ArrowRight')target.a+=s;
+  else if(e.key==='ArrowUp')target.b+=s;else if(e.key==='ArrowDown')target.b-=s;
+  else if(e.key==='Enter'||e.key===' '){if(locked)openPoem(locked);else m=false;if(m)e.preventDefault();return;}
+  else if(e.key==='n'||e.key==='N'){nextUnheard();e.preventDefault();return;}
+  else m=false;
+  if(m){e.preventDefault();target.a=Math.min(11,Math.max(1,target.a));target.b=Math.min(11,Math.max(1,target.b));touched=true;figure=false;audioInit(false);if(calm)commitSoon();}
+});
+let cs_t=null;function commitSoon(){clearTimeout(cs_t);cs_t=setTimeout(commit,160);}
+function commit(){
+  const eff=effTarget();cur.a=eff.a;cur.b=eff.b;prev={a:cur.a,b:cur.b};
+  settle(130);evalNear();updateLock(9);dirty=true;
+}
+let dirty=true;
+/* ---------- resonance logic ---------- */
+function effTarget(){
+  // magnet: the plate leans toward a poem's own frequency
+  const q=norm(target.a,target.b);
+  let bp=null,bd=99;
+  for(const p of poems){const d=Math.hypot(p.a-q.a,p.b-q.b);if(d<bd){bd=d;bp=p;}}
+  if(bp&&bd<RMAG){
+    const u=1-bd/RMAG,pull=u*u*(3-2*u)*.94;
+    const na=q.a+(bp.a-q.a)*pull,nb=q.b+(bp.b-q.b)*pull;
+    return q.sw?{a:nb,b:na}:{a:na,b:nb};
+  }
+  return {a:target.a,b:target.b};
+}
+function evalNear(){
+  const q=norm(cur.a,cur.b);near=null;nearD=99;
+  for(const p of poems){const d=Math.hypot(p.a-q.a,p.b-q.b);if(d<nearD){nearD=d;near=p;}}
+}
+function updateLock(dt){
+  if(readerOpen){return;}
+  if(figure){locked=null;lockT=0;return;}
+  if(near&&nearD<.07){lockT+=dt;if(lockT>.55&&locked!==near){locked=near;onLock(near);}}
+  else if(!near||nearD>.3){lockT=0;if(locked){locked=null;uiCaption(true);}}
+}
+function onLock(p){
+  if(!found.has(p.key)){found.add(p.key);saveFound();refreshStat();}
+  $('live').textContent='Something answers: '+p.title+'. Press Enter or the button to read the whole poem.';
+  uiCaption(true);
+}
+function nextUnheard(){
+  if(readerOpen)return;
+  const q=norm(cur.a,cur.b);let best=null,bd=1e9;
+  for(const p of poems){if(found.has(p.key))continue;const d=Math.hypot(p.a-q.a,p.b-q.b);if(d<bd){bd=d;best=p;}}
+  if(!best){$('live').textContent='You have heard every poem on this plate.';return;}
+  touched=true;figure=false;
+  target={a:best.a,b:best.b};
+  if(calm)commit();
+}
+$('bNext').onclick=nextUnheard;
+$('bFig').onclick=()=>{
+  if(!found.size)return;figure=!figure;touched=true;
+  $('bFig').setAttribute('aria-pressed',String(figure));
+  if(calm){settle(150);dirty=true;}
+  uiCaption(true);
+};
+/* ---------- caption ---------- */
+let lastCapKey='';
+function uiCaption(force){
+  const frag=$('frag'),meta=$('meta'),open=$('open');
+  let key;
+  if(figure)key='fig';else if(!touched)key='idle';else if(near&&nearD<RVIS)key=(locked?'L':'N')+near.key;else key='far';
+  if(key!==lastCapKey||force){
+    lastCapKey=key;
+    if(key==='fig'){
+      const n=Math.min(found.size,7);
+      frag.textContent=found.size+(found.size===1?' poem':' poems')+', sounded together.';
+      meta.textContent='This figure exists only for you';meta.className='capmeta hot';
+      $('lede').style.display='none';open.hidden=true;
+    }else if(key==='idle'){
+      frag.textContent=visits>0&&found.size?'The plate remembers '+found.size+' of '+NP+'.':'';
+      meta.textContent='Touch the plate, or drag across the map';meta.className='capmeta';open.hidden=true;
+    }else if(key==='far'){
+      frag.textContent='';meta.textContent=near?'Nothing answers here yet. Keep moving.':'';meta.className='capmeta';open.hidden=true;
+    }else{
+      frag.textContent=near.frag;
+      if(locked){meta.textContent=near.title+' · '+near.book.title;meta.className='capmeta hot';open.hidden=false;open.textContent='Read the whole poem';}
+      else{meta.textContent='Something is answering…';meta.className='capmeta';open.hidden=true;}
+    }
+  }
+  if(key[0]==='N'||key[0]==='L'){
+    const p=Math.max(0,1-nearD/RVIS),pp=locked?1:p*p;
+    frag.style.opacity=(.18+.82*pp).toFixed(3);
+    frag.style.filter=locked?'none':`blur(${((1-pp)*3).toFixed(2)}px)`;
+  }else{frag.style.opacity=1;frag.style.filter='none';}
+}
+$('open').onclick=()=>{if(locked)openPoem(locked);};
+plate.addEventListener('dblclick',()=>{if(locked)openPoem(locked);});
+function refreshStat(){
+  $('stat').textContent=found.size+' of '+NP+' heard';
+  $('bFig').disabled=!found.size;
+  $('forget').hidden=!found.size;
+  if(!found.size&&figure){figure=false;}
+}
+$('forget').onclick=()=>{found=new Set();lsDel('rp_found');lsDel('rp_pos');figure=false;locked=null;refreshStat();uiCaption(true);$('bFig').setAttribute('aria-pressed','false');dirty=true;};
+/* ---------- reader ---------- */
+let lastFocus=null;
+function renderPoem(p){
+  const body=$('rbody');body.textContent='';
+  let st=null;
+  p.lines.forEach(l=>{
+    if(l.trim()===''){st=null;return;}
+    if(l==='*'){st=null;const d=document.createElement('div');d.className='brk';d.textContent='*';body.appendChild(d);return;}
+    if(!st){st=document.createElement('div');st.className='st';body.appendChild(st);}
+    const s=document.createElement('span');s.className='ln';s.textContent=l;st.appendChild(s);
+  });
+}
+function bookList(p){return poems.filter(q=>q.book===p.book);}
+function openPoem(p,fromIndex){
+  if(!readerOpen)lastFocus=document.activeElement;
+  reading=p;readerOpen=true;
+  if(!found.has(p.key)){found.add(p.key);saveFound();refreshStat();}
+  figure=false;$('bFig').setAttribute('aria-pressed','false');
+  closeIndex(true);
+  $('rmeta').innerHTML='';
+  const m=$('rmeta');
+  m.append(document.createTextNode(p.book.title+' · '+(p.move?'Movement '+p.move.num+', '+p.move.title:'')),document.createElement('br'));
+  const i=document.createElement('i');i.textContent='No. '+p.num;m.append(i);
+  $('rtitle').textContent=p.title;
+  $('xnote').innerHTML='';
+  if(p.excerpt){const d=document.createElement('div');d.className='xnote';d.textContent='Excerpt (public sample)';$('xnote').appendChild(d);}
+  renderPoem(p);
+  const bl=bookList(p),k=bl.indexOf(p);
+  const pv=bl[k-1],nx=bl[k+1];
+  const rp=$('rprev'),rn=$('rnext');
+  rp.hidden=!pv;rn.hidden=!nx;
+  if(pv){rp.textContent='← '+pv.title;rp.onclick=()=>openPoem(pv);}
+  if(nx){rn.textContent=nx.title+' →';rn.onclick=()=>openPoem(nx);}
+  $('reader').hidden=false;$('reader').scrollTop=0;document.body.classList.add('reading');resize();
+  document.body.style.overflow='hidden';
+  target={a:p.a,b:p.b};touched=true;locked=p;
+  if(calm)commit();
+  $('rtitle').focus({preventScroll:true});
+  lsSet('rp_pos',JSON.stringify({a:p.a,b:p.b}));
+  uiCaption(true);
+}
+function closeReader(){
+  if(!readerOpen)return;readerOpen=false;reading=null;$('reader').hidden=true;document.body.classList.remove('reading');resize();
+  document.body.style.overflow='';
+  if(lastFocus&&lastFocus.focus)lastFocus.focus();else plate.focus();
+  lockT=1;
+}
+$('rclose').onclick=closeReader;
+/* index */
+function buildIndex(){
+  const L=$('ilist');L.textContent='';
+  let bk=null,mv=null;
+  poems.forEach(p=>{
+    if(p.book!==bk){bk=p.book;mv=null;const d=document.createElement('div');d.className='bk';const h=document.createElement('h3');h.textContent=bk.title;const s=document.createElement('p');s.textContent=bk.after;d.append(h,s);L.appendChild(d);}
+    if(p.move!==mv){mv=p.move;const d=document.createElement('div');d.className='mv';d.textContent=(mv?mv.num+' · '+mv.title:'');L.appendChild(d);}
+    const b=document.createElement('button');b.className='pl';
+    const n=document.createElement('span');n.className='n';n.textContent=p.num;
+    const t=document.createElement('span');t.textContent=p.title;
+    b.append(n,t);
+    if(found.has(p.key)){const h=document.createElement('span');h.className='h';h.textContent='heard';b.appendChild(h);}
+    b.onclick=()=>openPoem(p,true);
+    L.appendChild(b);
+  });
+}
+function openIndex(){lastFocus=document.activeElement;buildIndex();indexOpen=true;$('index').hidden=false;$('index').scrollTop=0;document.body.style.overflow='hidden';$('iclose').focus();}
+function closeIndex(silent){
+  if(!indexOpen)return;indexOpen=false;$('index').hidden=true;
+  if(!silent){document.body.style.overflow='';if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+}
+$('bIndex').onclick=openIndex;$('iclose').onclick=()=>closeIndex(false);
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){if(readerOpen)closeReader();else if(indexOpen)closeIndex(false);}
+  if(e.key==='Tab'){
+    const root=readerOpen?$('reader'):indexOpen?$('index'):null;if(!root)return;
+    const f=[...root.querySelectorAll('button,[tabindex="-1"]')].filter(x=>!x.hidden&&x.offsetParent!==null);
+    if(!f.length)return;const a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}
+    else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}
+  }
+});
+/* ---------- sound ---------- */
+let ac=null,o1,o2,o3,gm,g3,soundOn=false;
+function audioInit(force){
+  if(!soundOn)return;
+  if(ac){if(ac.state==='suspended')ac.resume();return;}
+  try{
+    ac=new (window.AudioContext||window.webkitAudioContext)();
+    gm=ac.createGain();gm.gain.value=0;gm.connect(ac.destination);
+    o1=ac.createOscillator();o2=ac.createOscillator();o3=ac.createOscillator();g3=ac.createGain();g3.gain.value=0;
+    o1.type=o2.type='sine';o3.type='triangle';
+    const g1=ac.createGain(),g2=ac.createGain();g1.gain.value=g2.gain.value=.5;
+    o1.connect(g1).connect(gm);o2.connect(g2).connect(gm);o3.connect(g3).connect(gm);
+    o1.start();o2.start();o3.start();
+  }catch(e){ac=null;}
+}
+function fr(a){return 110*Math.pow(2,(a-1)/5);}
+function audioUpdate(){
+  if(!ac||!soundOn)return;
+  const t=ac.currentTime;
+  o1.frequency.setTargetAtTime(fr(cur.a),t,.05);o2.frequency.setTargetAtTime(fr(cur.b),t,.05);
+  o3.frequency.setTargetAtTime(fr(cur.a)/2,t,.08);
+  const gap=Math.min(1,Math.abs(cur.a-cur.b)/.6);
+  const prox=near?Math.max(0,1-nearD/RVIS):0;
+  const g=(touched?(.02+.07*prox*prox+(locked||readerOpen?.05:0)):0)*gap;
+  gm.gain.setTargetAtTime(g,t,.12);
+  g3.gain.setTargetAtTime((locked||readerOpen)?.7:0,t,.3);
+}
+$('bSound').onclick=()=>{
+  soundOn=!soundOn;$('bSound').setAttribute('aria-pressed',String(soundOn));
+  if(soundOn)audioInit(true);else if(ac)gm.gain.setTargetAtTime(0,ac.currentTime,.05);
+};
+/* ---------- calm ---------- */
+function setCalm(v){
+  calm=v||mq.matches;document.body.classList.toggle('calm',calm);
+  $('bStill').setAttribute('aria-pressed',String(calm));
+  if(calm){commit();}
+}
+$('bStill').onclick=()=>{if(mq.matches){return;}userStill=!userStill;lsSet('rp_still',userStill?'1':'0');setCalm(userStill);};
+mq.addEventListener&&mq.addEventListener('change',()=>setCalm(userStill));
+/* ---------- loop ---------- */
+let last=performance.now(),idleT=0,saveT=0;
+function frame(t){
+  const dt=Math.min(.05,(t-last)/1000||.016);last=t;
+  if(!calm){
+    const eff=effTarget();
+    const k=1-Math.exp(-dt*(reading||locked?3.2:4.2));
+    cur.a+=(eff.a-cur.a)*k;cur.b+=(eff.b-cur.b)*k;
+    const v=Math.hypot(cur.a-prev.a,cur.b-prev.b)/Math.max(dt,.001);
+    prev.a=cur.a;prev.b=cur.b;
+    evalNear();updateLock(dt);
+    const goal=touched?(.22+Math.min(1.7,v*.5)):0;
+    lastEnergy+=(goal-lastEnergy)*Math.min(1,dt*6);
+    drawPlate({energy:lastEnergy},locked||readerOpen?1:near&&nearD<RVIS?Math.max(0,1-nearD/RVIS)*.35:0);
+    if(touched&&(!trail.length||Math.hypot(trail[trail.length-1].a-cur.a,trail[trail.length-1].b-cur.b)>.12)){trail.push({a:cur.a,b:cur.b});if(trail.length>90)trail.shift();}
+    saveT+=dt;if(saveT>2&&touched){saveT=0;lsSet('rp_pos',JSON.stringify({a:cur.a,b:cur.b}));}
+  }else if(dirty){
+    pctx.clearRect(0,0,W,H);
+    const T=terms();const r=step(T,0,true);
+    paint(r,(locked||readerOpen)?1:0);
+    pctx.fillStyle='#05070a';pctx.strokeStyle='#39434c';pctx.beginPath();pctx.arc(W/2,H/2,5*DPR,0,PI*2);pctx.fill();pctx.stroke();
+    if(touched&&(!trail.length||Math.hypot(trail[trail.length-1].a-cur.a,trail[trail.length-1].b-cur.b)>.12)){trail.push({a:cur.a,b:cur.b});if(trail.length>90)trail.shift();}
+    lsSet('rp_pos',JSON.stringify({a:cur.a,b:cur.b}));
+    dirty=false;
+  }
+  if(calm){evalNear();}
+  CW_draw();
+  plate.classList.toggle('lock',!!(locked||readerOpen));
+  uiCaption(false);
+  $('hud').textContent=touched?('a '+cur.a.toFixed(2)+'   b '+cur.b.toFixed(2)):'silent';
+  audioUpdate();
+  requestAnimationFrame(frame);
+}
+function CW_draw(){drawChart();}
+/* ---------- boot ---------- */
+document.body.classList.toggle('calm',calm);
+$('bStill').setAttribute('aria-pressed',String(calm));
+if(mq.matches)$('bStill').title='Your system asks for reduced motion, so the plate is already still';
+refreshStat();resize();
+if(touched)settle(220);
+evalNear();
+if(calm)dirty=true;
+if(!found.size)$('lede').style.display='';
+requestAnimationFrame(frame);
+window.__pc={poems,openPoem,target:(a,b)=>{target={a,b};touched=true;if(calm)commit();},get st(){return {locked:locked&&locked.key,near:near&&near.key,nearD,found:found.size,cur};},nextUnheard};
+})();
+</script>
