@@ -38,7 +38,10 @@ cd .. && node tools/test.js       # needs Playwright
 
 ## Deploy
 
-The site is a single static `index.html` on Netlify (site `pressurecookerpoetry`). Upload the whole `site/dist/` folder as a deploy: `index.html` plus `assets/cutouts/`, which the build fills from `library/cutouts/manifest.json`.
+Netlify (site `pressurecookerpoetry`) publishes `site/public/`, built by `python3 site/tools/build.py && python3 site/tools/assemble.py`:
+
+- `/` is the Gutter Intelligentsia landing (`site/landing/`: the cabinet, the cooked menu, 235 cutouts in `assets/c/`)
+- `/kitchen/` is the Kitchen (`site/dist/`). Old `#/...` links on `/` redirect to `/kitchen/#/...`.
 
 For automatic deploys, connect this GitHub repository to the existing Netlify project, choose `main` as the production branch, and use the build command and publish directory in `netlify.toml`. GitHub Actions rebuilds every pull request and checks that `site/dist/` matches the source files. Do not create a second Netlify project for the same domain.
 
