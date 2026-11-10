@@ -1,6 +1,6 @@
 # The cutout pipeline
 
-A model through OpenRouter is the **brain**: it scouts, picks, tags by looking, and writes or finds CSS. GitHub Actions is the **hands**: it searches the open collections, downloads, cuts out backgrounds, checks everything, files it, and opens a pull request for you to review. Nothing reaches the live site until you merge it, and even then the site only loads cutouts after the build is taught to (see "Not done yet").
+A model through OpenRouter is the **brain**: it scouts, picks, tags by looking, and writes or finds CSS. GitHub Actions is the **hands**: it searches the open collections, downloads, cuts out backgrounds, checks everything, files it, and opens a pull request for you to review. Merging a source into the library does not publish it: only images with explicit `publication_status: "cleared"` are included in the public build.
 
 ```
 shopping-list.json ──▶ FIND in public-domain collections ──▶ PICK (model looks at thumbnails)
@@ -10,6 +10,8 @@ shopping-list.json ──▶ FIND in public-domain collections ──▶ PICK (m
                                                                       │
 SNIPPETS: CSS for each kit ──────────────────────────────────────▶ FILE + pull request + zip
 ```
+
+For the wider source collection and user uploads, see [Creative source archive](CREATIVE_SOURCE_ARCHIVE.md). The automated collection search described here remains limited to appropriately licensed sources. Agent deliveries can separately register other discoveries for research without publishing or downloading them.
 
 ## What each step does
 
@@ -57,9 +59,9 @@ You can also run it locally: `node tools/cutouts/catalog.js`, then `pip install 
 
 The four prompts in `tools/cutouts/prompts/` are plain markdown with `{placeholders}`. You can paste one into OpenRouter's chat, Gemini or Muse, fill in the blanks, attach images, and get the same JSON back. `tag.md` is the one that matters most: it's the tagging rubric.
 
-## Not done yet
+## Further work
 
-- **The site doesn't load library cutouts yet.** The next build step: read `library/cutouts/manifest.json`, take the reviewed entries, put them in the asset manifest, and ship the PNGs as `assets/cutouts/` next to `index.html` in the deploy.
+- **The site loads cleared cutouts only.** `site/tools/build_library.py` includes explicit `publication_status: "cleared"` records with local PNGs. New and unreviewed records remain private to the development pipeline.
 - **Deliveries from other agents:** drop a `pcp-delivery-*.json` (made with `tools/cutouts/prompts/superbot.md`) in `library/intake/` on `main`; the workflow runs in `intake` mode by itself.
 - **Kit snippets aren't wired in either.** They need the style engine to pick one variant per room (seeded, so the same recipe gives the same room).
 - Openverse limits anonymous use heavily. If it keeps refusing, run with sources `commons,aic` (the `--sources` flag).
