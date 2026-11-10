@@ -1,7 +1,7 @@
 """
 Build step: the cutout library goes into the page, and full movements go database-only.
 
-1. Every cutout in library/cutouts/manifest.json (except status "rejected")
+1. Only cutouts explicitly approved for publication in library/cutouts/manifest.json
    whose PNG exists is copied to dist/assets/cutouts/<id>.png and appended to
    PCP.assets with library: true.
 2. A movement is "full" once it has DB_MIN library cutouts. When a room's
@@ -39,7 +39,7 @@ def collect(repo_root, dist_dir):
                 os.unlink(os.path.join(out_dir, name))
     assets, per = [], {}
     for m in manifest:
-        if m.get("status") == "rejected": continue
+        if m.get("publication_status") != "cleared" or m.get("status") == "rejected": continue
         f = os.path.join(repo_root, m.get("file", ""))
         if not m.get("file") or not os.path.exists(f): continue
         os.makedirs(out_dir, exist_ok=True)
