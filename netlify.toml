@@ -1,3 +1,3 @@
 [build]
-  command = "python3 site/tools/build.py"
-  publish = "site/dist"
+  command = "python3 site/tools/build.py && python3 site/tools/assemble.py"
+  publish = "site/public"

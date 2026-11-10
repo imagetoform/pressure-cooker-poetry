@@ -8,3 +8,4 @@ deploy-tool/
 __pycache__/
 *.pyc
 .netlify/
+site/public/
