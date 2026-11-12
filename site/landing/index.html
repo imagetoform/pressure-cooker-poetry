@@ -249,10 +249,12 @@ var TITLE=[['big','You walked in'],['big acc','hungry.'],['big','Good.']];
 var SUB=['Everyone’s selling you a fake feast:','gold foil, 300% markup,','nothing inside.','Not here.','Poetry was never theirs to gatekeep.','It’s yours, it’s free,','and every seat at this table is equal.','Nobody’s handing you answers.','Grab what you crave,','burn the menu,','and draw your own damn map.'];
 var A=function(id){return DB.aisles.filter(function(a){return a.id===id})[0]},SITE='/kitchen/';
 function aisle(id,grp){var a=A(id);return{g:grp,k:a.n+' free resources',t:a.name,p:a.sign+'.',list:a.sample,tags:[grp,'free'],cta:'Open the aisle',url:SITE+'#/food-bank/'+a.id}}
-var GRP=['Get your voice back','Un-brainwash yourself','Read deeper','From the kitchen'];
-var ITEMS=['poetry','publish','art'].map(function(i){return aisle(i,GRP[0])}).concat(['propaganda','thinking','language','labor'].map(function(i){return aisle(i,GRP[1])}),['philosophy','esoteric'].map(function(i){return aisle(i,GRP[2])}),
- DB.essays.map(function(e){return{g:GRP[2],k:'Essay',t:e.t,p:e.dek,list:[],tags:[GRP[2],'essay'],cta:'Read the essay',url:SITE}}),
- Object.keys(DB.books).map(function(b){return{g:GRP[3],k:DB.books[b].length+' poems',t:b,p:'Poems made in this kitchen. Take what feeds you.',list:DB.books[b].slice(0,3),tags:[GRP[3],'poems'],cta:'Read the poems',url:SITE}}));
+var GRP=['Essays','Poems','The Learning Curve'];
+var ITEMS=[
+ {g:GRP[0],k:(DB.essays||[]).length+' catalog entries',t:'Essays',p:'Arguments, investigations, satire, and the stranger paths between ideas.',list:(DB.essays||[]).slice(0,3).map(function(e){return e.t}),tags:['essays','criticism','history'],cta:'Explore essays',url:'/essays/'},
+ {g:GRP[1],k:Object.keys(DB.books||{}).length+' collections',t:'Poems',p:'Poetry, chapbooks, experiments, and the unfinished business of being human.',list:Object.keys(DB.books||{}).slice(0,3),tags:['poems','chapbooks','verse'],cta:'Explore poems',url:'/poems/'},
+ {g:GRP[2],k:(DB.aisles||[]).length+' resource aisles',t:'The Learning Curve',p:'Curated free guides, useful references, research tools, and rabbit holes worth exploring.',list:(DB.aisles||[]).slice(0,3).map(function(a){return a.name}),tags:['guides','learning','resources'],cta:'Open directory',url:'/learning-curve/'}
+];
 
 /* ---------- genome: three ingredients, three darts, three layers ---------- */
 function genome(ids){
