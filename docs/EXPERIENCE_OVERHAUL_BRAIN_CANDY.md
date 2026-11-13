@@ -65,3 +65,43 @@ Phase 4: test performance, accessibility, copy and visual consistency, staging p
 - Eyeball Easter egg is discoverable on phone and keyboard; no required hover.
 - Reduced motion and audio-off modes function; page remains accessible if animations are disabled.
 - Automated build/tests and visual screenshots checked before production deploy.
+
+
+## CRITICAL REVISION: individual aesthetic synthesis, not a few mood templates
+The 2026-11-13 follow-up clarifies the purpose: users must feel the system interpreted *their* selections. Do NOT reduce 3 answers to one of four families, four fixed rooms or a small menu of endings. The user expressly wants broad personality inclusion, a lively underground/punk/guerrilla editorial DNA, and maximal yet coherent variation.
+
+### Current style inventory
+Inspected `site/src/styles.js` on main: **30 movement IDs already exist**:
+art-nouveau, art-deco, psychedelia, minimalism, swiss, bauhaus, brutalism, constructivism, dada, punk, futurism, cyberpunk, vaporwave, maximalism, pop-art, abstract-expressionism, geometric-abstraction, op-art, surrealism, expressionism, memphis, rococo, zine-diy, situationism, grunge-design, mexican-muralism, afrofuturism, y2k, gothic-revival, ukiyo-e.
+Retain all existing movements. Potential expansion based on gap audit: post-punk, retro-futurism, guerrilla graphics/agitprop, industrial, underground comics, outsider-art/naive, experimental editorial, deconstructivist typography, collage-noir. Avoid duplicating existing aesthetics simply under new names; tag context, precedents and graphic rules carefully.
+
+### Distinguish three independently sampled layers
+**L1 Emotion**: user answers -> three or more separate synthetic taste profiles -> existing taste/dartboard mapping, retaining contradiction and mixed states; axis intensities and uncertainty. The choice text must be emotionally discriminating rather than broad horoscope labels. Do not claim a psychometric or diagnostic inference.
+
+**L2 Visual DNA**: retrieve multiple eligible movements based on emotional closeness; sample primary, secondary and optional low-weight accent families. Decompose their contributions into independent pools: color recipes, typesetting systems, paper/print textures, cutout categories, mark-making, illustration methods, ornaments and motion language. Add family compatibilities and explicit clash rules. A single family's identity should not hard-lock the room layout. Preserve the user's underground editorial through a consistent compositional voice, not by always painting every room punk red.
+
+**L3 Function + layout**: choose functional grammars (editorial, modular, collage field, kinetic poster, typographic manifesto, quiet archive, interactive diagram, etc.) independently from, but conditioned by, L1 and L2. Per grammar sample button skins, component geometries, spacing, motion, navigation behaviors and responsive states from compatible reusable code. Compose with clear text reading zones, keyboard focus and contrast constraints; fallback to safer components where aesthetics conflict with usability.
+
+### Diversity beyond a choose-your-own-adventure menu
+Preserve source library and add many style *tokens/parts*, not just 30 hardcoded designs. Add controlled stochastic sampling after compatibility weighting. Keep same choices + chosen seed reproducible; “Another interpretation” changes the seed but keeps the emotional source vector fixed. Add anti-repeat within a session (recent combinations), and avoid fake guarantees of infinite novelty. Measure perceptual diversity via screenshot comparisons across sampled choices and seeds. The three questions are simply an initial low-friction entry point; test their ability to distinguish many emotions, and consider optional fourth free-text nuance/contradiction or “fine tune” if early output collapses too many users into a few clusters. Never collect unnecessary sensitive data.
+
+### Example: same emotional input, different valid outcomes
+One emotional profile could generate:
+- Constructivist geometry + Swiss grid + brutalist type ornament; a high-legibility newspaper spread.
+- Dada photomontage + restrained industrial texture + surreal accents; a sectional zine.
+- Retro-futurist schematics + post-punk palette + modernist grid; instrument-led editorial room.
+These are illustrative possibilities, not fixed outputs or actual sampled family weights.
+
+### Engineering interfaces
+Define declarative source metadata:
+`family={id,emotionTags,visualTokens,compatibleWith,incompatibleWith,layoutPreferences,componentSkins,motionTags}`.
+`composition={emotionDarts,axisVector,primary,secondary,accent,palette,type,texture,cutouts,layout,components,motion,seed}`.
+Seed stochastic selections with a stable PRNG and expose composition manifest in lab mode. Validate cross-family clashes, body readability, mobile responsiveness, reduced motion, accessibility and authorial poem immutability.
+
+### Revised acceptance conditions
+- Documented inventory of all 30 existing families with token metadata; no regression or removal.
+- Same emotional choices can generate demonstrably different, coherent layouts across deliberate variant seeds.
+- Different emotional choices shift the distribution of stylistic outcomes, not just hue.
+- Sample many users/choice combinations; audit for collapsed outputs, overly dominant families and underrepresented emotional regions.
+- Keep the cards/pantry accessible only as optional deeper play, not forced entry.
+- Preserve the editorial personality without applying identical visuals to every room.
