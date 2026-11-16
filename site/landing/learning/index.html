@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free tools for critical inquiry, creative agency, and collective possibility. No required worldview.">
+<title>The Learning Curve | Pressure Cooker Poetry</title>
+<style>
+:root{color-scheme:dark;--ink:#111014;--paper:#f5ead7;--acid:#e2ef63;--red:#ed5c43}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--ink);color:var(--paper);font:17px/1.6 system-ui,Arial,sans-serif}a{color:inherit}a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--acid);outline-offset:4px}.wrap{max-width:1050px;margin:auto;padding:0 22px}
+header{border-bottom:2px solid var(--paper);padding:15px 0}header .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}header a{text-decoration:none;font-weight:800}
+.eyebrow{font:700 .78rem/1.4 monospace;text-transform:uppercase;letter-spacing:.13em;color:var(--acid)}
+.hero{padding:64px 0 72px;border-bottom:8px solid var(--red);background:radial-gradient(circle at 84% 25%,#452027 0,transparent 45%)}
+h1,h2,h3{line-height:1.05;letter-spacing:-.04em}h1{font-size:clamp(3.5rem,12vw,8rem);margin:10px 0 22px;text-transform:uppercase}h2{font-size:clamp(2rem,6vw,4rem);margin:0 0 18px}h3{font-size:1.5rem;letter-spacing:-.02em}.lead{font-size:clamp(1.12rem,2.5vw,1.5rem);max-width:690px}section{padding:58px 0}.light{background:var(--paper);color:var(--ink)}.light .eyebrow{color:#7b241a}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:16px}
+.tile{border:2px solid currentColor;padding:22px;min-height:218px;display:flex;flex-direction:column;justify-content:space-between}.tile p{margin:8px 0 0}.num{font:800 1.05rem monospace;color:var(--red)}
+.btn{display:inline-block;text-align:center;padding:13px 18px;background:var(--acid);color:var(--ink);font-weight:900;text-decoration:none;border:2px solid var(--ink);cursor:pointer}.btn.alt{background:transparent;border-color:currentColor;color:inherit}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.exercise{background:#26202a;border-left:7px solid var(--acid);padding:25px;margin-top:26px}textarea{display:block;width:100%;max-width:780px;min-height:115px;background:#fff8ee;color:#151118;border:2px solid #151118;padding:15px;font:inherit;margin:16px 0}#suggestion{font-weight:700;color:var(--acid)}.small{font-size:.84rem;opacity:.82}footer{padding:30px 0;border-top:2px solid var(--paper)}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head>
+<body><header><div class="wrap"><a href="/">PRESSURE COOKER POETRY</a><nav aria-label="Main"><a href="/kitchen/">The Kitchen</a> · <a href="/#gutter">Mission</a></nav></div></header>
+<main><div class="hero"><div class="wrap"><span class="eyebrow">The Learning Curve / an open workshop</span><h1>Possibility<br>is a practice.</h1><p class="lead">The world as it exists is not necessarily the world as it must be. Learn to question an explanation, make something yourself, and discover what you can change with others.</p><div class="actions"><a class="btn" href="#begin">Start with one question</a><a class="btn alt" href="/kitchen/">Enter the generative Kitchen</a></div></div></div>
+<section class="light" id="begin"><div class="wrap"><span class="eyebrow">No prerequisites. No loyalty test.</span><h2>Five doors. No prescribed order.</h2><div class="grid">
+<article class="tile"><div><span class="num">01 / NOTICE</span><h3>Interrupt the inevitable</h3><p>Choose one thing you've heard called “just the way it is.” Who benefits from that description?</p></div><a href="#workshop">Try an exercise</a></article>
+<article class="tile"><div><span class="num">02 / INVESTIGATE</span><h3>Follow the evidence</h3><p>Separate a claim from its source, its evidence, and the assumptions holding it together.</p></div><a href="#method">Learn the method</a></article>
+<article class="tile"><div><span class="num">03 / IMAGINE</span><h3>Make an alternative</h3><p>Draw, write, remix, prototype. A possible future becomes easier to discuss when it has a shape.</p></div><a href="/kitchen/">Make a room</a></article>
+<article class="tile"><div><span class="num">04 / ACT</span><h3>Run a small experiment</h3><p>Pick one action that fits your real constraints. Record what happened and what you'd change.</p></div><a href="#workshop">Find a next step</a></article>
+<article class="tile"><div><span class="num">05 / CONNECT</span><h3>Compare notes</h3><p>Invite criticism and collaborators. Nobody has to surrender independence to belong.</p></div><a href="#principles">Our principles</a></article>
+</div></div></section>
+<section id="workshop"><div class="wrap"><span class="eyebrow">Tool 001 / from stuck to curious</span><h2>A question you can actually use.</h2><p class="lead">Name a situation, belief, or obstacle. Keep it as specific as you can. This page does not analyze you or send your words anywhere.</p>
+<label for="question">What feels fixed, inevitable, or impossible to change?</label><textarea id="question" maxlength="800" placeholder="Example: I don't know where to begin learning something new."></textarea>
+<div class="actions"><button class="btn" id="reframe" type="button">Give me a different angle</button><button class="btn alt" id="clear" type="button">Clear</button></div>
+<div class="exercise" aria-live="polite"><span class="eyebrow">A working prompt, not an answer</span><p id="suggestion">Start by distinguishing the situation itself from the story told about why it cannot change.</p></div>
+<p class="small">Privacy: your entry stays in this browser tab; it is not stored or transmitted by this page. No emotional diagnosis, personality score, or automatic persuasion.</p></div></section>
+<section class="light" id="method"><div class="wrap"><span class="eyebrow">Tool 002 / intellectual first aid</span><h2>Four questions for any claim.</h2><div class="grid">
+<div class="tile"><span class="num">A</span><h3>What exactly is claimed?</h3><p>Rewrite it plainly. Separate facts from predictions and moral judgments.</p></div>
+<div class="tile"><span class="num">B</span><h3>What's the evidence?</h3><p>Seek primary sources, dates, missing context, and independent corroboration.</p></div>
+<div class="tile"><span class="num">C</span><h3>What's the strongest objection?</h3><p>Make the best opposing case before you decide. Include objections to our own essays.</p></div>
+<div class="tile"><span class="num">D</span><h3>What would change your mind?</h3><p>Name evidence that would lead you to revise your view, then be willing to revise it.</p></div>
+</div><p style="margin-top:26px">Want practical research starting points? <a href="/kitchen/#/food-bank/">Visit the Food Bank of free resources</a>.</p></div></section>
+<section id="principles"><div class="wrap"><span class="eyebrow">What we're building toward</span><h2>Tools, not commandments.</h2><p class="lead">Human flourishing is the destination. Intellectual independence is the method. Collective possibility is the horizon.</p><p>Material conditions matter. No amount of positive thinking substitutes for housing, food, safety, time, or meaningful support. We offer exercises and resources, not a promise that individual attitude can fix structural problems.</p><p>Disagreement is welcome. We will be wrong about things. The point is to make claims examinable, not to recruit people into a new orthodoxy.</p><div class="actions"><a class="btn" href="/">Explore the site</a><a class="btn alt" href="/kitchen/">Cook a poem</a></div></div></section></main>
+<footer><div class="wrap"><strong>Pressure Cooker Poetry</strong> · An experiment in human possibility. <a href="/">Home</a></div></footer>
+<script>
+(function(){
+const prompts=[
+"What part is a material constraint, and what part is an assumption that might be tested?",
+"Who has solved a related problem before? What conditions made their solution possible?",
+"What is one small reversible experiment you could try without risking your basic needs?",
+"What would someone with an opposing view say? What evidence might distinguish the two accounts?",
+"What help, resources, or collaborators would change what is possible here?",
+"If this situation is structural, what could be done collectively rather than demanded of one person?"
+];let i=-1;const output=document.getElementById("suggestion"),input=document.getElementById("question");
+document.getElementById("reframe").addEventListener("click",()=>{i=(i+1)%prompts.length;output.textContent=prompts[i]});
+document.getElementById("clear").addEventListener("click",()=>{input.value="";i=-1;output.textContent="Start by distinguishing the situation itself from the story told about why it cannot change.";input.focus()});
+})();
+</script></body></html>
