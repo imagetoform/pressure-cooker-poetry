@@ -39,7 +39,7 @@ body[data-up="1"] .strip.big,body[data-up="1"] .strip.mid{text-transform:upperca
 #mast .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;padding-bottom:10px;flex-wrap:wrap}
 .logo{display:flex;flex-wrap:wrap;gap:3px;font:400 1.3rem/1 var(--f-display)}
 nav{display:flex;gap:4px;flex-wrap:wrap}
-nav button{background:none;border:0;color:inherit;font:800 .8rem/1 var(--f-body);letter-spacing:.07em;text-transform:uppercase;padding:13px 9px;min-height:44px;border-bottom:3px solid transparent}
+nav .navlink{display:inline-flex;align-items:center;text-decoration:none;background:var(--acc);color:#fff;padding:10px 12px;min-height:44px;font:800 .8rem/1 var(--f-body);text-transform:uppercase;letter-spacing:.05em}nav .navlink:hover{text-decoration:underline}nav button{background:none;border:0;color:inherit;font:800 .8rem/1 var(--f-body);letter-spacing:.07em;text-transform:uppercase;padding:13px 9px;min-height:44px;border-bottom:3px solid transparent}
 nav button:hover{border-bottom-color:var(--acc)}
 body[data-nav=stubs] nav button{background:var(--panel);color:var(--pink);clip-path:polygon(0 0,100% 0,100% 30%,95% 50%,100% 70%,100% 100%,0 100%,0 70%,5% 50%,0 30%);padding:13px 14px}
 /* hero */
@@ -160,7 +160,7 @@ summary{font:700 .82rem/1.2 var(--f-mono);letter-spacing:.1em;text-transform:upp
 <body>
 <header id="mast"><div class="wrap">
   <span class="logo" id="logo" aria-label="Pressure Cooker Poetry"></span>
-  <nav aria-label="Sections"><button data-go="menu">Menu</button><button data-go="gutter">Mission</button><button data-go="foot">Coupon</button></nav>
+  <nav aria-label="Sections"><button data-go="menu">Menu</button><a class="navlink" href="/learning/">The Learning Curve</a><button data-go="gutter">Mission</button><button data-go="foot">Coupon</button></nav>
 </div></header>
 <main>
 <section id="hero" class="band">
@@ -182,7 +182,7 @@ summary{font:700 .82rem/1.2 var(--f-mono);letter-spacing:.1em;text-transform:upp
 <section id="gutter" class="band"><div class="tear"></div><div class="deco" id="col3" aria-hidden="true"></div>
   <div class="wrap"><h2 id="gutH"></h2>
   <p>The ivory tower keeps its knowledge behind tuition and jargon. This place carries it back down to the gutter, where people can use it. Linguistics, propaganda, psychology, history with the citations showing, and poetry at the center, because poetry sharpens a mind and belongs to no nation.</p>
-  <p>The mission is to give people their voices back, and hand over the tools and guides without the gatekeeping. A place for wisdom to call home in its own language.</p></div></section>
+  <p>The mission is to give people their voices back, and hand over the tools and guides without the gatekeeping. A place for wisdom to call home in its own language.</p><p>Human flourishing is the destination. Intellectual independence is the method. Collective possibility is the horizon. We do not promise that optimism replaces material needs, or that our answers should go unquestioned. <a href="/learning/" style="font-weight:800">Enter The Learning Curve: free exercises in curiosity, critical inquiry, creation, and action.</a></p></div></section>
 </main>
 <footer id="foot"><div class="wrap">
   <h2>Like this room? Clip the coupon.</h2>
