@@ -1,6 +1,6 @@
-# ChatGPT brief: make cutouts for Pressure Cooker Poetry's empty families
+# AI image brief: make cutouts for Pressure Cooker Poetry's empty families
 
-Paste everything below the line into ChatGPT. Do **one family per chat turn**.
+Works with any AI that can make images (ChatGPT, Gemini, Grok, Copilot…). Paste everything below the line. Do **one family per chat turn**.
 
 ---
 
@@ -87,6 +87,10 @@ If you can build a .zip containing the 8 PNGs and `cutouts.json`, do that. If yo
 
 ## For Brandon, after each family
 
+**If the tool can't write JSON** (an image-only app like Midjourney): send just the PNGs named `<family-id>--<slug>.png`. Claude can write the `cutouts.json` after looking at them.
+
+
 1. Drop the zip (or the folder of PNGs + `cutouts.json`) into the Claude chat.
 2. Claude runs `tools/cutouts/ingest.py`, shows you a contact sheet, you say keep or kill, and Claude runs `promote.py`.
-3. Nothing from ChatGPT reaches the site without passing that look.
+3. Use `--source chatgpt` for ChatGPT, `--source ai` for any other model (its name goes in `made_with`).
+4. Nothing AI-made reaches the site without passing that look.

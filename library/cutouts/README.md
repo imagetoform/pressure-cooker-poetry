@@ -38,7 +38,7 @@ python3 tools/cutouts/ingest.py delivery.zip --source chatgpt     # or a folder;
 python3 tools/cutouts/contact_sheet.py tmp/sheet.png punk          # look
 python3 tools/cutouts/promote.py decisions.json                    # {"id": ..., "keep": true} reuses the suggested tags
 ```
-The ChatGPT brief is `docs/handoffs/CHATGPT_CUTOUT_BRIEF.md`. Sources: chatgpt, brandon, scan.
+The ChatGPT brief is `docs/handoffs/AI_CUTOUT_BRIEF.md`. Sources: chatgpt, brandon, scan.
 
 ## Brandon's own images
 

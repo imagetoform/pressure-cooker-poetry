@@ -1,6 +1,6 @@
-"""Bring outside-made cutouts (ChatGPT, Brandon's own art, scans) into the candidate pile.
+"""Bring outside-made cutouts (ChatGPT or any AI image model, Brandon's own art, scans) into the candidate pile.
 
-Usage: python3 tools/cutouts/ingest.py <folder-or-zip> [--source chatgpt|brandon|scan] [--cut none|ink|subject]
+Usage: python3 tools/cutouts/ingest.py <folder-or-zip> [--source chatgpt|ai|brandon|scan] [--cut none|ink|subject]
 
 Expects image files plus a cutouts.json sidecar listing, for each image:
   {"file": "punk--safety-pin-mouth.png", "family": "punk", "label": "...",
@@ -22,6 +22,7 @@ from harvest import REPO, family_dir, cut, slug, save_new, MAX_PX  # noqa: E402
 
 LICENSES = {
     "chatgpt": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+    "ai": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
     "brandon": "Brandon's own work. All rights his; used on his site.",
     "scan": "Scan from Brandon's own collection. Check source rights before promoting.",
 }
