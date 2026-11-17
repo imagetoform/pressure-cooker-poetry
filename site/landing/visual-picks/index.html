@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visual Selection Lab | Pressure Cooker Poetry</title>
+<style>
+:root{color-scheme:dark;--bg:#181319;--paper:#f1e9d8;--red:#e14d36;--lime:#dfed67}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--paper);font:16px/1.45 system-ui,Arial,sans-serif}
+button,a{font:inherit}button{cursor:pointer}a{color:inherit}
+:focus-visible{outline:4px solid var(--lime);outline-offset:4px}
+.wrap{max-width:1140px;margin:auto;padding:20px}
+header{border-bottom:3px solid var(--paper);padding:10px 0}header .wrap{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+header a{font-weight:900;text-decoration:none;text-transform:uppercase}
+.kicker{font:800 .8rem/1.4 monospace;letter-spacing:.14em;color:var(--lime);text-transform:uppercase}
+h1{font:900 clamp(2.6rem,7vw,5.7rem)/.98 Impact,'Arial Black',sans-serif;text-transform:uppercase;max-width:900px;margin:18px 0 12px}
+.lead{font-size:1.18rem;max-width:760px}
+.round{border:2px solid var(--paper);padding:13px 16px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:22px 0}
+.grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:15px;margin:20px 0}
+.pick{display:flex;flex-direction:column;align-items:stretch;border:3px solid var(--paper);padding:0;background:#f4ead8;color:#151018;min-width:0;text-align:left;min-height:215px;box-shadow:5px 5px 0 #000}
+.pick .art{height:185px;display:grid;place-items:center;overflow:hidden;background:var(--tile);position:relative}
+.pick svg{width:100%;height:100%;display:block}
+.pick .caption{min-height:43px;padding:9px 10px;font:800 .83rem/1.2 monospace;text-transform:uppercase}
+.pick:hover{transform:translateY(-3px);box-shadow:5px 9px 0 #000}
+.pick[aria-pressed=true]{border-color:var(--lime);outline:4px solid var(--red);outline-offset:0;box-shadow:7px 7px 0 var(--lime)}
+.btn{background:var(--lime);color:#16131a;border:2px solid #000;padding:12px 20px;min-height:48px;font-weight:900;text-transform:uppercase}
+.btn.secondary{background:transparent;color:var(--paper);border-color:var(--paper)}
+.btn:disabled{opacity:.38;cursor:not-allowed}
+.controls{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 50px}
+.note{font-size:.9rem;opacity:.78}
+#result[hidden],#interview[hidden]{display:none}
+.result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}
+.chosen{padding:20px;border:2px solid var(--paper);background:#2c222e}
+.chosen h2{font-size:1.3rem;margin:8px 0}
+code,pre{font:13px/1.5 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+pre{background:#080708;border:1px solid #615d62;padding:20px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.pick .art{height:155px}.pick{min-height:195px}}
+@media(max-width:500px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pick .art{height:155px}.wrap{padding:14px}.result-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.pick:hover{transform:none}}
+</style></head><body>
+<header><div class="wrap"><a href="/">PRESSURE COOKER POETRY</a><a href="/kitchen/">The Kitchen</a></div></header>
+<main class="wrap"><div class="kicker">Experiment 001 / the instinct test</div><h1>Don't overthink it. Pick what pulls you in.</h1>
+<p class="lead">Three rounds. Ten fragments each. Choose the one you would most like to see become part of your world. There is no correct answer, and no personality score.</p>
+<div id="interview"><div class="round"><strong id="stage">ROUND 1 OF 3</strong><span id="progress" aria-live="polite">Choose one fragment</span></div>
+<div class="grid" id="grid" role="group" aria-label="Choose a visual fragment"></div>
+<div class="controls"><button class="btn secondary" id="back" type="button">Back</button><button class="btn" id="next" type="button" disabled>Next round</button></div></div>
+<div id="result" hidden><div class="kicker">Three fragments / one aesthetic signature</div><h2>Your visual constellation</h2>
+<div class="result-grid" id="chosen"></div><p>These are <strong>preferences</strong>, not psychological facts. The underlying design-family records carry emotional tags that can guide a later composition.</p>
+<p class="note">Prototype status: selection and export work. Feeding the selection into the Kitchen's emotional engine is a separate integration step; this page does not pretend to generate the final room.</p>
+<details><summary>Show composition data</summary><pre id="manifest"></pre></details>
+<div class="controls"><button class="btn" id="copy" type="button">Copy selection data</button><button class="btn secondary" id="retry" type="button">Choose again</button><a class="btn secondary" href="/kitchen/">Explore the existing Kitchen</a></div><p id="copy-status" role="status"></p>
+</div></main>
+<script>
+(function(){
+"use strict";
+const families=[
+["art-nouveau","Art Nouveau",["serenity","love","admiration"],"#3e5839","#e0b84e"],
+["brutalism","Brutalism",["disapproval","vigilance","boredom"],"#888982","#171717"],
+["surrealism","Surrealism",["amazement","awe","pensiveness"],"#1c5472","#ead6a4"],
+["punk","Punk",["rage","contempt","aggressiveness"],"#ed3163","#131015"],
+["geometric-abstraction","Geometric Abstraction",["serenity","interest","trust"],"#2256b2","#f2c92c"],
+["cyberpunk","Cyberpunk",["apprehension","vigilance","awe"],"#161230","#11d4e7"],
+["art-deco","Art Deco",["admiration","anticipation","ecstasy"],"#20251f","#dcae49"],
+["dada","Dada",["amazement","distraction","contempt"],"#f2e6d0","#cb3e2b"],
+["minimalism","Minimalism",["serenity","acceptance","pensiveness"],"#eee9e1","#1b1b1b"],
+["afrofuturism","Afrofuturism",["vigilance","awe","admiration"],"#2c2159","#efbd32"],
+["op-art","Op Art",["distraction","amazement","apprehension"],"#f3f1e5","#131313"],
+["expressionism","Expressionism",["grief","terror","admiration"],"#cf4c33","#211b32"],
+["swiss","Swiss / International",["trust","interest","vigilance"],"#f2f0e9","#cc3726"],
+["vaporwave","Vaporwave",["pensiveness","boredom","distraction"],"#a574c8","#80eeee"],
+["constructivism","Constructivism",["anticipation","aggressiveness","admiration"],"#ede4d4","#bd1e21"],
+["memphis","Memphis",["ecstasy","distraction","optimism"],"#f7d748","#f64f7b"],
+["gothic-revival","Gothic Revival",["awe","apprehension","pensiveness"],"#231c30","#c1a97a"],
+["pop-art","Pop Art",["joy","amazement","contempt"],"#f9df34","#e6342e"],
+["ukiyo-e","Ukiyo-e",["serenity","interest","pensiveness"],"#e4d0ae","#326d8b"],
+["grunge-design","Grunge Design",["loathing","annoyance","pensiveness"],"#a39b7f","#282d24"],
+["abstract-expressionism","Abstract Expressionism",["rage","grief","overwhelm"],"#e0c7a7","#af282d"],
+["futurism","Futurism",["anticipation","ecstasy","aggressiveness"],"#161b21","#f04a2b"],
+["bauhaus","Bauhaus",["anticipation","trust","interest"],"#f3eddf","#2351be"],
+["psychedelia","Psychedelia",["amazement","ecstasy","distraction"],"#ef4ba8","#f5df31"],
+["y2k","Y2K",["anticipation","amazement","interest"],"#d0e4ee","#399ac8"],
+["zine-diy","Zine / DIY",["interest","annoyance","acceptance"],"#e4e0d5","#24212a"],
+["maximalism","Maximalism",["ecstasy","overwhelm","amazement"],"#e83464","#fed13a"],
+["situationism","Situationism",["contempt","interest","aggressiveness"],"#efeee9","#cf321e"],
+["rococo","Rococo",["admiration","joy","serenity"],"#f2cddf","#ba8e47"],
+["mexican-muralism","Mexican Muralism / Rasquache",["admiration","aggressiveness","interest"],"#dd6837","#254f54"]
+];
+// All 30 families, distributed so each round contrasts different expressive approaches.
+const rounds=[families.slice(0,10),families.slice(10,20),families.slice(20,30)];
+let round=0;const selected=[null,null,null],grid=document.getElementById("grid");
+function fragment(item,index){
+const [id,name,emotions,bg,ink]=item;
+const variants=[
+'<circle cx="96" cy="98" r="66" fill="none" stroke="'+ink+'" stroke-width="21"/><path d="M20 180 Q95 -30 172 180" stroke="'+ink+'" stroke-width="8" fill="none"/>',
+'<path d="M17 25 H165 V69 H66 V169 H17Z" fill="'+ink+'"/><rect x="97" y="99" width="78" height="78" fill="none" stroke="#eee" stroke-width="8"/>',
+'<circle cx="86" cy="101" r="57" fill="'+ink+'"/><path d="M48 117 Q100 15 150 115 Q101 171 48 117" fill="'+bg+'" stroke="#eee" stroke-width="5"/>',
+'<path d="M22 30 L167 167 M167 26 L24 162" stroke="'+ink+'" stroke-width="25"/><path d="M12 107 H183" stroke="#eee" stroke-width="7" stroke-dasharray="22 11"/>',
+'<circle cx="66" cy="65" r="45" fill="'+ink+'"/><path d="M100 20 H172 V99 H100Z" fill="#171717"/><path d="M95 176 L145 95 L180 176Z" fill="#f7f0d4"/>',
+'<path d="M0 170 L190 60 M0 130 L190 20 M0 90 L190 -20" stroke="'+ink+'" stroke-width="8"/><circle cx="100" cy="102" r="46" fill="none" stroke="#f0e4f0" stroke-width="4"/>',
+'<path d="M95 22 L175 162 H15Z" fill="none" stroke="'+ink+'" stroke-width="10"/><path d="M30 168 H160 V135 H45 V108 H146" fill="none" stroke="'+ink+'" stroke-width="10"/>',
+'<text x="12" y="111" font-size="78" font-family="Impact,Arial Black" font-weight="900" transform="rotate(-12 95 98)" fill="'+ink+'">NO?</text><rect x="28" y="128" width="145" height="18" fill="#161616" transform="rotate(11 95 130)"/>',
+'<circle cx="128" cy="57" r="10" fill="'+ink+'"/><path d="M20 125 H171" stroke="'+ink+'" stroke-width="2"/>',
+'<path d="M22 170 L97 17 L170 170Z" fill="none" stroke="'+ink+'" stroke-width="10"/><circle cx="96" cy="109" r="24" fill="#ee7b31"/>'
+];
+const variation=variants[index%10];
+const ornament=index%4===0?'<path d="M0 193 H190" stroke="#101010" stroke-width="12"/>':index%4===1?'<circle cx="172" cy="26" r="17" fill="#f4eee5"/>':index%4===2?'<path d="M7 7 L60 7" stroke="#111" stroke-width="9"/>':'<path d="M8 177 H183" stroke="#f7ede3" stroke-width="7" stroke-dasharray="7 10"/>';
+return '<svg viewBox="0 0 190 190" preserveAspectRatio="xMidYMid meet" aria-hidden="true">'+variation+ornament+'</svg>';
+}
+function draw(){
+document.getElementById("stage").textContent="ROUND "+(round+1)+" OF 3";
+document.getElementById("progress").textContent=selected[round]?"1 fragment selected":"Choose one fragment";
+grid.replaceChildren();
+rounds[round].forEach((item,i)=>{
+const button=document.createElement("button");button.type="button";button.className="pick";button.style.setProperty("--tile",item[3]);
+button.setAttribute("aria-pressed",selected[round]===item[0]?"true":"false");
+button.setAttribute("aria-label","Visual fragment "+(i+1)+", "+(selected[round]===item[0]?"selected":"not selected"));
+button.innerHTML='<span class="art">'+fragment(item,round*10+i)+'</span><span class="caption">Fragment '+String(round*10+i+1).padStart(2,"0")+(selected[round]===item[0]?" ✓":"")+'</span>';
+button.addEventListener("click",()=>{selected[round]=item[0];draw()});grid.append(button);
+});
+document.getElementById("back").disabled=round===0;
+const next=document.getElementById("next");next.disabled=!selected[round];next.textContent=round===2?"See my constellation":"Next round";
+}
+function showResult(){
+document.getElementById("interview").hidden=true;document.getElementById("result").hidden=false;
+const chosen=selected.map(id=>families.find(x=>x[0]===id)),box=document.getElementById("chosen");box.replaceChildren();
+chosen.forEach((a,i)=>{const card=document.createElement("div");card.className="chosen";const title=document.createElement("h2"),tag=document.createElement("p");title.textContent=a[1];tag.textContent="Existing emotion tags: "+a[2].join(", ");card.append(document.createTextNode("PICK "+(i+1)),title,tag);box.append(card)});
+const manifest={schema:"pcp.visual-family-picks.v1",familyIds:[...selected],emotionTags:chosen.map(c=>({family:c[0],tags:c[2]})),note:"Aesthetic preferences only; not personality inference. Engine adapter pending."};
+document.getElementById("manifest").textContent=JSON.stringify(manifest,null,2);
+}
+document.getElementById("back").addEventListener("click",()=>{round=Math.max(0,round-1);draw()});
+document.getElementById("next").addEventListener("click",()=>{if(!selected[round])return;if(round<2){round++;draw()}else showResult()});
+document.getElementById("retry").addEventListener("click",()=>{round=0;selected.fill(null);document.getElementById("result").hidden=true;document.getElementById("interview").hidden=false;draw()});
+document.getElementById("copy").addEventListener("click",async()=>{const out=document.getElementById("copy-status");try{await navigator.clipboard.writeText(document.getElementById("manifest").textContent);out.textContent="Selection copied."}catch(e){out.textContent="Clipboard unavailable. Select and copy the text in the composition data section."}});
+draw();
+})();
+</script></body></html>
