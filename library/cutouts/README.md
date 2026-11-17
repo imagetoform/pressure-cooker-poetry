@@ -31,6 +31,15 @@ Emotion tags must be words on the emotion wheel (`library/catalog.json` vocabula
 
 **Don't run `harvest.py` and `promote.py` at the same time.** Saves are merge-safe now, but there's no reason to tempt it.
 
+## Outside deliveries (ChatGPT, Brandon's art, scans)
+
+```sh
+python3 tools/cutouts/ingest.py delivery.zip --source chatgpt     # or a folder; needs a cutouts.json sidecar
+python3 tools/cutouts/contact_sheet.py tmp/sheet.png punk          # look
+python3 tools/cutouts/promote.py decisions.json                    # {"id": ..., "keep": true} reuses the suggested tags
+```
+The ChatGPT brief is `docs/handoffs/CHATGPT_CUTOUT_BRIEF.md`. Sources: chatgpt, brandon, scan.
+
 ## Brandon's own images
 
 Put files in `library/cutouts/inbox/` with a note on where they came from. They go through the same look-and-tag step.

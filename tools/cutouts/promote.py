@@ -54,6 +54,10 @@ def main():
                 os.replace(os.path.join(REPO, c["file"]), os.path.join(REPO, new_file))
             c["provenance"]["refiled_from"] = c["family"]
             c["id"], c["family"], c["file"] = new_id, d["family"], new_file
+        sug = c.get("suggested") or {}
+        d.setdefault("emo", sug.get("emo")); d.setdefault("cats", sug.get("cats")); d.setdefault("notes", sug.get("notes", ""))
+        if not d.get("emo"):
+            raise SystemExit("%s: no emotion tags given or suggested" % d["id"])
         emo = [alias.get(e, e) for e in d["emo"]]
         bad = [e for e in emo if e not in vocab]
         if bad or not emo:

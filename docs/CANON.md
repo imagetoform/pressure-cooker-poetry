@@ -68,6 +68,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | D-19 | **Fresh start, no old visuals.** The AI atlas and the old collage landing are deleted. History lives only in git (tag `archive/pre-reset-2026-11-17`). Nothing from before today comes back as a visual unless Brandon names it. | 2026-11-17 |
 | D-20 | **Cutouts are real image files, never descriptions.** Each one = transparent PNG master + WebP web copy + a manifest record with source URL, creator, date and license. Sources: CC0 museum open access (Met, Cleveland), or Brandon's own / cleared work. Nothing reaches the site until someone has looked at it and tagged it on the emotion wheel. Workflow: `tools/cutouts/harvest.py` → `contact_sheet.py` → `promote.py` (see `library/cutouts/README.md`). | 2026-11-17 |
 | D-21 | Picker rooms use **only real library cutouts**. Each of the three picked families puts one of its own cutouts in first; the rest are wildcards chosen by emotion-wheel closeness from the whole library. | 2026-11-17 |
+| D-22 | **ChatGPT makes the first pass for the empty and thin families**, as original image files, using `docs/handoffs/CHATGPT_CUTOUT_BRIEF.md`. Deliveries come back through `tools/cutouts/ingest.py` and pass the same look-and-tag gate (D-20). Provenance marks each one as AI-generated for PCP. | 2026-11-17 |
 | D-16 | The GitHub repo `imagetoform/pressure-cooker-poetry` is the one home for site, database, kits and cutouts. | Nov 2026 |
 
 ---
@@ -86,7 +87,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 |---|---|---|
 | Q-01 | What is the new picker art? | Atlas deleted (D-19). Stand-in palette cards are live. Options: Brandon's own art, cleared cutouts per family, or a new generated set he art-directs first. Biggest visual lever on the front door. |
 | Q-02 | Should the seed box and raw JSON stay visible on the result screen? | The README's design law says seeds are hidden test machinery. They currently sit inside a collapsed "Your recipe receipt" panel. |
-| Q-07 | Where do the 16 families with no cutouts get their art? | Minimalism, Swiss, Brutalism, Punk, Zine/DIY, Situationism, Grunge, Cyberpunk, Vaporwave, Afrofuturism, Y2K, Maximalism, Pop Art, Memphis, Abstract Expressionism, Op Art. These are post-1930 and mostly still in copyright, so museums don't release them. Options: Brandon's own art, photos and pulp-magazine scans; original pieces made for the site; or public-domain material processed in the family's style (e.g. old newspaper photos photocopied for Punk). Thin families that need more: Art Deco, Dada, Constructivism, Geometric Abstraction. |
+| Q-07 | Where do the 16 families with no cutouts get their art? **First pass: ChatGPT (D-22).** Still open: whether Brandon's own art and scans join later. | Minimalism, Swiss, Brutalism, Punk, Zine/DIY, Situationism, Grunge, Cyberpunk, Vaporwave, Afrofuturism, Y2K, Maximalism, Pop Art, Memphis, Abstract Expressionism, Op Art. These are post-1930 and mostly still in copyright, so museums don't release them. Options: Brandon's own art, photos and pulp-magazine scans; original pieces made for the site; or public-domain material processed in the family's style (e.g. old newspaper photos photocopied for Punk). Thin families that need more: Art Deco, Dada, Constructivism, Geometric Abstraction. |
 | Q-04 | Rococo ground reads dark, not pastel. | From the 2026-11-05 logbook. |
 | Q-05 | Pressure gauge as the PRESSURIZE button + reveal? Post-Pressurize animation from cssauthor.com? | Both raised for the old cabinet flow. Do they carry over to the picker's "Cook my room"? |
 | Q-06 | Room intro copy: carry over "You walked in hungry… draw your own damn map"? | Approved earlier for the old landing. |
@@ -129,6 +130,7 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 
 ## Canon change log
 
+- **2026-11-17** — D-22: ChatGPT does the first pass on empty families; ingest tool + brief added.
 - **2026-11-17** — D-20, D-21: real cutout database (76 files) and how rooms use it; Q-07 added; old pipeline parked.
 - **2026-11-17** — D-18, D-19: room-by-room build with picks remembered per browser; fresh start. Atlas and collage deleted; Q-01 rewritten.
 - **2026-11-17** — D-17: dials, taste matrix and Heat/Order/Noise/Weight retired; picks go straight to the emotion wheel. D-05 and Q-03 closed.
