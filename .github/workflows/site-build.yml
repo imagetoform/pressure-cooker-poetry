@@ -17,3 +17,19 @@ jobs:
         run: python site/tools/build.py
       - name: Check committed deploy files
         run: git diff --exit-code -- site/dist
+      - name: Assemble the complete public site
+        run: python site/tools/assemble.py
+      - name: Install browser test runner
+        run: npm install --no-save playwright@1.62.1 && npx playwright install --with-deps chromium
+      - name: Test desktop and mobile flows
+        run: |
+          python -m http.server 8765 --directory site/public > /tmp/pcp-http.log 2>&1 &
+          node site/tests/visual-flow.cjs
+      - name: Upload review build and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-kitchen-review
+          path: |
+            site/public
+            shots
