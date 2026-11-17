@@ -35,7 +35,7 @@ def collect(repo_root, dist_dir):
     # Clear only generated PNGs so removed manifest entries leave no stale assets.
     if os.path.isdir(out_dir):
         for name in os.listdir(out_dir):
-            if name.endswith(".png"):
+            if name.endswith((".png", ".webp")):
                 os.unlink(os.path.join(out_dir, name))
     assets, per = [], {}
     for m in manifest:
@@ -43,8 +43,11 @@ def collect(repo_root, dist_dir):
         f = os.path.join(repo_root, m.get("file", ""))
         if not m.get("file") or not os.path.exists(f): continue
         os.makedirs(out_dir, exist_ok=True)
-        shutil.copyfile(f, os.path.join(out_dir, m["id"] + ".png"))
-        assets.append({"id": m["id"], "src": "assets/cutouts/%s.png" % m["id"], "fallback": m.get("fallback") or "torn",
+        # Prefer the light web copy made at promote time (tools/cutouts/web_copy.py); no image library needed here.
+        web = os.path.splitext(f)[0] + ".webp"
+        ext = ".webp" if os.path.exists(web) else ".png"
+        shutil.copyfile(web if ext == ".webp" else f, os.path.join(out_dir, m["id"] + ext))
+        assets.append({"id": m["id"], "src": "assets/cutouts/%s%s" % (m["id"], ext), "fallback": m.get("fallback") or "torn",
                        "label": m.get("label", m["id"]), "emo": m.get("emo", []), "cats": m.get("cats", []),
                        "family": m.get("family", ""), "library": True, "stats": {"e": .5, "c": .5, "i": .5, "x": .5}})
         per[m.get("family", "")] = per.get(m.get("family", ""), 0) + 1

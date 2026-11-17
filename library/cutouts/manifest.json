@@ -88,5 +88,2493 @@
    ],
    "when": "2026-11-05 05:36 UTC"
   }
+ },
+ {
+  "id": "ukiyo-e-met40011-album-of-sketches-by-katsush",
+  "src": "assets/cutouts/ukiyo-e-met40011-album-of-sketches-by-katsush.png",
+  "fallback": "torn",
+  "label": "Scholar and the figure at his feet (Hokusai school)",
+  "family": "ukiyo-e",
+  "emo": [
+   "pensiveness",
+   "admiration",
+   "apprehension"
+  ],
+  "cats": [
+   "memory",
+   "concept"
+  ],
+  "source": "Album of Sketches by Katsushika Hokusai and His Disciples, Katsushika Hokusai, 19th century. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/40011",
+  "notes": "Dignified robed figure, a body slumped at his feet: calm authority with something wrong underneath.",
+  "status": "kept",
+  "file": "library/families/ornament/ukiyo-e/cutouts/ukiyo-e-met40011-album-of-sketches-by-katsush.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 40011,
+   "query": "Hokusai",
+   "page_url": "https://www.metmuseum.org/art/collection/search/40011",
+   "image_url": "https://images.metmuseum.org/CRDImages/as/original/DP206812.jpg",
+   "creator": "Katsushika Hokusai",
+   "date": "19th century",
+   "medium": "Album of ninety-seven leaves; ink and color on paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.169,
+   "when": "2026-11-17 16:20 UTC"
+  }
+ },
+ {
+  "id": "ukiyo-e-met54435-still-life-double-cherry-blo",
+  "src": "assets/cutouts/ukiyo-e-met54435-still-life-double-cherry-blo.png",
+  "fallback": "torn",
+  "label": "Scroll case and cherry blossoms",
+  "family": "ukiyo-e",
+  "emo": [
+   "serenity",
+   "pensiveness",
+   "interest"
+  ],
+  "cats": [
+   "object",
+   "memory"
+  ],
+  "source": "Still Life: Double Cherry-Blossom Branch, Telescope, Sweet Fish, and Tissue Case, Katsushika Hokusai, ca. 1804–13. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/54435",
+  "notes": "Quiet still life, a closed scroll: contemplation and curiosity.",
+  "status": "kept",
+  "file": "library/families/ornament/ukiyo-e/cutouts/ukiyo-e-met54435-still-life-double-cherry-blo.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 54435,
+   "query": "Hokusai",
+   "page_url": "https://www.metmuseum.org/art/collection/search/54435",
+   "image_url": "https://images.metmuseum.org/CRDImages/as/original/DP143423.jpg",
+   "creator": "Katsushika Hokusai",
+   "date": "ca. 1804–13",
+   "medium": "Woodblock print (surimono); ink and color on paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.151,
+   "when": "2026-11-17 16:20 UTC"
+  }
+ },
+ {
+  "id": "ukiyo-e-met54433-mystical-bird-kary-binga",
+  "src": "assets/cutouts/ukiyo-e-met54433-mystical-bird-kary-binga.png",
+  "fallback": "torn",
+  "label": "Karyōbinga, the mystical bird",
+  "family": "ukiyo-e",
+  "emo": [
+   "awe",
+   "amazement",
+   "love"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Mystical Bird (Karyōbinga), Katsushika Hokusai, 1820–33. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/54433",
+  "notes": "Half-human celestial bird in flowing red and grey: wonder.",
+  "status": "kept",
+  "file": "library/families/ornament/ukiyo-e/cutouts/ukiyo-e-met54433-mystical-bird-kary-binga.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 54433,
+   "query": "Hokusai",
+   "page_url": "https://www.metmuseum.org/art/collection/search/54433",
+   "image_url": "https://images.metmuseum.org/CRDImages/as/original/DP143421.jpg",
+   "creator": "Katsushika Hokusai",
+   "date": "1820–33",
+   "medium": "Woodblock print (surimono); ink and color on paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.367,
+   "when": "2026-11-17 16:20 UTC"
+  }
+ },
+ {
+  "id": "ukiyo-e-met45816-gamecocks",
+  "src": "assets/cutouts/ukiyo-e-met45816-gamecocks.png",
+  "fallback": "torn",
+  "label": "Gamecocks",
+  "family": "ukiyo-e",
+  "emo": [
+   "aggressiveness",
+   "anger",
+   "vigilance"
+  ],
+  "cats": [
+   "absurdity",
+   "concept"
+  ],
+  "source": "Gamecocks, Katsushika Hokusai, dated 1838. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/45816",
+  "notes": "Two roosters squared off: pure fight.",
+  "status": "kept",
+  "file": "library/families/ornament/ukiyo-e/cutouts/ukiyo-e-met45816-gamecocks.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 45816,
+   "query": "Hokusai",
+   "page_url": "https://www.metmuseum.org/art/collection/search/45816",
+   "image_url": "https://images.metmuseum.org/CRDImages/as/original/DP279646.jpg",
+   "creator": "Katsushika Hokusai",
+   "date": "dated 1838",
+   "medium": "Hanging scroll; ink and color on silk",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.16,
+   "when": "2026-11-17 16:20 UTC"
+  }
+ },
+ {
+  "id": "ukiyo-e-met54305-rooster-hen-and-chicken-with",
+  "src": "assets/cutouts/ukiyo-e-met54305-rooster-hen-and-chicken-with.png",
+  "fallback": "torn",
+  "label": "Rooster, hen and chicken",
+  "family": "ukiyo-e",
+  "emo": [
+   "admiration",
+   "joy",
+   "vigilance"
+  ],
+  "cats": [
+   "food",
+   "object"
+  ],
+  "source": "Rooster, Hen and Chicken with Spiderwort, Katsushika Hokusai, ca. 1832. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/54305",
+  "notes": "Strutting red-combed rooster, full colour: pride and alertness.",
+  "status": "kept",
+  "file": "library/families/ornament/ukiyo-e/cutouts/ukiyo-e-met54305-rooster-hen-and-chicken-with.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 54305,
+   "query": "Hokusai",
+   "page_url": "https://www.metmuseum.org/art/collection/search/54305",
+   "image_url": "https://images.metmuseum.org/CRDImages/as/original/DP141265.jpg",
+   "creator": "Katsushika Hokusai",
+   "date": "ca. 1832",
+   "medium": "Woodblock print (nishiki-e)",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.395,
+   "when": "2026-11-17 16:20 UTC"
+  }
+ },
+ {
+  "id": "ukiyo-e-met37189-the-sumo-wrestlers-takaneyam",
+  "src": "assets/cutouts/ukiyo-e-met37189-the-sumo-wrestlers-takaneyam.png",
+  "fallback": "torn",
+  "label": "Sumo wrestlers grappling",
+  "family": "ukiyo-e",
+  "emo": [
+   "aggressiveness",
+   "anticipation",
+   "vigilance"
+  ],
+  "cats": [
+   "institution",
+   "absurdity"
+  ],
+  "source": "The Sumo Wrestlers Takaneyama Yoichiemon and Sendagawa Kichigorō, Katsushika Hokusai, ca. 1790–93. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/37189",
+  "notes": "Two bodies locked mid-struggle, faint ink line.",
+  "status": "kept",
+  "file": "library/families/ornament/ukiyo-e/cutouts/ukiyo-e-met37189-the-sumo-wrestlers-takaneyam.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 37189,
+   "query": "Hokusai",
+   "page_url": "https://www.metmuseum.org/art/collection/search/37189",
+   "image_url": "https://images.metmuseum.org/CRDImages/as/original/DP148842.jpg",
+   "creator": "Katsushika Hokusai",
+   "date": "ca. 1790–93",
+   "medium": "Woodblock print; ink and color on paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.068,
+   "when": "2026-11-17 16:20 UTC"
+  }
+ },
+ {
+  "id": "art-nouveau-met637486-poster-for-the-yellow-book-v",
+  "src": "assets/cutouts/art-nouveau-met637486-poster-for-the-yellow-book-v.png",
+  "fallback": "torn",
+  "label": "The Yellow Book poster (Beardsley)",
+  "family": "art-nouveau",
+  "emo": [
+   "interest",
+   "contempt",
+   "anticipation"
+  ],
+  "cats": [
+   "institution",
+   "concept"
+  ],
+  "source": "Poster for The Yellow Book, Volume IV, Aubrey Vincent Beardsley, January 1895. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/637486",
+  "notes": "Black silhouette, sly price tag: arch, knowing, a little sneering.",
+  "status": "kept",
+  "file": "library/families/ornament/art-nouveau/cutouts/art-nouveau-met637486-poster-for-the-yellow-book-v.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 637486,
+   "query": "Art Nouveau poster",
+   "page_url": "https://www.metmuseum.org/art/collection/search/637486",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP884635.jpg",
+   "creator": "Aubrey Vincent Beardsley",
+   "date": "January 1895",
+   "medium": "Lithograph and relief process",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.175,
+   "when": "2026-11-17 16:21 UTC"
+  }
+ },
+ {
+  "id": "art-nouveau-met821354-the-road-rights-of-wheelmen",
+  "src": "assets/cutouts/art-nouveau-met821354-the-road-rights-of-wheelmen.png",
+  "fallback": "torn",
+  "label": "The Road Rights of Wheelmen poster",
+  "family": "art-nouveau",
+  "emo": [
+   "optimism",
+   "anticipation",
+   "joy"
+  ],
+  "cats": [
+   "institution",
+   "concept"
+  ],
+  "source": "The Road Rights of Wheelmen, Callaghan and Company, Chicago, E. Nadall, 1895. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/821354",
+  "notes": "Woman on a bicycle among stylized stems: forward motion, new freedom.",
+  "status": "kept",
+  "file": "library/families/ornament/art-nouveau/cutouts/art-nouveau-met821354-the-road-rights-of-wheelmen.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 821354,
+   "query": "Art Nouveau poster",
+   "page_url": "https://www.metmuseum.org/art/collection/search/821354",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP-27887-001.jpg",
+   "creator": "E. Nadall",
+   "date": "1895",
+   "medium": "Lithograph",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.259,
+   "when": "2026-11-17 16:22 UTC"
+  }
+ },
+ {
+  "id": "art-nouveau-met392369-design-for-art-nouveau-loves",
+  "src": "assets/cutouts/art-nouveau-met392369-design-for-art-nouveau-loves.png",
+  "fallback": "torn",
+  "label": "Design for an Art Nouveau loveseat",
+  "family": "art-nouveau",
+  "emo": [
+   "serenity",
+   "love",
+   "boredom"
+  ],
+  "cats": [
+   "object",
+   "absurdity"
+  ],
+  "source": "Design for Art Nouveau Loveseat with Caning, Anonymous, French, 19th century, 19th century. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/392369",
+  "notes": "An empty pale loveseat: comfort waiting for nobody.",
+  "status": "kept",
+  "file": "library/families/ornament/art-nouveau/cutouts/art-nouveau-met392369-design-for-art-nouveau-loves.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 392369,
+   "query": "Art Nouveau poster",
+   "page_url": "https://www.metmuseum.org/art/collection/search/392369",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP812916.jpg",
+   "creator": "Anonymous, French, 19th century",
+   "date": "19th century",
+   "medium": "Watercolor over graphite with touches of gouache, framing lines in graphite",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.063,
+   "when": "2026-11-17 16:22 UTC"
+  }
+ },
+ {
+  "id": "art-nouveau-met343047-jewelry-design",
+  "src": "assets/cutouts/art-nouveau-met343047-jewelry-design.png",
+  "fallback": "torn",
+  "label": "Jewelry design with daisy",
+  "family": "art-nouveau",
+  "emo": [
+   "admiration",
+   "serenity"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Jewelry Design, Eugène-Samuel Grasset, n.d.. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/343047",
+  "notes": "Lilac whiplash curve with a daisy.",
+  "status": "kept",
+  "file": "library/families/ornament/art-nouveau/cutouts/art-nouveau-met343047-jewelry-design.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 343047,
+   "query": "Grasset",
+   "page_url": "https://www.metmuseum.org/art/collection/search/343047",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP806612.jpg",
+   "creator": "Eugène-Samuel Grasset",
+   "date": "n.d.",
+   "medium": "Purple, green and white gold watercolor",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.089,
+   "when": "2026-11-17 16:23 UTC"
+  }
+ },
+ {
+  "id": "art-nouveau-met344024-design-for-a-pendant",
+  "src": "assets/cutouts/art-nouveau-met344024-design-for-a-pendant.png",
+  "fallback": "torn",
+  "label": "Design for a pendant",
+  "family": "art-nouveau",
+  "emo": [
+   "love",
+   "awe",
+   "serenity"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Design for a Pendant, Eugène-Samuel Grasset, . The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/344024",
+  "notes": "Coral blossom, blue tendrils: ornament as tenderness.",
+  "status": "kept",
+  "file": "library/families/ornament/art-nouveau/cutouts/art-nouveau-met344024-design-for-a-pendant.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 344024,
+   "query": "Grasset",
+   "page_url": "https://www.metmuseum.org/art/collection/search/344024",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP806613.jpg",
+   "creator": "Eugène-Samuel Grasset",
+   "date": "",
+   "medium": "Gouache on dark gray paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.063,
+   "when": "2026-11-17 16:23 UTC"
+  }
+ },
+ {
+  "id": "art-nouveau-met633554-vitrioleuse-from-l-estampe-o",
+  "src": "assets/cutouts/art-nouveau-met633554-vitrioleuse-from-l-estampe-o.png",
+  "fallback": "torn",
+  "label": "Vitrioleuse (Grasset)",
+  "family": "art-nouveau",
+  "emo": [
+   "rage",
+   "vigilance",
+   "terror"
+  ],
+  "cats": [
+   "memory",
+   "concept"
+  ],
+  "source": "Vitrioleuse, from \"L'Estampe Originale\", Eugène-Samuel Grasset, 1894. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/633554",
+  "notes": "Red-haired woman, green face, about to throw acid: cold fury.",
+  "status": "kept",
+  "file": "library/families/ornament/art-nouveau/cutouts/art-nouveau-met633554-vitrioleuse-from-l-estampe-o.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 633554,
+   "query": "Grasset",
+   "page_url": "https://www.metmuseum.org/art/collection/search/633554",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP834484.jpg",
+   "creator": "Eugène-Samuel Grasset",
+   "date": "1894",
+   "medium": "Lithograph, hand-stenciled in five colors",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.429,
+   "when": "2026-11-17 16:23 UTC"
+  }
+ },
+ {
+  "id": "art-nouveau-met753518-the-murders-in-the-rue-morgu",
+  "src": "assets/cutouts/art-nouveau-met753518-the-murders-in-the-rue-morgu.png",
+  "fallback": "torn",
+  "label": "The Murders in the Rue Morgue (Beardsley)",
+  "family": "art-nouveau",
+  "emo": [
+   "terror",
+   "loathing",
+   "amazement"
+  ],
+  "cats": [
+   "memory",
+   "absurdity"
+  ],
+  "source": "The Murders in the Rue Morgue, for Edgar Allan Poe’s “Tales of Mystery and the Imagination,” Chicago, 1895–96, Aubrey Vincent Beardsley, 1894. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/753518",
+  "notes": "Ape seizing a woman, faint pen line: horror drawn elegantly.",
+  "status": "kept",
+  "file": "library/families/ornament/art-nouveau/cutouts/art-nouveau-met753518-the-murders-in-the-rue-morgu.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 753518,
+   "query": "Beardsley",
+   "page_url": "https://www.metmuseum.org/art/collection/search/753518",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP-21095-001.jpg",
+   "creator": "Aubrey Vincent Beardsley",
+   "date": "1894",
+   "medium": "Pen, brush and India ink over graphite",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.058,
+   "when": "2026-11-17 16:23 UTC"
+  }
+ },
+ {
+  "id": "rococo-met230684-rocaille-cartouche-with-flow",
+  "src": "assets/cutouts/rococo-met230684-rocaille-cartouche-with-flow.png",
+  "fallback": "torn",
+  "label": "Rocaille cartouche, flowers (tapestry fragment)",
+  "family": "rococo",
+  "emo": [
+   "serenity",
+   "acceptance",
+   "love"
+  ],
+  "cats": [
+   "memory",
+   "object"
+  ],
+  "source": "Rocaille cartouche with flowers, Beauvais, ca. 1735–50. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/230684",
+  "notes": "Frayed wool fragment, red flowers in a shell frame.",
+  "status": "kept",
+  "file": "library/families/excess/rococo/cutouts/rococo-met230684-rocaille-cartouche-with-flow.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 230684,
+   "query": "rocaille",
+   "page_url": "https://www.metmuseum.org/art/collection/search/230684",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/DP17315_07.225.47A3.jpg",
+   "creator": "Beauvais",
+   "date": "ca. 1735–50",
+   "medium": "Wool, silk (20-22 warps per inch, 8 per cm.)",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.613,
+   "when": "2026-11-17 16:22 UTC"
+  }
+ },
+ {
+  "id": "rococo-met238942-rocaille-cartouches-with-flo",
+  "src": "assets/cutouts/rococo-met238942-rocaille-cartouches-with-flo.png",
+  "fallback": "torn",
+  "label": "Grey rocaille cartouche",
+  "family": "rococo",
+  "emo": [
+   "boredom",
+   "pensiveness",
+   "admiration"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "source": "Rocaille cartouches with flowers, Pierre Edmé Babel, ca. 1735–50. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/238942",
+  "notes": "Ornate frame drained of colour: grandeur gone stale.",
+  "status": "kept",
+  "file": "library/families/excess/rococo/cutouts/rococo-met238942-rocaille-cartouches-with-flo.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 238942,
+   "query": "rocaille",
+   "page_url": "https://www.metmuseum.org/art/collection/search/238942",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/187491.jpg",
+   "creator": "Pierre Edmé Babel",
+   "date": "ca. 1735–50",
+   "medium": "Wool, silk (20-22 warps per inch, 8 per cm.)",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.748,
+   "when": "2026-11-17 16:22 UTC"
+  }
+ },
+ {
+  "id": "rococo-met230683-rocaille-cartouches-with-flo",
+  "src": "assets/cutouts/rococo-met230683-rocaille-cartouches-with-flo.png",
+  "fallback": "torn",
+  "label": "Rocaille landscape (tapestry fragment)",
+  "family": "rococo",
+  "emo": [
+   "distraction",
+   "serenity",
+   "joy"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "source": "Rocaille cartouches with flowers, Pierre Edmé Babel, ca. 1735–50. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/230683",
+  "notes": "Faded pastoral swirl, frayed edges.",
+  "status": "kept",
+  "file": "library/families/excess/rococo/cutouts/rococo-met230683-rocaille-cartouches-with-flo.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 230683,
+   "query": "rocaille",
+   "page_url": "https://www.metmuseum.org/art/collection/search/230683",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/DP274528.jpg",
+   "creator": "Pierre Edmé Babel",
+   "date": "ca. 1735–50",
+   "medium": "Wool, silk (20-22 warps per inch, 8 per cm.)",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.726,
+   "when": "2026-11-17 16:22 UTC"
+  }
+ },
+ {
+  "id": "rococo-met238941-rocaille-cartouches-with-flo",
+  "src": "assets/cutouts/rococo-met238941-rocaille-cartouches-with-flo.png",
+  "fallback": "torn",
+  "label": "Grey rocaille cartouche with fountain",
+  "family": "rococo",
+  "emo": [
+   "awe",
+   "boredom"
+  ],
+  "cats": [
+   "institution",
+   "concept"
+  ],
+  "source": "Rocaille cartouches with flowers, Pierre Edmé Babel, ca. 1735–50. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/238941",
+  "notes": "Heavy ornament, a frame around nothing.",
+  "status": "kept",
+  "file": "library/families/excess/rococo/cutouts/rococo-met238941-rocaille-cartouches-with-flo.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 238941,
+   "query": "rocaille",
+   "page_url": "https://www.metmuseum.org/art/collection/search/238941",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/187489.jpg",
+   "creator": "Pierre Edmé Babel",
+   "date": "ca. 1735–50",
+   "medium": "Wool, silk (20-22 warps per inch, 8 per cm.)",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.565,
+   "when": "2026-11-17 16:23 UTC"
+  }
+ },
+ {
+  "id": "rococo-met206617-pair-of-candlesticks",
+  "src": "assets/cutouts/rococo-met206617-pair-of-candlesticks.png",
+  "fallback": "torn",
+  "label": "Pair of gilt candlesticks",
+  "family": "rococo",
+  "emo": [
+   "contempt",
+   "admiration",
+   "ecstasy"
+  ],
+  "cats": [
+   "object",
+   "institution"
+  ],
+  "source": "Pair of candlesticks, Juste Aurèle Meissonnier, 1735–50. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/206617",
+  "notes": "Twin gold excess: aristocratic flex, ripe for satire.",
+  "status": "kept",
+  "file": "library/families/excess/rococo/cutouts/rococo-met206617-pair-of-candlesticks.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 206617,
+   "query": "Meissonnier",
+   "page_url": "https://www.metmuseum.org/art/collection/search/206617",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/DP109188.jpg",
+   "creator": "Juste Aurèle Meissonnier",
+   "date": "1735–50",
+   "medium": "Gilt bronze",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.186,
+   "when": "2026-11-17 16:23 UTC"
+  }
+ },
+ {
+  "id": "rococo-met205778-pair-of-candlesticks",
+  "src": "assets/cutouts/rococo-met205778-pair-of-candlesticks.png",
+  "fallback": "torn",
+  "label": "Gilt candlestick with cherubs",
+  "family": "rococo",
+  "emo": [
+   "ecstasy",
+   "love",
+   "distraction"
+  ],
+  "cats": [
+   "object",
+   "absurdity"
+  ],
+  "source": "Pair of candlesticks, Juste Aurèle Meissonnier, ca. 1745. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/205778",
+  "notes": "Golden babies hugging a candle: absurd luxury.",
+  "status": "kept",
+  "file": "library/families/excess/rococo/cutouts/rococo-met205778-pair-of-candlesticks.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 205778,
+   "query": "Meissonnier",
+   "page_url": "https://www.metmuseum.org/art/collection/search/205778",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/DP109196.jpg",
+   "creator": "Juste Aurèle Meissonnier",
+   "date": "ca. 1745",
+   "medium": "Gilt bronze",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.185,
+   "when": "2026-11-17 16:24 UTC"
+  }
+ },
+ {
+  "id": "rococo-met428556-projet-d-une-grande-pendule",
+  "src": "assets/cutouts/rococo-met428556-projet-d-une-grande-pendule.png",
+  "fallback": "torn",
+  "label": "Design for a great clock",
+  "family": "rococo",
+  "emo": [
+   "anticipation",
+   "distraction"
+  ],
+  "cats": [
+   "object",
+   "concept"
+  ],
+  "source": "Projet d'une grande Pendule, from \"Oeuvre de Juste Aurèle Meissonnier\", Juste Aurèle Meissonnier, ca. 1742–48. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/428556",
+  "notes": "Clock smothered in ornament: time as decoration.",
+  "status": "kept",
+  "file": "library/families/excess/rococo/cutouts/rococo-met428556-projet-d-une-grande-pendule.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 428556,
+   "query": "Meissonnier",
+   "page_url": "https://www.metmuseum.org/art/collection/search/428556",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP830902.jpg",
+   "creator": "Juste Aurèle Meissonnier",
+   "date": "ca. 1742–48",
+   "medium": "Etching and engraving",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.313,
+   "when": "2026-11-17 16:24 UTC"
+  }
+ },
+ {
+  "id": "rococo-met377493-canap-execut-pour-mr-le-comt",
+  "src": "assets/cutouts/rococo-met377493-canap-execut-pour-mr-le-comt.png",
+  "fallback": "torn",
+  "label": "Canapé made for the Count",
+  "family": "rococo",
+  "emo": [
+   "boredom",
+   "contempt",
+   "serenity"
+  ],
+  "cats": [
+   "object",
+   "absurdity"
+  ],
+  "source": "Canapé executé pour Mr. le Comte de Bielenski, from \"Oeuvre de Juste Aurele Meissonnier\", Juste Aurèle Meissonnier, ca. 1742–48. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/377493",
+  "notes": "A count's sofa engraving: idle-rich furniture.",
+  "status": "kept",
+  "file": "library/families/excess/rococo/cutouts/rococo-met377493-canap-execut-pour-mr-le-comt.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 377493,
+   "query": "Meissonnier",
+   "page_url": "https://www.metmuseum.org/art/collection/search/377493",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP830899.jpg",
+   "creator": "Juste Aurèle Meissonnier",
+   "date": "ca. 1742–48",
+   "medium": "Etching and engraving",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.494,
+   "when": "2026-11-17 16:24 UTC"
+  }
+ },
+ {
+  "id": "gothic-revival-met208131-side-chair",
+  "src": "assets/cutouts/gothic-revival-met208131-side-chair.png",
+  "fallback": "torn",
+  "label": "Gothic Revival side chair, A-frame",
+  "family": "gothic-revival",
+  "emo": [
+   "submission",
+   "trust",
+   "pensiveness"
+  ],
+  "cats": [
+   "object",
+   "institution"
+  ],
+  "source": "Side chair, Edward Welby Pugin, 1870. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/208131",
+  "notes": "Church-pew severity in a chair: sit up straight.",
+  "status": "kept",
+  "file": "library/families/ornament/gothic-revival/cutouts/gothic-revival-met208131-side-chair.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 208131,
+   "query": "Pugin",
+   "page_url": "https://www.metmuseum.org/art/collection/search/208131",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/DP-14129-115.jpg",
+   "creator": "Edward Welby Pugin",
+   "date": "1870",
+   "medium": "Stained oak, ebony, brass",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.178,
+   "when": "2026-11-17 16:24 UTC"
+  }
+ },
+ {
+  "id": "gothic-revival-met784512-side-chair",
+  "src": "assets/cutouts/gothic-revival-met784512-side-chair.png",
+  "fallback": "torn",
+  "label": "Gothic Revival side chair, pierced trefoils",
+  "family": "gothic-revival",
+  "emo": [
+   "trust",
+   "boredom",
+   "acceptance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Side chair, Edward Welby Pugin, ca. 1870–80. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/784512",
+  "notes": "Sturdy, plain, holy holes.",
+  "status": "kept",
+  "file": "library/families/ornament/gothic-revival/cutouts/gothic-revival-met784512-side-chair.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 784512,
+   "query": "Pugin",
+   "page_url": "https://www.metmuseum.org/art/collection/search/784512",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/DP-18047-044.jpg",
+   "creator": "Edward Welby Pugin",
+   "date": "ca. 1870–80",
+   "medium": "Oak, horn",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.228,
+   "when": "2026-11-17 16:24 UTC"
+  }
+ },
+ {
+  "id": "gothic-revival-met363391-design-for-baptismal-font-se",
+  "src": "assets/cutouts/gothic-revival-met363391-design-for-baptismal-font-se.png",
+  "fallback": "torn",
+  "label": "Design for a holy-water font",
+  "family": "gothic-revival",
+  "emo": [
+   "awe",
+   "acceptance",
+   "admiration"
+  ],
+  "cats": [
+   "institution",
+   "concept"
+  ],
+  "source": "Design for baptismal font set between paired Purbeck marble columns, Auguste Charles Pugin, late 18th–early 19th century. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/363391",
+  "notes": "Pointed-arch niche: devotion as architecture.",
+  "status": "kept",
+  "file": "library/families/ornament/gothic-revival/cutouts/gothic-revival-met363391-design-for-baptismal-font-se.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 363391,
+   "query": "Pugin",
+   "page_url": "https://www.metmuseum.org/art/collection/search/363391",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP804873.jpg",
+   "creator": "Auguste Charles Pugin",
+   "date": "late 18th–early 19th century",
+   "medium": "Gray and orange-brown washes",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.243,
+   "when": "2026-11-17 16:24 UTC"
+  }
+ },
+ {
+  "id": "gothic-revival-met658724-tazza",
+  "src": "assets/cutouts/gothic-revival-met658724-tazza.png",
+  "fallback": "torn",
+  "label": "Painted Gothic Revival tazza",
+  "family": "gothic-revival",
+  "emo": [
+   "admiration",
+   "serenity",
+   "joy"
+  ],
+  "cats": [
+   "object",
+   "food"
+  ],
+  "source": "Tazza, Augustus Welby Northmore Pugin, ca. 1850. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/658724",
+  "notes": "Bright medieval-pattern dish.",
+  "status": "kept",
+  "file": "library/families/ornament/gothic-revival/cutouts/gothic-revival-met658724-tazza.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 658724,
+   "query": "Pugin",
+   "page_url": "https://www.metmuseum.org/art/collection/search/658724",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/DP-13486-058.jpg",
+   "creator": "Augustus Welby Northmore Pugin",
+   "date": "ca. 1850",
+   "medium": "Earthenware with transfer-printed decoration",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.228,
+   "when": "2026-11-17 16:24 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met752382-the-cross-decorated-with-ins",
+  "src": "assets/cutouts/mexican-muralism-met752382-the-cross-decorated-with-ins.png",
+  "fallback": "torn",
+  "label": "The Crucifixion (Posada broadside)",
+  "family": "mexican-muralism",
+  "emo": [
+   "grief",
+   "remorse",
+   "awe"
+  ],
+  "cats": [
+   "institution",
+   "memory"
+  ],
+  "source": "The cross decorated with instruments of the passion of Christ, two weeping angels below, José Guadalupe Posada, ca. 1900–13. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/752382",
+  "notes": "Dense black engraving, ladder and cross.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met752382-the-cross-decorated-with-ins.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 752382,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/752382",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP874530.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "ca. 1900–13",
+   "medium": "Zincograph (photomechanical reproduction?)",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.416,
+   "when": "2026-11-17 16:25 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met717669-broadsheet-with-extravagant",
+  "src": "assets/cutouts/mexican-muralism-met717669-broadsheet-with-extravagant.png",
+  "fallback": "torn",
+  "label": "Versos muy extravagantes (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "amazement",
+   "joy",
+   "distraction"
+  ],
+  "cats": [
+   "absurdity",
+   "memory"
+  ],
+  "source": "Broadsheet with extravagant verses relating to a parade of animals dressed in costume and a corrido about an encounter between various animals., José Guadalupe Posada, ca. 1895–1910. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/717669",
+  "notes": "Street-ballad sheet, figures dancing wildly.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met717669-broadsheet-with-extravagant.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 717669,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/717669",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP868033.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "ca. 1895–1910",
+   "medium": "Zincograph (and metal-type engraving?) and letterpress on pink paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.14,
+   "when": "2026-11-17 16:25 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met717664-broadsheet-relating-to-mothe",
+  "src": "assets/cutouts/mexican-muralism-met717664-broadsheet-relating-to-mothe.png",
+  "fallback": "torn",
+  "label": "Suegras, cuñados y yernos (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "annoyance",
+   "anger",
+   "joy"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "source": "Broadsheet relating to mothers-in-law, brothers-in-law and sons fighting, José Guadalupe Posada, ca. 1890–1896. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/717664",
+  "notes": "In-laws brawling in a ballad sheet: family farce.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met717664-broadsheet-relating-to-mothe.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 717664,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/717664",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP868032.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "ca. 1890–1896",
+   "medium": "Type-metal engraving and letterpress on pink paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.153,
+   "when": "2026-11-17 16:25 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met343353-the-great-pantheon-of-love",
+  "src": "assets/cutouts/mexican-muralism-met343353-the-great-pantheon-of-love.png",
+  "fallback": "torn",
+  "label": "El gran panteón amoroso (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "love",
+   "grief",
+   "amazement"
+  ],
+  "cats": [
+   "absurdity",
+   "memory"
+  ],
+  "source": "The great pantheon of love, José Guadalupe Posada, ca. 1910–15 (published). The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/343353",
+  "notes": "Calaveras courting in a grid: love among the dead.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met343353-the-great-pantheon-of-love.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 343353,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/343353",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP837223.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "ca. 1910–15 (published)",
+   "medium": "Type-metal engraving and letterpress on green paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.221,
+   "when": "2026-11-17 16:25 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met717860-broadsheet-relating-to-the-a",
+  "src": "assets/cutouts/mexican-muralism-met717860-broadsheet-relating-to-the-a.png",
+  "fallback": "torn",
+  "label": "El mosquito americano (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "contempt",
+   "disapproval",
+   "annoyance"
+  ],
+  "cats": [
+   "institution",
+   "absurdity"
+  ],
+  "source": "Broadsheet relating to the American Mosquito, José Guadalupe Posada, 1903. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/717860",
+  "notes": "Ballad mocking the American pest: punches up at the empire next door.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met717860-broadsheet-relating-to-the-a.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 717860,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/717860",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP867942.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "1903",
+   "medium": "Type-metal engraving and letterpress on tan paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.225,
+   "when": "2026-11-17 16:25 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met729590-the-horrific-skeleton-of-the",
+  "src": "assets/cutouts/mexican-muralism-met729590-the-horrific-skeleton-of-the.png",
+  "fallback": "torn",
+  "label": "La horrorosa calavera (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "terror",
+   "contempt",
+   "amazement"
+  ],
+  "cats": [
+   "absurdity",
+   "memory"
+  ],
+  "source": "The horrific skeleton of the flood of Guanajuato, José Guadalupe Posada, 1905. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/729590",
+  "notes": "Orange skull grinning over an eroded sheet; the erasure reads as decay.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met729590-the-horrific-skeleton-of-the.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 729590,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/729590",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP-35158-001.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "1905",
+   "medium": "Type-metal engraving and letterpress",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.246,
+   "when": "2026-11-17 16:25 UTC"
+  }
+ },
+ {
+  "id": "futurism-met485518-antigraceful",
+  "src": "assets/cutouts/futurism-met485518-antigraceful.png",
+  "fallback": "torn",
+  "label": "Antigraceful (Boccioni)",
+  "family": "futurism",
+  "emo": [
+   "aggressiveness",
+   "disapproval",
+   "amazement"
+  ],
+  "cats": [
+   "concept",
+   "memory"
+  ],
+  "source": "Antigraceful, Umberto Boccioni, 1913, cast 1950. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/485518",
+  "notes": "His mother's head torn into planes: ugliness as a weapon against prettiness.",
+  "status": "kept",
+  "file": "library/families/future/futurism/cutouts/futurism-met485518-antigraceful.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 485518,
+   "query": "Boccioni",
+   "page_url": "https://www.metmuseum.org/art/collection/search/485518",
+   "image_url": "https://images.metmuseum.org/CRDImages/ma/original/DT1322.jpg",
+   "creator": "Umberto Boccioni",
+   "date": "1913, cast 1950",
+   "medium": "Bronze",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.535,
+   "when": "2026-11-17 16:28 UTC"
+  }
+ },
+ {
+  "id": "futurism-met485529-development-of-a-bottle-in-s",
+  "src": "assets/cutouts/futurism-met485529-development-of-a-bottle-in-s.png",
+  "fallback": "torn",
+  "label": "Development of a Bottle in Space (Boccioni)",
+  "family": "futurism",
+  "emo": [
+   "anticipation",
+   "interest",
+   "amazement"
+  ],
+  "cats": [
+   "object",
+   "food"
+  ],
+  "source": "Development of a Bottle in Space, Umberto Boccioni, 1913, cast 1950. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/485529",
+  "notes": "An ordinary bottle exploding into motion.",
+  "status": "kept",
+  "file": "library/families/future/futurism/cutouts/futurism-met485529-development-of-a-bottle-in-s.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 485529,
+   "query": "Boccioni",
+   "page_url": "https://www.metmuseum.org/art/collection/search/485529",
+   "image_url": "https://images.metmuseum.org/CRDImages/ma/original/DT6410.jpg",
+   "creator": "Umberto Boccioni",
+   "date": "1913, cast 1950",
+   "medium": "Bronze",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.261,
+   "when": "2026-11-17 16:28 UTC"
+  }
+ },
+ {
+  "id": "futurism-met485540-unique-forms-of-continuity-i",
+  "src": "assets/cutouts/futurism-met485540-unique-forms-of-continuity-i.png",
+  "fallback": "torn",
+  "label": "Unique Forms of Continuity in Space (Boccioni)",
+  "family": "futurism",
+  "emo": [
+   "vigilance",
+   "aggressiveness",
+   "admiration"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Unique Forms of Continuity in Space, Umberto Boccioni, 1913, cast 1950. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/485540",
+  "notes": "Striding bronze body made of speed. Futurism's machine worship, worth showing critically.",
+  "status": "kept",
+  "file": "library/families/future/futurism/cutouts/futurism-met485540-unique-forms-of-continuity-i.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 485540,
+   "query": "Boccioni",
+   "page_url": "https://www.metmuseum.org/art/collection/search/485540",
+   "image_url": "https://images.metmuseum.org/CRDImages/ma/original/DT6411.jpg",
+   "creator": "Umberto Boccioni",
+   "date": "1913, cast 1950",
+   "medium": "Bronze",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.22,
+   "when": "2026-11-17 16:28 UTC"
+  }
+ },
+ {
+  "id": "futurism-met485519-woman-leaning-on-a-chair-the",
+  "src": "assets/cutouts/futurism-met485519-woman-leaning-on-a-chair-the.png",
+  "fallback": "torn",
+  "label": "Woman leaning on a chair (Boccioni)",
+  "family": "futurism",
+  "emo": [
+   "pensiveness",
+   "boredom"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "source": "Woman Leaning on a Chair (The Artist's Sister), Umberto Boccioni, ca. 1909. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/485519",
+  "notes": "Loose pencil, a slumped figure.",
+  "status": "kept",
+  "file": "library/families/future/futurism/cutouts/futurism-met485519-woman-leaning-on-a-chair-the.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 485519,
+   "query": "Boccioni",
+   "page_url": "https://www.metmuseum.org/art/collection/search/485519",
+   "image_url": "https://images.metmuseum.org/CRDImages/ma/original/LC-1990_38_10_overall_20250109_005.jpg",
+   "creator": "Umberto Boccioni",
+   "date": "ca. 1909",
+   "medium": "Graphite on paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.163,
+   "when": "2026-11-17 16:28 UTC"
+  }
+ },
+ {
+  "id": "futurism-met485524-study-for-the-dream-paolo-an",
+  "src": "assets/cutouts/futurism-met485524-study-for-the-dream-paolo-an.png",
+  "fallback": "torn",
+  "label": "Study for The Dream (Boccioni)",
+  "family": "futurism",
+  "emo": [
+   "pensiveness",
+   "love",
+   "distraction"
+  ],
+  "cats": [
+   "memory",
+   "concept"
+  ],
+  "source": "Study for \"The Dream – Paolo and Francesca\", Umberto Boccioni, 1910. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/485524",
+  "notes": "A head drifting in streaming lines.",
+  "status": "kept",
+  "file": "library/families/future/futurism/cutouts/futurism-met485524-study-for-the-dream-paolo-an.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 485524,
+   "query": "Boccioni",
+   "page_url": "https://www.metmuseum.org/art/collection/search/485524",
+   "image_url": "https://images.metmuseum.org/CRDImages/ma/original/LC-1990_38_15_overall_20250110_004.jpg",
+   "creator": "Umberto Boccioni",
+   "date": "1910",
+   "medium": "Graphite, charcoal, colored pencil, and wash on paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.148,
+   "when": "2026-11-17 16:28 UTC"
+  }
+ },
+ {
+  "id": "futurism-met485525-three-horses-tended-by-men-s",
+  "src": "assets/cutouts/futurism-met485525-three-horses-tended-by-men-s.png",
+  "fallback": "torn",
+  "label": "Three horses tended by men (Boccioni)",
+  "family": "futurism",
+  "emo": [
+   "anticipation",
+   "aggressiveness",
+   "trust"
+  ],
+  "cats": [
+   "concept",
+   "memory"
+  ],
+  "source": "Three Horses Tended by Men; Stone Pavement (recto); Horses and Figures in a Landscape (verso), Umberto Boccioni, 1910. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/485525",
+  "notes": "Solid black horses, small working men: labour and force.",
+  "status": "kept",
+  "file": "library/families/future/futurism/cutouts/futurism-met485525-three-horses-tended-by-men-s.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 485525,
+   "query": "Boccioni",
+   "page_url": "https://www.metmuseum.org/art/collection/search/485525",
+   "image_url": "https://images.metmuseum.org/CRDImages/ma/original/DP-1562-001.jpg",
+   "creator": "Umberto Boccioni",
+   "date": "1910",
+   "medium": "Pen and brush and black ink on paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.263,
+   "when": "2026-11-17 16:28 UTC"
+  }
+ },
+ {
+  "id": "futurism-met500417-horse",
+  "src": "assets/cutouts/futurism-met500417-horse.png",
+  "fallback": "torn",
+  "label": "The Horse (Duchamp-Villon)",
+  "family": "futurism",
+  "emo": [
+   "vigilance",
+   "aggressiveness",
+   "awe"
+  ],
+  "cats": [
+   "object",
+   "concept"
+  ],
+  "source": "Horse, Raymond Duchamp-Villon, 1914; probably cast 1921. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/500417",
+  "notes": "Horse turned into pistons. Re-filed from dada: it is machine-age cubism, not Dada.",
+  "status": "kept",
+  "file": "library/families/future/futurism/cutouts/futurism-met500417-horse.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 500417,
+   "query": "Duchamp",
+   "page_url": "https://www.metmuseum.org/art/collection/search/500417",
+   "image_url": "https://images.metmuseum.org/CRDImages/ma/original/DP-14116-001.jpg",
+   "creator": "Raymond Duchamp-Villon",
+   "date": "1914; probably cast 1921",
+   "medium": "Bronze",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.327,
+   "when": "2026-11-17 16:34 UTC",
+   "refiled_from": "dada"
+  }
+ },
+ {
+  "id": "dada-met489689-study-for-the-well",
+  "src": "assets/cutouts/dada-met489689-study-for-the-well.png",
+  "fallback": "torn",
+  "label": "Study for The Well",
+  "family": "dada",
+  "emo": [
+   "interest",
+   "distraction",
+   "disapproval"
+  ],
+  "cats": [
+   "object",
+   "absurdity"
+  ],
+  "source": "Study for \"The Well\", Morton Schamberg, ca. 1916. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/489689",
+  "notes": "A deadpan machine drawing: a pump treated like a portrait.",
+  "status": "kept",
+  "file": "library/families/revolt/dada/cutouts/dada-met489689-study-for-the-well.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 489689,
+   "query": "Dada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/489689",
+   "image_url": "https://images.metmuseum.org/CRDImages/ma/original/LC-68_115_1_overall_20241118_005.jpg",
+   "creator": "Morton Schamberg",
+   "date": "ca. 1916",
+   "medium": "Graphite on paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.139,
+   "when": "2026-11-17 16:36 UTC"
+  }
+ },
+ {
+  "id": "surrealism-met199843-chess-table",
+  "src": "assets/cutouts/surrealism-met199843-chess-table.png",
+  "fallback": "torn",
+  "label": "Chess pieces, uncanny",
+  "family": "surrealism",
+  "emo": [
+   "distraction",
+   "amazement",
+   "vigilance"
+  ],
+  "cats": [
+   "object",
+   "absurdity"
+  ],
+  "source": "Chess table, Michel Grandville, ca. 1870–80. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/199843",
+  "notes": "Glass-and-silver chessmen like a dream city.",
+  "status": "kept",
+  "file": "library/families/abstract/surrealism/cutouts/surrealism-met199843-chess-table.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 199843,
+   "query": "Grandville",
+   "page_url": "https://www.metmuseum.org/art/collection/search/199843",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/187654.jpg",
+   "creator": "Michel Grandville",
+   "date": "ca. 1870–80",
+   "medium": "Wood",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.133,
+   "when": "2026-11-17 16:36 UTC"
+  }
+ },
+ {
+  "id": "surrealism-met821366-mister-vulture",
+  "src": "assets/cutouts/surrealism-met821366-mister-vulture.png",
+  "fallback": "torn",
+  "label": "Mister Vulture",
+  "family": "surrealism",
+  "emo": [
+   "contempt",
+   "disgust",
+   "amazement"
+  ],
+  "cats": [
+   "institution",
+   "absurdity"
+  ],
+  "source": "Mister Vulture, J. J. Grandville, 1840. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/821366",
+  "notes": "A vulture in a top hat and waistcoat: the creditor, the landlord. Satire pointed up.",
+  "status": "kept",
+  "file": "library/families/abstract/surrealism/cutouts/surrealism-met821366-mister-vulture.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 821366,
+   "query": "Grandville",
+   "page_url": "https://www.metmuseum.org/art/collection/search/821366",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP886765.jpg",
+   "creator": "J. J. Grandville",
+   "date": "1840",
+   "medium": "Pen and ink",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.134,
+   "when": "2026-11-17 16:36 UTC"
+  }
+ },
+ {
+  "id": "surrealism-met359145-zing-zing-boom-boom-boom-the",
+  "src": "assets/cutouts/surrealism-met359145-zing-zing-boom-boom-boom-the.png",
+  "fallback": "torn",
+  "label": "Zing Zing Boom Boom Boom",
+  "family": "surrealism",
+  "emo": [
+   "ecstasy",
+   "annoyance",
+   "distraction"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "source": "Zing! Zing! Boom Boom Boom!!! The Show of the Grrrreat Political Tumblers, from \"L'Association Mensuelle no. 13\", J. J. Grandville, August 1833. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/359145",
+  "notes": "Packed bandstand engraving: noise as spectacle.",
+  "status": "kept",
+  "file": "library/families/abstract/surrealism/cutouts/surrealism-met359145-zing-zing-boom-boom-boom-the.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 359145,
+   "query": "Grandville",
+   "page_url": "https://www.metmuseum.org/art/collection/search/359145",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP858621.jpg",
+   "creator": "J. J. Grandville",
+   "date": "August 1833",
+   "medium": "Lithograph",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.177,
+   "when": "2026-11-17 16:36 UTC"
+  }
+ },
+ {
+  "id": "surrealism-met376111-man-in-a-nightshirt-reaching",
+  "src": "assets/cutouts/surrealism-met376111-man-in-a-nightshirt-reaching.png",
+  "fallback": "torn",
+  "label": "Man in a nightshirt reaching",
+  "family": "surrealism",
+  "emo": [
+   "apprehension",
+   "distraction",
+   "boredom"
+  ],
+  "cats": [
+   "absurdity",
+   "memory"
+  ],
+  "source": "Man in a Nightshirt Reaching for a Bottle Labeled \"Fountain of Youth\", J. J. Grandville, 1803–47. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/376111",
+  "notes": "Gaunt sleepwalker groping toward nothing.",
+  "status": "kept",
+  "file": "library/families/abstract/surrealism/cutouts/surrealism-met376111-man-in-a-nightshirt-reaching.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 376111,
+   "query": "Grandville",
+   "page_url": "https://www.metmuseum.org/art/collection/search/376111",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP800664.jpg",
+   "creator": "J. J. Grandville",
+   "date": "1803–47",
+   "medium": "Pen and brown ink on wove paper, laid down on brown wove paper",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.163,
+   "when": "2026-11-17 16:37 UTC"
+  }
+ },
+ {
+  "id": "surrealism-met384235-illustration-in-j-r-me-patur",
+  "src": "assets/cutouts/surrealism-met384235-illustration-in-j-r-me-patur.png",
+  "fallback": "torn",
+  "label": "Embrace (pencil illustration)",
+  "family": "surrealism",
+  "emo": [
+   "love",
+   "sadness"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "source": "Illustration in Jérôme Paturot, by Louis Reybaud, Paris, 1846, J. J. Grandville, ca. 1846. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/384235",
+  "notes": "Two figures clinging, sketched loosely.",
+  "status": "kept",
+  "file": "library/families/abstract/surrealism/cutouts/surrealism-met384235-illustration-in-j-r-me-patur.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 384235,
+   "query": "Grandville",
+   "page_url": "https://www.metmuseum.org/art/collection/search/384235",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP806615.jpg",
+   "creator": "J. J. Grandville",
+   "date": "ca. 1846",
+   "medium": "Pen and brown ink, brush and gray wash, white heightening over graphite.",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.178,
+   "when": "2026-11-17 16:37 UTC"
+  }
+ },
+ {
+  "id": "geometric-abstraction-met753996-design-for-a-geometric-patte",
+  "src": "assets/cutouts/geometric-abstraction-met753996-design-for-a-geometric-patte.png",
+  "fallback": "torn",
+  "label": "Design for a geometric pattern",
+  "family": "geometric-abstraction",
+  "emo": [
+   "interest",
+   "anticipation",
+   "trust"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Design for a Geometric Pattern (likely for textile), Liubov Popova, 1923–24. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/753996",
+  "notes": "Red and black triangles marching on a grid. Re-filed: geometric pattern, not Constructivism.",
+  "status": "kept",
+  "file": "library/families/abstract/geometric-abstraction/cutouts/geometric-abstraction-met753996-design-for-a-geometric-patte.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 753996,
+   "query": "Popova",
+   "page_url": "https://www.metmuseum.org/art/collection/search/753996",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP-21157-001.jpg",
+   "creator": "Liubov Popova",
+   "date": "1923–24",
+   "medium": "Watercolor and gouache, pen and ink over a graphite underdrawing",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.206,
+   "when": "2026-11-17 16:39 UTC",
+   "refiled_from": "constructivism"
+  }
+ },
+ {
+  "id": "psychedelia-met230019-italian",
+  "src": "assets/cutouts/psychedelia-met230019-italian.png",
+  "fallback": "torn",
+  "label": "Italian silk, flame-lily repeat",
+  "family": "psychedelia",
+  "emo": [
+   "serenity",
+   "boredom",
+   "joy"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Italian, Owen Jones, ca. 1873. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/230019",
+  "notes": "Endless gold repeat. Pattern as hypnosis (proto-psychedelic).",
+  "status": "kept",
+  "file": "library/families/ornament/psychedelia/cutouts/psychedelia-met230019-italian.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 230019,
+   "query": "Owen Jones",
+   "page_url": "https://www.metmuseum.org/art/collection/search/230019",
+   "image_url": "https://images.metmuseum.org/CRDImages/es/original/DT4625.jpg",
+   "creator": "Owen Jones",
+   "date": "ca. 1873",
+   "medium": "Silk",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.446,
+   "when": "2026-11-17 16:39 UTC"
+  }
+ },
+ {
+  "id": "psychedelia-met891632-nineveh-and-persia-no-2-plat",
+  "src": "assets/cutouts/psychedelia-met891632-nineveh-and-persia-no-2-plat.png",
+  "fallback": "torn",
+  "label": "Nineveh and Persia plate (Owen Jones)",
+  "family": "psychedelia",
+  "emo": [
+   "interest",
+   "awe",
+   "distraction"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Nineveh and Persia No. 2, plate XIII from The Grammar of Ornament, 3rd edn., Owen Jones, 1868. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/891632",
+  "notes": "Rosette grid from The Grammar of Ornament: Victorian source of 1960s poster ornament.",
+  "status": "kept",
+  "file": "library/families/ornament/psychedelia/cutouts/psychedelia-met891632-nineveh-and-persia-no-2-plat.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 891632,
+   "query": "Owen Jones",
+   "page_url": "https://www.metmuseum.org/art/collection/search/891632",
+   "image_url": "https://images.metmuseum.org/CRDImages/an/original/DP-33327-001.jpg",
+   "creator": "Owen Jones",
+   "date": "1868",
+   "medium": "Color lithographs",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.249,
+   "when": "2026-11-17 16:39 UTC"
+  }
+ },
+ {
+  "id": "psychedelia-met700091-the-grammar-of-ornament",
+  "src": "assets/cutouts/psychedelia-met700091-the-grammar-of-ornament.png",
+  "fallback": "torn",
+  "label": "The Grammar of Ornament, title page",
+  "family": "psychedelia",
+  "emo": [
+   "awe",
+   "admiration",
+   "amazement"
+  ],
+  "cats": [
+   "institution",
+   "concept"
+  ],
+  "source": "The grammar of ornament, Owen Jones, 1868. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/700091",
+  "notes": "Lettering strangled by vines.",
+  "status": "kept",
+  "file": "library/families/ornament/psychedelia/cutouts/psychedelia-met700091-the-grammar-of-ornament.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 700091,
+   "query": "Owen Jones",
+   "page_url": "https://www.metmuseum.org/art/collection/search/700091",
+   "image_url": "https://images.metmuseum.org/CRDImages/li/original/NK1510__J7_1868_Q_001.jpg",
+   "creator": "Owen Jones",
+   "date": "1868",
+   "medium": "",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.326,
+   "when": "2026-11-17 16:39 UTC"
+  }
+ },
+ {
+  "id": "psychedelia-met739504-examples-of-chinese-ornament",
+  "src": "assets/cutouts/psychedelia-met739504-examples-of-chinese-ornament.png",
+  "fallback": "torn",
+  "label": "Examples of Chinese ornament (Owen Jones)",
+  "family": "psychedelia",
+  "emo": [
+   "interest",
+   "serenity",
+   "distraction"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Examples of Chinese ornament selected from objects in the South Kensington Museum and other collections, Owen Jones, 1867. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/739504",
+  "notes": "Stacked blue pattern bands.",
+  "status": "kept",
+  "file": "library/families/ornament/psychedelia/cutouts/psychedelia-met739504-examples-of-chinese-ornament.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 739504,
+   "query": "Owen Jones",
+   "page_url": "https://www.metmuseum.org/art/collection/search/739504",
+   "image_url": "https://images.metmuseum.org/CRDImages/li/original/DP-17496-003.jpg",
+   "creator": "Owen Jones",
+   "date": "1867",
+   "medium": "",
+   "license": "CC0 1.0 (The Met Open Access, isPublicDomain=true)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.294,
+   "when": "2026-11-17 16:39 UTC"
+  }
+ },
+ {
+  "id": "expressionism-cma140070-ink-mountain-landscape-with-fir",
+  "src": "assets/cutouts/expressionism-cma140070-ink-mountain-landscape-with-fir.png",
+  "fallback": "torn",
+  "label": "Mountain landscape with fir trees (Kirchner)",
+  "family": "expressionism",
+  "emo": [
+   "apprehension",
+   "awe",
+   "serenity"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "source": "Mountain Landscape with Fir Trees, Ernst Ludwig Kirchner (German, 1880–1938), 1918/19. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1963.86",
+  "notes": "Black woodcut firs, jagged and alive.",
+  "status": "kept",
+  "file": "library/families/abstract/expressionism/cutouts/expressionism-cma140070-ink-mountain-landscape-with-fir.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 140070,
+   "query": "Kirchner",
+   "page_url": "https://clevelandart.org/art/1963.86",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1963.86/1963.86_print.jpg",
+   "creator": "Ernst Ludwig Kirchner (German, 1880–1938)",
+   "date": "1918/19",
+   "medium": "graphite and brush and black ink",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.378,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "expressionism-cma155952-ink-couple-in-room-nude-man-with",
+  "src": "assets/cutouts/expressionism-cma155952-ink-couple-in-room-nude-man-with.png",
+  "fallback": "torn",
+  "label": "Couple in a room (Kirchner)",
+  "family": "expressionism",
+  "emo": [
+   "love",
+   "apprehension",
+   "distraction"
+  ],
+  "cats": [
+   "memory",
+   "concept"
+  ],
+  "source": "Couple in Room, Nude Man with Woman, Ernst Ludwig Kirchner (German, 1880–1938), 1915–16. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1991.24",
+  "notes": "Two nude figures in nervous woodcut line: intimacy under strain.",
+  "status": "kept",
+  "file": "library/families/abstract/expressionism/cutouts/expressionism-cma155952-ink-couple-in-room-nude-man-with.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 155952,
+   "query": "Kirchner",
+   "page_url": "https://clevelandart.org/art/1991.24",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1991.24/1991.24_print.jpg",
+   "creator": "Ernst Ludwig Kirchner (German, 1880–1938)",
+   "date": "1915–16",
+   "medium": "Lithograph on yellow paper",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.354,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "expressionism-cma147653-ink-the-sea-near-staberhuk",
+  "src": "assets/cutouts/expressionism-cma147653-ink-the-sea-near-staberhuk.png",
+  "fallback": "torn",
+  "label": "The sea near Staberhuk (Heckel)",
+  "family": "expressionism",
+  "emo": [
+   "pensiveness",
+   "vigilance",
+   "serenity"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "source": "The Sea near Staberhuk, Ernst Ludwig Kirchner (German, 1880–1938), 1908. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1974.104",
+  "notes": "Boat on carved black water.",
+  "status": "kept",
+  "file": "library/families/abstract/expressionism/cutouts/expressionism-cma147653-ink-the-sea-near-staberhuk.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 147653,
+   "query": "Kirchner",
+   "page_url": "https://clevelandart.org/art/1974.104",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1974.104/1974.104_print.jpg",
+   "creator": "Ernst Ludwig Kirchner (German, 1880–1938)",
+   "date": "1908",
+   "medium": "lithograph",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.293,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "expressionism-cma147504-ink-dune-landscape-with-a-curvin",
+  "src": "assets/cutouts/expressionism-cma147504-ink-dune-landscape-with-a-curvin.png",
+  "fallback": "torn",
+  "label": "Dune landscape with a curving path",
+  "family": "expressionism",
+  "emo": [
+   "amazement",
+   "apprehension"
+  ],
+  "cats": [
+   "memory",
+   "concept"
+  ],
+  "source": "Dune Landscape with a Curving Bay, Ernst Ludwig Kirchner (German, 1880–1938), 1913. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1973.235",
+  "notes": "Landscape heaving like a body.",
+  "status": "kept",
+  "file": "library/families/abstract/expressionism/cutouts/expressionism-cma147504-ink-dune-landscape-with-a-curvin.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 147504,
+   "query": "Kirchner",
+   "page_url": "https://clevelandart.org/art/1973.235",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1973.235/1973.235_print.jpg",
+   "creator": "Ernst Ludwig Kirchner (German, 1880–1938)",
+   "date": "1913",
+   "medium": "woodcut",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.499,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "expressionism-cma138862-ink-woman-putting-on-her-shoes",
+  "src": "assets/cutouts/expressionism-cma138862-ink-woman-putting-on-her-shoes.png",
+  "fallback": "torn",
+  "label": "Woman putting on her shoes",
+  "family": "expressionism",
+  "emo": [
+   "boredom",
+   "interest",
+   "annoyance"
+  ],
+  "cats": [
+   "memory",
+   "object"
+  ],
+  "source": "Woman Putting on Her Shoes, Ernst Ludwig Kirchner (German, 1880–1938), 1912. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1963.236",
+  "notes": "Ordinary morning, carved in hard black.",
+  "status": "kept",
+  "file": "library/families/abstract/expressionism/cutouts/expressionism-cma138862-ink-woman-putting-on-her-shoes.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 138862,
+   "query": "Kirchner",
+   "page_url": "https://clevelandart.org/art/1963.236",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1963.236/1963.236_print.jpg",
+   "creator": "Ernst Ludwig Kirchner (German, 1880–1938)",
+   "date": "1912",
+   "medium": "woodcut",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.429,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "expressionism-cma138833-ink-on-the-street",
+  "src": "assets/cutouts/expressionism-cma138833-ink-on-the-street.png",
+  "fallback": "torn",
+  "label": "On the Street (Kirchner)",
+  "family": "expressionism",
+  "emo": [
+   "apprehension",
+   "distraction",
+   "loathing"
+  ],
+  "cats": [
+   "institution",
+   "memory"
+  ],
+  "source": "On the Street, Ernst Ludwig Kirchner (German, 1880–1938), c. 1914. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1963.213",
+  "notes": "Stiff, faceless city crowd: alienation.",
+  "status": "kept",
+  "file": "library/families/abstract/expressionism/cutouts/expressionism-cma138833-ink-on-the-street.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 138833,
+   "query": "Kirchner",
+   "page_url": "https://clevelandart.org/art/1963.213",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1963.213/1963.213_print.jpg",
+   "creator": "Ernst Ludwig Kirchner (German, 1880–1938)",
+   "date": "c. 1914",
+   "medium": "etching and aquatint",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.782,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "expressionism-cma133680-ink-wehrlin-facing-front",
+  "src": "assets/cutouts/expressionism-cma133680-ink-wehrlin-facing-front.png",
+  "fallback": "torn",
+  "label": "Wehrlin facing front (Heckel)",
+  "family": "expressionism",
+  "emo": [
+   "vigilance",
+   "pensiveness",
+   "sadness"
+  ],
+  "cats": [
+   "memory"
+  ],
+  "source": "Wehrlin, Facing front, Ernst Ludwig Kirchner (German, 1880–1938), 1924. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1956.297",
+  "notes": "A face cut out of wood, staring back.",
+  "status": "kept",
+  "file": "library/families/abstract/expressionism/cutouts/expressionism-cma133680-ink-wehrlin-facing-front.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 133680,
+   "query": "Kirchner",
+   "page_url": "https://clevelandart.org/art/1956.297",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1956.297/1956.297_print.jpg",
+   "creator": "Ernst Ludwig Kirchner (German, 1880–1938)",
+   "date": "1924",
+   "medium": "woodcut",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.484,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "expressionism-cma113310-ink-working-woman-with-blue-shaw",
+  "src": "assets/cutouts/expressionism-cma113310-ink-working-woman-with-blue-shaw.png",
+  "fallback": "torn",
+  "label": "Working Woman with Blue Shawl (Kollwitz)",
+  "family": "expressionism",
+  "emo": [
+   "sadness",
+   "trust",
+   "pensiveness"
+  ],
+  "cats": [
+   "institution",
+   "memory"
+  ],
+  "source": "Working Woman with Blue Shawl, Käthe Kollwitz (German, 1867–1945), 1903. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1932.320",
+  "notes": "A worker's tired face, drawn with respect, not pity.",
+  "status": "kept",
+  "file": "library/families/abstract/expressionism/cutouts/expressionism-cma113310-ink-working-woman-with-blue-shaw.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 113310,
+   "query": "Kollwitz",
+   "page_url": "https://clevelandart.org/art/1932.320",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1932.320/1932.320_print.jpg",
+   "creator": "Käthe Kollwitz (German, 1867–1945)",
+   "date": "1903",
+   "medium": "color lithograph",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.824,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "dada-cma138684-ink-little-dance",
+  "src": "assets/cutouts/dada-cma138684-ink-little-dance.png",
+  "fallback": "torn",
+  "label": "Little Dance (Schwitters collage)",
+  "family": "dada",
+  "emo": [
+   "joy",
+   "distraction",
+   "amazement"
+  ],
+  "cats": [
+   "absurdity"
+  ],
+  "source": "Little Dance, Kurt Schwitters (German, 1887–1948), 1920. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1963.1",
+  "notes": "Scraps of printed paper glued into motion.",
+  "status": "kept",
+  "file": "library/families/revolt/dada/cutouts/dada-cma138684-ink-little-dance.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 138684,
+   "query": "Schwitters",
+   "page_url": "https://clevelandart.org/art/1963.1",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1963.1/1963.1_print.jpg",
+   "creator": "Kurt Schwitters (German, 1887–1948)",
+   "date": "1920",
+   "medium": "collage",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.307,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "dada-cma159216-ink-merz-3-portfolio-plate-1",
+  "src": "assets/cutouts/dada-cma159216-ink-merz-3-portfolio-plate-1.png",
+  "fallback": "torn",
+  "label": "Merz 3, plate 1 (Schwitters)",
+  "family": "dada",
+  "emo": [
+   "distraction",
+   "interest",
+   "annoyance"
+  ],
+  "cats": [
+   "concept",
+   "absurdity"
+  ],
+  "source": "Merz 3 Portfolio:  Plate 1, Kurt Schwitters (German, 1887–1948), 1923. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1995.4",
+  "notes": "Stacked grey rectangles and stray letters: order falling apart.",
+  "status": "kept",
+  "file": "library/families/revolt/dada/cutouts/dada-cma159216-ink-merz-3-portfolio-plate-1.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 159216,
+   "query": "Schwitters",
+   "page_url": "https://clevelandart.org/art/1995.4",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1995.4/1995.4_print.jpg",
+   "creator": "Kurt Schwitters (German, 1887–1948)",
+   "date": "1923",
+   "medium": "lithograph",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.359,
+   "when": "2026-11-17 16:41 UTC"
+  }
+ },
+ {
+  "id": "art-deco-cma173164-muse-with-violin-screen",
+  "src": "assets/cutouts/art-deco-cma173164-muse-with-violin-screen.png",
+  "fallback": "torn",
+  "label": "Muse with violin, lacquer screen",
+  "family": "art-deco",
+  "emo": [
+   "admiration",
+   "serenity",
+   "love"
+  ],
+  "cats": [
+   "object",
+   "institution"
+  ],
+  "source": "Muse with Violin Screen, Paul Fehér (American, born Hungary, 1898–1990), 1930. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/2020.216",
+  "notes": "Gold figure in black-and-silver geometry: luxury streamlined.",
+  "status": "kept",
+  "file": "library/families/ornament/art-deco/cutouts/art-deco-cma173164-muse-with-violin-screen.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 173164,
+   "query": "Art Deco",
+   "page_url": "https://clevelandart.org/art/2020.216",
+   "image_url": "https://openaccess-cdn.clevelandart.org/2020.216/2020.216_print.jpg",
+   "creator": "Paul Fehér (American, born Hungary, 1898–1990)",
+   "date": "1930",
+   "medium": "Steel, brass; silver and gold plating, cotton velveteen",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.525,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "art-deco-cma109610-adam-and-eve",
+  "src": "assets/cutouts/art-deco-cma109610-adam-and-eve.png",
+  "fallback": "torn",
+  "label": "Adam and Eve figurines",
+  "family": "art-deco",
+  "emo": [
+   "love",
+   "apprehension",
+   "amazement"
+  ],
+  "cats": [
+   "concept",
+   "memory"
+  ],
+  "source": "Adam and Eve, Cowan Pottery Studio (America, Rocky River, Ohio, 1920–1931), 1928. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1928.235",
+  "notes": "Terracotta pair, the fall in Deco curves.",
+  "status": "kept",
+  "file": "library/families/ornament/art-deco/cutouts/art-deco-cma109610-adam-and-eve.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 109610,
+   "query": "Art Deco",
+   "page_url": "https://clevelandart.org/art/1928.235",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1928.235/1928.235_print.jpg",
+   "creator": "Cowan Pottery Studio (America, Rocky River, Ohio, 1920–1931)",
+   "date": "1928",
+   "medium": "glazed ceramic",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.214,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "bauhaus-cma156571-ink-god-of-war",
+  "src": "assets/cutouts/bauhaus-cma156571-ink-god-of-war.png",
+  "fallback": "torn",
+  "label": "God of War (Klee)",
+  "family": "bauhaus",
+  "emo": [
+   "rage",
+   "contempt",
+   "annoyance"
+  ],
+  "cats": [
+   "institution",
+   "concept"
+  ],
+  "source": "God of War, Paul Klee (German, 1879–1940), 1937. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1992.278",
+  "notes": "A childlike mask on red: war as an idiot idol.",
+  "status": "kept",
+  "file": "library/families/order/bauhaus/cutouts/bauhaus-cma156571-ink-god-of-war.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 156571,
+   "query": "Klee",
+   "page_url": "https://clevelandart.org/art/1992.278",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1992.278/1992.278_print.jpg",
+   "creator": "Paul Klee (German, 1879–1940)",
+   "date": "1937",
+   "medium": "Gouache and tempera",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.537,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "bauhaus-cma136592-ink-tightrope-walker",
+  "src": "assets/cutouts/bauhaus-cma136592-ink-tightrope-walker.png",
+  "fallback": "torn",
+  "label": "Tightrope Walker (Klee)",
+  "family": "bauhaus",
+  "emo": [
+   "apprehension",
+   "vigilance",
+   "anticipation"
+  ],
+  "cats": [
+   "concept",
+   "absurdity"
+  ],
+  "source": "Tightrope Walker, Paul Klee (German, 1879–1940), 1923. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1961.154",
+  "notes": "A tiny figure balancing on a scaffold of lines.",
+  "status": "kept",
+  "file": "library/families/order/bauhaus/cutouts/bauhaus-cma136592-ink-tightrope-walker.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 136592,
+   "query": "Klee",
+   "page_url": "https://clevelandart.org/art/1961.154",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1961.154/1961.154_print.jpg",
+   "creator": "Paul Klee (German, 1879–1940)",
+   "date": "1923",
+   "medium": "color lithograph",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.388,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "bauhaus-cma144705-ink-carnival-in-the-snow",
+  "src": "assets/cutouts/bauhaus-cma144705-ink-carnival-in-the-snow.png",
+  "fallback": "torn",
+  "label": "Carnival in the Snow (Klee)",
+  "family": "bauhaus",
+  "emo": [
+   "joy",
+   "distraction",
+   "amazement"
+  ],
+  "cats": [
+   "concept",
+   "absurdity"
+  ],
+  "source": "Carnival in the Snow, Paul Klee (German, 1879–1940), 1923. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1969.46",
+  "notes": "Scattered red and blue signs on white.",
+  "status": "kept",
+  "file": "library/families/order/bauhaus/cutouts/bauhaus-cma144705-ink-carnival-in-the-snow.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 144705,
+   "query": "Klee",
+   "page_url": "https://clevelandart.org/art/1969.46",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1969.46/1969.46_print.jpg",
+   "creator": "Paul Klee (German, 1879–1940)",
+   "date": "1923",
+   "medium": "watercolor",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.422,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "bauhaus-cma149352-ink-the-calculating-old-man",
+  "src": "assets/cutouts/bauhaus-cma149352-ink-the-calculating-old-man.png",
+  "fallback": "torn",
+  "label": "The Calculating Old Man (Klee)",
+  "family": "bauhaus",
+  "emo": [
+   "contempt",
+   "pensiveness",
+   "boredom"
+  ],
+  "cats": [
+   "institution",
+   "absurdity"
+  ],
+  "source": "The Calculating Old Man, Paul Klee (German, 1879–1940), 1929. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1978.18",
+  "notes": "A man made of one line, counting: the ledger mind.",
+  "status": "kept",
+  "file": "library/families/order/bauhaus/cutouts/bauhaus-cma149352-ink-the-calculating-old-man.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 149352,
+   "query": "Klee",
+   "page_url": "https://clevelandart.org/art/1978.18",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1978.18/1978.18_print.jpg",
+   "creator": "Paul Klee (German, 1879–1940)",
+   "date": "1929",
+   "medium": "etching",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.262,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "bauhaus-cma151945-ink-small-world",
+  "src": "assets/cutouts/bauhaus-cma151945-ink-small-world.png",
+  "fallback": "torn",
+  "label": "Small World (Klee)",
+  "family": "bauhaus",
+  "emo": [
+   "amazement",
+   "distraction",
+   "interest"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Small World, Paul Klee (German, 1879–1940), 1914. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1984.227",
+  "notes": "A dense etched universe of tiny creatures.",
+  "status": "kept",
+  "file": "library/families/order/bauhaus/cutouts/bauhaus-cma151945-ink-small-world.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 151945,
+   "query": "Klee",
+   "page_url": "https://clevelandart.org/art/1984.227",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1984.227/1984.227_print.jpg",
+   "creator": "Paul Klee (German, 1879–1940)",
+   "date": "1914",
+   "medium": "etching",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.606,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "gothic-revival-cma96586-brise-fan-gothic-revival-sty",
+  "src": "assets/cutouts/gothic-revival-cma96586-brise-fan-gothic-revival-sty.png",
+  "fallback": "torn",
+  "label": "Gothic Revival brisé fan",
+  "family": "gothic-revival",
+  "emo": [
+   "admiration",
+   "awe"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Brise Fan:  Gothic Revival Style, Unknown, c. 1830. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1916.329",
+  "notes": "Gilded fan of pointed arches.",
+  "status": "kept",
+  "file": "library/families/ornament/gothic-revival/cutouts/gothic-revival-cma96586-brise-fan-gothic-revival-sty.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 96586,
+   "query": "Gothic Revival",
+   "page_url": "https://clevelandart.org/art/1916.329",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1916.329/1916.329_print.jpg",
+   "creator": "Unknown",
+   "date": "c. 1830",
+   "medium": "gilt metal, enamel, horn, pigment, spangles, ribbon",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.284,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "gothic-revival-cma152989-side-chair-gothic-revival-st",
+  "src": "assets/cutouts/gothic-revival-cma152989-side-chair-gothic-revival-st.png",
+  "fallback": "torn",
+  "label": "Gothic Revival side chair, tracery back",
+  "family": "gothic-revival",
+  "emo": [
+   "trust",
+   "serenity"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Side Chair:  Gothic Revival Style, Alexander Jackson Davis (American, 1803–1892), c. 1858. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1986.11",
+  "notes": "Church window turned into a chair back.",
+  "status": "kept",
+  "file": "library/families/ornament/gothic-revival/cutouts/gothic-revival-cma152989-side-chair-gothic-revival-st.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 152989,
+   "query": "Gothic Revival",
+   "page_url": "https://clevelandart.org/art/1986.11",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1986.11/1986.11_print.jpg",
+   "creator": "Alexander Jackson Davis (American, 1803–1892)",
+   "date": "c. 1858",
+   "medium": "wood",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.169,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "gothic-revival-cma167708-bread-plate",
+  "src": "assets/cutouts/gothic-revival-cma167708-bread-plate.png",
+  "fallback": "torn",
+  "label": "Waste Not Want Not bread plate",
+  "family": "gothic-revival",
+  "emo": [
+   "disapproval",
+   "trust",
+   "acceptance"
+  ],
+  "cats": [
+   "food",
+   "institution"
+  ],
+  "source": "Bread Plate, Augustus Welby Northmore Pugin (British, 1812–1852), c. 1850. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/2009.377",
+  "notes": "Moral instruction baked into a plate.",
+  "status": "kept",
+  "file": "library/families/ornament/gothic-revival/cutouts/gothic-revival-cma167708-bread-plate.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 167708,
+   "query": "Gothic Revival",
+   "page_url": "https://clevelandart.org/art/2009.377",
+   "image_url": "https://openaccess-cdn.clevelandart.org/2009.377/2009.377_print.jpg",
+   "creator": "Augustus Welby Northmore Pugin (British, 1812–1852)",
+   "date": "c. 1850",
+   "medium": "stoneware",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.283,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "gothic-revival-cma151968-chalice",
+  "src": "assets/cutouts/gothic-revival-cma151968-chalice.png",
+  "fallback": "torn",
+  "label": "Gothic Revival chalice",
+  "family": "gothic-revival",
+  "emo": [
+   "awe",
+   "submission",
+   "trust"
+  ],
+  "cats": [
+   "institution",
+   "object"
+  ],
+  "source": "Chalice, Augustus Welby Northmore Pugin (British, 1812–1852), 1849. Cleveland Museum of Art, Open Access (CC0). https://clevelandart.org/art/1984.40",
+  "notes": "Silver cup of obedience.",
+  "status": "kept",
+  "file": "library/families/ornament/gothic-revival/cutouts/gothic-revival-cma151968-chalice.png",
+  "provenance": {
+   "source": "cma",
+   "object_id": 151968,
+   "query": "Pugin",
+   "page_url": "https://clevelandart.org/art/1984.40",
+   "image_url": "https://openaccess-cdn.clevelandart.org/1984.40/1984.40_print.jpg",
+   "creator": "Augustus Welby Northmore Pugin (British, 1812–1852)",
+   "date": "1849",
+   "medium": "silver, cup interior gilded, with applied and chased decoration",
+   "license": "CC0 1.0 (Cleveland Museum of Art open access)",
+   "cut": "rembg isnet-general-use, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.231,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met729649-ink-the-arrival-of-the-skeletons",
+  "src": "assets/cutouts/mexican-muralism-met729649-ink-the-arrival-of-the-skeletons.png",
+  "fallback": "torn",
+  "label": "Ya llegó la calavera de la Penitenciaría (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "terror",
+   "contempt",
+   "amazement"
+  ],
+  "cats": [
+   "institution",
+   "absurdity"
+  ],
+  "source": "The arrival of the skeletons of the penitentiary (Posada); two skeleton angels in lower corners of verso (Manilla), José Guadalupe Posada, 1902. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/729649",
+  "notes": "Teal broadside: death arrives at the prison.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met729649-ink-the-arrival-of-the-skeletons.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 729649,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/729649",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP868043.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "1902",
+   "medium": "Zincograph and letterpress on green paper",
+   "license": "CC0 1.0 (The Metropolitan Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.918,
+   "when": "2026-11-17 16:42 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met729586-ink-the-grand-skeleton-mole-skel",
+  "src": "assets/cutouts/mexican-muralism-met729586-ink-the-grand-skeleton-mole-skel.png",
+  "fallback": "torn",
+  "label": "Gran mole de calaveras (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "joy",
+   "ecstasy",
+   "disgust"
+  ],
+  "cats": [
+   "food",
+   "absurdity"
+  ],
+  "source": "The grand skeleton mole, skeletons eating mole and drinking in a cemetery (Posada); flanked by skeletons holding scythes (Manilla), José Guadalupe Posada, 1902. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/729586",
+  "notes": "Pink broadside: the dead served up as a feast.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met729586-ink-the-grand-skeleton-mole-skel.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 729586,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/729586",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP864823.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "1902",
+   "medium": "Zincograph,Type-metal engraving and letterpress on pink paper",
+   "license": "CC0 1.0 (The Metropolitan Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.448,
+   "when": "2026-11-17 16:43 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met729644-ink-in-proof-of-true-love-a-wate",
+  "src": "assets/cutouts/mexican-muralism-met729644-ink-in-proof-of-true-love-a-wate.png",
+  "fallback": "torn",
+  "label": "En prueba de puro amor (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "love",
+   "grief",
+   "joy"
+  ],
+  "cats": [
+   "memory",
+   "absurdity"
+  ],
+  "source": "In proof of true love, a watercarrier skeleton arguing with a woman (Posada); two skeleton angels in upper corners (Manilla), José Guadalupe Posada, ca. 1890–96. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/729644",
+  "notes": "Blue broadside, skeleton lovers.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met729644-ink-in-proof-of-true-love-a-wate.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 729644,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/729644",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP865112.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "ca. 1890–96",
+   "medium": "Type-metal engraving and letterpress",
+   "license": "CC0 1.0 (The Metropolitan Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.918,
+   "when": "2026-11-17 16:43 UTC"
+  }
+ },
+ {
+  "id": "mexican-muralism-met729587-ink-the-pantheon-of-all-the-skel",
+  "src": "assets/cutouts/mexican-muralism-met729587-ink-the-pantheon-of-all-the-skel.png",
+  "fallback": "torn",
+  "label": "Panteón de calaveras (Posada)",
+  "family": "mexican-muralism",
+  "emo": [
+   "grief",
+   "amazement",
+   "acceptance"
+  ],
+  "cats": [
+   "memory",
+   "absurdity"
+  ],
+  "source": "The pantheon of all the skeletons who are eating and drinking in a cemetery (Posada); flanked by skeletons holding scythes (Manilla), José Guadalupe Posada, 1905. The Metropolitan Museum of Art, Open Access (CC0). https://www.metmuseum.org/art/collection/search/729587",
+  "notes": "Grid of the dead, all equal in the end.",
+  "status": "kept",
+  "file": "library/families/revolt/mexican-muralism/cutouts/mexican-muralism-met729587-ink-the-pantheon-of-all-the-skel.png",
+  "provenance": {
+   "source": "met",
+   "object_id": 729587,
+   "query": "Posada",
+   "page_url": "https://www.metmuseum.org/art/collection/search/729587",
+   "image_url": "https://images.metmuseum.org/CRDImages/dp/original/DP864826.jpg",
+   "creator": "José Guadalupe Posada",
+   "date": "1905",
+   "medium": "Zincograph, type-metal engraving and letterpress on green paper",
+   "license": "CC0 1.0 (The Metropolitan Museum of Art open access)",
+   "cut": "ink mode: paper made transparent, auto-crop, <= 900 px, 128 colours",
+   "coverage": 0.181,
+   "when": "2026-11-17 16:43 UTC"
+  }
  }
 ]

@@ -45,7 +45,20 @@
     const g = E.genome(recipe,{families:P.families,assets:P.assets,ingredients,mode});
     g.styles = r.families.slice();
     g.darts = darts;
-    g.assets = P.board.pickAssets(E.makeRng(key+'|visual-assets'),darts,P.assets,['concept'],Math.max(3,g.assets.length));
+    // Real cutouts only (CANON D-19, D-20): the library, never the old procedural stand-ins.
+    const library = P.assets.filter(a => a.library);
+    // One cutout from each picked family first (closest on the wheel to that family's own darts),
+    // so the room visibly carries what the visitor chose; then wildcards from the whole library.
+    const own = [];
+    fs.forEach((f, n) => {
+      const pool = library.filter(a => a.family === f.id && own.indexOf(a.id) < 0);
+      const fd = darts.filter(d => d.label === f.name);
+      if (pool.length) own.push(...P.board.pickAssets(E.makeRng(key+'|own|'+n),fd.length?fd:darts,pool,['concept'],1));
+    });
+    const rest = library.filter(a => own.indexOf(a.id) < 0);
+    const total = Math.min(library.length, Math.max(5, g.assets.length));
+    g.assets = own.concat(P.board.pickAssets(E.makeRng(key+'|visual-assets'),darts,rest,['concept'],Math.max(0,total-own.length)));
+    g.dbOnly = true;
     g.fingerprint = E.hashString(JSON.stringify(r)+'|'+mode).slice(0,12).toUpperCase();
     return {receipt:r,genome:g,poem,ingredients};
   }

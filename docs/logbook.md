@@ -8,6 +8,27 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-17 11:03 — Real cutout database: 2 → 76 image files (D-20, D-21)
+
+### What was asked
+"Implement the actual cutouts into a database, not just text descriptions."
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Why it stalled before | Every earlier attempt produced descriptions, leads or pipelines. The OpenRouter Actions pipeline ran once and then waited on a key. This workspace can reach The Met and Cleveland Museum APIs directly. Wikimedia search API rate-limits this connection (direct upload.wikimedia.org links work). Art Institute of Chicago returned nothing. |
+| Tools | `tools/cutouts/harvest.py` (Met + Cleveland, CC0 only, subject mode via rembg isnet-general-use, ink mode for prints), `contact_sheet.py`, `promote.py` (tags, rejects, re-files, makes WebP), `web_copy.py`. |
+| Harvested | 125 candidates. Every one looked at on contact sheets. Kept 74, rejected 51 (wrong family from loose name searches, ghosted cuts, duplicates). |
+| Site | build_library.py ships the committed WebP copies (no Pillow needed in CI/Netlify; byte-stable). Picker rooms use library cutouts only, one from each picked family first. |
+| Tested | visual-flow.cjs passes. Three rooms cooked on Pixel 7 emulation: real cutouts load, no errors. |
+
+### Corrections
+Tagged batches while a harvest was running; the harvester saved a stale copy over the decisions. Fixed: harvest now re-reads before each save. Re-applied all decisions; manifest was unaffected.
+First tried encoding WebP inside the build: very slow, and CI/Netlify have no Pillow. Moved to promote time.
+
+### Open / notes
+Rooms show cutouts poorly (old poem-first layouts): that is D-18. 16 families have no cutouts (Q-07). "artist:" filter is a substring match: "Barbier" and "Heckel" matched other people on The Met, so check every sheet.
+
 ## 2026-11-17 10:15 — Canon created; fresh-start cleanup (D-17, D-18, D-19)
 
 ### Done

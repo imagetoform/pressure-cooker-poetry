@@ -36,6 +36,7 @@ const base=process.env.PCP_TEST_URL||'http://127.0.0.1:8765';
   for(const route of ['/poems/','/essays/','/learning/','/about/','/contact/','/learning-curve/','/kitchen/']){
    const response=await page.goto(base+route,{waitUntil:'domcontentloaded'});assert.equal(response.status(),200,route);
    await page.waitForLoadState('domcontentloaded');
+   if(route==='/learning-curve/')await page.waitForURL(/\/learning\/$/);
    if(route==='/poems/'||route==='/essays/'){
     await page.waitForSelector('.entry');const link=await page.locator('.entry a').first().getAttribute('href');await page.locator('#section-search').fill('NO_MATCH_000');assert.equal(await page.locator('.entry').count(),0);await page.goto(base+link);await page.waitForSelector(route==='/poems/'?'.rd-stz':'.es-article');
    }
