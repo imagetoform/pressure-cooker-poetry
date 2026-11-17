@@ -144,6 +144,7 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 
 ## Canon change log
 
+- **2026-11-17** — Muse mission written: `docs/handoffs/MUSE_CUTOUT_MISSION.md` (every family to 8+ cutouts, one PR per family, Brandon reviews each).
 - **2026-11-17** — Merged the parallel playbook branch (`agents/codex-playbook`): its AGENTS.md, DESIGN.md, folder rules, skills and templates kept; its DECISIONS.md folded in as D-23–D-28, Q-08, Q-09; references repointed here. Punk: 8 ChatGPT cutouts (84 total).
 - **2026-11-17** — D-22: ChatGPT does the first pass on empty families; ingest tool + brief added.
 - **2026-11-17** — D-20, D-21: real cutout database (76 files) and how rooms use it; Q-07 added; old pipeline parked.
