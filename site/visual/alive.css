@@ -1,0 +1,16 @@
+/* PRESSURE COOKER POETRY — ALIVE styles. Engine: alive.js. Shared by the front door and /visual/lab/alive/. */
+
+.room.is-alive .alive-piece{pointer-events:auto;touch-action:pan-y pinch-zoom;cursor:grab;will-change:translate,rotate,scale;-webkit-user-select:none;user-select:none}
+.room.is-alive .alive-piece:focus-visible{outline:3px dashed var(--accent,#e4ef65);outline-offset:5px}
+.room.is-alive .alive-piece.is-held{cursor:grabbing;filter:drop-shadow(0 12px 14px rgba(0,0,0,.45))}
+.alive-scraps{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.alive-scrap{position:absolute}
+.alive-scrap img{display:block;width:100%;height:auto;filter:drop-shadow(2px 3px 0 rgba(0,0,0,.28))}
+.alive-wall{position:absolute;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.alive-wall span{position:absolute;padding:.04em .16em;line-height:1;font-weight:700;box-shadow:1px 2px 0 rgba(0,0,0,.35);animation:alive-in .16s ease-out both}
+.alive-stamp{position:absolute;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:46% 54% 41% 59%/55% 45% 58% 42%;opacity:.85;mix-blend-mode:multiply;animation:alive-stamp 1.6s ease-out both}
+@keyframes alive-in{from{scale:1.9;opacity:0}to{scale:1;opacity:1}}
+@keyframes alive-stamp{0%{scale:.15;opacity:.95}18%{scale:1}100%{scale:1.5;opacity:0}}
+.room.is-still .alive-wall span,.room.is-still .alive-stamp{animation:none}
+.room.is-still .alive-stamp{opacity:.6}
+@media (prefers-reduced-motion:reduce){.alive-wall span,.alive-stamp{animation:none}}

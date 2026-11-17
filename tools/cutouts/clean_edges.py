@@ -1,5 +1,8 @@
 """Remove slivers of neighbouring pieces that an AI left along a cutout's edges.
 
+ONLY for pieces an AI cropped out of a multi-piece sheet. Never run it on pieces made of
+scattered bits (confetti, dots, spray splats, star fields): it would trim their outer bits.
+
 Usage: python3 tools/cutouts/clean_edges.py FILE.png [...] [--join PX] [--keep FRACTION]
 
 A fragment is removed when it touches the image border AND is smaller than FRACTION

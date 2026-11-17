@@ -48,3 +48,8 @@ site/landing/  +  site/dist/  +  site/visual/  --assemble.py + build_visual.py--
 | `site/tools/live_check.js` | production | only when the owner asked for a live check |
 
 If the Playwright browser can't install (no network in the sandbox), say so in the PR and leave it as a draft. Don't mark visual work verified without screenshots.
+
+
+## Alive layer
+
+`site/visual/alive.js` + `alive.css` make rooms react to touch, keys, sound and tilt (CANON D-29). Read `docs/ALIVE.md` before changing it. It must never change a receipt, never record sound, and must stop moving under reduced motion. Test: `node site/tests/alive.cjs`.

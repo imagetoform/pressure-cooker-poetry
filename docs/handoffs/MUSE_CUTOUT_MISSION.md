@@ -67,6 +67,8 @@ Order: `zine-diy`, `situationism`, `grunge-design`, `brutalism`, `swiss`, `minim
 | art-nouveau, futurism | 7 | 1 each |
 | punk, expressionism, rococo, gothic-revival, mexican-muralism | 8+ | done, don't touch |
 
+**Delivered so far (2026-11-17):** minimalism, memphis, brutalism, grunge-design, situationism are done (8+ each). Your tag-file format is fine: Claude maps it.
+
 **Recount before you start** (`library/cutouts/manifest.json`). If the numbers differ from this table, trust the manifest.
 
 ### For each family
@@ -77,7 +79,7 @@ Order: `zine-diy`, `situationism`, `grunge-design`, `brutalism`, `swiss`, `minim
    - Library or originals (B, C): put the PNGs in one folder named `<family-id>--<short-slug>.png`, plus a `cutouts.json` in the format shown in `AI_CUTOUT_BRIEF.md`. Then:
      ```sh
      python3 tools/cutouts/ingest.py <folder> --source ai      # or --source brandon / scan for his material
-     python3 tools/cutouts/clean_edges.py <each new png>        # removes slivers of other pieces
+     python3 tools/cutouts/clean_edges.py <png>   # ONLY if the piece was cropped from a multi-piece sheet; never on confetti/dots/splats
      ```
 3. **Look:** `python3 tools/cutouts/contact_sheet.py tmp/<family>.png <family-id>`. Open the image and judge every piece.
 4. Write `tmp/decide-<family>.json`: keep with tags, or reject with a reason, for **every** candidate. Then `python3 tools/cutouts/promote.py tmp/decide-<family>.json`.

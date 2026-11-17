@@ -8,6 +8,24 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-17 17:43 — Alive layer (D-29); Muse's first five families (127 cutouts)
+
+### What was asked
+Ingest the new zips; "everything responsive through audio, touch or keystroke … feels alive to the user's inputs."
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Muse zips | Minimalism 9, Memphis 8, Brutalism 9, Grunge 9, Situationism 10 delivered (Muse made them; its own sidecar format, mapped in a one-off script). Kept 43, rejected 2: a 1-px diagonal (invisible) and a fingerprint with a fake checkerboard painted in. The punk zip was byte-identical to the one already in. |
+| Mistake caught | Ran clean_edges.py on Muse's pieces: it trimmed outer dots of confetti/splat pieces. Restored all 45 from the deliveries; clean_edges.py now warns it's only for pieces cropped from multi-piece sheets. |
+| Engine | `site/visual/alive.js`: signals from pointer/touch, keys, scroll, opt-in mic, song file, tilt; ten verbs keyed to emotion tags; drag (mouse grabs under text, touch slides sideways), ransom letters, ink stamps on real taps only, keyboard moves, Hold still, reduced motion, one rAF loop that sleeps. Loose scraps: the room's chosen cutouts its layout didn't place, seeded from the receipt. Doc: docs/ALIVE.md. |
+| Bugs fixed on the way | Audio context created after the permission wait starts suspended: now made inside the click. Letter colours could match their tile (#111 vs #111111): now by contrast. Family regex missed `y2k` (digit) in build_visual.py and ingest.py: fixed. Lab data regex grabbed branch ids: fixed. |
+| Lab | `/visual/lab/alive/`: all cutouts, family chips, meters, behaviour labels, shuffle, song, mic, tilt. Published as a claude.ai artifact (mic and tilt don't work inside artifacts; the song button does). |
+| Tested | site/tests/alive.cjs PASS (pointer, drag, letters, stamps, keyboard, fake mic, song file, hold still, replay identical, phone tap, reduced motion). visual-flow.cjs PASS. Build reproducible. |
+
+### Open / notes
+Rooms still place only 1–3 cutouts themselves (old layouts): D-18 is the real fix. Q-10, Q-11 in the canon. Still no push access in this session.
+
 ## 2026-11-17 14:31 — One rulebook; Punk from ChatGPT; split/ingest tools
 
 ### Done

@@ -41,7 +41,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 - **Families:** 30, stable IDs in `site/visual/adapter.js` (`order` array) and `site/src/styles.js`.
 - **Kit parts:** 523 procedural CSS/SVG parts across the 30 families.
 - **Picker art:** none. Cards show each family's own palette as colour bands until new art is made and approved (Q-01).
-- **Library cutouts: 84 real image files**, every one looked at and tagged (2026-11-17). 74 are CC0 from The Met and the Cleveland Museum of Art, plus the 2 earlier Constructivism pieces. Per family: Mexican Muralism 10, Punk 8 (ChatGPT originals), Rococo 8, Gothic Revival 8, Expressionism 8, Futurism 7, Art Nouveau 7, Ukiyo-e 6, Surrealism 5, Bauhaus 5, Psychedelia 4, Dada 3, Constructivism 2, Art Deco 2, Geometric Abstraction 1. **15 families have none.** Records: `library/cutouts/manifest.json` (live), `candidates.json` (everything harvested, with keep/reject).
+- **Library cutouts: 127 real image files**, every one looked at and tagged. Sources: CC0 museum open access (Met, Cleveland), ChatGPT originals (Punk), Muse originals (Minimalism, Memphis, Brutalism, Grunge, Situationism), 2 earlier Constructivism pieces. Per family: mexican-muralism 10, situationism 10, brutalism 9, rococo 8, gothic-revival 8, expressionism 8, punk 8, minimalism 8, memphis 8, grunge-design 8, art-nouveau 7, futurism 7, ukiyo-e 6, surrealism 5, bauhaus 5, psychedelia 4, dada 3, constructivism 2, art-deco 2, geometric-abstraction 1. **10 families have none.** Records: `library/cutouts/manifest.json` (live), `candidates.json` (everything harvested, with keep/reject).
 - **Writing:** 56 poems, 2 essays, all authored by Brandon.
 - **Receipt format:** `pcp-visual/1`. Old receipts are rejected (not silently re-rendered) when the build changes.
 
@@ -77,6 +77,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | D-26 | No live AI API calls from the site, no analytics, tracking, login walls or visitor profiling. Generation happens at build time; the site picks from a library. | Nov 2026 |
 | D-27 | Process: Brandon OKs **each** production deploy (OKs don't carry over). Agents open reviewable PRs; nobody auto-merges. One Netlify project, never a second. | Nov 2026 |
 | D-28 | Saved rooms are framed as a **coupon** for next time. The drawing wall lives in each piece's margin, free in-browser recognition, auto-scored lines; it can be pulled later if it doesn't work. | Nov 2026 |
+| D-29 | **The site is alive.** One input engine (`site/visual/alive.js`, doc: `docs/ALIVE.md`) turns touch, keys, scroll, sound and tilt into signals; every cutout moves by a verb chosen from its own emotion tags. Visitors can drag cutouts, type ransom letters, stamp ink. Sound comes only from an opt-in microphone or a song file the visitor picks, stays on the device, is never recorded or sent. Motion never changes a receipt. Reduced-motion and "Hold still" stop it. Replaces the deleted microphone experiment with new code. | 2026-11-17 |
 | D-16 | The GitHub repo `imagetoform/pressure-cooker-poetry` is the one home for site, database, kits and cutouts. | Nov 2026 |
 
 ---
@@ -98,6 +99,8 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | Q-07 | Where do the 16 families with no cutouts get their art? **First pass: ChatGPT (D-22).** Still open: whether Brandon's own art and scans join later. | Minimalism, Swiss, Brutalism, Punk, Zine/DIY, Situationism, Grunge, Cyberpunk, Vaporwave, Afrofuturism, Y2K, Maximalism, Pop Art, Memphis, Abstract Expressionism, Op Art. These are post-1930 and mostly still in copyright, so museums don't release them. Options: Brandon's own art, photos and pulp-magazine scans; original pieces made for the site; or public-domain material processed in the family's style (e.g. old newspaper photos photocopied for Punk). Thin families that need more: Art Deco, Dada, Constructivism, Geometric Abstraction. |
 | Q-08 | Pop Art and Maximalism lead more rooms than others (about 16% and 12.5%). Retune? | Reported by the playbook session, not changed. |
 | Q-09 | Front door styling: `site/visual/visual.css` uses Arial/Georgia and cream `#f3eadb` on `#17151a` with a lime accent, off the Kitchen's tokens in `DESIGN.md`. Bring it onto the tokens, or keep it? | Raised by the playbook session. Cream conflicts with D-11. |
+| Q-10 | Muse mentions earlier Constructivism (5), Dada (8) and Punk (6) batches that weren't in the zips. Send them? | Constructivism and Dada are thin. |
+| Q-11 | Grunge's ripped page and tape cross are too clean (clip-art). Replace? | Both kept for now to hold Grunge at 8, flagged in their notes. |
 | Q-04 | Rococo ground reads dark, not pastel. | From the 2026-11-05 logbook. |
 | Q-05 | Pressure gauge as the PRESSURIZE button + reveal? Post-Pressurize animation from cssauthor.com? | Both raised for the old cabinet flow. Do they carry over to the picker's "Cook my room"? |
 | Q-06 | Room intro copy: carry over "You walked in hungry… draw your own damn map"? | Approved earlier for the old landing. |
@@ -144,6 +147,7 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 
 ## Canon change log
 
+- **2026-11-17** — D-29 alive layer (engine, front-door controls, `/visual/lab/alive/`, tests). Muse's first five families in (Minimalism, Memphis, Brutalism, Grunge, Situationism): 127 cutouts. Q-10, Q-11.
 - **2026-11-17** — Muse mission written: `docs/handoffs/MUSE_CUTOUT_MISSION.md` (every family to 8+ cutouts, one PR per family, Brandon reviews each).
 - **2026-11-17** — Merged the parallel playbook branch (`agents/codex-playbook`): its AGENTS.md, DESIGN.md, folder rules, skills and templates kept; its DECISIONS.md folded in as D-23–D-28, Q-08, Q-09; references repointed here. Punk: 8 ChatGPT cutouts (84 total).
 - **2026-11-17** — D-22: ChatGPT does the first pass on empty families; ingest tool + brief added.

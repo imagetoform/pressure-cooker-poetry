@@ -2805,5 +2805,1187 @@
    "cut": "delivered with transparency",
    "when": "2026-11-17 20:32 UTC"
   }
+ },
+ {
+  "id": "minimalism-ai-small-black-square-upper-left",
+  "src": "assets/cutouts/minimalism-ai-small-black-square-upper-left.png",
+  "fallback": "torn",
+  "label": "Small black square, upper left",
+  "family": "minimalism",
+  "emo": [
+   "serenity",
+   "pensiveness"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Small black square, upper left. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A single black square, small and alone in the upper corner — the whole composition is the empty space around it. Serenity in the stillness, pensiveness in the void.",
+  "status": "kept",
+  "file": "library/families/order/minimalism/cutouts/minimalism-ai-small-black-square-upper-left.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "minimalism--black-square.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). The empty space is the piece; full 1200x1200 canvas kept.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "minimalism-ai-single-grey-rectangle-centre",
+  "src": "assets/cutouts/minimalism-ai-single-grey-rectangle-centre.png",
+  "fallback": "torn",
+  "label": "Single grey rectangle, centre",
+  "family": "minimalism",
+  "emo": [
+   "serenity",
+   "trust"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "source": "Single grey rectangle, centre. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "One grey block, floating in the middle of nothing — the colour doing all the work. Serenity in the quiet, trust in the balance.",
+  "status": "kept",
+  "file": "library/families/order/minimalism/cutouts/minimalism-ai-single-grey-rectangle-centre.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "minimalism--gray-block.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). The empty space is the piece; full 1200x1200 canvas kept.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "minimalism-ai-thin-horizontal-line-lower-third",
+  "src": "assets/cutouts/minimalism-ai-thin-horizontal-line-lower-third.png",
+  "fallback": "torn",
+  "label": "Thin horizontal line, lower third",
+  "family": "minimalism",
+  "emo": [
+   "serenity",
+   "pensiveness"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Thin horizontal line, lower third. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A single line near the bottom — a horizon with nothing on it. Serenity in the flatness, pensiveness in the emptiness above.",
+  "status": "kept",
+  "file": "library/families/order/minimalism/cutouts/minimalism-ai-thin-horizontal-line-lower-third.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "minimalism--horizon-line.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). The empty space is the piece; full 1200x1200 canvas kept.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "minimalism-ai-small-red-circle-upper-area",
+  "src": "assets/cutouts/minimalism-ai-small-red-circle-upper-area.png",
+  "fallback": "torn",
+  "label": "Small red circle, upper area",
+  "family": "minimalism",
+  "emo": [
+   "amazement",
+   "interest"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "source": "Small red circle, upper area. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A small red circle, high in the frame — the only colour, the only thing. Amazement in the spot, interest in where it sits.",
+  "status": "kept",
+  "file": "library/families/order/minimalism/cutouts/minimalism-ai-small-red-circle-upper-area.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "minimalism--red-circle.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha, no trim — the empty space is the piece).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "minimalism-ai-large-red-dot-centred",
+  "src": "assets/cutouts/minimalism-ai-large-red-dot-centred.png",
+  "fallback": "torn",
+  "label": "Large red dot, centred",
+  "family": "minimalism",
+  "emo": [
+   "trust",
+   "amazement"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "source": "Large red dot, centred. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "One red dot, dead centre — nothing else, and nothing else needed. Trust in the placement, amazement in the nerve of it.",
+  "status": "kept",
+  "file": "library/families/order/minimalism/cutouts/minimalism-ai-large-red-dot-centred.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "minimalism--red-dot.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). The empty space is the piece; full 1200x1200 canvas kept.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "minimalism-ai-small-black-triangle-centred",
+  "src": "assets/cutouts/minimalism-ai-small-black-triangle-centred.png",
+  "fallback": "torn",
+  "label": "Small black triangle, centred",
+  "family": "minimalism",
+  "emo": [
+   "interest",
+   "anticipation"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Small black triangle, centred. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A small black triangle, alone in the middle — three sides and nothing else. Interest in the shape, anticipation in the point.",
+  "status": "kept",
+  "file": "library/families/order/minimalism/cutouts/minimalism-ai-small-black-triangle-centred.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "minimalism--triangle.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (luminance alpha, halo crushed, no trim — the empty space is the piece).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "minimalism-ai-the-word-less-small-centred",
+  "src": "assets/cutouts/minimalism-ai-the-word-less-small-centred.png",
+  "fallback": "torn",
+  "label": "The word 'less', small, centred",
+  "family": "minimalism",
+  "emo": [
+   "pensiveness",
+   "serenity"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "The word 'less', small, centred. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "The word 'less', small and centred — the whole doctrine in four letters. Pensiveness in the understatement, serenity in the restraint.",
+  "status": "kept",
+  "file": "library/families/order/minimalism/cutouts/minimalism-ai-the-word-less-small-centred.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "minimalism--type-less.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL, DejaVu Sans (original). 'Less' is the movement's own word (less is more); a short word, not a copy of any artwork.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "minimalism-ai-thin-vertical-black-line-right-o",
+  "src": "assets/cutouts/minimalism-ai-thin-vertical-black-line-right-o.png",
+  "fallback": "torn",
+  "label": "Thin vertical black line, right of centre",
+  "family": "minimalism",
+  "emo": [
+   "trust",
+   "serenity"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Thin vertical black line, right of centre. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "One thin vertical line, standing alone — the only thing upright. Trust in the straightness, serenity in the still.",
+  "status": "kept",
+  "file": "library/families/order/minimalism/cutouts/minimalism-ai-thin-vertical-black-line-right-o.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "minimalism--vertical-line.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). The empty space is the piece; full 1200x1200 canvas kept.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "memphis-ai-scattered-dots-in-pink-teal-yell",
+  "src": "assets/cutouts/memphis-ai-scattered-dots-in-pink-teal-yell.png",
+  "fallback": "torn",
+  "label": "Scattered dots in pink, teal, yellow and black",
+  "family": "memphis",
+  "emo": [
+   "joy",
+   "distraction"
+  ],
+  "cats": [
+   "concept",
+   "absurdity"
+  ],
+  "source": "Scattered dots in pink, teal, yellow and black. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Dots in pink, teal, yellow and black, scattered like a thrown handful — the party, after the party. Joy in the colours, distraction in the scatter.",
+  "status": "kept",
+  "file": "library/families/excess/memphis/cutouts/memphis-ai-scattered-dots-in-pink-teal-yell.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "memphis--confetti-dots.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "memphis-ai-pink-and-yellow-half-circle-sun",
+  "src": "assets/cutouts/memphis-ai-pink-and-yellow-half-circle-sun.png",
+  "fallback": "torn",
+  "label": "Pink and yellow half-circle sun with black rays",
+  "family": "memphis",
+  "emo": [
+   "ecstasy",
+   "serenity"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "source": "Pink and yellow half-circle sun with black rays. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A pink and yellow half-sun, rays fanning below — the morning, dressed up. Ecstasy in the colour, serenity in the arc.",
+  "status": "kept",
+  "file": "library/families/excess/memphis/cutouts/memphis-ai-pink-and-yellow-half-circle-sun.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "memphis--half-circle-sun.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha). The black rays are faint on dark grounds; they read on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "memphis-ai-dense-cluster-of-colourful-memph",
+  "src": "assets/cutouts/memphis-ai-dense-cluster-of-colourful-memph.png",
+  "fallback": "torn",
+  "label": "Dense cluster of colourful memphis shapes",
+  "family": "memphis",
+  "emo": [
+   "amazement",
+   "joy"
+  ],
+  "cats": [
+   "concept",
+   "absurdity"
+  ],
+  "source": "Dense cluster of colourful memphis shapes. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Triangles, circles and squiggles piled together — the whole movement in one handful. Amazement in the pile, joy in the clash.",
+  "status": "kept",
+  "file": "library/families/excess/memphis/cutouts/memphis-ai-dense-cluster-of-colourful-memph.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "memphis--shapes-cluster.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "memphis-ai-two-squiggle-lines-black-and-pin",
+  "src": "assets/cutouts/memphis-ai-two-squiggle-lines-black-and-pin.png",
+  "fallback": "torn",
+  "label": "Two squiggle lines, black and pink",
+  "family": "memphis",
+  "emo": [
+   "interest",
+   "joy"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Two squiggle lines, black and pink. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Two squiggles, black and pink, waving across the frame — the line that refuses to behave. Interest in the wave, joy in the colour.",
+  "status": "kept",
+  "file": "library/families/excess/memphis/cutouts/memphis-ai-two-squiggle-lines-black-and-pin.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "memphis--squiggle-line.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). The black squiggle is faint on dark grounds; it reads on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "memphis-ai-circle-in-black-and-white-stripe",
+  "src": "assets/cutouts/memphis-ai-circle-in-black-and-white-stripe.png",
+  "fallback": "torn",
+  "label": "Circle in black and white stripes",
+  "family": "memphis",
+  "emo": [
+   "trust",
+   "interest"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "source": "Circle in black and white stripes. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A circle in black and white stripes — order, worn as a joke. Trust in the stripes, interest in the circle.",
+  "status": "kept",
+  "file": "library/families/excess/memphis/cutouts/memphis-ai-circle-in-black-and-white-stripe.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "memphis--stripe-circle.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). White stripes are white fill, so the contrast reads on dark grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "memphis-ai-dense-colourful-terrazzo-tile",
+  "src": "assets/cutouts/memphis-ai-dense-colourful-terrazzo-tile.png",
+  "fallback": "torn",
+  "label": "Dense colourful terrazzo tile",
+  "family": "memphis",
+  "emo": [
+   "interest",
+   "amazement"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "source": "Dense colourful terrazzo tile. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A dense terrazzo of speckles — the floor of the eighties, cut to a tile. Interest in the fragments, amazement in the density.",
+  "status": "kept",
+  "file": "library/families/excess/memphis/cutouts/memphis-ai-dense-colourful-terrazzo-tile.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "memphis--terrazzo.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "memphis-ai-pink-triangle-with-black-dots-ar",
+  "src": "assets/cutouts/memphis-ai-pink-triangle-with-black-dots-ar.png",
+  "fallback": "torn",
+  "label": "Pink triangle with black dots around it",
+  "family": "memphis",
+  "emo": [
+   "trust",
+   "amazement"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Pink triangle with black dots around it. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A pink triangle, black dots standing guard — the shape, given an escort. Trust in the triangle, amazement in the pink.",
+  "status": "kept",
+  "file": "library/families/excess/memphis/cutouts/memphis-ai-pink-triangle-with-black-dots-ar.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "memphis--triangle-dots.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). The black dots are faint on dark grounds; they read on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "memphis-ai-teal-zigzag-with-a-yellow-circle",
+  "src": "assets/cutouts/memphis-ai-teal-zigzag-with-a-yellow-circle.png",
+  "fallback": "torn",
+  "label": "Teal zigzag with a yellow circle",
+  "family": "memphis",
+  "emo": [
+   "anticipation",
+   "interest"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Teal zigzag with a yellow circle. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A teal zigzag with a yellow circle riding it — the line, given a passenger. Anticipation in the points, interest in the ride.",
+  "status": "kept",
+  "file": "library/families/excess/memphis/cutouts/memphis-ai-teal-zigzag-with-a-yellow-circle.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "memphis--zigzag-circle.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-fragment-of-exposed-aggregate-co",
+  "src": "assets/cutouts/brutalism-ai-fragment-of-exposed-aggregate-co.png",
+  "fallback": "torn",
+  "label": "Fragment of exposed aggregate concrete",
+  "family": "brutalism",
+  "emo": [
+   "interest",
+   "pensiveness"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Fragment of exposed aggregate concrete. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A chunk of concrete with the pebbles showing through — the raw material, unhidden. Interest in the exposed stone, pensiveness in the rough face.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-fragment-of-exposed-aggregate-co.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--aggregate.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha). A faint white fringe under the fragment (its shadow edge) survives on dark grounds; invisible on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-massive-concrete-arch",
+  "src": "assets/cutouts/brutalism-ai-massive-concrete-arch.png",
+  "fallback": "torn",
+  "label": "Massive concrete arch",
+  "family": "brutalism",
+  "emo": [
+   "amazement",
+   "serenity"
+  ],
+  "cats": [
+   "institution",
+   "concept"
+  ],
+  "source": "Massive concrete arch. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A massive concrete arch, heavy and open — the doorway you walk through, not around. Amazement in the scale, serenity in the opening.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-massive-concrete-arch.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--arch.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha). A faint white fringe at the base (its shadow edge) survives on dark grounds; invisible on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-type-reading-b-ton-brut",
+  "src": "assets/cutouts/brutalism-ai-type-reading-b-ton-brut.png",
+  "fallback": "torn",
+  "label": "Type reading BÉTON BRUT",
+  "family": "brutalism",
+  "emo": [
+   "aggressiveness",
+   "contempt"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Type reading BÉTON BRUT. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "BÉTON BRUT in heavy type — raw concrete, named in its own language. Aggressiveness in the weight of the word, contempt for anything decorated.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-type-reading-b-ton-brut.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--beton-brut.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL, DejaVu Sans Bold (original). 'Béton brut' is the movement's own term for raw concrete; a short phrase, not a copy of any artwork.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-board-formed-concrete-block",
+  "src": "assets/cutouts/brutalism-ai-board-formed-concrete-block.png",
+  "fallback": "torn",
+  "label": "Board-formed concrete block",
+  "family": "brutalism",
+  "emo": [
+   "trust",
+   "interest"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Board-formed concrete block. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A block of board-formed concrete, the wood grain still in it — the material honest about how it was made. Trust in the honesty, interest in the grain.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-board-formed-concrete-block.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--concrete-block.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha). A faint white fringe at the bottom edge (its shadow edge) survives on dark grounds; invisible on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-brutalist-concrete-tower",
+  "src": "assets/cutouts/brutalism-ai-brutalist-concrete-tower.png",
+  "fallback": "torn",
+  "label": "Brutalist concrete tower",
+  "family": "brutalism",
+  "emo": [
+   "amazement",
+   "apprehension"
+  ],
+  "cats": [
+   "institution"
+  ],
+  "source": "Brutalist concrete tower. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A tower of stacked concrete boxes, balconies jutting — the city as a machine for living. Amazement in the stacking, apprehension in the scale.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-brutalist-concrete-tower.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--concrete-tower.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha). A generic brutalist tower form, not a copy of any specific building.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-gray-l-shaped-corner-block",
+  "src": "assets/cutouts/brutalism-ai-gray-l-shaped-corner-block.png",
+  "fallback": "torn",
+  "label": "Gray L-shaped corner block",
+  "family": "brutalism",
+  "emo": [
+   "pensiveness",
+   "acceptance"
+  ],
+  "cats": [
+   "concept",
+   "object"
+  ],
+  "source": "Gray L-shaped corner block. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "An L-shaped corner block — the joint where two walls meet. Pensiveness in the corner, acceptance in the right angle.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-gray-l-shaped-corner-block.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--corner-block.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-3x3-grid-of-concrete-squares",
+  "src": "assets/cutouts/brutalism-ai-3x3-grid-of-concrete-squares.png",
+  "fallback": "torn",
+  "label": "3x3 grid of concrete squares",
+  "family": "brutalism",
+  "emo": [
+   "distraction",
+   "interest"
+  ],
+  "cats": [
+   "institution",
+   "concept"
+  ],
+  "source": "3x3 grid of concrete squares. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Nine concrete squares, some dark as windows — a facade reduced to its grid. Distraction in the pattern, interest in the dark squares.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-3x3-grid-of-concrete-squares.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--facade-grid.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-black-monolith-slab-with-a-concr",
+  "src": "assets/cutouts/brutalism-ai-black-monolith-slab-with-a-concr.png",
+  "fallback": "torn",
+  "label": "Black monolith slab with a concrete cap",
+  "family": "brutalism",
+  "emo": [
+   "fear",
+   "aggressiveness"
+  ],
+  "cats": [
+   "object",
+   "concept"
+  ],
+  "source": "Black monolith slab with a concrete cap. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A black slab with a concrete cap — a monument with nothing written on it. Fear in the blank face, aggressiveness in the mass.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-black-monolith-slab-with-a-concr.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--monolith-slab.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "brutalism-ai-dark-concrete-t-column",
+  "src": "assets/cutouts/brutalism-ai-dark-concrete-t-column.png",
+  "fallback": "torn",
+  "label": "Dark concrete T-column",
+  "family": "brutalism",
+  "emo": [
+   "trust",
+   "serenity"
+  ],
+  "cats": [
+   "institution",
+   "object"
+  ],
+  "source": "Dark concrete T-column. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A T-shaped column, dark concrete — the pillar that holds the weight. Trust in the support, serenity in the straight lines.",
+  "status": "kept",
+  "file": "library/families/order/brutalism/cutouts/brutalism-ai-dark-concrete-t-column.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "brutalism--t-column.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "grunge-design-ai-thick-black-brush-stroke-rough-e",
+  "src": "assets/cutouts/grunge-design-ai-thick-black-brush-stroke-rough-e.png",
+  "fallback": "torn",
+  "label": "Thick black brush stroke, rough edges",
+  "family": "grunge-design",
+  "emo": [
+   "anger",
+   "aggressiveness"
+  ],
+  "cats": [
+   "object",
+   "concept"
+  ],
+  "source": "Thick black brush stroke, rough edges. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A thick black brush stroke dragged across the page, rough at the edges — the hand showing. Anger in the drag, aggressiveness in the weight.",
+  "status": "kept",
+  "file": "library/families/revolt/grunge-design/cutouts/grunge-design-ai-thick-black-brush-stroke-rough-e.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "grunge-design--brush-stroke-bold.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). Replaces the too-thin brush-stroke.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "grunge-design-ai-crumpled-paper-fragment-with-sco",
+  "src": "assets/cutouts/grunge-design-ai-crumpled-paper-fragment-with-sco.png",
+  "fallback": "torn",
+  "label": "Crumpled paper fragment with scorched edges",
+  "family": "grunge-design",
+  "emo": [
+   "fear",
+   "sadness"
+  ],
+  "cats": [
+   "object",
+   "memory"
+  ],
+  "source": "Crumpled paper fragment with scorched edges. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A crumpled page with its edges burnt black — something that survived a fire, or didn't. Fear in the scorch, sadness in the ruin.",
+  "status": "kept",
+  "file": "library/families/revolt/grunge-design/cutouts/grunge-design-ai-crumpled-paper-fragment-with-sco.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "grunge-design--burnt-paper.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha). A faint white fringe under the paper (its shadow edge) survives on dark grounds; invisible on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "grunge-design-ai-brown-coffee-cup-ring-stain",
+  "src": "assets/cutouts/grunge-design-ai-brown-coffee-cup-ring-stain.png",
+  "fallback": "torn",
+  "label": "Brown coffee cup ring stain",
+  "family": "grunge-design",
+  "emo": [
+   "distraction",
+   "pensiveness"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Brown coffee cup ring stain. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A coffee ring left on the page — the all-nighter's mark, the work interrupted. Distraction in the stain, pensiveness in the pause it records.",
+  "status": "kept",
+  "file": "library/families/revolt/grunge-design/cutouts/grunge-design-ai-brown-coffee-cup-ring-stain.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "grunge-design--coffee-ring.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "grunge-design-ai-distressed-type-reading-dirt",
+  "src": "assets/cutouts/grunge-design-ai-distressed-type-reading-dirt.png",
+  "fallback": "torn",
+  "label": "Distressed type reading DIRT",
+  "family": "grunge-design",
+  "emo": [
+   "disgust",
+   "contempt"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Distressed type reading DIRT. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "DIRT in heavy type eaten through by speckles and scratches — the word itself dirty. Disgust in the grime, contempt in the blunt word.",
+  "status": "kept",
+  "file": "library/families/revolt/grunge-design/cutouts/grunge-design-ai-distressed-type-reading-dirt.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "grunge-design--distressed-dirt.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL, DejaVu Sans Bold with speckles and scratches punched out of the alpha (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "grunge-design-ai-strip-of-ripped-silver-duct-tape",
+  "src": "assets/cutouts/grunge-design-ai-strip-of-ripped-silver-duct-tape.png",
+  "fallback": "torn",
+  "label": "Strip of ripped silver duct tape",
+  "family": "grunge-design",
+  "emo": [
+   "acceptance",
+   "vigilance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Strip of ripped silver duct tape. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A strip of silver duct tape, torn at both ends — the fix that holds everything together. Acceptance in the makeshift, vigilance in the grip.",
+  "status": "kept",
+  "file": "library/families/revolt/grunge-design/cutouts/grunge-design-ai-strip-of-ripped-silver-duct-tape.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "grunge-design--duct-tape.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "grunge-design-ai-ripped-page-with-print-lines-and",
+  "src": "assets/cutouts/grunge-design-ai-ripped-page-with-print-lines-and.png",
+  "fallback": "torn",
+  "label": "Ripped page with print lines and a torn corner",
+  "family": "grunge-design",
+  "emo": [
+   "anger",
+   "pensiveness"
+  ],
+  "cats": [
+   "object",
+   "memory"
+  ],
+  "source": "Ripped page with print lines and a torn corner. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A page torn from a magazine, its corner ripped away — the text cut off mid-thought. Anger in the tear, pensiveness in the unfinished lines. [Weak for Grunge: too clean and clip-art. First to replace.]",
+  "status": "kept",
+  "file": "library/families/revolt/grunge-design/cutouts/grunge-design-ai-ripped-page-with-print-lines-and.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "grunge-design--ripped-page.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "grunge-design-ai-two-off-white-tape-strips-crossi",
+  "src": "assets/cutouts/grunge-design-ai-two-off-white-tape-strips-crossi.png",
+  "fallback": "torn",
+  "label": "Two off-white tape strips crossing",
+  "family": "grunge-design",
+  "emo": [
+   "trust",
+   "acceptance"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Two off-white tape strips crossing. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Two strips of tape crossed like a bandage — holding the page together. Trust in the hold, acceptance in the repair. [Weak for Grunge: too clean and clip-art. First to replace.]",
+  "status": "kept",
+  "file": "library/families/revolt/grunge-design/cutouts/grunge-design-ai-two-off-white-tape-strips-crossi.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "grunge-design--tape-cross.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "grunge-design-ai-torn-black-paper-strip",
+  "src": "assets/cutouts/grunge-design-ai-torn-black-paper-strip.png",
+  "fallback": "torn",
+  "label": "Torn black paper strip",
+  "family": "grunge-design",
+  "emo": [
+   "pensiveness",
+   "interest"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Torn black paper strip. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A strip of black paper torn from a sheet — the dark scrap, waiting for a use. Pensiveness in the blank black, interest in the torn edge.",
+  "status": "kept",
+  "file": "library/families/revolt/grunge-design/cutouts/grunge-design-ai-torn-black-paper-strip.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "grunge-design--torn-black-strip.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-torn-sand-strip-with-a-blue-wave",
+  "src": "assets/cutouts/situationism-ai-torn-sand-strip-with-a-blue-wave.png",
+  "fallback": "torn",
+  "label": "Torn sand strip with a blue wave",
+  "family": "situationism",
+  "emo": [
+   "serenity",
+   "anticipation"
+  ],
+  "cats": [
+   "memory",
+   "concept"
+  ],
+  "source": "Torn sand strip with a blue wave. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A strip of sand with a blue wave — the beach under the paving stones, the Situationists' promise. Serenity in the sand and sea, anticipation in the wave coming.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-torn-sand-strip-with-a-blue-wave.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--beach-strip.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-gray-cobblestone-paving-stone",
+  "src": "assets/cutouts/situationism-ai-gray-cobblestone-paving-stone.png",
+  "fallback": "torn",
+  "label": "Gray cobblestone paving stone",
+  "family": "situationism",
+  "emo": [
+   "anger",
+   "aggressiveness"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Gray cobblestone paving stone. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A gray paving stone, rough and weathered — the cobble you lift to find the beach, or to throw. Anger in the weight, aggressiveness in the throw.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-gray-cobblestone-paving-stone.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--cobblestone.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha). A faint light strip under the stone (its cast-shadow edge) survives on dark grounds; invisible on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-three-black-arrows-pointing-in-d",
+  "src": "assets/cutouts/situationism-ai-three-black-arrows-pointing-in-d.png",
+  "fallback": "torn",
+  "label": "Three black arrows pointing in different directions",
+  "family": "situationism",
+  "emo": [
+   "interest",
+   "anticipation"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Three black arrows pointing in different directions. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Three black arrows pointing in different directions — the dérive, wandering the city by chance. Interest in the wandering, anticipation in where the arrows lead.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-three-black-arrows-pointing-in-d.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--drift-arrows-big.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). Replaces the too-small drift-arrows.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-torn-map-fragment-with-a-red-rou",
+  "src": "assets/cutouts/situationism-ai-torn-map-fragment-with-a-red-rou.png",
+  "fallback": "torn",
+  "label": "Torn map fragment with a red route arrow",
+  "family": "situationism",
+  "emo": [
+   "amazement",
+   "interest"
+  ],
+  "cats": [
+   "memory",
+   "concept"
+  ],
+  "source": "Torn map fragment with a red route arrow. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A torn map fragment with a bold red route slashed across it — the city re-drawn by walking it. Amazement in the re-drawn map, interest in the route.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-torn-map-fragment-with-a-red-rou.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--map-fragment.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha). Slight light fringe on the torn edge; invisible on light grounds.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-slogan-scrap-reading-never-work",
+  "src": "assets/cutouts/situationism-ai-slogan-scrap-reading-never-work.png",
+  "fallback": "torn",
+  "label": "Slogan scrap reading NEVER WORK",
+  "family": "situationism",
+  "emo": [
+   "contempt",
+   "disapproval"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Slogan scrap reading NEVER WORK. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "NEVER WORK in hard black capitals — the Situationists' refusal, the slogan of May '68. Contempt for the job, disapproval of the whole arrangement.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-slogan-scrap-reading-never-work.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--never-work.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL, DejaVu Sans Bold (original). The slogan 'Ne travaillez jamais' in English; a short slogan, not a copy of any artwork.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-flat-red-five-point-star",
+  "src": "assets/cutouts/situationism-ai-flat-red-five-point-star.png",
+  "fallback": "torn",
+  "label": "Flat red five-point star",
+  "family": "situationism",
+  "emo": [
+   "aggressiveness",
+   "anticipation"
+  ],
+  "cats": [
+   "concept",
+   "institution"
+  ],
+  "source": "Flat red five-point star. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A flat red star — the revolutionary mark, plain as a flag. Aggressiveness in the red, anticipation in the star's point.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-flat-red-five-point-star.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--red-star.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-solid-red-d-rive-route-with-arro",
+  "src": "assets/cutouts/situationism-ai-solid-red-d-rive-route-with-arro.png",
+  "fallback": "torn",
+  "label": "Solid red dérive route with arrowhead",
+  "family": "situationism",
+  "emo": [
+   "anticipation",
+   "interest"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Solid red dérive route with arrowhead. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A solid red curve ending in an arrowhead — a dérive route drawn across the city. Anticipation in the arrow's point, interest in the wandering line.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-solid-red-d-rive-route-with-arro.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--route-solid.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). Replaces the fragmented dashed derive-route.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-empty-comic-speech-bubble-halfto",
+  "src": "assets/cutouts/situationism-ai-empty-comic-speech-bubble-halfto.png",
+  "fallback": "torn",
+  "label": "Empty comic speech bubble, halftone",
+  "family": "situationism",
+  "emo": [
+   "contempt",
+   "distraction"
+  ],
+  "cats": [
+   "concept",
+   "absurdity"
+  ],
+  "source": "Empty comic speech bubble, halftone. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "An empty comic speech bubble, halftone and hollow — the ad's voice removed, waiting for new words. Contempt in the emptying, distraction in the hollow bubble.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-empty-comic-speech-bubble-halfto.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--speech-bubble.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-black-spray-paint-splat",
+  "src": "assets/cutouts/situationism-ai-black-spray-paint-splat.png",
+  "fallback": "torn",
+  "label": "Black spray-paint splat",
+  "family": "situationism",
+  "emo": [
+   "anger",
+   "amazement"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Black spray-paint splat. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A black spray splat, droplets radiating from a center — the wall marked in passing. Anger in the splat, amazement in the burst.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-black-spray-paint-splat.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--spray-splat-dense.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Drawn with PIL (original). Replaces the too-sparse spray-splat.",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
+ },
+ {
+  "id": "situationism-ai-red-spray-painted-stencil-arrow",
+  "src": "assets/cutouts/situationism-ai-red-spray-painted-stencil-arrow.png",
+  "fallback": "torn",
+  "label": "Red spray-painted stencil arrow",
+  "family": "situationism",
+  "emo": [
+   "aggressiveness",
+   "vigilance"
+  ],
+  "cats": [
+   "object",
+   "concept"
+  ],
+  "source": "Red spray-painted stencil arrow. Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A red spray-painted arrow, overspray and drips — the direction painted on the wall overnight. Aggressiveness in the spray, vigilance in the pointing.",
+  "status": "kept",
+  "file": "library/families/revolt/situationism/cutouts/situationism-ai-red-spray-painted-stencil-arrow.png",
+  "provenance": {
+   "source": "ai",
+   "object_id": "situationism--stencil-arrow.png",
+   "made_with": "Muse ({'model': 'Muse Spark 1.3', 'preset': 'cutout-mission-30'}) — Generated original; white background removed (threshold alpha).",
+   "prompt": null,
+   "license": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 23:27 UTC"
+  }
  }
 ]

@@ -17,6 +17,25 @@
     $('hint').textContent=selected[round]?'Fragment selected. Continue when you’re ready.':'Choose the fragment that catches you.';
     if(focus)$('step').focus();
   }
+  // ---- ALIVE controls (sound, tilt, stillness). Nothing is recorded; see alive.js. ----
+  let live=null;
+  function aliveControls(){
+    const A=P.alive;if(!A)return;
+    const hear=$('hear'),tilt=$('tilt'),still=$('still'),note=$('alive-note'),level=$('level');
+    const say=t=>{note.textContent=t;};
+    still.setAttribute('aria-pressed',String(A.isStill()));
+    still.addEventListener('click',()=>{const on=!A.isStill();A.still(on);still.setAttribute('aria-pressed',String(on));say(on?'Holding still. Typing and dragging still work.':'Moving again.');});
+    hear.addEventListener('click',async()=>{
+      if(A.signals.hearing){A.deafen();hear.setAttribute('aria-pressed','false');hear.textContent='Let it hear you';say('Stopped listening.');return;}
+      try{await A.listen();hear.setAttribute('aria-pressed','true');hear.textContent='Stop listening';say('Listening. Sound stays on your device: nothing is recorded, saved or sent. Clap, hum, play music.');}
+      catch(e){say('Couldn’t listen: '+(e&&e.message?e.message:'microphone blocked')+'. Everything else still works.');}
+    });
+    $('song').addEventListener('click',()=>{if(A.signals.hearing){A.deafen();hear.setAttribute('aria-pressed','false');hear.textContent='Let it hear you';say('Stopped.');return;}$('songfile').click();});
+    $('songfile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{await A.feed(f);say('Playing '+f.name+'. The room hears it. Nothing leaves your device.');}catch(err){say('Couldn’t play that file.');}e.target.value='';});
+    if(window.DeviceOrientationEvent&&matchMedia('(pointer: coarse)').matches){tilt.hidden=false;
+      tilt.addEventListener('click',async()=>{try{await A.tilt();tilt.setAttribute('aria-pressed','true');say('Tilt your phone. The cutouts slide.');}catch(e){say('Tilt isn’t available here.');}});}
+    A.onChange(S=>{level.style.width=Math.round(Math.min(1,S.hearing?S.audio:S.energy)*100)+'%';});
+  }
   function mode(){return matchMedia('(max-width: 700px)').matches?'narrow':'wide';}
   function renderRoom(){
     const c=V.compose(current,mode());lastMode=mode();P.visualCurrent=c;
@@ -25,6 +44,8 @@
     // All three selected originals remain visible together, outside the poem's reading region.
     const strip=document.createElement('div');strip.className='vp-room-fragments';strip.setAttribute('aria-label','Your three selected fragments');current.families.forEach(id=>strip.append(art(id)));room.append(strip);
     $('room').replaceChildren(room);
+    if(live)live.detach();
+    live=P.alive?P.alive.attach(room,{assets:c.genome.assets,seed:current.families.join('+')+'|'+current.seed}):null;
   }
   function show(r,write=true){
     current=V.validate(r);renderRoom();$('picker').hidden=true;$('result').hidden=false;
@@ -52,5 +73,5 @@
   function route(){const h=location.hash;if(h.startsWith('#/')){location.replace('/kitchen/'+h);return;}if(h.startsWith('#recipe=')){safely(()=>show(V.decode(h.slice(8)),false));}else{draw();}}
   window.addEventListener('popstate',route);window.addEventListener('hashchange',route);
   window.addEventListener('resize',()=>{if(current&&!$('result').hidden&&mode()!==lastMode)safely(renderRoom);});
-  draw();route();
+  aliveControls();draw();route();
 })();

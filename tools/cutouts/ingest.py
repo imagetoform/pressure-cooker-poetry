@@ -52,7 +52,7 @@ def main():
     if not side:
         raise SystemExit("no cutouts.json sidecar: refusing to guess families and tags")
     entries = json.loads(side)
-    order = re.findall(r"'([a-z-]+)'", re.search(r"const order = \[([^\]]*)\]",
+    order = re.findall(r"'([a-z0-9-]+)'", re.search(r"const order = \[([^\]]*)\]",
                        open(os.path.join(REPO, "site", "visual", "adapter.js")).read()).group(1))
     vocab = set(json.load(open(os.path.join(REPO, "library", "catalog.json")))["vocabulary"])
     made = 0

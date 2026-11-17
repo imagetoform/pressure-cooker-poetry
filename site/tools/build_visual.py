@@ -35,6 +35,15 @@ def assemble():
     shutil.copyfile(source/'index.html', pub/'index.html')
     (pub/'visual-picks').mkdir(exist_ok=True)
     shutil.copyfile(source/'index.html',pub/'visual-picks/index.html')
+    # Lab data for /visual/lab/alive/: every published cutout + each family's name and colours.
+    styles = (SITE/'src/styles.js').read_text()
+    fams = {m.group(1): {'name': m.group(2), 'colors': re.findall(r'"(#[0-9a-fA-F]{3,8})"', m.group(3))}
+            for m in re.finditer(r'id:\s*"([a-z0-9-]+)",\s*layout:.*?name:\s*"([^"]+)".*?colors:\s*\[([^\]]+)\]', styles, re.S)}
+    man = json.loads((REPO/'library/cutouts/manifest.json').read_text())
+    shipped = {p.stem: p.name for p in (SITE/'dist/assets/cutouts').iterdir()}
+    lab = [{'id': m['id'], 'src': '/kitchen/assets/cutouts/' + shipped[m['id']], 'label': m.get('label', ''), 'emo': m.get('emo', []),
+            'family': m['family']} for m in man if m['id'] in shipped and m['family'] in fams]
+    (target/'cutouts.js').write_text('window.PCP=window.PCP||{};PCP.labData=' + json.dumps({'families': fams, 'assets': lab}, separators=(',', ':')) + ';\n')
     (target/'version.json').write_text(json.dumps({'build':version,'engine':'kitchen-adapter/1','prng':'cyrb128-sfc32/warmup15'},indent=2))
     print('visual:',version)
 
