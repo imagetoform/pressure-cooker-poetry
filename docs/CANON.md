@@ -8,6 +8,8 @@ If any of them disagrees with this file, **this file wins**. Point out the confl
 
 ---
 
+**There is exactly one rulebook: this file.** `AGENTS.md`, `DESIGN.md` and the folder `AGENTS.md` files say *how* to work; this file says *what is decided*. `docs/DECISIONS.md` (written by a parallel session the same morning) was folded in here on 2026-11-17 and deleted.
+
 ## Rules for every collaborator (human, Claude, Codex, ChatGPT, Gemini, Muse)
 
 1. **Read this file before planning anything.** Then read the top entry of `docs/logbook.md`.
@@ -39,7 +41,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 - **Families:** 30, stable IDs in `site/visual/adapter.js` (`order` array) and `site/src/styles.js`.
 - **Kit parts:** 523 procedural CSS/SVG parts across the 30 families.
 - **Picker art:** none. Cards show each family's own palette as colour bands until new art is made and approved (Q-01).
-- **Library cutouts: 76 real image files**, every one looked at and tagged (2026-11-17). 74 are CC0 from The Met and the Cleveland Museum of Art, plus the 2 earlier Constructivism pieces. Per family: Mexican Muralism 10, Rococo 8, Gothic Revival 8, Expressionism 8, Futurism 7, Art Nouveau 7, Ukiyo-e 6, Surrealism 5, Bauhaus 5, Psychedelia 4, Dada 3, Constructivism 2, Art Deco 2, Geometric Abstraction 1. **16 families have none.** Records: `library/cutouts/manifest.json` (live), `candidates.json` (everything harvested, with keep/reject).
+- **Library cutouts: 84 real image files**, every one looked at and tagged (2026-11-17). 74 are CC0 from The Met and the Cleveland Museum of Art, plus the 2 earlier Constructivism pieces. Per family: Mexican Muralism 10, Punk 8 (ChatGPT originals), Rococo 8, Gothic Revival 8, Expressionism 8, Futurism 7, Art Nouveau 7, Ukiyo-e 6, Surrealism 5, Bauhaus 5, Psychedelia 4, Dada 3, Constructivism 2, Art Deco 2, Geometric Abstraction 1. **15 families have none.** Records: `library/cutouts/manifest.json` (live), `candidates.json` (everything harvested, with keep/reject).
 - **Writing:** 56 poems, 2 essays, all authored by Brandon.
 - **Receipt format:** `pcp-visual/1`. Old receipts are rejected (not silently re-rendered) when the build changes.
 
@@ -69,6 +71,12 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | D-20 | **Cutouts are real image files, never descriptions.** Each one = transparent PNG master + WebP web copy + a manifest record with source URL, creator, date and license. Sources: CC0 museum open access (Met, Cleveland), or Brandon's own / cleared work. Nothing reaches the site until someone has looked at it and tagged it on the emotion wheel. Workflow: `tools/cutouts/harvest.py` → `contact_sheet.py` → `promote.py` (see `library/cutouts/README.md`). | 2026-11-17 |
 | D-21 | Picker rooms use **only real library cutouts**. Each of the three picked families puts one of its own cutouts in first; the rest are wildcards chosen by emotion-wheel closeness from the whole library. | 2026-11-17 |
 | D-22 | **ChatGPT (or another image-capable AI) makes the first pass for the empty and thin families**, as original image files, using `docs/handoffs/AI_CUTOUT_BRIEF.md`. Deliveries come back through `tools/cutouts/ingest.py` and pass the same look-and-tag gate (D-20). Provenance marks each one as AI-generated for PCP. | 2026-11-17 |
+| D-23 | **Visitors only make choices.** Test machinery (flavor bars, odds, dartboard, poem picker, inspector) shows only in lab mode `?lab=1`. No new visitor-facing control without Brandon's OK. | 2026-11-01 |
+| D-24 | Look: the torn-paper "Cutup Database" mockups and the Living Cover hero are the target: polished brutalism, page by page. Rooms mix several families, never one top to bottom; each family owns a layer; grammars may collide. References: Jacobin, AIGA Eye on Design. | Nov 2026 |
+| D-25 | Voice: talk to the visitor in second person; the absurdly huge Kitchen pantry stays huge (satire of fake abundance); fact, satire and fiction are always labelled apart; inclusive, no corporate filler. | Nov 2026 |
+| D-26 | No live AI API calls from the site, no analytics, tracking, login walls or visitor profiling. Generation happens at build time; the site picks from a library. | Nov 2026 |
+| D-27 | Process: Brandon OKs **each** production deploy (OKs don't carry over). Agents open reviewable PRs; nobody auto-merges. One Netlify project, never a second. | Nov 2026 |
+| D-28 | Saved rooms are framed as a **coupon** for next time. The drawing wall lives in each piece's margin, free in-browser recognition, auto-scored lines; it can be pulled later if it doesn't work. | Nov 2026 |
 | D-16 | The GitHub repo `imagetoform/pressure-cooker-poetry` is the one home for site, database, kits and cutouts. | Nov 2026 |
 
 ---
@@ -88,6 +96,8 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | Q-01 | What is the new picker art? | Atlas deleted (D-19). Stand-in palette cards are live. Options: Brandon's own art, cleared cutouts per family, or a new generated set he art-directs first. Biggest visual lever on the front door. |
 | Q-02 | Should the seed box and raw JSON stay visible on the result screen? | The README's design law says seeds are hidden test machinery. They currently sit inside a collapsed "Your recipe receipt" panel. |
 | Q-07 | Where do the 16 families with no cutouts get their art? **First pass: ChatGPT (D-22).** Still open: whether Brandon's own art and scans join later. | Minimalism, Swiss, Brutalism, Punk, Zine/DIY, Situationism, Grunge, Cyberpunk, Vaporwave, Afrofuturism, Y2K, Maximalism, Pop Art, Memphis, Abstract Expressionism, Op Art. These are post-1930 and mostly still in copyright, so museums don't release them. Options: Brandon's own art, photos and pulp-magazine scans; original pieces made for the site; or public-domain material processed in the family's style (e.g. old newspaper photos photocopied for Punk). Thin families that need more: Art Deco, Dada, Constructivism, Geometric Abstraction. |
+| Q-08 | Pop Art and Maximalism lead more rooms than others (about 16% and 12.5%). Retune? | Reported by the playbook session, not changed. |
+| Q-09 | Front door styling: `site/visual/visual.css` uses Arial/Georgia and cream `#f3eadb` on `#17151a` with a lime accent, off the Kitchen's tokens in `DESIGN.md`. Bring it onto the tokens, or keep it? | Raised by the playbook session. Cream conflicts with D-11. |
 | Q-04 | Rococo ground reads dark, not pastel. | From the 2026-11-05 logbook. |
 | Q-05 | Pressure gauge as the PRESSURIZE button + reveal? Post-Pressurize animation from cssauthor.com? | Both raised for the old cabinet flow. Do they carry over to the picker's "Cook my room"? |
 | Q-06 | Room intro copy: carry over "You walked in hungry… draw your own damn map"? | Approved earlier for the old landing. |
@@ -104,6 +114,7 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 - Subreddit, comments, submissions, moderation
 - Drawing wall extended across all writing
 - Archival image snapshots of rooms
+- Nutrition-label cards for the pieces index (study first).
 - OpenRouter / GitHub Actions cutout pipeline (`tools/cutouts/run.py`, `cutouts.yml`, PR #4). Replaced as the main path by `tools/cutouts/harvest.py` (D-20), which needs no API key. Kept for reference.
 
 ---
@@ -118,6 +129,9 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 | AI-generated 30-cell picker atlas (`family-atlas-v1.png`) | 2026-11-17 | Deleted (D-19). |
 | Old collage landing at `/` and `/collage/`, cabinet, microphone experiment, ~235 legacy cutouts | 2026-11-17 | Deleted (D-19). `/collage/` redirects to `/`. |
 | A cutout "database" made of text descriptions, research leads, shopping lists and pipeline proposals without image files | 2026-11-17 | Replaced by real files (D-20). |
+| Branch `fix/collage-and-front-door-weight` (2026-11-17 10:38): self-hosted fonts for `/collage/` and per-family picker tiles cut from the AI atlas | 2026-11-17 | **Don't merge.** Built on the collage and atlas deleted by D-19. |
+| Microphone "resonance" experiment on the collage page (PR #5) | 2026-11-17 | Deleted with the collage (D-19). |
+| `docs/DECISIONS.md` as a second decisions file | 2026-11-17 | Folded into this file. One rulebook only. |
 | First flat menu-style "Gutter" landing | Nov 2026 | Rejected by Brandon. |
 | Ten-axis mood wheel as the live engine | Nov 2026 | Replaced by the emotion wheel (D-17). Background thinking only. |
 | D-05: picker feeds the old engine through the taste/dial adapter | 2026-11-17 | Replaced by D-17. Picks go straight to the emotion wheel. |
@@ -130,6 +144,7 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 
 ## Canon change log
 
+- **2026-11-17** — Merged the parallel playbook branch (`agents/codex-playbook`): its AGENTS.md, DESIGN.md, folder rules, skills and templates kept; its DECISIONS.md folded in as D-23–D-28, Q-08, Q-09; references repointed here. Punk: 8 ChatGPT cutouts (84 total).
 - **2026-11-17** — D-22: ChatGPT does the first pass on empty families; ingest tool + brief added.
 - **2026-11-17** — D-20, D-21: real cutout database (76 files) and how rooms use it; Q-07 added; old pipeline parked.
 - **2026-11-17** — D-18, D-19: room-by-room build with picks remembered per browser; fresh start. Atlas and collage deleted; Q-01 rewritten.

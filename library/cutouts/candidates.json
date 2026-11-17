@@ -2810,32 +2810,32 @@
   "label": "NO MASTERS ransom-note letters",
   "suggested": {
    "emo": [
-    "rage",
     "contempt",
-    "aggressiveness"
+    "aggressiveness",
+    "joy"
    ],
    "cats": [
-    "concept",
-    "institution"
+    "institution",
+    "concept"
    ],
-   "notes": "Cut-letter refusal of every boss."
+   "notes": "Refusal of arbitrary authority through jubilant mismatched typography."
   },
   "source": "NO MASTERS ransom-note letters. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
   "provenance": {
    "source": "chatgpt",
-   "object_id": "punk--no-masters-ransom-letters.png",
-   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
-   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "object_id": "punk--no-masters-ransom.png",
+   "made_with": "OpenAI image generation model; isolated and upscaled from a transparent eight-fragment sheet",
+   "prompt": "A transparent PNG collage sheet features eight independent punk-zine cutouts in a loose four-by-two grid, combining torn paper edges, gritty halftone photocopy textures, black-and-white ink, and fluorescent magenta and yellow accents. The stickers include “NO MASTERS” ransom lettering, a safety-pin-pierced mouth, a raised gloved fist, layered neon tape, a chaotic asterisk, a megaphone, a neon “REFUSE” burst, and a barbed-wire loop tangled with safety pins.",
    "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
    "cut": "delivered with transparency",
-   "when": "2026-11-17 20:29 UTC"
+   "when": "2026-11-17 20:33 UTC"
   }
  },
  {
   "id": "punk-chatgpt-safety-pin-mouth",
   "family": "punk",
   "file": "library/families/revolt/punk/cutouts/punk-chatgpt-safety-pin-mouth.png",
-  "status": "kept",
+  "status": "replaced",
   "label": "Safety-pin mouth",
   "suggested": {
    "emo": [
@@ -2858,13 +2858,14 @@
    "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
    "cut": "delivered with transparency",
    "when": "2026-11-17 20:29 UTC"
-  }
+  },
+  "notes": "replaced by the full-size zip delivery (sharper)"
  },
  {
   "id": "punk-chatgpt-raised-fist-leather-sleeve",
   "family": "punk",
   "file": "library/families/revolt/punk/cutouts/punk-chatgpt-raised-fist-leather-sleeve.png",
-  "status": "kept",
+  "status": "replaced",
   "label": "Raised fist, leather sleeve",
   "suggested": {
    "emo": [
@@ -2887,13 +2888,14 @@
    "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
    "cut": "delivered with transparency",
    "when": "2026-11-17 20:29 UTC"
-  }
+  },
+  "notes": "replaced by the full-size zip delivery (sharper)"
  },
  {
   "id": "punk-chatgpt-pink-and-yellow-tape-strips",
   "family": "punk",
   "file": "library/families/revolt/punk/cutouts/punk-chatgpt-pink-and-yellow-tape-strips.png",
-  "status": "kept",
+  "status": "replaced",
   "label": "Pink and yellow tape strips",
   "suggested": {
    "emo": [
@@ -2914,13 +2916,14 @@
    "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
    "cut": "delivered with transparency",
    "when": "2026-11-17 20:29 UTC"
-  }
+  },
+  "notes": "replaced by the full-size zip delivery (sharper)"
  },
  {
   "id": "punk-chatgpt-asterisk-on-torn-paper",
   "family": "punk",
   "file": "library/families/revolt/punk/cutouts/punk-chatgpt-asterisk-on-torn-paper.png",
-  "status": "kept",
+  "status": "replaced",
   "label": "Asterisk on torn paper",
   "suggested": {
    "emo": [
@@ -2942,13 +2945,14 @@
    "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
    "cut": "delivered with transparency",
    "when": "2026-11-17 20:29 UTC"
-  }
+  },
+  "notes": "replaced by the full-size zip delivery (sharper)"
  },
  {
   "id": "punk-chatgpt-megaphone-halftone",
   "family": "punk",
   "file": "library/families/revolt/punk/cutouts/punk-chatgpt-megaphone-halftone.png",
-  "status": "kept",
+  "status": "replaced",
   "label": "Megaphone, halftone",
   "suggested": {
    "emo": [
@@ -2971,13 +2975,14 @@
    "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
    "cut": "delivered with transparency",
    "when": "2026-11-17 20:29 UTC"
-  }
+  },
+  "notes": "replaced by the full-size zip delivery (sharper)"
  },
  {
   "id": "punk-chatgpt-refuse-starburst",
   "family": "punk",
   "file": "library/families/revolt/punk/cutouts/punk-chatgpt-refuse-starburst.png",
-  "status": "kept",
+  "status": "replaced",
   "label": "REFUSE starburst",
   "suggested": {
    "emo": [
@@ -3000,13 +3005,14 @@
    "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
    "cut": "delivered with transparency",
    "when": "2026-11-17 20:29 UTC"
-  }
+  },
+  "notes": "replaced by the full-size zip delivery (sharper)"
  },
  {
   "id": "punk-chatgpt-barbed-wire-mended-with-safety-p",
   "family": "punk",
   "file": "library/families/revolt/punk/cutouts/punk-chatgpt-barbed-wire-mended-with-safety-p.png",
-  "status": "kept",
+  "status": "replaced",
   "label": "Barbed wire mended with safety pins",
   "suggested": {
    "emo": [
@@ -3029,6 +3035,207 @@
    "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
    "cut": "delivered with transparency",
    "when": "2026-11-17 20:29 UTC"
+  },
+  "notes": "replaced by the full-size zip delivery (sharper)"
+ },
+ {
+  "id": "punk-chatgpt-safety-pin-mouth-halftone-scrap",
+  "family": "punk",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-safety-pin-mouth-halftone-scrap.png",
+  "status": "kept",
+  "label": "Safety-pin mouth, halftone scrap",
+  "suggested": {
+   "emo": [
+    "rage",
+    "vigilance",
+    "disapproval"
+   ],
+   "cats": [
+    "object",
+    "concept"
+   ],
+   "notes": "A shut mouth mechanically pierced, evoking controlled speech and resistance."
+  },
+  "source": "Safety-pin mouth, halftone scrap. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--safety-pin-mouth.png",
+   "made_with": "OpenAI image generation model; isolated and upscaled from a transparent eight-fragment sheet",
+   "prompt": "A transparent PNG collage sheet features eight independent punk-zine cutouts in a loose four-by-two grid, combining torn paper edges, gritty halftone photocopy textures, black-and-white ink, and fluorescent magenta and yellow accents. The stickers include “NO MASTERS” ransom lettering, a safety-pin-pierced mouth, a raised gloved fist, layered neon tape, a chaotic asterisk, a megaphone, a neon “REFUSE” burst, and a barbed-wire loop tangled with safety pins.",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:32 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-raised-gloved-fist-photocopy-cut",
+  "family": "punk",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-raised-gloved-fist-photocopy-cut.png",
+  "status": "kept",
+  "label": "Raised gloved fist, photocopy cutout",
+  "suggested": {
+   "emo": [
+    "optimism",
+    "aggressiveness",
+    "trust"
+   ],
+   "cats": [
+    "object",
+    "concept"
+   ],
+   "notes": "The raised hand suggests collective solidarity and defiance."
+  },
+  "source": "Raised gloved fist, photocopy cutout. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--raised-gloved-fist.png",
+   "made_with": "OpenAI image generation model; isolated and upscaled from a transparent eight-fragment sheet",
+   "prompt": "A transparent PNG collage sheet features eight independent punk-zine cutouts in a loose four-by-two grid, combining torn paper edges, gritty halftone photocopy textures, black-and-white ink, and fluorescent magenta and yellow accents. The stickers include “NO MASTERS” ransom lettering, a safety-pin-pierced mouth, a raised gloved fist, layered neon tape, a chaotic asterisk, a megaphone, a neon “REFUSE” burst, and a barbed-wire loop tangled with safety pins.",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:32 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-fluorescent-torn-tape-strips",
+  "family": "punk",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-fluorescent-torn-tape-strips.png",
+  "status": "kept",
+  "label": "Fluorescent torn tape strips",
+  "suggested": {
+   "emo": [
+    "interest",
+    "anticipation"
+   ],
+   "cats": [
+    "object",
+    "memory"
+   ],
+   "notes": "Bright tape makes ordinary repairs look conspicuous and urgent."
+  },
+  "source": "Fluorescent torn tape strips. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--fluorescent-tape.png",
+   "made_with": "OpenAI image generation model; isolated and upscaled from a transparent eight-fragment sheet",
+   "prompt": "A transparent PNG collage sheet features eight independent punk-zine cutouts in a loose four-by-two grid, combining torn paper edges, gritty halftone photocopy textures, black-and-white ink, and fluorescent magenta and yellow accents. The stickers include “NO MASTERS” ransom lettering, a safety-pin-pierced mouth, a raised gloved fist, layered neon tape, a chaotic asterisk, a megaphone, a neon “REFUSE” burst, and a barbed-wire loop tangled with safety pins.",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:32 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-black-brush-asterisk-on-torn-pap",
+  "family": "punk",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-black-brush-asterisk-on-torn-pap.png",
+  "status": "kept",
+  "label": "Black brush asterisk on torn paper",
+  "suggested": {
+   "emo": [
+    "surprise",
+    "annoyance"
+   ],
+   "cats": [
+    "concept",
+    "absurdity"
+   ],
+   "notes": "A rough interruption mark creates sudden visual emphasis."
+  },
+  "source": "Black brush asterisk on torn paper. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--xerox-asterisk.png",
+   "made_with": "OpenAI image generation model; isolated and upscaled from a transparent eight-fragment sheet",
+   "prompt": "A transparent PNG collage sheet features eight independent punk-zine cutouts in a loose four-by-two grid, combining torn paper edges, gritty halftone photocopy textures, black-and-white ink, and fluorescent magenta and yellow accents. The stickers include “NO MASTERS” ransom lettering, a safety-pin-pierced mouth, a raised gloved fist, layered neon tape, a chaotic asterisk, a megaphone, a neon “REFUSE” burst, and a barbed-wire loop tangled with safety pins.",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:32 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-photocopied-protest-megaphone",
+  "family": "punk",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-photocopied-protest-megaphone.png",
+  "status": "kept",
+  "label": "Photocopied protest megaphone",
+  "suggested": {
+   "emo": [
+    "vigilance",
+    "aggressiveness"
+   ],
+   "cats": [
+    "object",
+    "institution"
+   ],
+   "notes": "A tool for making dissent audible."
+  },
+  "source": "Photocopied protest megaphone. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--megaphone.png",
+   "made_with": "OpenAI image generation model; isolated and upscaled from a transparent eight-fragment sheet",
+   "prompt": "A transparent PNG collage sheet features eight independent punk-zine cutouts in a loose four-by-two grid, combining torn paper edges, gritty halftone photocopy textures, black-and-white ink, and fluorescent magenta and yellow accents. The stickers include “NO MASTERS” ransom lettering, a safety-pin-pierced mouth, a raised gloved fist, layered neon tape, a chaotic asterisk, a megaphone, a neon “REFUSE” burst, and a barbed-wire loop tangled with safety pins.",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:32 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-refuse-neon-explosion-sticker",
+  "family": "punk",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-refuse-neon-explosion-sticker.png",
+  "status": "kept",
+  "label": "REFUSE, neon explosion sticker",
+  "suggested": {
+   "emo": [
+    "anger",
+    "optimism",
+    "contempt"
+   ],
+   "cats": [
+    "concept",
+    "institution"
+   ],
+   "notes": "An emphatic refusal framed as a defiant burst."
+  },
+  "source": "REFUSE, neon explosion sticker. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--refuse-burst.png",
+   "made_with": "OpenAI image generation model; isolated and upscaled from a transparent eight-fragment sheet",
+   "prompt": "A transparent PNG collage sheet features eight independent punk-zine cutouts in a loose four-by-two grid, combining torn paper edges, gritty halftone photocopy textures, black-and-white ink, and fluorescent magenta and yellow accents. The stickers include “NO MASTERS” ransom lettering, a safety-pin-pierced mouth, a raised gloved fist, layered neon tape, a chaotic asterisk, a megaphone, a neon “REFUSE” burst, and a barbed-wire loop tangled with safety pins.",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:32 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-barbed-wire-loop-with-safety-pin",
+  "family": "punk",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-barbed-wire-loop-with-safety-pin.png",
+  "status": "kept",
+  "label": "Barbed wire loop with safety pins",
+  "suggested": {
+   "emo": [
+    "apprehension",
+    "rage",
+    "vigilance"
+   ],
+   "cats": [
+    "object",
+    "concept"
+   ],
+   "notes": "Danger and handmade adaptation coexist in one assemblage."
+  },
+  "source": "Barbed wire loop with safety pins. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--safety-pin-barbed-loop.png",
+   "made_with": "OpenAI image generation model; isolated and upscaled from a transparent eight-fragment sheet",
+   "prompt": "A transparent PNG collage sheet features eight independent punk-zine cutouts in a loose four-by-two grid, combining torn paper edges, gritty halftone photocopy textures, black-and-white ink, and fluorescent magenta and yellow accents. The stickers include “NO MASTERS” ransom lettering, a safety-pin-pierced mouth, a raised gloved fist, layered neon tape, a chaotic asterisk, a megaphone, a neon “REFUSE” burst, and a barbed-wire loop tangled with safety pins.",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:32 UTC"
   }
  }
 ]

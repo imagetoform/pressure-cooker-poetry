@@ -38,7 +38,9 @@ python3 tools/cutouts/ingest.py delivery.zip --source chatgpt     # or a folder;
 python3 tools/cutouts/contact_sheet.py tmp/sheet.png punk          # look
 python3 tools/cutouts/promote.py decisions.json                    # {"id": ..., "keep": true} reuses the suggested tags
 ```
-The ChatGPT brief is `docs/handoffs/AI_CUTOUT_BRIEF.md`. Sources: chatgpt, brandon, scan.
+If the AI sent one sheet with several pieces: `python3 tools/cutouts/split_sheet.py sheet.png OUT_DIR family slug1 slug2 ...`. If its pieces carry slivers of their neighbours: `python3 tools/cutouts/clean_edges.py FILE.png` (raise `--keep` for bigger slivers). Ask the AI for **one image per cutout**: a split sheet comes out small.
+
+The AI brief is `docs/handoffs/AI_CUTOUT_BRIEF.md`. Sources: chatgpt, brandon, scan.
 
 ## Brandon's own images
 

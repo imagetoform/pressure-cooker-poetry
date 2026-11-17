@@ -2,11 +2,24 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - regular OpenRouter key in OPENROUTER_API_KEY, allow Actions PRs, decide heat/order/noise/weight mapping + Rococo/Muralism moods; Claude - tune Rococo/Muralism from the live site with Brandon (Rococo ground reads dark, not pastel)
+next: Brandon - give a session push access so the local commits become a PR; send more AI cutout batches (AI_CUTOUT_BRIEF.md); answer CANON Q-01, Q-02, Q-08, Q-09. Claude - rebuild the rooms around the cutouts (D-18). Always read docs/CANON.md first.
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-17 14:31 — One rulebook; Punk from ChatGPT; split/ingest tools
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Merged `agents/codex-playbook` | Kept its AGENTS.md, DESIGN.md, folder AGENTS.md files, .agents/skills, templates. Folded its docs/DECISIONS.md into docs/CANON.md (D-23–D-28, Q-08, Q-09) and deleted it. Every reference repointed to CANON. Stale bits fixed (collage, dials, intake pipeline). |
+| Graveyarded `fix/collage-and-front-door-weight` | Its tiles are cut from the deleted AI atlas and its fonts serve the deleted collage page. Don't merge. |
+| Punk | ChatGPT first sent one 8-piece sheet (split with split_sheet.py, ~350 px pieces), then a zip of the same 8 as separate 1200 px files with a sidecar. The zip versions are fresh, sharper renders, so they replaced the split ones (old records marked `replaced`). Its own separation left slivers of neighbouring pieces on 6 of 8: clean_edges.py removed them (fist needed --keep 0.3). Megaphone and NO MASTERS keep a flat crop edge from ChatGPT; reads as a scissor cut. All 8 kept with ChatGPT's own emotion tags. |
+| Checked | ChatGPT said it would upload to the repo: nothing arrived (no branch, commit or PR). Its GitHub access is likely read-only. Deliveries come through Brandon. |
+
+### Open / notes
+84 cutouts. This session still has no push access; everything is local commits on `docs/canon`.
 
 ## 2026-11-17 11:03 — Real cutout database: 2 → 76 image files (D-20, D-21)
 
@@ -41,6 +54,27 @@ Rooms show cutouts poorly (old poem-first layouts): that is D-18. 16 families ha
 
 ### Open / notes
 Dials are retired in the canon but still in adapter.js and site/src/tastes.js. Rewrite adapter to emotion wheel next. Remote branches not deleted (no push access in this session).
+
+## 2026-11-17 09:34 — Agent playbook: AGENTS.md, DESIGN.md, decisions, Codex skills
+
+### What was asked
+Brandon: read the repo and set up the design and agents markdown, plus whatever else would make the models working on this site (ChatGPT/Codex especially) work better.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| AGENTS.md (root) | source-of-truth order (owner > DECISIONS > issue #10 > specs > history), 8 laws, repo map, commands, workflow, definition of done, the real failure modes from the two intake audits, voice rules, skill triggers. About 10 KB, under Codex's 32 KiB instruction budget together with a nested file |
+| site/AGENTS.md, library/AGENTS.md | folder rules: build.py's exact-match patches, the four engine files duplicated in site/src and site/landing/src (identical today, nothing syncs them), committed dist, build_visual's header extraction and content-hash receipts; asset verification, rights statuses, tagging, kit-part limits |
+| DESIGN.md | shell tokens taken from the Kitchen's existing --k-* / --f-* variables (contrast measured), shell vs room, the generative system, collage/motion/component rules, the Don't list, and the front door's off-token drift flagged for Brandon |
+| docs/DECISIONS.md | Brandon's standing decisions with superseded items marked (Mood Interview, cabinet as front door) and open ones (Heat/Order/Noise/Weight, Pop Art/Maximalism dominance) |
+| .agents/skills/ | pcp-verify, pcp-design-pass, pcp-asset-intake (Codex loads .agents/skills automatically) |
+| Other | CLAUDE.md imports AGENTS.md; tools/codex/setup.sh for the Codex environment setup script; PR template; agent-task issue template; README design law and route list brought up to date (front door at /, collage at /collage/) |
+| Checked | build.py + assemble.py run clean on this branch, site/dist unchanged; setup.sh passes bash -n; README route claims checked against site/visual/app.js route() |
+
+### Open / notes
+- Brandon: paste `bash tools/codex/setup.sh` into the Codex environment's setup script.
+- Brandon to decide: bring site/visual/visual.css (Arial/Georgia, cream #f3eadb on #17151a, lime accent) onto the Kitchen tokens, or keep it.
+- Browser suite not run here (docs-only change; CI runs it on the PR).
 
 ## 2026-11-05 22:11 — Sent Brandon the preset's system prompt on its own
 

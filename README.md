@@ -4,7 +4,9 @@ The website's database, design elements and cutouts for [pressurecookerpoetry.co
 
 ## Design law
 
-Visitors **only choose ingredients**, from an absurd, overwhelming pantry (satire of fake abundance). The dials, flavor bars, PSI odds, dartboard, poem picker, seeds and inspector are **test machinery**: hidden from visitors, shown only in lab mode (`?lab=1`; `?lab=0` turns it off). Authored writing is never edited. Same recipe, same room.
+Visitors **only make choices**: three rounds of visual fragments at the front door, or ingredients from an absurd, overwhelming pantry in the Kitchen (satire of fake abundance). The dials, flavor bars, PSI odds, dartboard, poem picker, seeds and inspector are **test machinery**: hidden from visitors, shown only in lab mode (`?lab=1`; `?lab=0` turns it off). Authored writing is never edited. Same recipe, same room.
+
+**Agents start with [`AGENTS.md`](AGENTS.md)**, then [`DESIGN.md`](DESIGN.md) for anything visible and [`docs/CANON.md`](docs/CANON.md) for what's live and what the owner has already decided.
 
 ## How it works
 
@@ -25,7 +27,9 @@ Visitors **only choose ingredients**, from an absurd, overwhelming pantry (satir
 | `site/dist/index.html` | The deployable page |
 | `library/families/` | One folder per design movement: its kit and its cutouts |
 | `library/cutouts/inbox/` | Cutouts waiting to be tagged |
+| `site/visual/` | The front door: fragment picker, adapter onto the Kitchen engine, receipts |
 | `docs/logbook.md` | Session-by-session history of the build |
+| `docs/CANON.md` | The one source of truth: live state, locked decisions, open questions, parked ideas, graveyard |
 
 ## Build and test
 
@@ -40,8 +44,10 @@ cd .. && node tools/test.js       # needs Playwright
 
 Netlify (site `pressurecookerpoetry`) publishes `site/public/`, built by `python3 site/tools/build.py && python3 site/tools/assemble.py`:
 
-- `/` is the Gutter Intelligentsia landing (`site/landing/`: the cabinet, the cooked menu, 235 cutouts in `assets/c/`)
-- `/kitchen/` is the Kitchen (`site/dist/`). Old `#/...` links on `/` redirect to `/kitchen/#/...`.
+- `/` is the visual front door (`site/visual/`): three rounds of ten family fragments, then a cooked room and a recipe receipt
+- `/kitchen/` is the Kitchen (`site/dist/`), with the full pantry. Old `#/...` links on `/` redirect to `/kitchen/#/...`.
+- `/collage/` redirects to `/` (the old collage landing was deleted, CANON D-19)
+- `/poems/`, `/essays/`, `/learning/`, `/about/`, `/contact/` come from `site/landing/`
 
 For automatic deploys, connect this GitHub repository to the existing Netlify project, choose `main` as the production branch, and use the build command and publish directory in `netlify.toml`. GitHub Actions rebuilds every pull request and checks that `site/dist/` matches the source files. Do not create a second Netlify project for the same domain.
 

@@ -1,12 +1,3 @@
-# Instructions for every AI agent working in this repo
+@AGENTS.md
 
-**Before you plan, design or write any code, read `docs/CANON.md`.**
-
-It holds what is live, what is decided, what is open, what is parked and what is dead.
-
-- If a brief, issue, PR, chat summary or handoff doc disagrees with `docs/CANON.md`, the canon wins. Name the conflict instead of acting on the older document.
-- Don't reopen a LOCKED decision unless Brandon writes `reopen D-xx`.
-- Don't rebuild anything in the GRAVEYARD.
-- Start from current `main`, not from an old branch or a prototype PR.
-- Authored writing is never edited.
-- When you change a decision or ship something, update `docs/CANON.md` in the same PR and add a newest-first entry to `docs/logbook.md`.
+Claude: the repository rules live in AGENTS.md (imported above), with folder rules in site/AGENTS.md and library/AGENTS.md. Read DESIGN.md before visual work and docs/CANON.md before planning anything. The skills in .agents/skills/ are plain instructions; follow them by hand when their trigger fits.
