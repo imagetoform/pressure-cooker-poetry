@@ -8,6 +8,27 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-17 09:34 — Agent playbook: AGENTS.md, DESIGN.md, decisions, Codex skills
+
+### What was asked
+Brandon: read the repo and set up the design and agents markdown, plus whatever else would make the models working on this site (ChatGPT/Codex especially) work better.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| AGENTS.md (root) | source-of-truth order (owner > DECISIONS > issue #10 > specs > history), 8 laws, repo map, commands, workflow, definition of done, the real failure modes from the two intake audits, voice rules, skill triggers. About 10 KB, under Codex's 32 KiB instruction budget together with a nested file |
+| site/AGENTS.md, library/AGENTS.md | folder rules: build.py's exact-match patches, the four engine files duplicated in site/src and site/landing/src (identical today, nothing syncs them), committed dist, build_visual's header extraction and content-hash receipts; asset verification, rights statuses, tagging, kit-part limits |
+| DESIGN.md | shell tokens taken from the Kitchen's existing --k-* / --f-* variables (contrast measured), shell vs room, the generative system, collage/motion/component rules, the Don't list, and the front door's off-token drift flagged for Brandon |
+| docs/DECISIONS.md | Brandon's standing decisions with superseded items marked (Mood Interview, cabinet as front door) and open ones (Heat/Order/Noise/Weight, Pop Art/Maximalism dominance) |
+| .agents/skills/ | pcp-verify, pcp-design-pass, pcp-asset-intake (Codex loads .agents/skills automatically) |
+| Other | CLAUDE.md imports AGENTS.md; tools/codex/setup.sh for the Codex environment setup script; PR template; agent-task issue template; README design law and route list brought up to date (front door at /, collage at /collage/) |
+| Checked | build.py + assemble.py run clean on this branch, site/dist unchanged; setup.sh passes bash -n; README route claims checked against site/visual/app.js route() |
+
+### Open / notes
+- Brandon: paste `bash tools/codex/setup.sh` into the Codex environment's setup script.
+- Brandon to decide: bring site/visual/visual.css (Arial/Georgia, cream #f3eadb on #17151a, lime accent) onto the Kitchen tokens, or keep it.
+- Browser suite not run here (docs-only change; CI runs it on the PR).
+
 ## 2026-11-05 22:11 — Sent Brandon the preset's system prompt on its own
 
 ### What was asked
