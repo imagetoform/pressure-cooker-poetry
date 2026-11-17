@@ -33,7 +33,7 @@ const base=process.env.PCP_TEST_URL||'http://127.0.0.1:8765';
   await page.locator('#vp-edit').click();assert.equal(await page.locator('.vp-tile[aria-pressed=true]').count(),1);
   await page.goto(base+'/#recipe='+encodeURIComponent(JSON.stringify({...receipt,build:'old-build'})));await page.waitForFunction(()=>document.querySelector('#vp-status').textContent.includes('different engine'));
   assert.equal(await page.locator('#vp-result').isHidden(),true);
-  for(const route of ['/poems/','/essays/','/learning/','/about/','/contact/','/learning-curve/','/collage/','/kitchen/']){
+  for(const route of ['/poems/','/essays/','/learning/','/about/','/contact/','/learning-curve/','/kitchen/']){
    const response=await page.goto(base+route,{waitUntil:'domcontentloaded'});assert.equal(response.status(),200,route);
    await page.waitForLoadState('domcontentloaded');
    if(route==='/poems/'||route==='/essays/'){

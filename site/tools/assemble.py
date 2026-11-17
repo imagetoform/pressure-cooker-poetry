@@ -1,6 +1,6 @@
 """Assemble the deployable site into site/public/.
 
-  /          the Gutter Intelligentsia landing (site/landing/, the new front door)
+  /          the visual picker (site/visual/); site/landing/ holds the section pages
   /kitchen/  the Kitchen, built by build.py into site/dist/
 
 Run after build.py:  python3 site/tools/build.py && python3 site/tools/assemble.py
@@ -17,6 +17,6 @@ shutil.copytree(os.path.join(SITE, "dist"), os.path.join(PUB, "kitchen"))
 n = sum(len(f) for _, _, f in os.walk(PUB))
 print(f"assembled {n} files into {PUB}")
 
-# The visual front door shares the real Kitchen engine; original collage remains available.
+# The visual front door shares the Kitchen runtime. The old collage was removed 2026-11-17 (CANON D-19).
 import build_visual
 build_visual.assemble()

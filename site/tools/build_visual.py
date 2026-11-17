@@ -32,16 +32,6 @@ def assemble():
     runtime += '\nPCP.assets.forEach(function(a){if(a.src && !/^(https?:|data:|\\/)/.test(a.src))a.src="/kitchen/"+a.src;});\n'
     (target/'runtime.js').write_text(runtime)
     (target/'runtime.css').write_text(css)
-    # Keep the original collage and its opt-in sound experiment as a separate destination.
-    old = (pub/'index.html').read_text()
-    old = old.replace('<head>', '<head><base href="/">', 1)
-    old = old.replace('<script type="module" src="src/cabinet.js"></script>', '')
-    old = old.replace("else{$('entry').classList.add('on');document.body.style.overflow='hidden'}", 'else{cook(DEFAULT)}')
-    old = old.replace("$('openCab').onclick=runCabinet;", "$('openCab').onclick=openPicker;")
-    old = old.replace('Open the cabinet', 'Open the pantry')
-    old = old.replace('<nav aria-label="Sections">', '<nav aria-label="Sections"><a class="navlink" href="/">Visual Kitchen</a>')
-    (pub/'collage').mkdir(exist_ok=True)
-    (pub/'collage/index.html').write_text(old)
     shutil.copyfile(source/'index.html', pub/'index.html')
     (pub/'visual-picks').mkdir(exist_ok=True)
     shutil.copyfile(source/'index.html',pub/'visual-picks/index.html')

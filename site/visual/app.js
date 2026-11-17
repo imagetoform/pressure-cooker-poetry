@@ -4,11 +4,12 @@
   const randomSeed=()=>Array.from(crypto.getRandomValues(new Uint32Array(2)),n=>n.toString(36)).join('-');
   let deal=randomSeed(),pool=V.rounds(deal),round=0,selected=[null,null,null],current=null,lastMode='';
   const status=text=>{$('status').textContent=text;};
-  function art(id){const f=V.byId[id],e=document.createElement('span');e.className='vp-art';const xs=[0,249,479,704,930,1145],ys=[0,238,461,691,915,1133,1374],col=f.tile%5,row=Math.floor(f.tile/5),x=xs[col]+5,y=ys[row]+5,w=xs[col+1]-xs[col]-10,h=ys[row+1]-ys[row]-10;e.style.setProperty('--x',x/(1145-w)*100+'%');e.style.setProperty('--y',y/(1374-h)*100+'%');e.style.setProperty('--sx',1145/w*100+'%');e.style.setProperty('--sy',1374/h*100+'%');e.setAttribute('role','img');e.setAttribute('aria-label',f.description);return e;}
+  // Stand-in art: the family's own palette as torn bands. No old imagery (CANON D-19).
+  function art(id){const f=V.byId[id],e=document.createElement('span'),c=f.colors,n=c.length,stops=c.map((col,i)=>col+' '+(i*100/n)+'% '+((i+1)*100/n)+'%').join(',');e.className='vp-art';e.style.backgroundImage='linear-gradient('+(160+f.tile*7)+'deg,'+stops+')';e.setAttribute('role','img');e.setAttribute('aria-label',f.description);return e;}
   function draw(focus=false){
     $('picker').hidden=false;$('result').hidden=true;
     $('step').textContent='Round '+(round+1)+' / 3';$('grid').replaceChildren();
-    pool[round].forEach((id,index)=>{const f=V.byId[id],b=document.createElement('button');b.type='button';b.className='vp-tile';b.dataset.family=id;b.setAttribute('aria-label',f.description);b.setAttribute('aria-pressed',String(selected[round]===id));
+    pool[round].forEach((id,index)=>{const f=V.byId[id],b=document.createElement('button');b.type='button';b.className='vp-tile';b.dataset.family=id;b.setAttribute('aria-label','Option '+(index+1)+' of 10: '+f.description);b.setAttribute('aria-pressed',String(selected[round]===id));
       const caption=document.createElement('span');caption.className='vp-caption';caption.textContent=String(index+1).padStart(2,'0')+(selected[round]===id?' / Selected ✓':' / Pick this');
       const a=art(id);a.setAttribute('aria-hidden','true');b.append(a,caption);b.onclick=()=>{selected[round]=id;draw();$('grid').querySelector('[data-family="'+id+'"]').focus();};$('grid').append(b);
     });
@@ -48,7 +49,7 @@
   $('local').onclick=()=>{try{localStorage.setItem('pcp-visual-receipt-v1',JSON.stringify(current));status('Saved in this browser. Saving again replaces this one receipt.');}catch(e){status('Browser storage is unavailable. Save a receipt file instead.');}};
   $('load').onclick=()=>safely(()=>{const s=localStorage.getItem('pcp-visual-receipt-v1');if(!s)throw Error('No receipt saved in this browser yet.');show(JSON.parse(s));});
   $('import').onchange=async()=>{const f=$('import').files[0];if(!f)return;if(f.size>4096){status('Receipt file is too large.');return;}try{show(JSON.parse(await f.text()));}catch(e){status(e.message);}finally{$('import').value='';}};
-  function route(){const h=location.hash;if(h.startsWith('#/')){location.replace('/kitchen/'+h);return;}if(h.startsWith('#salt-')){location.replace('/collage/'+h);return;}if(h.startsWith('#recipe=')){safely(()=>show(V.decode(h.slice(8)),false));}else{draw();}}
+  function route(){const h=location.hash;if(h.startsWith('#/')){location.replace('/kitchen/'+h);return;}if(h.startsWith('#recipe=')){safely(()=>show(V.decode(h.slice(8)),false));}else{draw();}}
   window.addEventListener('popstate',route);window.addEventListener('hashchange',route);
   window.addEventListener('resize',()=>{if(current&&!$('result').hidden&&mode()!==lastMode)safely(renderRoom);});
   draw();route();

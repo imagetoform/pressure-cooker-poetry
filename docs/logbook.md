@@ -8,6 +8,19 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-17 10:15 — Canon created; fresh-start cleanup (D-17, D-18, D-19)
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Canon | Added docs/CANON.md, AGENTS.md, CLAUDE.md. CANON is the single source of truth; briefs are history. |
+| Deleted | AI atlas + provenance.json, landing/index.html (old collage), landing/assets (~235 cutouts), 7 landing/src JS files (cabinet, resonance, old engine copies). |
+| Replaced | Picker cards now draw each family's palette as colour bands. `/collage/` redirects to `/`. |
+| Tested | Rebuilt; site/tests/visual-flow.cjs passes (desktop, Pixel 7 emulation, 320px). Not deployed. |
+
+### Open / notes
+Dials are retired in the canon but still in adapter.js and site/src/tastes.js. Rewrite adapter to emotion wheel next. Remote branches not deleted (no push access in this session).
+
 ## 2026-11-05 22:11 — Sent Brandon the preset's system prompt on its own
 
 ### What was asked
