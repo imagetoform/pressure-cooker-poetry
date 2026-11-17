@@ -410,9 +410,27 @@ def intake(cat, MOV, shop, manifest, stamp, model=None):
                 emo = list(dict.fromkeys(x for x in (resolve(w, cat) for w in c.get("emo", [])) if x))[:4]
                 if len(emo) < 2: raise ValueError("fewer than 2 wheel words")
                 lic = str(c.get("license", "")).lower()
-                if not any(w in lic for w in PD_WORDS): raise ValueError("licence not public domain / CC0: " + lic[:40])
-                if not host_ok(str(c.get("image_url", ""))): raise ValueError("image host not on the allowlist")
-                if not str(c.get("page_url", "")).startswith("https://"): raise ValueError("no source page")
+                # Research is broader than auto-download: preserve unusual references
+                # without fetching unknown third-party content into the public repo.
+                rights_ok = any(w in lic for w in PD_WORDS)
+                url_ok = host_ok(str(c.get("image_url", "")))
+                if not str(c.get("page_url", "")).startswith("https://"): raise ValueError("no HTTPS source page")
+                if not (rights_ok and url_ok):
+                    research_path = os.path.join(LIB, "research", "index.json")
+                    research = load(research_path, [])
+                    research.append({
+                        "id": cid, "family": mv["id"], "label": str(c.get("label", cid))[:80],
+                        "emo": emo, "cats": [k for k in c.get("cats", []) if k in cat["categories"]][:3],
+                        "page_url": c.get("page_url"), "image_url": c.get("image_url"),
+                        "creator": c.get("creator", ""), "date": c.get("date", ""),
+                        "license": c.get("license", "unknown"), "keep": c.get("keep", ""),
+                        "tag_reason": c.get("tag_reason", ""), "source_type": c.get("source_type", "web"),
+                        "collection_status": "research-only", "publication_status": "review",
+                        "delivery": fn, "when": stamp
+                    })
+                    save(research_path, research)
+                    have.add(cid)
+                    continue
                 raw, how, box = crop_raw(http_get(c["image_url"], binary=True), c.get("crop"), str(c.get("keep", "")), model)
                 cutout, cov = cut(raw)
                 rel = "library/families/%s/%s/cutouts/%s.png" % (mv["branch"], mv["id"], cid)
@@ -421,7 +439,7 @@ def intake(cat, MOV, shop, manifest, stamp, model=None):
                 credit = ", ".join(x for x in [str(c.get("label", ""))[:80], str(c.get("creator", ""))[:80], str(c.get("date", ""))[:30]] if x)
                 manifest.append({"id": cid, "src": "assets/cutouts/%s.png" % cid, "fallback": fb, "label": str(c.get("label", cid))[:80], "family": mv["id"],
                     "emo": emo, "cats": [k for k in c.get("cats", []) if k in cat["categories"]][:3],
-                    "source": "%s (%s) %s" % (credit, c.get("license"), c.get("page_url")), "notes": str(c.get("tag_reason", ""))[:300], "status": "new", "file": rel,
+                    "source": "%s (%s) %s" % (credit, c.get("license"), c.get("page_url")), "notes": str(c.get("tag_reason", ""))[:300], "status": "new", "publication_status": "review", "file": rel,
                     "provenance": {"delivery": fn, "made_by": who, "image_url": c["image_url"], "page_url": c["page_url"], "creator": c.get("creator", ""),
                                    "date": c.get("date", ""), "license": c.get("license"), "keep": c.get("keep", ""), "critic": c.get("critic", ""),
                                    "coverage": round(cov, 3), "crop": how, "box": box, "looked": c.get("looked"),
@@ -528,7 +546,7 @@ def main():
                 "id": item["id"], "src": "assets/cutouts/%s.png" % item["id"], "fallback": t["fallback"], "label": t["label"],
                 "family": mv["id"], "emo": t["emo"], "cats": t["cats"],
                 "source": "%s: %s (%s) %s" % (c["source"], credit, c["license"], c["page_url"]),
-                "notes": t.get("reason", ""), "status": "new", "file": rel,
+                "notes": t.get("reason", ""), "status": "new", "publication_status": "review", "file": rel,
                 "provenance": {"source": c["source"], "title": c["title"], "creator": c["creator"], "date": c["date"],
                                "license": c["license"], "license_url": c["license_url"], "page_url": c["page_url"], "image_url": c["image_url"],
                                "picked_because": why, "keep": keep, "first_guess_emo": item["emo"], "people": t.get("people"),

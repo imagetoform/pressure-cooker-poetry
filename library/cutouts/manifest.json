@@ -42,7 +42,8 @@
     "uncropped"
    ],
    "when": "2026-11-05 05:36 UTC"
-  }
+  },
+  "publication_status": "cleared"
  },
  {
   "id": "constructivism-gan-cover",
@@ -87,6 +88,7 @@
     "uncropped"
    ],
    "when": "2026-11-05 05:36 UTC"
-  }
+  },
+  "publication_status": "cleared"
  }
 ]
