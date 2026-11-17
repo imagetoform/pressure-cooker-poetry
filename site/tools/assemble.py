@@ -16,3 +16,7 @@ shutil.copytree(os.path.join(SITE, "landing"), PUB)
 shutil.copytree(os.path.join(SITE, "dist"), os.path.join(PUB, "kitchen"))
 n = sum(len(f) for _, _, f in os.walk(PUB))
 print(f"assembled {n} files into {PUB}")
+
+# The visual front door shares the real Kitchen engine; original collage remains available.
+import build_visual
+build_visual.assemble()

@@ -1,0 +1,2 @@
+/learning-curve /learning/ 301
+/learning-curve/* /learning/:splat 301

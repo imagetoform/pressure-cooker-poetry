@@ -222,6 +222,11 @@ def main():
     import build_library
     s = build_library.apply(s, patch, app_marker, os.path.dirname(ROOT), os.path.join(ROOT, "dist"))
 
+    # Kit-4 PNGs were never supplied. Use the existing procedural fallback
+    # directly instead of knowingly making broken image requests.
+    for missing in ("kit4-001", "kit4-002"):
+        s = patch(s, 'src: "assets/cutouts/' + missing + '.png"', 'src: null', "missing " + missing)
+
     os.makedirs(os.path.join(ROOT, "dist"), exist_ok=True)
     with open(os.path.join(ROOT, "dist", "index.html"), "w", encoding="utf-8") as f:
         f.write(s)
