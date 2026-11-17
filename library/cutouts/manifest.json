@@ -2576,5 +2576,234 @@
    "coverage": 0.181,
    "when": "2026-11-17 16:43 UTC"
   }
+ },
+ {
+  "id": "punk-chatgpt-no-masters-ransom-note-letters",
+  "src": "assets/cutouts/punk-chatgpt-no-masters-ransom-note-letters.png",
+  "fallback": "torn",
+  "label": "NO MASTERS ransom-note letters",
+  "family": "punk",
+  "emo": [
+   "rage",
+   "contempt",
+   "aggressiveness"
+  ],
+  "cats": [
+   "concept",
+   "institution"
+  ],
+  "source": "NO MASTERS ransom-note letters. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Cut-letter refusal of every boss.",
+  "status": "kept",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-no-masters-ransom-note-letters.png",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--no-masters-ransom-letters.png",
+   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
+   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:29 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-safety-pin-mouth",
+  "src": "assets/cutouts/punk-chatgpt-safety-pin-mouth.png",
+  "fallback": "torn",
+  "label": "Safety-pin mouth",
+  "family": "punk",
+  "emo": [
+   "aggressiveness",
+   "disgust",
+   "contempt"
+  ],
+  "cats": [
+   "absurdity",
+   "concept"
+  ],
+  "source": "Safety-pin mouth. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "notes": "A mouth pinned shut and still snarling.",
+  "status": "kept",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-safety-pin-mouth.png",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--safety-pin-mouth.png",
+   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
+   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:29 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-raised-fist-leather-sleeve",
+  "src": "assets/cutouts/punk-chatgpt-raised-fist-leather-sleeve.png",
+  "fallback": "torn",
+  "label": "Raised fist, leather sleeve",
+  "family": "punk",
+  "emo": [
+   "rage",
+   "optimism",
+   "vigilance"
+  ],
+  "cats": [
+   "concept",
+   "institution"
+  ],
+  "source": "Raised fist, leather sleeve. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Defiance with hope in it.",
+  "status": "kept",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-raised-fist-leather-sleeve.png",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--leather-fist.png",
+   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
+   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:29 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-pink-and-yellow-tape-strips",
+  "src": "assets/cutouts/punk-chatgpt-pink-and-yellow-tape-strips.png",
+  "fallback": "torn",
+  "label": "Pink and yellow tape strips",
+  "family": "punk",
+  "emo": [
+   "annoyance",
+   "distraction"
+  ],
+  "cats": [
+   "object"
+  ],
+  "source": "Pink and yellow tape strips. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Holding the flyer up; a joiner piece.",
+  "status": "kept",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-pink-and-yellow-tape-strips.png",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--pink-yellow-tape.png",
+   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
+   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:29 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-asterisk-on-torn-paper",
+  "src": "assets/cutouts/punk-chatgpt-asterisk-on-torn-paper.png",
+  "fallback": "torn",
+  "label": "Asterisk on torn paper",
+  "family": "punk",
+  "emo": [
+   "disapproval",
+   "interest",
+   "annoyance"
+  ],
+  "cats": [
+   "concept"
+  ],
+  "source": "Asterisk on torn paper. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "notes": "The footnote, the censor's mark, the fine print.",
+  "status": "kept",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-asterisk-on-torn-paper.png",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--asterisk-scrap.png",
+   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
+   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:29 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-megaphone-halftone",
+  "src": "assets/cutouts/punk-chatgpt-megaphone-halftone.png",
+  "fallback": "torn",
+  "label": "Megaphone, halftone",
+  "family": "punk",
+  "emo": [
+   "anger",
+   "anticipation",
+   "aggressiveness"
+  ],
+  "cats": [
+   "object",
+   "institution"
+  ],
+  "source": "Megaphone, halftone. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Amplified voice of the street.",
+  "status": "kept",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-megaphone-halftone.png",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--megaphone.png",
+   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
+   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:29 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-refuse-starburst",
+  "src": "assets/cutouts/punk-chatgpt-refuse-starburst.png",
+  "fallback": "torn",
+  "label": "REFUSE starburst",
+  "family": "punk",
+  "emo": [
+   "rage",
+   "joy",
+   "disapproval"
+  ],
+  "cats": [
+   "concept",
+   "absurdity"
+  ],
+  "source": "REFUSE starburst. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Ad-burst shape hijacked to say no.",
+  "status": "kept",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-refuse-starburst.png",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--refuse-starburst.png",
+   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
+   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:29 UTC"
+  }
+ },
+ {
+  "id": "punk-chatgpt-barbed-wire-mended-with-safety-p",
+  "src": "assets/cutouts/punk-chatgpt-barbed-wire-mended-with-safety-p.png",
+  "fallback": "torn",
+  "label": "Barbed wire mended with safety pins",
+  "family": "punk",
+  "emo": [
+   "apprehension",
+   "vigilance",
+   "anger"
+  ],
+  "cats": [
+   "institution",
+   "object"
+  ],
+  "source": "Barbed wire mended with safety pins. Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+  "notes": "Confinement patched with defiance.",
+  "status": "kept",
+  "file": "library/families/revolt/punk/cutouts/punk-chatgpt-barbed-wire-mended-with-safety-p.png",
+  "provenance": {
+   "source": "chatgpt",
+   "object_id": "punk--barbed-wire-safety-pins.png",
+   "made_with": "ChatGPT image generation (one 8-piece transparent sheet, split by tools/cutouts/split_sheet.py)",
+   "prompt": "docs/handoffs/AI_CUTOUT_BRIEF.md, family: punk",
+   "license": "Original image generated for Pressure Cooker Poetry with ChatGPT, art-directed by Brandon. No third-party artwork copied.",
+   "cut": "delivered with transparency",
+   "when": "2026-11-17 20:29 UTC"
+  }
  }
 ]

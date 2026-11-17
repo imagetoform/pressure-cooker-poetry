@@ -69,8 +69,10 @@ def main():
             im = Image.open(io.BytesIO(files[name])); im.load()
         except Exception as err:
             print("  skip %s: not an image (%s)" % (name, err)); continue
-        if min(im.size) < 512:
+        if min(im.size) < 300:
             print("  skip %s: too small %s" % (name, im.size)); continue
+        if min(im.size) < 512:
+            print("  warn %s: small (%s), will look soft if shown big" % (name, im.size))
         im = im.convert("RGBA")
         alpha = np.asarray(im.getchannel("A"))
         if (alpha < 250).mean() > 0.03 or mode == "none":   # already cut out
