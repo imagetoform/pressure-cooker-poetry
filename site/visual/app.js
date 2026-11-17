@@ -4,7 +4,7 @@
   const randomSeed=()=>Array.from(crypto.getRandomValues(new Uint32Array(2)),n=>n.toString(36)).join('-');
   let deal=randomSeed(),pool=V.rounds(deal),round=0,selected=[null,null,null],current=null,lastMode='';
   const status=text=>{$('status').textContent=text;};
-  function art(id){const f=V.byId[id],e=document.createElement('span');e.className='vp-art';const xs=[0,249,479,704,930,1145],ys=[0,238,461,691,915,1133,1374],col=f.tile%5,row=Math.floor(f.tile/5),x=xs[col]+5,y=ys[row]+5,w=xs[col+1]-xs[col]-10,h=ys[row+1]-ys[row]-10;e.style.setProperty('--x',x/(1145-w)*100+'%');e.style.setProperty('--y',y/(1374-h)*100+'%');e.style.setProperty('--sx',1145/w*100+'%');e.style.setProperty('--sy',1374/h*100+'%');e.setAttribute('role','img');e.setAttribute('aria-label',f.description);return e;}
+  function art(id){const f=V.byId[id],e=document.createElement('span');e.className='vp-art';e.style.backgroundImage='url(/visual/assets/tiles/'+f.id+'.webp)';e.setAttribute('role','img');e.setAttribute('aria-label',f.description);return e;}
   function draw(focus=false){
     $('picker').hidden=false;$('result').hidden=true;
     $('step').textContent='Round '+(round+1)+' / 3';$('grid').replaceChildren();

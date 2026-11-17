@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pressure Cooker Poetry</title>
 <script>/* Old Kitchen links (#/poem/..., #/food-bank/...) now live at /kitchen/. Coupon codes (#salt-...) stay here. */(function(){var h=location.hash;if(h.indexOf("#/")===0)location.replace("/kitchen/"+h)})();</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;600;800&family=Archivo+Black&family=Bungee&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,900&family=Space+Mono:wght@400;700&family=Special+Elite&family=Syne:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<script>(function(){try{var q=location.search+location.hash,m=q.match(/[?&]lab=([01])/);if(m){if(m[1]==="1")localStorage.setItem("pcp-lab","1");else localStorage.removeItem("pcp-lab");}if(localStorage.getItem("pcp-lab")==="1")document.documentElement.classList.add("pcp-lab");}catch(e){}})();</script>
 <style>
 :root{--g1:#150a2e;--g2:#f4f4f2;--i1:#f4f4f2;--i2:#111;--panel:#f4f4f2;--pink:#111;--acc:#ff2d6f;--f-display:"Anton",Impact,sans-serif;--f-strip:"Special Elite","Courier New",monospace;--f-body:"Archivo",Arial,Helvetica,sans-serif;--f-mono:"Space Mono","Courier New",monospace;--rot:1;--barH:60px}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -107,6 +106,7 @@ summary{font:700 .82rem/1.2 var(--f-mono);letter-spacing:.1em;text-transform:upp
 .lab td,.lab th{border:1px solid #55554f;padding:7px 8px;text-align:left;vertical-align:top}
 .lab .sw{display:inline-block;width:12px;height:12px;border:1px solid #f4f4f2;margin-right:3px;vertical-align:-1px}
 .tablewrap{overflow-x:auto}
+.lab-only{display:none}html.pcp-lab .lab-only{display:block}
 .note,#credits{font:400 .78rem/1.5 var(--f-mono);color:#c9c9c2;margin-top:10px;max-width:60rem}
 #credits li{margin:0 0 4px 16px}
 #bar{position:fixed;left:0;right:0;bottom:0;height:var(--barH);background:#111;color:#f4f4f2;z-index:30;display:flex;align-items:center;gap:10px;padding:0 12px;border-top:3px solid #f4f4f2}
@@ -191,7 +191,7 @@ summary{font:700 .82rem/1.2 var(--f-mono);letter-spacing:.1em;text-transform:upp
     <span style="font:400 .8rem/1.4 var(--f-mono)">Same coupon, same room. Every time.</span></div>
   <ul id="saved" aria-label="Clipped coupons"></ul>
   <details><summary>Where the cutouts on this page came from</summary><ul id="credits"></ul></details>
-  <details><summary>Lab: what built this page (hidden from visitors)</summary><div class="tablewrap"><table class="lab" id="lab"></table></div><p class="note" id="labNote"></p></details>
+  <details class="lab-only"><summary>Lab: what built this page (lab mode only: ?lab=1)</summary><div class="tablewrap"><table class="lab" id="lab"></table></div><p class="note" id="labNote"></p></details>
 </div></footer>
 <div id="bar"><div class="now" id="now"></div><button class="plain" data-open="1">Change recipe</button></div>
 

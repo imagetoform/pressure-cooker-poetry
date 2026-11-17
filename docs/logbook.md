@@ -8,6 +8,28 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-17 10:38 — Fixes: collage page self-hosts fonts, lab table hidden, front door loads tiles instead of the 4 MB atlas
+
+### What was asked
+Brandon uploaded the production package (identical to site/public from main e3372f2) and the /collage/ page, then: "Can you make the proper corrections needed?" Read as the fixes found in them; promoting the 235 collage cutouts into the engine and porting the collage theming were left for later because they change every room.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Fonts | site/landing/assets/fonts/: the 13 faces /collage/ asked Google Fonts for (Anton, Archivo 400/600/800, Archivo Black, Bungee, Fraunces 600/900/900i, Space Mono 400/700, Special Elite, Syne 800), latin + latin-ext woff2 from @fontsource 5.3.0 via npm, licences copied (OFL-1.1; Special Elite Apache-2.0). fonts.css replaces the googleapis link |
+| Lab table | footer "Lab: what built this page" now `details.lab-only`, shown only with ?lab=1 (same localStorage key `pcp-lab` as the Kitchen). Class on <html> is `pcp-lab`, not `lab`: the page already styles `.lab` (a table, font .8rem), which would have shrunk rem sizes |
+| Import map | build_visual.py strips the three/cannon CDN import map from /collage/ with the cabinet script (asserted) |
+| Atlas | site/tools/split_atlas.py (Pillow, run by hand) cuts the atlas into site/visual/assets/tiles/<family>.webp with the crop boxes app.js used; 568 KB for all 30. app.js sets each tile's image; visual.css no longer loads the atlas; build_visual no longer deploys it (kept in the repo as the source sheet; provenance.json notes the tiles) |
+| Test | visual-flow.cjs waits for /learning-curve/ to finish forwarding to /learning/. On this machine the instant meta refresh cut off the next goto (/collage/ response null on the Pixel 7 pass); main failed the same way twice here. GitHub CI had been passing |
+| Checked | build + assemble clean, site/dist unchanged; visual-flow PASS twice; own Playwright check: front door 10 tiles, about 200 KB of art per round, 0 external requests; /collage/ 0 external requests, all 9 faces resolve via document.fonts.load, lab table hidden by default, shown with ?lab=1, hidden again with ?lab=0, root font 16px in both. Screenshots shots/fix-*.png looked at |
+
+### Changed: old → new
+- visual build hash `sha256:cc2122f5...` → `sha256:9c1602d1...`: receipts made before this build are rejected with the "different engine" message (by design)
+
+### Open / notes
+- Not checked: real Android device, screen reader, production. Not deployed.
+- Next candidates: promote the 235 /collage/ cutouts into the engine manifest (recover source URLs, tag by looking); port the collage page's three-layer theming to the front door.
+
 ## 2026-11-05 22:11 — Sent Brandon the preset's system prompt on its own
 
 ### What was asked

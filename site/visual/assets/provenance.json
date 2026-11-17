@@ -4,8 +4,17 @@
   "creator": "OpenAI Image Generation, art-directed for Pressure Cooker Poetry",
   "created": "2026-11-17",
   "source": "Original generated collage sheet; no external source artwork supplied",
-  "grid": {"columns": 5, "rows": 6, "order": "adapter.js order array"},
+  "grid": {
+    "columns": 5,
+    "rows": 6,
+    "order": "adapter.js order array"
+  },
   "status": "original-generated; implementation visual QA complete; owner art-direction review pending",
   "usage": "Representative family cut-paper studies, not historical artworks or psychological tests",
-  "notes": "Full sheet retained without destructive edits. CSS selects cells. Generated imagery is not a claim of exclusive copyright or museum provenance. Only the two previously kept library cutouts are reused by the existing renderer. No review-only PR artwork imported."
+  "notes": "Full sheet retained without destructive edits. CSS selects cells. Generated imagery is not a claim of exclusive copyright or museum provenance. Only the two previously kept library cutouts are reused by the existing renderer. No review-only PR artwork imported.",
+  "tiles": {
+    "path": "tiles/<family-id>.webp",
+    "made_by": "site/tools/split_atlas.py (same crop boxes the page used before, WebP quality 86)",
+    "note": "Visitors download these per-family tiles; the full atlas stays in the repo as the source sheet and is no longer deployed."
+  }
 }

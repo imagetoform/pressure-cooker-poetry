@@ -13,7 +13,8 @@ def assemble():
     source = SITE / 'visual'
     kitchen = (SITE / 'dist/index.html').read_text()
     target = pub / 'visual'
-    shutil.copytree(source, target, dirs_exist_ok=True)
+    # The 4 MB atlas stays in the repo as the source sheet; visitors get the per-family tiles instead.
+    shutil.copytree(source, target, dirs_exist_ok=True, ignore=shutil.ignore_patterns('family-atlas-v1.png'))
     scripts = re.findall(r'<script[^>]*>(.*?)</script>', kitchen, re.S)
     # Explicit module headers: no Kitchen app, coupon dialog, lab or storage side effects.
     modules = ('POEM MANIFEST', 'ESSAY MANIFEST', 'INGREDIENT MANIFEST', 'THE BIG PANTRY', '— TASTES', 'THE DARTBOARD (', 'THE STYLE TREE', 'CUTOUT / ASSET MANIFEST', 'THE ENGINE', 'FALLBACK GRAPHICS', 'LAYOUT FAMILIES + RENDERER')
@@ -36,6 +37,10 @@ def assemble():
     old = (pub/'index.html').read_text()
     old = old.replace('<head>', '<head><base href="/">', 1)
     old = old.replace('<script type="module" src="src/cabinet.js"></script>', '')
+    # The cabinet's 3D libraries came from a CDN through this import map; the cabinet is gone, so is the map.
+    importmap = re.search(r'<script type="importmap">.*?</script>\n?', old, re.S)
+    assert importmap and 'three' in importmap.group(0), 'collage import map not found'
+    old = old.replace(importmap.group(0), '')
     old = old.replace("else{$('entry').classList.add('on');document.body.style.overflow='hidden'}", 'else{cook(DEFAULT)}')
     old = old.replace("$('openCab').onclick=runCabinet;", "$('openCab').onclick=openPicker;")
     old = old.replace('Open the cabinet', 'Open the pantry')
