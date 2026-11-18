@@ -8,6 +8,24 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-17 23:31 — Muse batches 2 and 3: 219 kept, 15 rejected → 346 cutouts
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Received | 30 zips. 5 were byte-identical repeats of earlier zips (skipped). The other 25 held 234 new pieces, no piece-level repeats (checked by sha256 against every earlier delivery). |
+| ingest.py | Reads Muse's preset sidecar (`{cutouts:[...], made_by}`) natively; per-piece source: Muse's "Source B" fragments get licence `cosmos` with the original artist kept in provenance notes. |
+| contact_sheet.py | `--cols`, `--cell` for dense review. Seven sheets, every piece looked at. |
+| Rejected (15) | 3 Ab-Ex clip-art (blob, palette, thermometer-drip); Murakami-like flower ring; cropped grey sphere; smiley (litigious trademark); 5 Swiss tourist pieces (flag, ticket, SBB clock, Matterhorn, cowbell): Muse read "swiss" as Switzerland; grey sticker square; faint Supra fragment; hairline Y2K rings; toy airplane render. Reasons in candidates.json. |
+| Feedback | Written into MUSE_CUTOUT_MISSION.md and AI_CUTOUT_BRIEF.md (Swiss = Swiss Style, no artist copies, no litigious marks, no clip-art, no hairlines, woodblock texture for ukiyo-e). |
+| Tested | visual-flow, alive, spin-cycle: all PASS. Build reproducible. |
+
+### Corrections
+The record-keeping script first crashed on two early Constructivism records with no provenance source, after the cutouts had already been committed; docs went in a second commit.
+
+### Open / notes
+Under 8: art-deco 2, constructivism 2, dada 3, swiss 6, afrofuturism 0. Q-10 (batches that never arrived), Q-13 (30-per-family target reported by Muse, unconfirmed). Shipped cutouts are now 28 MB of WebP; a room loads only its own few.
+
 ## 2026-11-17 19:50 — Brain Candy unparked: hub + Machine 01, The Spin Cycle (D-30)
 
 ### What was asked

@@ -40,7 +40,7 @@ Make **8** for the family named in the message, then give the sidecar file (belo
 | 4 | `grunge-design` | Distressed and overlapping type, coffee rings, scanner noise, out-of-register print, layered tape and grime |
 | 5 | `brutalism` | Raw concrete slabs and towers, board-formed concrete texture, window grids, heavy slab lettering |
 | 6 | `minimalism` | One precise form: a lone square, a single line, one colour field, a small object isolated |
-| 7 | `swiss` | Grid fragments, bold grotesk numerals, strict rectangular photo crops, black-red-white, rules and dots |
+| 7 | `swiss` | **Swiss Style typography, not Switzerland** (no flags, cowbells, mountains, clocks). Grid fragments, bold grotesk numerals, strict rectangular photo crops, black-red-white, rules and dots |
 | 8 | `cyberpunk` | Neon sign shapes with abstract glyphs, circuit boards, cables, rain-wet chrome, glitch slices, scanlines |
 | 9 | `vaporwave` | Generic classical marble bust, palm trees, checkerboard floor tiles, pink-teal sunset gradients, an unbranded 90s computer window, dolphins |
 | 10 | `maximalism` | Dense colliding florals and patterns, stacked gilded frames, layered textiles |

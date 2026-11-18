@@ -43,7 +43,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 - **Families:** 30, stable IDs in `site/visual/adapter.js` (`order` array) and `site/src/styles.js`.
 - **Kit parts:** 523 procedural CSS/SVG parts across the 30 families.
 - **Picker art:** none. Cards show each family's own palette as colour bands until new art is made and approved (Q-01).
-- **Library cutouts: 127 real image files**, every one looked at and tagged. Sources: CC0 museum open access (Met, Cleveland), ChatGPT originals (Punk), Muse originals (Minimalism, Memphis, Brutalism, Grunge, Situationism), 2 earlier Constructivism pieces. Per family: mexican-muralism 10, situationism 10, brutalism 9, rococo 8, gothic-revival 8, expressionism 8, punk 8, minimalism 8, memphis 8, grunge-design 8, art-nouveau 7, futurism 7, ukiyo-e 6, surrealism 5, bauhaus 5, psychedelia 4, dada 3, constructivism 2, art-deco 2, geometric-abstraction 1. **10 families have none.** Records: `library/cutouts/manifest.json` (live), `candidates.json` (everything harvested, with keep/reject).
+- **Library cutouts: 346 real image files**, every one looked at and tagged. Sources: CC0 museum open access (Met, Cleveland: 74), Muse originals (261), ChatGPT originals (Punk, 8), fragments from Brandon's Cosmos posters with artists credited (1), earlier Constructivism pieces (2). Per family: situationism 20, memphis 19, brutalism 19, cyberpunk 19, op-art 19, minimalism 18, grunge-design 18, maximalism 17, abstract-expressionism 16, art-nouveau 14, ukiyo-e 13, futurism 13, geometric-abstraction 13, surrealism 12, bauhaus 12, psychedelia 11, zine-diy 11, mexican-muralism 10, pop-art 10, vaporwave 9, rococo 8, gothic-revival 8, expressionism 8, punk 8, y2k 8, swiss 6, dada 3, constructivism 2, art-deco 2. **Under 8:** art-deco 2, constructivism 2, dada 3, swiss 6, afrofuturism 0. Records: `library/cutouts/manifest.json` (live), `candidates.json` (everything harvested, with keep/reject and reasons).
 - **Writing:** 56 poems, 2 essays, all authored by Brandon.
 - **Receipt format:** `pcp-visual/1`. Old receipts are rejected (not silently re-rendered) when the build changes.
 
@@ -102,9 +102,10 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | Q-07 | Where do the 16 families with no cutouts get their art? **First pass: ChatGPT (D-22).** Still open: whether Brandon's own art and scans join later. | Minimalism, Swiss, Brutalism, Punk, Zine/DIY, Situationism, Grunge, Cyberpunk, Vaporwave, Afrofuturism, Y2K, Maximalism, Pop Art, Memphis, Abstract Expressionism, Op Art. These are post-1930 and mostly still in copyright, so museums don't release them. Options: Brandon's own art, photos and pulp-magazine scans; original pieces made for the site; or public-domain material processed in the family's style (e.g. old newspaper photos photocopied for Punk). Thin families that need more: Art Deco, Dada, Constructivism, Geometric Abstraction. |
 | Q-08 | Pop Art and Maximalism lead more rooms than others (about 16% and 12.5%). Retune? | Reported by the playbook session, not changed. |
 | Q-09 | Front door styling: `site/visual/visual.css` uses Arial/Georgia and cream `#f3eadb` on `#17151a` with a lime accent, off the Kitchen's tokens in `DESIGN.md`. Bring it onto the tokens, or keep it? | Raised by the playbook session. Cream conflicts with D-11. |
-| Q-10 | Muse mentions earlier Constructivism (5), Dada (8) and Punk (6) batches that weren't in the zips. Send them? | Constructivism and Dada are thin. |
+| Q-10 | Batches Muse made that never reached Claude: Constructivism (5), Dada (8), Punk (6), and round 1 of Zine/DIY (9), Swiss (10), Pop Art (9). Send them? | Constructivism, Dada and Swiss are still under 8. |
 | Q-11 | Grunge's ripped page and tape cross are too clean (clip-art). Replace? | Both kept for now to hold Grunge at 8, flagged in their notes. |
 | Q-12 | Brain Candy: grow the Spin Cycle's tricks? How loud should the fictional clients be? One wrapper jar or one per machine? | See `docs/BRAIN_CANDY.md`. |
+| Q-13 | Muse reports Brandon raised its target to **30 cutouts per family** (5–6 minimum per batch, keep going without stopping). Confirm? | Not stated to Claude directly; recorded so it isn't lost. |
 | Q-04 | Rococo ground reads dark, not pastel. | From the 2026-11-05 logbook. |
 | Q-05 | Pressure gauge as the PRESSURIZE button + reveal? Post-Pressurize animation from cssauthor.com? | Both raised for the old cabinet flow. Do they carry over to the picker's "Cook my room"? |
 | Q-06 | Room intro copy: carry over "You walked in hungry… draw your own damn map"? | Approved earlier for the old landing. |
@@ -150,6 +151,7 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 
 ## Canon change log
 
+- **2026-11-17** — Muse batches 2 + 3: 219 kept, 15 rejected → 346 cutouts. Q-10 widened, Q-13 added. ingest.py reads Muse's format natively.
 - **2026-11-17** — D-30: Brain Candy unparked; hub + The Spin Cycle built; Q-12.
 - **2026-11-17** — D-29 alive layer (engine, front-door controls, `/visual/lab/alive/`, tests). Muse's first five families in (Minimalism, Memphis, Brutalism, Grunge, Situationism): 127 cutouts. Q-10, Q-11.
 - **2026-11-17** — Muse mission written: `docs/handoffs/MUSE_CUTOUT_MISSION.md` (every family to 8+ cutouts, one PR per family, Brandon reviews each).

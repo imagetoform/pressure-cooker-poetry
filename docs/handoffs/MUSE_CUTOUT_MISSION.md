@@ -67,7 +67,16 @@ Order: `zine-diy`, `situationism`, `grunge-design`, `brutalism`, `swiss`, `minim
 | art-nouveau, futurism | 7 | 1 each |
 | punk, expressionism, rococo, gothic-revival, mexican-muralism | 8+ | done, don't touch |
 
-**Delivered so far (2026-11-17):** minimalism, memphis, brutalism, grunge-design, situationism are done (8+ each). Your tag-file format is fine: Claude maps it.
+**Feedback from the 2026-11-17 review (read this first):**
+- **`swiss` means Swiss Style**, the 1950s International Typographic Style: grids, grotesk type (Akzidenz, Helvetica-like), asymmetric layouts, black-red-white, cropped photos. **Not Switzerland.** The flag, cowbell, Matterhorn, train ticket and the Swiss railway clock were rejected (the clock's owners sued Apple over it).
+- No copies of a specific artist's known work: the ring of smiling flowers was too close to Takashi Murakami. No famously litigious trademarks: the yellow smiley face was rejected.
+- Clip-art reads badly in collage: glossy cartoon blobs, flat sticker squares, clean vector "grunge". Grunge needs real grime.
+- Very faint pieces (hairline rings, washed-out cuts) vanish at room size. Make lines thick enough to read at 300 px.
+- Ukiyo-e subjects are right; push toward woodblock line and flat colour texture rather than clean vector.
+- Your sidecar format is fine. Claude's ingest reads it directly, including "Source B" notes for borrowed fragments (keep naming the original artist).
+- Missing from Claude's side: Constructivism (5), Dada (8), Punk (6), and round 1 of Zine/DIY, Swiss and Pop Art. Brandon has to send those.
+
+**Delivered so far (2026-11-17):** every family except art-deco (2), constructivism (2), dada (3), swiss (6) and afrofuturism (0) has 8+. Next: those five. Your tag-file format is fine: Claude maps it.
 
 **Recount before you start** (`library/cutouts/manifest.json`). If the numbers differ from this table, trust the manifest.
 
