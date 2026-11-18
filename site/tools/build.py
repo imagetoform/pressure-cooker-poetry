@@ -6,6 +6,7 @@ What goes where:
   site/landing/   -> /            hand-written pages (front door, Brain Candy, Learning, About, Contact) + _redirects
   site/shared/    -> /shared/     plain.css (reading pages) and prng.js (seeded randomness)
   site/alive/     -> /alive/      the motion engine (alive.js, alive.css) and its lab at /alive/lab/
+  site/landing/lab/cutup/ -> /lab/cutup/  the cutup maker sandbox (go-live Step 3); data.js generated here
   library cutouts -> /assets/cutouts/<id>.webp   every kept cutout in library/cutouts/manifest.json
   content/*.json  -> /poems/ /essays/ /food-bank/  plain reading pages, generated here
 
@@ -146,6 +147,11 @@ def cutouts():
                         "emo": m.get("emo", []), "family": m["family"]})
     families = {k: {"name": f["name"], "colors": f["colors"]} for k, f in sorted(fams.items())}
     (PUB / "alive/cutouts.js").write_text("window.PCP=window.PCP||{};PCP.labData=" + json.dumps({"families": families, "assets": lab}, separators=(",", ":")) + ";\n")
+    # Cutup maker sandbox (/lab/cutup/, go-live Step 3): the poems' text exactly as stored, every kept cutout, family colours.
+    poems = [{"id": p["id"], "title": p["title"], "book": p.get("book", ""), "stanzas": p["stanzas"]}
+             for p in json.loads((CONTENT / "poems.json").read_text(encoding="utf-8"))]
+    data = {"poems": poems, "assets": lab, "families": families, "assetBase": "", "poemBase": "/poems/"}
+    (PUB / "lab/cutup/data.js").write_text("window.PCP=window.PCP||{};PCP.cutupData=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
     return len(lab)
 
 

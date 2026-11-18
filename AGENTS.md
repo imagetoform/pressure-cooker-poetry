@@ -39,7 +39,8 @@ Production can lag behind `main`. Never assume what is on `main` is live, or tha
 | `site/alive/` | The motion engine `alive.js` + `alive.css`, lab at `/alive/lab/` | Read `docs/ALIVE.md` first |
 | `site/tools/build.py` | The whole build: copies the pages, generates `/poems/`, `/essays/`, `/food-bank/`, copies cutouts to `/assets/cutouts/` | Standard library only |
 | `site/public/` | Build output (gitignored). Netlify publishes this | |
-| `site/tests/` | `site.cjs` (every page, every poem line), `alive.cjs`, `spin-cycle.cjs` | CI runs all three |
+| `site/tests/` | `site.cjs` (every page, every poem line), `cutup.cjs` (sandbox: exact poem strips, same link same card), `alive.cjs`, `spin-cycle.cjs` | CI runs all four |
+| `site/landing/lab/cutup/` | Cutup maker **sandbox** at `/lab/cutup/` (go-live Step 3). `cutup.js` = `make()` plan + `render()` | Test machinery until Brandon approves the design |
 | `library/families/<branch>/<movement>/` | 30 design movements: `kit/` CSS parts, `cutouts/`, README, SHOPPING list | Kits aren't shipped since the reset |
 | `library/families.json` | Family ids, names, branches, colours | Copy ids from here, never retype them |
 | `library/catalog.json` | Emotion vocabulary, aliases, petals, dyads | Hand-edited source since the reset |

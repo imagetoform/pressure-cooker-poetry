@@ -108,7 +108,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 
 ## NOT DONE YET (decided, not built)
 
-- **The cutup maker (D-32, D-33)** is not built. `/` is a plain stand-in. It's the next big step in `docs/GO_LIVE_PLAN.md`, starting with how the picking works (Q-14) and a new design system (D-35).
+- **The cutup maker (D-32, D-33)** is not built. `/` is a plain stand-in. **Sandbox v1** (2026-11-18) is at `/lab/cutup/` (unlinked, `site/landing/lab/cutup/`, test `site/tests/cutup.cjs`) with knobs for picks, strips, your-words share, words per strip, ground and shape, so Brandon can answer Q-14 by playing. It's the next big step in `docs/GO_LIVE_PLAN.md`, starting with how the picking works (Q-14) and a new design system (D-35).
 - **D-18's section rooms**: Poems, Essays and the Food Bank are plain pages; Learning, About and Contact still wear their older styles. Each gets redesigned in the new look, one at a time.
 - **Bigger motion with music (go-live Step 2)** isn't started; it now tunes the alive engine for the cutup card.
 - **Old remote branches** (20) are still on GitHub.

@@ -22,13 +22,14 @@ jobs:
           (cd site/public && find . -type f | sort | xargs sha256sum) | diff /tmp/one.txt -
       - name: Install browser test runner
         run: npm install --no-save playwright@1.62.1 && npx playwright install --with-deps chromium
-      - name: Test every page, the alive engine and Brain Candy
+      - name: Test every page, the cutup sandbox, the alive engine and Brain Candy
         run: |
           python -m http.server 8765 --directory site/public > /tmp/pcp-http.log 2>&1 &
           sleep 1
           node site/tests/site.cjs
           node site/tests/alive.cjs
           node site/tests/spin-cycle.cjs
+          node site/tests/cutup.cjs
       - name: Upload the review build
         if: always()
         uses: actions/upload-artifact@v4

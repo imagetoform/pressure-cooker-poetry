@@ -35,6 +35,7 @@ library/cutouts/manifest.json + files             ┘    (copies cutouts to /ass
 | Suite | What | Run (serve `site/public` on :8765 first) |
 |---|---|---|
 | `site/tests/site.cjs` | every page at 320px and desktop (errors, missing files, sideways scroll), every poem line verbatim, essays' sources, Kitchen gone | `node site/tests/site.cjs` |
+| `site/tests/cutup.cjs` | the cutup sandbox at `/lab/cutup/`: pick/cut/save on phone, 320px, desktop; every poem strip an exact slice of its line; visitor words in order; same link = same card; 300 seeded cards | `node site/tests/cutup.cjs` |
 | `site/tests/alive.cjs` | the motion engine on `/alive/lab/?seed=…` | `node site/tests/alive.cjs` |
 | `site/tests/spin-cycle.cjs` | Brain Candy | `node site/tests/spin-cycle.cjs` |
 

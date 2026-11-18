@@ -2,11 +2,32 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: docs/GO_LIVE_PLAN.md Step 3 - design the cutup maker as a playable sandbox with Brandon (Q-14). Brandon first looks at the reset on the PR #14 preview.
+next: Brandon plays the cutup maker sandbox (artifact "CUTUP MAKER sandbox" or /lab/cutup/ on the PR #14 preview) and answers Q-14; then iterate the sandbox, write the new design system, and build it into / (Step 4).
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-18 08:24 — Go-live Step 3 started: cutup maker sandbox v1
+
+### What was asked
+Brandon: "Alright let's move forward" (after the reset). Next in the plan: a playable cutup maker sandbox (Q-14).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Engine | `site/landing/lab/cutup/cutup.js`: `make(data, {picks, text, seed, knobs})` returns a JSON plan; `render(plan, el)` draws it. Poem strips are `line.slice(start, end)` over word spans (never retyped); visitor words chunked 1-3 words, kept in typed order, max 12 words; 1-2 poems per card; picked cutouts + 2-3 wildcards sharing an emotion; torn colour blocks from the picked families' colours + one accent; credits link `/poems/<id>/` |
+| Page | `/lab/cutup/`: deal 12 images from 12 families (seeded), pick 3, add words, Cut it up / Cut again / Save (localStorage `pcp-cutups-sandbox`) / Copy link (state JSON in the hash). Sandbox knobs: picks 2-4, strips 3-8, your-words share, words per poem strip, ground dark/light, shape |
+| Look decisions (mine, for Brandon to overrule) | Typewriter face = the visitor's words only (black strip, white text); poem strips serif or heavy sans on cream/yellow/pink/blue/white paper; dark ground; first pick is the big image |
+| Data | `build.py` writes `/lab/cutup/data.js` (56 poems' text as stored, 509 cutouts, family colours) |
+| Test | `site/tests/cutup.cjs` (in CI): Pixel 7, 320px, desktop; exact strips; words in order; credits; same link same card; cut again; save; 300 seeded cards exact + repeatable. PASS. site/alive/spin-cycle PASS. Build reproducible |
+| Artifact | "CUTUP MAKER sandbox" slug ca8a8be7-7fdd-4b97-98f1-ecb1dc84c2c5 (167 cutouts: up to 6 per family; poem titles shown without links). Files staged in /home/claude/artifact-cutup (publish can't read /root/tasks) |
+
+### Open / notes (for Q-14)
+- With 6 words typed and "your words share" 0.4 of 5 strips, only the first 2 chunks of the visitor's words appear. Whether all their words should always appear is Brandon's call.
+- Poem lines are chosen at random, not matched to the images' emotions.
+- Black-on-dark tiles (e.g. Minimalism's black ellipse) are hard to see in the deal grid.
+- No motion yet (Step 4 brings the alive engine + bigger motion with music).
 
 ## 2026-11-18 07:43 — The reset: Kitchen deleted, cutup card is the new outcome (D-31 to D-35)
 

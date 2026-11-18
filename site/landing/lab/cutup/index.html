@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cutup maker (sandbox) | Pressure Cooker Poetry</title>
+<meta name="robots" content="noindex">
+<!-- SANDBOX for go-live Step 3 (CANON Q-14). Not linked from visitor pages. The knobs are for Brandon, not visitors. -->
+<link rel="stylesheet" href="cutup.css"></head>
+<body>
+<header class="sb-top"><b>Cutup maker · sandbox</b><small>A draft to play with. Nothing here is final, saved anywhere but this browser, or sent anywhere.</small></header>
+<main class="sb">
+  <div class="sb-in">
+    <section aria-labelledby="h-pick">
+      <h2 id="h-pick"><span>1</span> Pick images</h2>
+      <p class="hint" id="pick-hint">Tap 3 that pull at you.</p>
+      <div class="deal" id="deal"></div>
+      <div class="row"><button class="btn" id="redeal" type="button">Deal again</button><span class="count" id="pick-count" role="status"></span></div>
+    </section>
+    <section aria-labelledby="h-words" style="margin-top:26px">
+      <h2 id="h-words"><span>2</span> Add your words</h2>
+      <p class="hint">A few words of your own, or none. They get cut in with lines from the poems.</p>
+      <input class="words" id="words" maxlength="80" autocomplete="off" placeholder="the rent is a weather system">
+      <div class="row"><button class="btn go" id="cut" type="button" disabled>Cut it up</button><span class="count" id="word-count"></span></div>
+    </section>
+    <details class="knobs" id="knobs" style="margin-top:26px">
+      <summary>Sandbox knobs (for deciding, not for visitors)</summary>
+      <label>Images to pick <input type="range" id="k-picks" min="2" max="4" step="1"><output></output></label>
+      <label>Strips <input type="range" id="k-strips" min="3" max="8" step="1"><output></output></label>
+      <label>Your words share <input type="range" id="k-mine" min="0.2" max="0.8" step="0.1"><output></output></label>
+      <label>Words per poem strip <input type="range" id="k-maxWords" min="1" max="7" step="1"><output></output></label>
+      <label>Ground <select id="k-ground"><option value="dark">dark</option><option value="light">light</option></select><span></span></label>
+      <label>Card shape <select id="k-shape"><option value="portrait">portrait 4:5</option><option value="square">square</option><option value="landscape">landscape</option></select><span></span></label>
+      <p class="note">Poem lines are picked at random for now. Matching them to your images' feelings is one of the open questions.</p>
+    </details>
+  </div>
+  <div class="sb-out">
+    <h2><span>3</span> Your cutup</h2>
+    <div id="card"><div class="empty">Pick images, add words if you want, then hit <b>Cut it up</b>.</div></div>
+    <p class="legend" id="legend" hidden><span><i style="background:#111;border-color:#fff"></i>your words</span><span><i style="background:#ffe14d"></i>cut from the poems</span></p>
+    <div class="row" id="after" hidden>
+      <button class="btn go" id="again" type="button">Cut again</button>
+      <button class="btn" id="save" type="button">Save</button>
+      <button class="btn" id="share" type="button">Copy link</button>
+      <span class="count" id="said" role="status"></span>
+    </div>
+    <section aria-labelledby="h-shelf" style="margin-top:28px">
+      <h2 id="h-shelf" style="font-size:1.2rem">Saved in this browser</h2>
+      <div class="shelf" id="shelf"></div>
+      <p class="note" id="shelf-empty">Nothing saved yet.</p>
+    </section>
+  </div>
+</main>
+<script src="../../shared/prng.js"></script>
+<script src="data.js"></script>
+<script src="cutup.js"></script>
+<script>
+(function () {
+  'use strict';
+  const P = window.PCP, D = P.cutupData, C = P.cutup, $ = id => document.getElementById(id);
+  const OPTS = { assetBase: D.assetBase || '', poemBase: D.poemBase || '' };
+  const STORE = 'pcp-cutups-sandbox';
+  const freshSeed = () => { const a = new Uint32Array(2); crypto.getRandomValues(a); return a[0].toString(36) + a[1].toString(36).slice(0, 3); };
+  const knobs = Object.assign({}, C.KNOBS);
+  let picks = [], dealSeed = freshSeed(), seed = '', shown = null;
+
+  // ---- deal: 12 images from 12 different families, order set by the deal seed ----
+  function deal() {
+    const R = P.prng.makeRng('deal|' + dealSeed);
+    const fams = R.shuffle(Object.keys(D.families).sort().filter(f => D.assets.some(a => a.family === f))).slice(0, 12);
+    const hand = fams.map(f => R.pick(D.assets.filter(a => a.family === f)));
+    picks.forEach(id => { if (!hand.some(a => a.id === id)) { const a = D.assets.find(x => x.id === id); if (a) hand.pop() && hand.unshift(a); } });
+    const box = $('deal'); box.replaceChildren();
+    hand.forEach(a => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'tile'; b.dataset.id = a.id;
+      b.setAttribute('aria-label', (a.label || a.id) + ' (' + (D.families[a.family] || {}).name + ')');
+      const i = document.createElement('img'); i.src = OPTS.assetBase + a.src; i.alt = '';
+      const s = document.createElement('small'); s.textContent = (D.families[a.family] || {}).name || '';
+      b.append(i, s); b.addEventListener('click', () => toggle(a.id)); box.append(b);
+    });
+    marks();
+  }
+  function toggle(id) {
+    picks = picks.includes(id) ? picks.filter(x => x !== id) : picks.concat(id).slice(-knobs.picks);
+    marks();
+  }
+  function marks() {
+    document.querySelectorAll('.tile').forEach(b => { const n = picks.indexOf(b.dataset.id); b.setAttribute('aria-pressed', String(n >= 0)); if (n >= 0) b.dataset.n = n + 1; });
+    $('pick-hint').textContent = 'Tap ' + knobs.picks + ' that pull at you.';
+    $('pick-count').textContent = picks.length + ' of ' + knobs.picks + ' picked';
+    $('cut').disabled = picks.length !== knobs.picks;
+  }
+
+  // ---- make + show ----
+  function show(state, push) {
+    const plan = C.make(D, state);
+    C.render(plan, $('card'), OPTS);
+    shown = state; $('legend').hidden = false; $('after').hidden = false; $('said').textContent = '';
+    if (push) { try { history.replaceState(null, '', '#' + encodeURIComponent(JSON.stringify(state))); } catch (e) { /* some embeds block this; the card still shows */ } }
+  }
+  const current = () => ({ picks: picks.slice(), text: $('words').value, seed, knobs: Object.assign({}, knobs) });
+  $('cut').addEventListener('click', () => { seed = freshSeed(); show(current(), true); });
+  $('again').addEventListener('click', () => { seed = freshSeed(); show(Object.assign(current(), { picks: shown.picks, text: shown.text }), true); });
+  $('redeal').addEventListener('click', () => { dealSeed = freshSeed(); deal(); });
+  $('words').addEventListener('input', () => { const n = $('words').value.trim().split(/\s+/).filter(Boolean).length; $('word-count').textContent = n ? n + (n > 12 ? ' words (only the first 12 get used)' : ' words') : ''; });
+
+  // ---- save + share ----
+  function load() { try { return JSON.parse(localStorage.getItem(STORE) || '[]'); } catch (e) { return []; } }
+  function shelf() {
+    const list = load(), box = $('shelf'); box.replaceChildren(); $('shelf-empty').hidden = list.length > 0;
+    list.forEach(st => {
+      const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Open saved cutup');
+      C.render(C.make(D, st), b, OPTS); b.addEventListener('click', () => { picks = st.picks.slice(); $('words').value = st.text; seed = st.seed; Object.assign(knobs, st.knobs); syncKnobs(); deal(); show(st, true); scrollTo({ top: 0 }); });
+      box.append(b);
+    });
+  }
+  $('save').addEventListener('click', () => {
+    try { const list = load().filter(s => JSON.stringify(s) !== JSON.stringify(shown)); list.unshift(shown); localStorage.setItem(STORE, JSON.stringify(list.slice(0, 24))); $('said').textContent = 'Saved in this browser.'; }
+    catch (e) { $('said').textContent = 'This browser won’t let the page save.'; }
+    shelf();
+  });
+  $('share').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(location.href); $('said').textContent = 'Link copied. The same link makes the same card.'; }
+    catch (e) { $('said').textContent = 'Copy this link: ' + location.href; }
+  });
+
+  // ---- knobs ----
+  const KN = ['picks', 'strips', 'mine', 'maxWords', 'ground', 'shape'];
+  function syncKnobs() { KN.forEach(k => { const i = $('k-' + k); i.value = knobs[k]; const o = i.parentElement.querySelector('output'); if (o) o.textContent = knobs[k]; }); }
+  KN.forEach(k => $('k-' + k).addEventListener('input', e => {
+    knobs[k] = e.target.type === 'range' ? Number(e.target.value) : e.target.value; syncKnobs();
+    if (k === 'picks') { picks = picks.slice(-knobs.picks); marks(); }
+    else if (shown && picks.length === knobs.picks) show(current(), true);
+  }));
+
+  // ---- start: a shared link opens its card ----
+  try {
+    const st = location.hash.length > 1 ? JSON.parse(decodeURIComponent(location.hash.slice(1))) : null;
+    if (st && Array.isArray(st.picks)) { picks = st.picks.slice(); $('words').value = st.text || ''; seed = st.seed; Object.assign(knobs, st.knobs || {}); syncKnobs(); deal(); show(st, false); }
+    else { syncKnobs(); deal(); }
+  } catch (e) { syncKnobs(); deal(); }
+  shelf();
+})();
+</script>
+</body></html>

@@ -62,7 +62,7 @@ Needs Brandon's description first (ChatGPT's notes never reached Claude). Maybe 
 |---|---|
 | 1 GitHub | **done 2026-11-18**: PR #14, private deploy preview |
 | 2 Reset | **done on PR #14 2026-11-18**, waiting on Brandon's look at the preview |
-| 3 Cutup maker sandbox | next |
+| 3 Cutup maker sandbox | **in progress**: v1 at `/lab/cutup/` (PR #14) and as the "CUTUP MAKER sandbox" artifact; waiting on Brandon's play |
 | 4 Build the maker (+ bigger motion) | after 3 |
 | 5 First release | after 4 (or Step 2 alone, if Brandon wants) |
 | 6 Brain Candy | after 5; menu link needs Brandon's OK |
