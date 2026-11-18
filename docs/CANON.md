@@ -23,6 +23,8 @@ If any of them disagrees with this file, **this file wins**. Point out the confl
 
 ---
 
+**Release order:** `docs/GO_LIVE_PLAN.md` (one step open at a time; each goes build → test → preview → Brandon's OK → live → check live).
+
 ## LIVE NOW (verified 2026-11-17)
 
 | URL | What visitors get | Code |
@@ -151,6 +153,7 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 
 ## Canon change log
 
+- **2026-11-18** — Added `docs/GO_LIVE_PLAN.md` at Brandon's request (step-by-step test/build/go-live). Brandon asked for bigger motion with music/audio (plan Step 2) and mentioned an esoteric easter egg for later (Step 7, not yet described to Claude).
 - **2026-11-17** — Muse batches 2 + 3: 219 kept, 15 rejected → 346 cutouts. Q-10 widened, Q-13 added. ingest.py reads Muse's format natively.
 - **2026-11-17** — D-30: Brain Candy unparked; hub + The Spin Cycle built; Q-12.
 - **2026-11-17** — D-29 alive layer (engine, front-door controls, `/visual/lab/alive/`, tests). Muse's first five families in (Minimalism, Memphis, Brutalism, Grunge, Situationism): 127 cutouts. Q-10, Q-11.

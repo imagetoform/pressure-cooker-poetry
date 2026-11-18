@@ -2,11 +2,26 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - give a session push access so the local commits become a PR; send the missing Muse rounds (Art Deco 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk) and the under-8 families (constructivism, dada, swiss, afrofuturism); answer CANON Q-01, Q-02, Q-08, Q-09. Claude - rebuild the rooms around the cutouts (D-18). Always read docs/CANON.md first.
+next: Follow docs/GO_LIVE_PLAN.md, one step at a time. Step 1 Brandon - give a session push access so the local commits become a PR; send the missing Muse rounds (Art Deco 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk) and the under-8 families (constructivism, dada, swiss, afrofuturism); answer CANON Q-01, Q-02, Q-08, Q-09. Claude - rebuild the rooms around the cutouts (D-18). Always read docs/CANON.md first.
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-18 01:55 — Go-live plan written
+
+### What was asked
+Brandon liked the batch. He wants the pieces to move more dramatically with music/audio, mentioned an esoteric easter egg ChatGPT worked on (for later), and asked to slow down and plan a step-by-step test, build and go-live process.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Plan | `docs/GO_LIVE_PLAN.md`: one loop (build → test → preview → Brandon's OK → live → check live → undo path) and 7 steps in order |
+| Canon | Pointer to the plan above LIVE NOW; change-log line |
+| Easter egg | Searched the repo and Claude's past chats: no description exists. Step 7 starts with Brandon sending it |
+
+### Open / notes
+- Step 1 (get the 13 local commits onto GitHub) needs Brandon. Step 2 (bigger motion) can start in the ALIVE LAB first, with a lab-only "drama" slider.
 
 ## 2026-11-18 01:40 — Cutouts batch 4: 19 Muse zips, +163
 
