@@ -33,6 +33,8 @@ If any of them disagrees with this file, **this file wins**. Point out the confl
 | `/poems/`, `/essays/` | Search + deep links into the Kitchen's published writing | `site/landing/poems/`, `essays/` |
 | `/learning/` | The Learning Curve (`/learning-curve/` redirects here, 301) | `site/landing/learning/` |
 | `/about/`, `/contact/` | Mission; contact = public GitHub issues | `site/landing/` |
+| `/brain-candy/` (local, not deployed) | Brain Candy arcade hub + wrapper jar + Department Zero File 001 | `site/landing/brain-candy/` |
+| `/brain-candy/spin-cycle/` (local, not deployed) | Machine 01: The Spin Cycle | `site/landing/brain-candy/spin-cycle/` |
 
 Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Build: `python3 site/tools/build.py && python3 site/tools/assemble.py` → publishes `site/public`. **Never create a second Netlify project.**
 
@@ -78,6 +80,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | D-27 | Process: Brandon OKs **each** production deploy (OKs don't carry over). Agents open reviewable PRs; nobody auto-merges. One Netlify project, never a second. | Nov 2026 |
 | D-28 | Saved rooms are framed as a **coupon** for next time. The drawing wall lives in each piece's margin, free in-browser recognition, auto-scored lines; it can be pulled later if it doesn't work. | Nov 2026 |
 | D-29 | **The site is alive.** One input engine (`site/visual/alive.js`, doc: `docs/ALIVE.md`) turns touch, keys, scroll, sound and tilt into signals; every cutout moves by a verb chosen from its own emotion tags. Visitors can drag cutouts, type ransom letters, stamp ink. Sound comes only from an opt-in microphone or a song file the visitor picks, stays on the device, is never recorded or sent. Motion never changes a receipt. Reduced-motion and "Hold still" stop it. Replaces the deleted microphone experiment with new code. | 2026-11-17 |
+| D-30 | **Brain Candy is unparked** (Brandon, 2026-11-17). An arcade of machines, each Play → Reveal → Learn, with a wrapper jar that opens Department Zero cipher files. Hand-written content, no live AI; fiction labelled, satire points up; jar kept in the visitor's browser only. Plan: `docs/BRAIN_CANDY.md`. Machine 01, The Spin Cycle, is built. | 2026-11-17 |
 | D-16 | The GitHub repo `imagetoform/pressure-cooker-poetry` is the one home for site, database, kits and cutouts. | Nov 2026 |
 
 ---
@@ -101,6 +104,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | Q-09 | Front door styling: `site/visual/visual.css` uses Arial/Georgia and cream `#f3eadb` on `#17151a` with a lime accent, off the Kitchen's tokens in `DESIGN.md`. Bring it onto the tokens, or keep it? | Raised by the playbook session. Cream conflicts with D-11. |
 | Q-10 | Muse mentions earlier Constructivism (5), Dada (8) and Punk (6) batches that weren't in the zips. Send them? | Constructivism and Dada are thin. |
 | Q-11 | Grunge's ripped page and tape cross are too clean (clip-art). Replace? | Both kept for now to hold Grunge at 8, flagged in their notes. |
+| Q-12 | Brain Candy: grow the Spin Cycle's tricks? How loud should the fictional clients be? One wrapper jar or one per machine? | See `docs/BRAIN_CANDY.md`. |
 | Q-04 | Rococo ground reads dark, not pastel. | From the 2026-11-05 logbook. |
 | Q-05 | Pressure gauge as the PRESSURIZE button + reveal? Post-Pressurize animation from cssauthor.com? | Both raised for the old cabinet flow. Do they carry over to the picker's "Cook my room"? |
 | Q-06 | Room intro copy: carry over "You walked in hungry… draw your own damn map"? | Approved earlier for the old landing. |
@@ -111,8 +115,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 
 Parked behind: **the picker art is approved and the cooked rooms look good on a phone.**
 
-- Brain Candy (Propaganda Machine, S.O.F.T., DoubleSpeak, Bias Factory, Red-String Machine)
-- Department Zero / hidden-world escape room
+- Department Zero beyond File 001 (the full multi-visit escape room)
 - Accounts, OAuth, galleries, achievements
 - Subreddit, comments, submissions, moderation
 - Drawing wall extended across all writing
@@ -147,6 +150,7 @@ Parked behind: **the picker art is approved and the cooked rooms look good on a 
 
 ## Canon change log
 
+- **2026-11-17** — D-30: Brain Candy unparked; hub + The Spin Cycle built; Q-12.
 - **2026-11-17** — D-29 alive layer (engine, front-door controls, `/visual/lab/alive/`, tests). Muse's first five families in (Minimalism, Memphis, Brutalism, Grunge, Situationism): 127 cutouts. Q-10, Q-11.
 - **2026-11-17** — Muse mission written: `docs/handoffs/MUSE_CUTOUT_MISSION.md` (every family to 8+ cutouts, one PR per family, Brandon reviews each).
 - **2026-11-17** — Merged the parallel playbook branch (`agents/codex-playbook`): its AGENTS.md, DESIGN.md, folder rules, skills and templates kept; its DECISIONS.md folded in as D-23–D-28, Q-08, Q-09; references repointed here. Punk: 8 ChatGPT cutouts (84 total).

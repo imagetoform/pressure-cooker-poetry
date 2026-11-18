@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Brain Candy machine 01: load the dirty truth, add spin, watch it come out clean. Then switch sides and catch it.">
+<title>The Spin Cycle | Brain Candy | Pressure Cooker Poetry</title>
+<style>
+:root{color-scheme:dark;--ink:#111014;--paper:#f5ead7;--acid:#e2ef63;--red:#ed5c43;--steel:#c9c4ba;--enamel:#ece6da}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--paper);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;min-height:100vh;
+  background-image:radial-gradient(rgba(245,234,215,.07) 1px,transparent 1.4px);background-size:7px 7px}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px dashed var(--acid);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.site{border-bottom:2px solid var(--paper);padding:12px 0}
+header.site .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header.site a{text-decoration:none;font-weight:800}
+.mono{font-family:"Courier New",Courier,monospace}
+.eyebrow{font:700 .75rem/1.4 "Courier New",monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--acid)}
+h1{font:900 clamp(2.6rem,10vw,5.6rem)/.9 Impact,"Arial Black",sans-serif;text-transform:uppercase;margin:.3rem 0 .4rem;letter-spacing:-.01em}
+h1 .tilt{display:inline-block;background:var(--paper);color:var(--ink);padding:0 .12em;transform:rotate(-2deg)}
+.lead{max-width:40rem;font-size:1.05rem}
+.hero{padding:22px 0 10px}
+.topbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 0}
+.chip{border:2px solid var(--paper);background:transparent;padding:6px 10px;cursor:pointer;font:700 .8rem "Courier New",monospace}
+.chip[aria-pressed="true"]{background:var(--acid);color:var(--ink);border-color:var(--acid)}
+.score{margin-left:auto;font:700 .9rem "Courier New",monospace}
+.score b{color:var(--acid);font-size:1.15rem}
+
+/* ---------- STAGE ---------- */
+.stage{display:grid;gap:18px;margin:16px 0 40px}
+@media(min-width:900px){.stage{grid-template-columns:1fr 1.05fr;align-items:start}}
+
+/* client ticket */
+.ticket{position:relative;background:var(--paper);color:var(--ink);padding:16px 16px 18px;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--red);
+  clip-path:polygon(0 0,100% 0,100% 92%,97% 100%,92% 94%,86% 100%,80% 93%,73% 100%,66% 94%,58% 100%,50% 93%,42% 100%,35% 94%,27% 100%,20% 93%,12% 100%,6% 94%,0 100%)}
+.ticket .row{display:flex;gap:12px;align-items:flex-start}
+.ticket img{width:92px;height:auto;flex:0 0 auto;transform:rotate(-4deg);filter:drop-shadow(2px 3px 0 rgba(0,0,0,.3))}
+.ticket .who{font:800 .8rem "Courier New",monospace;text-transform:uppercase;letter-spacing:.1em}
+.ticket .fact{font:700 1.15rem/1.3 Georgia,"Times New Roman",serif;margin:.35rem 0 0}
+.stain{position:absolute;right:14px;bottom:22px;width:70px;height:70px;border-radius:50%;border:6px solid rgba(120,70,20,.22);pointer-events:none}
+.next-client{margin-top:6px;background:none;border:0;text-decoration:underline;cursor:pointer;font:700 .8rem "Courier New",monospace;color:var(--ink)}
+.fiction{font:700 .68rem "Courier New",monospace;opacity:.75;margin-top:6px}
+
+/* washer */
+.washer{background:var(--enamel);color:var(--ink);border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:12px 14px 18px;position:relative}
+.panel{display:flex;gap:10px;align-items:center;border-bottom:4px solid var(--ink);padding-bottom:10px;flex-wrap:wrap}
+.brand{font:900 1.05rem/1 Impact,"Arial Black",sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.brand small{display:block;font:700 .62rem "Courier New",monospace;letter-spacing:.08em}
+.gauges{display:flex;gap:10px;margin-left:auto}
+.gauge{width:84px;text-align:center;font:700 .6rem/1.1 "Courier New",monospace;text-transform:uppercase}
+.gauge svg{display:block;width:84px;height:48px}
+.needle{transition:transform .9s cubic-bezier(.3,1.6,.5,1);transform-origin:42px 44px}
+.gauge .val{font-size:.8rem}
+.portwrap{display:grid;place-items:center;padding:18px 0 8px}
+.port{position:relative;width:min(70vw,300px);aspect-ratio:1;border-radius:50%;background:#9aa0a6;border:16px solid var(--steel);
+  box-shadow:inset 0 0 0 4px var(--ink),0 0 0 4px var(--ink);overflow:hidden}
+.glass{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.55),transparent 35%),radial-gradient(circle,#2b3540 0,#151b21 75%)}
+.drum{position:absolute;inset:6%;border-radius:50%;animation:turn 14s linear infinite}
+.drum span{position:absolute;left:50%;top:50%;font:800 .78rem/1 "Courier New",monospace;background:var(--paper);color:var(--ink);padding:2px 4px;white-space:nowrap}
+.washer.spinning .drum{animation-duration:.45s}
+.washer.spinning .drum span{filter:blur(1px)}
+@keyframes turn{to{transform:rotate(360deg)}}
+.suds{position:absolute;inset:0;pointer-events:none}
+.suds i{position:absolute;bottom:-20%;width:var(--s);height:var(--s);border-radius:50%;background:rgba(255,255,255,.75);left:var(--x);opacity:0}
+.washer.spinning .suds i{animation:rise 1.4s ease-in var(--d) infinite}
+@keyframes rise{0%{transform:translateY(0) scale(.6);opacity:0}20%{opacity:.9}100%{transform:translateY(-140%) scale(1.2);opacity:0}}
+.washer.spinning{animation:rumble .09s linear infinite}
+@keyframes rumble{0%{transform:translate(0,0)}25%{transform:translate(1px,-1px)}50%{transform:translate(-1px,1px)}75%{transform:translate(1px,1px)}}
+.slots{display:flex;gap:8px;justify-content:center;margin:6px 0 12px}
+.slot{width:31%;min-height:46px;border:3px dashed var(--ink);display:grid;place-items:center;font:800 .72rem/1.1 "Courier New",monospace;text-transform:uppercase;padding:4px;text-align:center}
+.slot.full{border-style:solid;color:var(--ink)}
+.spin{display:block;width:100%;padding:14px;font:900 1.4rem/1 Impact,"Arial Black",sans-serif;text-transform:uppercase;letter-spacing:.04em;background:var(--red);color:var(--paper);border:4px solid var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:pointer}
+.spin:disabled{opacity:.45;cursor:not-allowed}
+.spin:not(:disabled):active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}
+
+/* detergent shelf */
+.shelf{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:560px){.shelf{grid-template-columns:repeat(4,1fr)}}
+.box{position:relative;text-align:left;cursor:pointer;border:3px solid var(--ink);background:var(--c);color:var(--ink);padding:10px 9px 12px;min-height:118px;
+  box-shadow:4px 4px 0 var(--paper);clip-path:polygon(0 8%,12% 0,100% 0,100% 100%,0 100%);transition:transform .15s}
+.box:hover{transform:translateY(-3px) rotate(-1deg)}
+.box[aria-pressed="true"]{outline:4px solid var(--paper);outline-offset:-10px;transform:translateY(-5px) rotate(1deg)}
+.box b{display:block;font:900 1.15rem/1 Impact,"Arial Black",sans-serif;text-transform:uppercase}
+.box .tm{font:700 .6rem "Courier New",monospace;text-transform:uppercase}
+.box p{margin:.35rem 0 0;font-size:.78rem;line-height:1.25}
+
+/* press release */
+.release{display:none;position:relative;background:#fffdf7;color:#141414;border:3px solid var(--ink);padding:18px 16px 16px;box-shadow:8px 8px 0 var(--acid);font-family:Georgia,"Times New Roman",serif}
+.release.show{display:block;animation:print .9s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes print{from{transform:translateY(-40px) scaleY(.2);opacity:0}to{transform:none;opacity:1}}
+.release h3{font:900 .85rem "Courier New",monospace;letter-spacing:.14em;margin:0 0 8px}
+.release .line{display:block;margin:0 0 .6rem;font-size:1.08rem;line-height:1.4;border-radius:2px;transition:background .5s,color .5s}
+.release .stamp{position:absolute;right:12px;top:10px;transform:rotate(8deg);border:3px solid var(--red);color:var(--red);font:900 .85rem "Courier New",monospace;padding:2px 6px}
+.results{display:flex;gap:12px;flex-wrap:wrap;font:700 .85rem "Courier New",monospace;border-top:2px dashed #999;padding-top:10px;margin-top:6px}
+.results .rank{background:var(--ink);color:var(--acid);padding:2px 8px}
+.xray-on .release{background:#06121a;color:#cfe7ff;box-shadow:8px 8px 0 #2ec4b6}
+.xray-on .release h3{color:#2ec4b6}
+.xray-on .release .line{background:color-mix(in srgb,var(--c) 30%,transparent);color:#fff;box-shadow:inset 4px 0 0 var(--c);padding:4px 8px}
+.why{display:none;font:700 .78rem/1.35 "Courier New",monospace;margin:-.2rem 0 .8rem 8px;color:#bfe9e4}
+.xray-on .why{display:block}
+.why .tag{display:inline-block;background:var(--c);color:#111;padding:0 5px;margin-right:4px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{padding:11px 14px;font:900 .95rem/1 Impact,"Arial Black",sans-serif;text-transform:uppercase;letter-spacing:.03em;border:3px solid var(--ink);background:var(--acid);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--paper)}
+.btn.alt{background:var(--paper)}
+.truthbox{display:none;margin-top:12px;background:var(--paper);color:var(--ink);border:3px solid var(--ink);padding:10px 12px;font:700 .95rem/1.35 Georgia,serif}
+.xray-on .truthbox{display:block}
+
+/* spot game */
+.spotgame{display:none;margin:0 0 40px}
+.spotgame.on{display:block}
+.hud{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font:700 .9rem "Courier New",monospace;margin-bottom:10px}
+.hud .timer{flex:1 1 140px;height:12px;border:2px solid var(--paper);position:relative;min-width:120px}
+.hud .timer i{position:absolute;inset:0 auto 0 0;background:var(--red);width:100%;transition:width .25s linear}
+.hud .combo{color:var(--acid)}
+.memo{background:#fffdf7;color:#141414;border:3px solid var(--ink);padding:16px;box-shadow:8px 8px 0 var(--red);font-family:Georgia,serif}
+.memo h3{font:900 .85rem "Courier New",monospace;letter-spacing:.14em;margin:0 0 10px}
+.sent{display:block;width:100%;text-align:left;background:transparent;border:0;border-left:5px solid #bbb;padding:8px 10px;margin:0 0 8px;font:1.05rem/1.4 Georgia,serif;cursor:pointer;color:#141414}
+.sent:hover{background:#f1ecdf}
+.sent.done{cursor:default;border-left-color:var(--c);background:color-mix(in srgb,var(--c) 22%,#fff)}
+.sent.done::after{content:attr(data-label);display:block;font:800 .72rem "Courier New",monospace;text-transform:uppercase;margin-top:4px}
+.sent.miss{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.picker{display:none;margin-top:12px;background:var(--ink);color:var(--paper);border:3px solid var(--acid);padding:12px}
+.picker.on{display:block}
+.picker p{margin:0 0 8px;font:700 .85rem "Courier New",monospace}
+.picker .opts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:560px){.picker .opts{grid-template-columns:repeat(4,1fr)}}
+.picker button{border:3px solid var(--ink);background:var(--c);color:var(--ink);font:900 .9rem/1.1 Impact,"Arial Black",sans-serif;text-transform:uppercase;padding:10px 6px;cursor:pointer}
+.feedback{min-height:1.4em;font:700 .9rem/1.4 "Courier New",monospace;margin-top:10px}
+.feedback.good{color:var(--acid)} .feedback.bad{color:#ff8b7e}
+.pop{position:fixed;z-index:50;pointer-events:none;font:900 1.6rem Impact,"Arial Black",sans-serif;color:var(--acid);text-shadow:2px 2px 0 #111;animation:pop .9s ease-out forwards}
+@keyframes pop{from{transform:translateY(0) scale(.6);opacity:1}to{transform:translateY(-70px) scale(1.3);opacity:0}}
+
+/* end + jar */
+.end{display:none;margin:0 0 40px;border:4px solid var(--paper);padding:18px;background:#1c1820}
+.end.on{display:block}
+.end h2{font:900 clamp(2rem,7vw,3.4rem)/1 Impact,"Arial Black",sans-serif;text-transform:uppercase;margin:0 0 8px}
+.jar{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
+.wrapper{width:76px;height:44px;display:grid;place-items:center;font:900 .62rem/1 "Courier New",monospace;text-transform:uppercase;text-align:center;background:#2a2530;color:#6d6573;padding:2px;
+  clip-path:polygon(0 20%,8% 0,16% 20%,84% 20%,92% 0,100% 20%,100% 80%,92% 100%,84% 80%,16% 80%,8% 100%,0 80%)}
+.wrapper.got{background:var(--c);color:#111;animation:unwrap .5s}
+@keyframes unwrap{from{transform:scale(.3) rotate(-30deg)}to{transform:none}}
+.eye{display:none;margin-top:14px;border:3px solid var(--acid);padding:14px;background:#05140b;color:#9dff9d;font:700 1rem/1.4 "Courier New",monospace}
+.eye.on{display:block}
+
+/* learn drawer */
+.learn{border-top:8px solid var(--red);padding:26px 0 40px}
+.learn h2{font:900 clamp(1.8rem,6vw,3rem)/1 Impact,"Arial Black",sans-serif;text-transform:uppercase;margin:0 0 6px}
+.cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));margin-top:14px}
+.card{border:3px solid var(--c);padding:12px;background:#1a171d}
+.card h3{margin:0 0 4px;font:900 1.2rem Impact,"Arial Black",sans-serif;text-transform:uppercase;color:var(--c)}
+.card p{margin:.3rem 0;font-size:.92rem}
+.card .ask{font:700 .82rem/1.35 "Courier New",monospace;color:var(--acid)}
+.card .origin{font-size:.8rem;opacity:.8}
+.sources{font-size:.85rem;margin-top:18px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+footer{border-top:2px solid var(--paper);padding:14px 0 30px;font-size:.85rem}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
+  .drum{animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><a href="/">PRESSURE COOKER POETRY</a><nav aria-label="Main"><a href="/brain-candy/">Brain Candy</a> · <a href="/learning/">Learning Curve</a> · <a href="/about/">Mission</a></nav></div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="eyebrow">Brain Candy / Machine 01 / Play → Reveal → Learn</span>
+    <h1>The <span class="tilt">Spin</span> Cycle</h1>
+    <p class="lead">A laundromat for the truth. Your client did something dirty. Load three detergents, hit spin, and watch it come out clean. Then switch sides and learn to see the stains.</p>
+    <div class="topbar">
+      <button class="chip" id="sound" aria-pressed="true" type="button">Sound on</button>
+      <button class="chip" id="timed" aria-pressed="true" type="button">Timer on</button>
+      <span class="score" aria-live="polite">Score <b id="score">0</b></span>
+    </div>
+  </section>
+
+  <p class="sr" id="say" aria-live="assertive"></p>
+
+  <!-- PLAY: you are the flack -->
+  <section class="stage" id="stage" aria-label="Round one: spin it">
+    <div>
+      <div class="ticket" id="ticket">
+        <div class="row">
+          <img src="assets/mister-vulture.webp" alt="Mister Vulture, a vulture in a top hat and waistcoat" width="92" height="121">
+          <div>
+            <div class="who">Your client: <span id="client"></span></div>
+            <p class="fact" id="fact"></p>
+          </div>
+        </div>
+        <div class="stain" aria-hidden="true"></div>
+        <button class="next-client" id="nextClient" type="button">Different client ↻</button>
+        <div class="fiction">Fictional companies. Real techniques.</div>
+      </div>
+
+      <h2 class="eyebrow" style="margin:22px 0 8px">Pick 3 detergents</h2>
+      <div class="shelf" id="shelf" role="group" aria-label="Spin techniques. Pick three."></div>
+    </div>
+
+    <div>
+      <div class="washer" id="washer">
+        <div class="panel">
+          <div class="brand">Spin-O-Matic 3000<small>Dirty truth in · clean story out</small></div>
+          <div class="gauges">
+            <div class="gauge"><svg viewBox="0 0 84 48" aria-hidden="true"><path d="M6 44a36 36 0 0 1 72 0" fill="none" stroke="#111" stroke-width="5"/><path d="M6 44a36 36 0 0 1 36-36" fill="none" stroke="#2ec4b6" stroke-width="5"/><line class="needle" id="n-calm" x1="42" y1="44" x2="42" y2="12" stroke="#ed5c43" stroke-width="4" stroke-linecap="round" style="transform:rotate(-80deg)"/><circle cx="42" cy="44" r="4" fill="#111"/></svg>Public calm<div class="val" id="v-calm">0%</div></div>
+            <div class="gauge"><svg viewBox="0 0 84 48" aria-hidden="true"><path d="M6 44a36 36 0 0 1 72 0" fill="none" stroke="#111" stroke-width="5"/><path d="M42 8a36 36 0 0 1 36 36" fill="none" stroke="#ed5c43" stroke-width="5"/><line class="needle" id="n-truth" x1="42" y1="44" x2="42" y2="12" stroke="#111" stroke-width="4" stroke-linecap="round" style="transform:rotate(80deg)"/><circle cx="42" cy="44" r="4" fill="#111"/></svg>Truth left<div class="val" id="v-truth">100%</div></div>
+          </div>
+        </div>
+        <div class="portwrap"><div class="port" aria-hidden="true"><div class="glass"></div><div class="drum" id="drum"></div><div class="suds" id="suds"></div></div></div>
+        <div class="slots" id="slots" aria-label="Loaded detergents"></div>
+        <button class="spin" id="spin" type="button" disabled>Spin it</button>
+        <p class="mono" style="font-size:.68rem;margin:.6rem 0 0">Gauges are game scores, not measurements of anything real.</p>
+      </div>
+
+      <div id="releaseWrap" style="margin-top:18px">
+        <article class="release" id="release" aria-live="polite">
+          <span class="stamp">APPROVED</span>
+          <h3>FOR IMMEDIATE RELEASE</h3>
+          <div id="releaseLines"></div>
+          <div class="results" id="results"></div>
+        </article>
+        <div class="truthbox" id="truthbox"></div>
+        <div class="actions" id="releaseActions" hidden>
+          <button class="btn" id="xray" type="button" aria-pressed="false">X-ray it</button>
+          <button class="btn alt" id="toSpot" type="button">Switch sides: catch the spin →</button>
+          <button class="btn alt" id="again" type="button">Spin another</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAY 2: you are the reader -->
+  <section class="spotgame" id="spot" aria-label="Round two: catch the spin">
+    <span class="eyebrow">Round two / you are the reader</span>
+    <h2 style="font:900 clamp(1.8rem,6vw,3rem)/1 Impact,'Arial Black',sans-serif;text-transform:uppercase;margin:.2rem 0 .6rem">Catch the spin</h2>
+    <p>Somebody else washed this one. Tap a sentence, then name the trick. Every trick you catch goes in your jar.</p>
+    <div class="hud"><span>Memo <b id="memoN">1</b>/3</span><div class="timer" aria-hidden="true"><i id="timerBar"></i></div><span class="combo" id="combo"></span></div>
+    <article class="memo" id="memo"><h3>PRESS RELEASE · <span id="memoClient"></span></h3><div id="memoLines"></div></article>
+    <div class="picker" id="picker" role="group" aria-label="Which trick is this?"><p id="pickerQ">Which trick?</p><div class="opts" id="opts"></div></div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+  </section>
+
+  <section class="end" id="end" aria-label="Results">
+    <span class="eyebrow">Wash complete</span>
+    <h2 id="endTitle"></h2>
+    <p id="endText"></p>
+    <p class="mono">Your wrapper jar (kept in this browser only):</p>
+    <div class="jar" id="jar"></div>
+    <div class="eye" id="eye">YOU WERE NOT SUPPOSED TO FIND THIS.<br>Fortunately, neither were we.<br><br>Department Zero noticed you can read the stains. <a href="/brain-candy/#department-zero">Report to the Office of Unreasonable Possibilities →</a></div>
+    <div class="actions"><button class="btn" id="restart" type="button">New wash</button><a class="btn alt" href="/brain-candy/">Back to Brain Candy</a></div>
+  </section>
+
+  <!-- LEARN -->
+  <section class="learn" id="learn">
+    <span class="eyebrow">Learn / the detergent labels</span>
+    <h2>Eight tricks, one question each</h2>
+    <p class="lead">Seven of these were named in 1937 by the Institute for Propaganda Analysis, a group of journalists and teachers who thought ordinary people deserved a field guide. The eighth is fog, which George Orwell went after in 1946 and George Carlin made funny.</p>
+    <div class="cards" id="cards"></div>
+    <div class="sources"><b>Sources</b><ul id="sources"></ul></div>
+  </section>
+</main>
+<footer><div class="wrap"><strong>Pressure Cooker Poetry</strong> · Brain Candy. Nothing you do here is stored anywhere but your own browser. <a href="/brain-candy/">All machines</a></div></footer>
+
+<script src="data.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

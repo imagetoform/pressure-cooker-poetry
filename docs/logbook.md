@@ -8,6 +8,24 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-17 19:50 — Brain Candy unparked: hub + Machine 01, The Spin Cycle (D-30)
+
+### What was asked
+"Build on the Brain Candy page … immersive, animated, almost gamified, but unique and educational."
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Read prior design | `origin/design/brain-candy-mood-interview:docs/EXPERIENCE_OVERHAUL_BRAIN_CANDY.md` (five machines, Play → Reveal → Learn, Eye / Department Zero). Built on it; its Propaganda Machine + DoubleSpeak became The Spin Cycle (no live AI, so curated sentences instead of free text). |
+| Verified facts | IPA founded 1937, seven devices in the Nov 1937 bulletin; Orwell's essay in Horizon, April 1946; Carlin's shell shock → battle fatigue → operational exhaustion → PTSD chain. Sources listed on the page. |
+| The Spin Cycle | `site/landing/brain-candy/spin-cycle/` (index.html, data.js, game.js, assets/mister-vulture.webp). 8 techniques × 6 fictional clients = 48 hand-written spun sentences. Washer drawn in CSS, gauges, tumbling drum, suds, synthesized sounds (mute), X-ray reveal, timed catch-the-spin round (timer can be turned off), combo scoring, wrapper jar in localStorage, learn cards with sources. |
+| Hub | `site/landing/brain-candy/`: four arcade cabinets with live mini-scenes, the jar, Department Zero File 001 (ROT13 → "NOTHING IS INEVITABLE"), locked until the jar is full. |
+| Plan | docs/BRAIN_CANDY.md: six machines, the jar/cipher progression, build order, open questions. |
+| Tested | site/tests/spin-cycle.cjs PASS on desktop, Pixel 7, reduced motion (full play-through incl. keyboard picks, jar, lock and cipher). Looked at screenshots: fixed buttons showing before the spin (`[hidden]` vs `display:flex`), stretched coin light, broken empty wrappers, a filled-black string path. |
+
+### Open / notes
+Not linked from the main nav yet (add when Brandon approves). Q-12 in the canon.
+
 ## 2026-11-17 17:43 — Alive layer (D-29); Muse's first five families (127 cutouts)
 
 ### What was asked
