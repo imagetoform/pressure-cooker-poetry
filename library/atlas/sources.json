@@ -103,14 +103,14 @@
     "id": "cosmos-image-5",
     "type": "reference-link",
     "title": "User-supplied Cosmos reference 5",
-    "url": "https://cdn.cosmos.so/01a11f4d-b1c",
+    "url": null,
     "platform": "cosmos",
     "tags": [
       "cosmos",
       "graphic-design"
     ],
     "rights": "reference_only",
-    "note": "Truncated URL in conversation; retained as a reference lead, not fetched"
+    "note": "Only an incomplete fragment of this Cosmos URL was recorded. Original user reference preserved as a research lead; not fetchable without full link."
   },
   {
     "id": "github-creative-coding",
@@ -185,6 +185,72 @@
     "tags": [
       "ephemera",
       "poster",
+      "historical"
+    ],
+    "rights": "verify_individual_item"
+  },
+  {
+    "id": "cosmos-website-design-inspo",
+    "type": "reference-link",
+    "title": "Cosmos / Website Design Inspo",
+    "url": "https://www.cosmos.so/brandonrhodes/website-design-inspo",
+    "platform": "cosmos",
+    "tags": [
+      "website",
+      "composition",
+      "editorial"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-design-inspo",
+    "type": "reference-link",
+    "title": "Cosmos / Design Inspo",
+    "url": "https://www.cosmos.so/brandonrhodes/design-inspo",
+    "platform": "cosmos",
+    "tags": [
+      "graphic-design",
+      "cutup",
+      "visual-reference"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-pcp-backgrounds",
+    "type": "reference-link",
+    "title": "Cosmos / PCP Backgrounds",
+    "url": "https://www.cosmos.so/brandonrhodes/pcp-backgrounds",
+    "platform": "cosmos",
+    "tags": [
+      "textures",
+      "backgrounds",
+      "composition"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "arena-pcp-design",
+    "type": "arena-channel",
+    "title": "Are.na / PCP Design",
+    "url": "https://www.are.na/brandon-rhodes/pcp-design",
+    "slug": "pcp-design",
+    "platform": "are.na",
+    "tags": [
+      "pcp",
+      "design",
+      "cutups"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "archive-nypl",
+    "type": "reference-link",
+    "title": "NYPL Digital Collections",
+    "url": "https://api.repo.nypl.org/",
+    "platform": "archive",
+    "tags": [
+      "ephemera",
+      "type",
       "historical"
     ],
     "rights": "verify_individual_item"
