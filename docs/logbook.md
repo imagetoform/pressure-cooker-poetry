@@ -2,11 +2,33 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - give a session push access so the local commits become a PR; send more AI cutout batches (AI_CUTOUT_BRIEF.md); answer CANON Q-01, Q-02, Q-08, Q-09. Claude - rebuild the rooms around the cutouts (D-18). Always read docs/CANON.md first.
+next: Brandon - give a session push access so the local commits become a PR; send the missing Muse rounds (Art Deco 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk) and the under-8 families (constructivism, dada, swiss, afrofuturism); answer CANON Q-01, Q-02, Q-08, Q-09. Claude - rebuild the rooms around the cutouts (D-18). Always read docs/CANON.md first.
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-18 01:40 — Cutouts batch 4: 19 Muse zips, +163
+
+### What was asked
+Brandon sent 19 more Muse zips (rounds 3-4 for ukiyo-e, art-nouveau, mexican-muralism, futurism, gothic-revival, expressionism, rococo, art-deco, punk, psychedelia, bauhaus, surrealism).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| New tool | `tools/cutouts/unpack.py DEST ZIP...`: one folder per zip outside the repo, drops any PNG already received (sha256), prunes the sidecar, prints Muse's count note |
+| Unpack | 169 PNGs, 0 repeats |
+| Ingest | `ingest.py <folder> --source ai --cut none` per folder, 169 candidates |
+| Review | 5 contact sheets (`--cols 6 --cell 200`), every piece looked at |
+| Promote | 163 kept, 6 rejected (reasons in candidates.json): VW Beetle (brand trade dress), sombrero "mural painter" (cliche), rococo slipper and violin (don't read), cream plume (invisible), geta (reads as a bench) |
+| Checks | build reproducible; visual-flow, alive, spin-cycle all PASS |
+
+### Result
+Manifest 346 -> 509. Five families at 30+. Under 8: constructivism 2, dada 3, swiss 6, afrofuturism 0.
+
+### Open / notes
+- Muse's notes claim totals Claude never received (e.g. art-deco "28 delivered", 2 here before this batch). Missing: Art Deco rounds 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk.
+- Muse now aims for 30 per family. The canon floor stays 8; the under-8 families matter more.
 
 ## 2026-11-17 23:31 — Muse batches 2 and 3: 219 kept, 15 rejected → 346 cutouts
 

@@ -76,7 +76,13 @@ Order: `zine-diy`, `situationism`, `grunge-design`, `brutalism`, `swiss`, `minim
 - Your sidecar format is fine. Claude's ingest reads it directly, including "Source B" notes for borrowed fragments (keep naming the original artist).
 - Missing from Claude's side: Constructivism (5), Dada (8), Punk (6), and round 1 of Zine/DIY, Swiss and Pop Art. Brandon has to send those.
 
-**Delivered so far (2026-11-17):** every family except art-deco (2), constructivism (2), dada (3), swiss (6) and afrofuturism (0) has 8+. Next: those five. Your tag-file format is fine: Claude maps it.
+**Feedback from the 2026-11-18 review (batch 4, 19 zips, 169 pieces, 163 kept):**
+- Rejected 6: the painted VW Beetle (car-brand trade dress), the sombrero-and-moustache "mural painter" (ethnic cliche; show muralism through the work, not a costume), the Rococo slipper and violin (shapes don't read), the cream plume (cream on cream vanishes), the geta (reads as a bench).
+- The same "sleepy crescent moon" template turned up in Art Nouveau and Mexican Muralism. Kept both; don't reuse one template across families again.
+- Your count notes say more than has reached Claude. Not received: Art Deco rounds 1-3, and round 3 of Psychedelia, Bauhaus, Surrealism and Punk. Brandon has to send those zips.
+- Still under 8: constructivism 2, dada 3, swiss 6, afrofuturism 0. These matter more than taking the full families past 30.
+
+**Delivered before that (2026-11-17):** every family except art-deco (2), constructivism (2), dada (3), swiss (6) and afrofuturism (0) has 8+. Next: those five. Your tag-file format is fine: Claude maps it.
 
 **Recount before you start** (`library/cutouts/manifest.json`). If the numbers differ from this table, trust the manifest.
 
