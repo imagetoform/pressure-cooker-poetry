@@ -1,6 +1,6 @@
 """Bring outside-made cutouts (ChatGPT or any AI image model, Brandon's own art, scans) into the candidate pile.
 
-Usage: python3 tools/cutouts/ingest.py <folder-or-zip> [--source chatgpt|ai|brandon|scan] [--cut none|ink|subject]
+Usage: python3 tools/cutouts/ingest.py <folder-or-zip> [--source chatgpt|ai|brandon|scan|cosmos] [--cut none|ink|subject]
 
 Expects image files plus a cutouts.json sidecar listing, for each image:
   {"file": "punk--safety-pin-mouth.png", "family": "punk", "label": "...",
@@ -25,7 +25,28 @@ LICENSES = {
     "ai": "Original image generated for Pressure Cooker Poetry with an AI image model (see made_with), art-directed by Brandon. No third-party artwork copied.",
     "brandon": "Brandon's own work. All rights his; used on his site.",
     "scan": "Scan from Brandon's own collection. Check source rights before promoting.",
+    "cosmos": "Fragment cut from a poster in Brandon's saved Cosmos collection; the original artist is named in the notes. Used under Brandon's sampling rule (CANON D-15): fragments only, nothing sold.",
 }
+
+
+def normalize(side):
+    """Accept the brief's list format, or Muse's preset format ({"cutouts": [...], "made_by": ...})."""
+    if isinstance(side, list):
+        return side
+    made_by = side.get("made_by") or {}
+    model = made_by.get("model") if isinstance(made_by, dict) else str(made_by)
+    out = []
+    for r in side.get("cutouts", []):
+        notes = r.get("notes") or ""
+        out.append({
+            "file": r.get("file") or (r["id"] + ".png"), "family": r.get("family"), "label": r.get("label"),
+            "emo": r.get("emo", []), "cats": r.get("cats", []),
+            "notes": " ".join(x for x in (r.get("tag_reason"), notes) if x),
+            "made_with": r.get("made_with") or model, "prompt": r.get("prompt"),
+            # Muse marks borrowed fragments "Source B" in the notes; those keep their own licence line.
+            "source": "cosmos" if notes.strip().lower().startswith("source b") else None,
+        })
+    return out
 
 
 def files_from(path):
@@ -51,7 +72,7 @@ def main():
     side = files.get("cutouts.json")
     if not side:
         raise SystemExit("no cutouts.json sidecar: refusing to guess families and tags")
-    entries = json.loads(side)
+    entries = normalize(json.loads(side))
     order = re.findall(r"'([a-z0-9-]+)'", re.search(r"const order = \[([^\]]*)\]",
                        open(os.path.join(REPO, "site", "visual", "adapter.js")).read()).group(1))
     vocab = set(json.load(open(os.path.join(REPO, "library", "catalog.json")))["vocabulary"])
@@ -84,7 +105,8 @@ def main():
             if piece is None:
                 print("  skip %s: %s" % (name, info)); continue
             how = "%s mode cut on ingest" % mode
-        cid = "%s-%s-%s" % (fam, source, slug(e.get("label") or os.path.splitext(name)[0], 32))
+        src = e.get("source") or source
+        cid = "%s-%s-%s" % (fam, src, slug(e.get("label") or os.path.splitext(name)[0], 32))
         out = os.path.join(family_dir(fam), "cutouts")
         os.makedirs(out, exist_ok=True)
         rel = os.path.relpath(os.path.join(out, cid + ".png"), REPO)
@@ -93,9 +115,9 @@ def main():
             "id": cid, "family": fam, "file": rel, "status": "candidate",
             "label": (e.get("label") or name)[:80],
             "suggested": {"emo": e.get("emo", []), "cats": e.get("cats", []), "notes": e.get("notes", "")},
-            "source": "%s. %s" % (e.get("label") or name, LICENSES[source]),
-            "provenance": {"source": source, "object_id": name, "made_with": e.get("made_with"),
-                           "prompt": e.get("prompt"), "license": LICENSES[source], "cut": how,
+            "source": "%s. %s" % (e.get("label") or name, LICENSES[src]),
+            "provenance": {"source": src, "object_id": name, "made_with": e.get("made_with"),
+                           "prompt": e.get("prompt"), "license": LICENSES[src], "cut": how, "notes": e.get("notes", ""),
                            "when": time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())},
         })
         made += 1

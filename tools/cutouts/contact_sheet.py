@@ -7,7 +7,7 @@ import json, os, sys
 from PIL import Image, ImageDraw, ImageFont
 
 REPO = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-CELL, LABEL, COLS = 300, 44, 4
+CELL, LABEL, COLS = 300, 44, 4  # override with --cols N --cell PX
 
 
 def checker(w, h, s=16):
@@ -24,6 +24,11 @@ def main():
     status = "candidate"
     if "--status" in args:
         i = args.index("--status"); status = args[i + 1]; del args[i:i + 2]
+    global CELL, COLS
+    if "--cols" in args:
+        i = args.index("--cols"); COLS = int(args[i + 1]); del args[i:i + 2]
+    if "--cell" in args:
+        i = args.index("--cell"); CELL = int(args[i + 1]); del args[i:i + 2]
     out, fams = args[0], set(args[1:])
     recs = []
     for f in ("candidates.json", "manifest.json"):
