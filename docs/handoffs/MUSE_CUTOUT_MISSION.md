@@ -39,7 +39,7 @@ git ls-tree -r --name-only origin/main | grep -c '^tools/cutouts/ingest.py$'
 5. **Every source must be one you actually opened.** Never write a URL, licence, creator or date from memory.
 6. **Copy family ids exactly** from the table below. `swiss`, not `swiss-international`.
 7. **Never say it's done, pushed or live unless you just checked.** "I committed it" means `git log` shows it. "I pushed it" means `git ls-remote` shows it.
-8. **Don't touch** poems, essays, the engine, `site/visual/`, `docs/CANON.md`'s decisions, or any family that's already at 8. Only add cutouts.
+8. **Don't touch** poems, essays, `content/`, `site/`, `docs/CANON.md`'s decisions, or any family that's already at 8. Only add cutouts.
 
 ## Step 3: Where cutouts may come from
 
@@ -101,11 +101,10 @@ Order: `zine-diy`, `situationism`, `grunge-design`, `brutalism`, `swiss`, `minim
 5. **Check:**
    ```sh
    python3 -c "import json,collections;m=json.load(open('library/cutouts/manifest.json'));print(collections.Counter(x['family'] for x in m)['<family-id>'])"   # must be >= 8
-   python3 site/tools/build.py && python3 site/tools/assemble.py
-   python3 site/tools/build.py && git diff --exit-code -- site/dist          # build must be stable
-   python3 -m http.server 8765 --directory site/public & node site/tests/visual-flow.cjs
+   python3 site/tools/build.py
+   python3 -m http.server 8765 --directory site/public & node site/tests/site.cjs
    ```
-6. Commit (library files, the `.webp` copies, `site/dist/`, `candidates.json`, `manifest.json`). Add an entry at the top of `docs/logbook.md`: family, how many kept and rejected, which sources, anything odd.
+6. Commit (library files, the `.webp` copies, `candidates.json`, `manifest.json`). Add an entry at the top of `docs/logbook.md`: family, how many kept and rejected, which sources, anything odd.
 7. Open **one PR per family** titled `Cutouts: <family-id> (+N)`. Attach the contact sheet image. List what you rejected and why. **Don't merge it.** Brandon reviews every family (CANON D-27).
 8. Only then start the next family.
 

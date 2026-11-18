@@ -20,52 +20,51 @@ An OK covers one step only (CANON D-27).
 
 ## The steps, in order
 
-### Step 1: Get the finished work onto GitHub
-The finished commits only existed in Claude's workspace (and in `pcp-local.bundle`). Nothing can preview or go live until they're on GitHub.
-- Option A: Brandon gives a Claude session push access to `imagetoform/pressure-cooker-poetry`, and Claude opens one PR.
-- Option B: Brandon pulls the bundle on his computer (`git pull pcp-local.bundle HEAD`) and pushes a branch.
-**Brandon checks:** the PR exists and the Netlify deploy preview link opens.
+Re-ordered on 2026-11-18 after the reset (CANON D-31 to D-35). Earlier order is in git history.
 
-### Step 2: Bigger motion with music and sound
-Brandon, 2026-11-18: the pieces should move more dramatically with music or audio.
-- Today the beat moves a piece about 10–30 px and grows it 4–10 %. Plan: a stronger beat hit (scale punch, rotation kick, bigger jumps on the bass), with a smooth fall-back so it doesn't jitter.
-- To find the right amount, the ALIVE LAB gets a "drama" slider **in the lab only** (not on the site; no new visitor controls without Brandon's OK). Brandon picks a level; that number gets baked into the site.
-- Reduced-motion and "Hold still" keep working; receipts stay identical.
-**Brandon checks (in the lab, on his phone):** load a song file, then try the mic: does it feel like it dances? Too much? Is "Hold still" still calm?
+### Step 1: Get the finished work onto GitHub ✔
+Done 2026-11-18: branch `release/step-1-front-door`, draft PR #14, private Netlify deploy preview.
 
-### Step 3: First release of the new front door
-What goes live: the 509-cutout library in the rooms, the alive layer, plus Step 2's motion.
-**Brandon checks:** pick 3 rounds on the phone; the room uses real cutouts; touch, typing and the song file move things; receipts replay the same; Kitchen, poems, essays and Learning still open.
+### Step 2: The reset ✔ (on the PR, not live)
+Brandon, 2026-11-18: the Kitchen and its old designs go, the outcome becomes a cutup card, and nobody lands straight in a poem.
+Done on the same branch: writing moved to `content/` and checked line by line; Kitchen, old front door and their build deleted; plain pages for poems, essays and the Food Bank; `/` is a plain stand-in; tests rewritten.
+**Brandon checks (preview):** `/poems/` and a few poems read right; an essay shows its sources; `/kitchen/` sends you to the poems; nothing of the old look is left.
 
-### Step 4: Brain Candy goes live
-`/brain-candy/` and The Spin Cycle are built and tested but not deployed. Needs Brandon's OK on the nav link (where it appears and what it says).
-**Brandon checks:** play one full round of The Spin Cycle on the phone; the wrapper jar fills; File 001 opens.
+### Step 3: Design the cutup maker, as a playable sandbox
+Before anything is built into the site: a sandbox Brandon can play with on his phone, using real cutouts and real poem lines. It answers Q-14 (what you pick, how your words and the poem lines are cut together, what a finished card holds) and sets the new look (D-35).
+**Brandon checks:** plays it; says what feels right and wrong. Repeat until it's right. Then the new design system gets written down.
 
-### Step 5: Rooms, one at a time (CANON D-18)
-Rebuild each cooked room around the cutouts instead of the old poem-first layouts. **One room per release**, each through the full loop.
-Order is Brandon's call (Q to ask at the start of the step).
+### Step 4: Build the cutup maker into the site
+At `/`, from the approved sandbox. Includes: share link + "save" in the visitor's browser (D-34), credits and links to the poems each card cuts from (D-32), and **bigger motion with music**: the alive engine tuned so strips and cutouts move more dramatically with a song or the mic, with a "drama" level found in the lab first.
+**Brandon checks:** make three cards on the phone; the same choices give the same card; a shared link opens the same card; the song makes it dance; "Hold still" is calm.
 
-### Step 6: Picks follow you
-The browser remembers a visitor's picks and the next visit picks up from them (decided earlier, not built). Stored in the visitor's own browser only.
+### Step 5: First release
+Everything from Steps 2 to 4 goes live in one release, after Brandon's OK. (Option, Brandon's call: release Step 2 earlier on its own; the live `/` would then be the plain stand-in until Step 4.)
+**Brandon checks:** the live site, on his phone, against the checklist in the PR.
 
-### Step 7: The esoteric easter egg
-Brandon wants this "eventually". As of 2026-11-18 Claude has no description of it: nothing in the repo, and ChatGPT's notes never reached Claude.
-**First action:** Brandon pastes or sends what he and ChatGPT worked out; it becomes a CANON entry before anything is built.
-(Related, already decided: Brain Candy's Department Zero cipher files, D-30.)
+### Step 6: Brain Candy goes live
+Needs Brandon's OK on the menu link (where it appears and what it says).
+
+### Step 7: Restyle the section pages, one at a time (D-18)
+Poems, essays, the Food Bank, Learning, About and Contact get the new look, one page per release.
+
+### Step 8: The esoteric easter egg
+Needs Brandon's description first (ChatGPT's notes never reached Claude). Maybe related: the essay "Grimoire, Grammar, Glamour" is about occult esotericism and "as above, so below".
 
 ## Runs alongside (doesn't need a release slot)
 - Muse batches: Claude ingests and reviews each zip as it arrives. New cutouts ride along with the next release.
-- Still short (under 8): constructivism, dada, swiss, afrofuturism. Missing Muse rounds: Art Deco 1–3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk.
+- Still short (under 8): constructivism, dada, swiss, afrofuturism. Missing Muse rounds: Art Deco 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk.
 - The ALIVE LAB artifact is at its 512-file limit; from the next batch on it shows a sample of the library, not every piece.
 
 ## Status
 
 | Step | State |
 |---|---|
-| 1 GitHub | **done 2026-11-18**: branch `release/step-1-front-door`, draft PR #14, Netlify deploy preview built (private: open it signed in to Netlify). Waiting on Brandon's look |
-| 2 Bigger motion | next to build (can start in the lab before Step 1 is done) |
-| 3 First release | after 1 and 2 |
-| 4 Brain Candy | after 3; nav link needs Brandon's OK |
-| 5 Rooms | after 4 |
-| 6 Picks follow you | after 5 |
-| 7 Easter egg | needs Brandon's description first |
+| 1 GitHub | **done 2026-11-18**: PR #14, private deploy preview |
+| 2 Reset | **done on PR #14 2026-11-18**, waiting on Brandon's look at the preview |
+| 3 Cutup maker sandbox | next |
+| 4 Build the maker (+ bigger motion) | after 3 |
+| 5 First release | after 4 (or Step 2 alone, if Brandon wants) |
+| 6 Brain Candy | after 5; menu link needs Brandon's OK |
+| 7 Section pages | after 6, one at a time |
+| 8 Easter egg | needs Brandon's description first |

@@ -1,6 +1,6 @@
 # ALIVE: how the site reacts to people
 
-One engine, `site/visual/alive.js` (styles: `site/visual/alive.css`). Decided in CANON D-29.
+One engine, `site/alive/alive.js` (styles: `site/alive/alive.css`; moved from `site/visual/` in the 2026-11-18 reset). Decided in CANON D-29.
 
 ```
  touch / mouse ─┐
@@ -49,8 +49,8 @@ To add a verb: write it in `VERBS` in `alive.js` (it returns `{x, y, r, s}` from
 
 ## Where it runs
 
-- Front door rooms: `site/visual/app.js` attaches it to every cooked room.
-- The lab: `/visual/lab/alive/` (all 127+ cutouts, pick families, meters, "Show behaviours"). Data comes from `/visual/cutouts.js`, written by `site/tools/build_visual.py`.
+- Front door: the old cooked rooms are gone (CANON D-31). The cutup card will attach it when it's built.
+- The lab: `/alive/lab/` (every cutout, pick families, meters, "Show behaviours"; `?seed=` makes a run repeatable). Data comes from `/alive/cutouts.js`, written by `site/tools/build.py`.
 - Tests: `site/tests/alive.cjs` (serve `site/public` on :8765 first).
 
 ## Next

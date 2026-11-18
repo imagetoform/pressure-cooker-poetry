@@ -1,0 +1,32 @@
+/* Plain reading pages (poems, essays, Food Bank). Deliberately simple until the new design reaches them (CANON D-34). */
+:root { --paper: #f4f4f2; --ink: #161412; --mute: #55555a; --accent: #c8241b; color-scheme: light; }
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+a { color: inherit; text-underline-offset: .18em; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.top { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; justify-content: space-between;
+       padding: 16px max(18px, calc((100vw - 760px) / 2)); border-bottom: 2px solid var(--ink);
+       font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 15px; }
+.brand { font-weight: 800; text-decoration: none; letter-spacing: .02em; }
+.top nav { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.top nav a { text-decoration: none; padding: 10px 0; }
+.top nav a[aria-current] { text-decoration: underline; text-decoration-thickness: 2px; }
+main { max-width: 760px; margin: 0 auto; padding: 36px 18px 80px; overflow-wrap: break-word; }
+h1 { font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; margin: .2em 0 .3em; }
+h2 { font-size: 1.35rem; margin: 2em 0 .5em; }
+.kicker, .meta { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 14px; color: var(--mute); }
+.kicker a { text-decoration: none; }
+.lede, .dek { font-size: 1.15rem; color: var(--mute); }
+.poem-body { margin-top: 28px; }
+.stanza { margin: 0 0 1.3em; }
+.line { white-space: pre-wrap; }
+.list { list-style: none; padding: 0; margin: 0; }
+.list li { padding: 12px 0; border-bottom: 1px solid #d0d0cc; }
+.list a { font-weight: 700; }
+.first { display: block; color: var(--mute); font-size: .95rem; }
+.cite { font-family: system-ui, sans-serif; font-size: .7em; vertical-align: super; text-decoration: none; padding: 0 .15em; }
+.receipts ol { font-size: 15px; color: var(--mute); padding-left: 1.4em; }
+.receipts li:target { background: #fff3a8; }
+.foot { text-align: center; padding: 28px 18px; font-family: system-ui, sans-serif; font-size: 13px; color: var(--mute); border-top: 1px solid #d0d0cc; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }

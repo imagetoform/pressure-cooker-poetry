@@ -473,7 +473,7 @@ def main():
     a = ap.parse_args()
 
     cat = load(os.path.join(LIB, "catalog.json"))
-    if not cat: sys.exit("library/catalog.json missing: run node tools/cutouts/catalog.js")
+    if not cat: sys.exit("library/catalog.json missing (it is the vocabulary source; restore it from git)")
     MOV = {m["id"]: m for m in cat["movements"]}
     if a.movement and a.movement not in MOV: sys.exit("unknown movement %r; pick one of: %s" % (a.movement, ", ".join(sorted(MOV))))
     shop_path = os.path.join(LIB, "cutouts", "shopping-list.json")

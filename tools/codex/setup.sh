@@ -14,6 +14,4 @@ npm install --no-save playwright@1.62.1
 npx playwright install --with-deps chromium
 
 # Prove the build reproduces before the agent starts.
-python3 site/tools/build.py
-python3 site/tools/assemble.py
-git diff --exit-code -- site/dist && echo "setup: build reproduces site/dist"
+python3 site/tools/build.py && echo "setup: site builds into site/public"

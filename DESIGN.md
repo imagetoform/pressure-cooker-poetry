@@ -34,6 +34,16 @@ tokens:
 
 # DESIGN.md: Pressure Cooker Poetry
 
+> **SUPERSEDED on 2026-11-18 (CANON D-35).** Brandon reset the design premise. This file describes the retired Kitchen look (rooms built around one poem, slabs, receipts, the old token set) and is kept as history only. **Don't build new work from it.**
+>
+> The new direction is the **cutup card**: torn-paper strips of words (lines cut from the poems mixed with the visitor's own words) over collage imagery from the cutout library. Brandon's three reference pictures are in `docs/design/reference/`: `cutup-db-dark-grid.png`, `cutup-db-collage-hero.png`, `cutup-db-light-archive.png`. They show *one of many* possible outcomes, not a spec. Their sign-in buttons, like and view counts and "Saved (24)" are **not** wanted (no accounts, no tracking; saves stay in the visitor's browser, D-33).
+>
+> A new DESIGN.md gets written with Brandon during the cutup-maker step of `docs/GO_LIVE_PLAN.md`. Until then, the rules that survive are the ones in AGENTS.md (legibility 4.5:1, keyboard and touch, reduced motion, no sideways scroll at 320px, no external requests at runtime).
+
+---
+
+## (history) DESIGN.md: Pressure Cooker Poetry
+
 Read this before any change a visitor can see. Tokens above are the **shell**: the parts that stay put so the site stays usable. Everything else is the **room**, and the room is supposed to change. Both CSS custom properties already exist in `site/live/index.html` as `--k-*` and `--f-*`; use those names, never raw hex values, in new shell CSS.
 
 ## 1. What it should feel like

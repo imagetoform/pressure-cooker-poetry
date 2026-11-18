@@ -5,7 +5,7 @@ Real image files only (CANON D-20). Each cutout is a transparent PNG master plus
 
 | File | What |
 |---|---|
-| `manifest.json` | The live database: every cutout the site uses. Built into the site by `site/tools/build_library.py`. |
+| `manifest.json` | The live database: every cutout the site uses. Built into the site at `/assets/cutouts/` by `site/tools/build.py`. |
 | `candidates.json` | Everything ever harvested, with status `candidate`, `kept` or `rejected`. Rejected objects are never harvested again. |
 
 ## Adding cutouts: harvest, look, promote

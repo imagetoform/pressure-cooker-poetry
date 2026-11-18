@@ -1,55 +1,45 @@
 # site/AGENTS.md: rules for the website code
 
-Adds to the root `AGENTS.md`. Read `../DESIGN.md` before any visual change.
+Adds to the root `AGENTS.md`. Rewritten for the 2026-11-18 reset (CANON D-31 to D-35): the Kitchen, its patched single-file build and the old front door are gone. Don't bring any of them back.
 
 ## How the site is put together
 
 ```
-site/live/index.html  --build.py (asserted string patches + inlined src/*)-->  site/dist/index.html   (the Kitchen, committed)
-site/landing/  +  site/dist/  +  site/visual/  --assemble.py + build_visual.py-->  site/public/  (deployed)
-
-/              site/visual/index.html   front door: 3 rounds x 10 family fragments -> room + receipt
-/kitchen/      site/dist/               the full pantry, archive, essays, Food Bank, lab mode
-/collage/      (redirects to /; old collage deleted, CANON D-19)
-/poems/ /essays/ /learning/ /about/ /contact/   from site/landing/
-/visual/runtime.js   the Kitchen engine scripts, extracted from dist/ by build_visual.py
+site/landing/   hand-written pages + _redirects  ┐
+site/shared/    plain.css, prng.js                │
+site/alive/     alive.js, alive.css, lab/         ├─ python3 site/tools/build.py ─> site/public/  (deployed by Netlify)
+content/*.json  poems, essays, food bank          │    (generates /poems/, /essays/, /food-bank/)
+library/cutouts/manifest.json + files             ┘    (copies cutouts to /assets/cutouts/, writes /alive/cutouts.js)
 ```
 
-## Traps
+| URL | From |
+|---|---|
+| `/` | `site/landing/index.html`: a plain **stand-in** until the cutup maker is built (D-33) |
+| `/poems/`, `/poems/<id>/`, `/essays/`, `/essays/<id>/`, `/food-bank/` | generated from `content/` by `build.py` |
+| `/learning/`, `/about/`, `/contact/`, `/brain-candy/…` | `site/landing/` |
+| `/alive/lab/` | the motion engine's lab (test machinery, not linked from visitor pages) |
+| `/kitchen/*`, `/visual/*`, `/visual-picks/*`, `/collage/*`, `/learning-curve/*` | redirects in `site/landing/_redirects` |
 
-1. **`build.py` patches by exact string match**, and each patch must match exactly once. If you change text in `live/index.html` or reorder something a patch targets, the build exits with `patch '<label>': expected 1 match, found N`. Prefer adding code in `site/src/` over changing `live/index.html`. If a patch truly has to change, change the patch in `build.py` and keep the assertion.
-2. **Four engine files exist twice.** `tastes.js`, `board.js`, `styles.js` and `pantry-plus.js` live in both `site/src/` and `site/landing/src/`, and nothing syncs them. They are identical today. If you change one, copy it to the other in the same commit and check with `cmp site/src/X site/landing/src/X`.
-3. **`site/dist/` is committed** and CI runs `git diff --exit-code -- site/dist` after a fresh build. Always rebuild and commit `dist/` with the source change. Never hand-edit `dist/`.
-4. **The front door reuses the Kitchen engine.** `build_visual.py` pulls scripts out of `dist/index.html` by their header comments (`THE ENGINE`, `THE STYLE TREE`, `LAYOUT FAMILIES + RENDERER` and others) and asserts `PCP.render = render` and `PCP.engine = {` are present. Renaming those headers breaks the front door.
-5. **Receipts are versioned by content hash.** `PCP.visualBuild` is a SHA-256 over the runtime, CSS, `site/visual/` and `dist/assets/`. Any change to those makes old receipts show the "incompatible build" message. That is intended. Never weaken the check to make old receipts "work".
-6. **Coupons and receipts change meaning when the library grows.** Adding cutouts or movements changes which items a recipe picks. Say so in the PR when you add to the library.
-7. **Lab mode** lives in `localStorage` (`pcp-lab`). If something "visible to visitors" shows up while you test, clear it with `?lab=0`.
+## Rules
 
-## Engine rules
-
-- Randomness only through the engine's seeded PRNG (`mkRng(...)` / the genome seed). Derive sub-seeds from stable strings, the way `styles.js` does with `mkRng("kit|" + sid)`.
-- Iterate over arrays in a fixed order. Don't let the order of `Object.keys`, `Set` or `fetch` responses pick anything.
-- The layout grammar arranges the poem; it must never drop, reorder or reword a line. `visual-flow.cjs` checks this across 600 compositions. Keep it that way.
-- Keep the six layout grammars working on a 320px-wide screen.
-
-## Code style
-
-- Vanilla JS in an IIFE that hangs things off `window.PCP`. No modules system, no build-time transpile, no framework.
-- No external requests at runtime: no CDN scripts, webfont links, analytics or remote images. Everything ships in `site/public/`.
-- CSS: scope new rules under a class or data attribute (`.visual-page`, `[data-k-button=...]`), use the `--k-*` and `--f-*` tokens, and give every animation a reduced-motion off switch.
-- Python tools: standard library only, Python 3.12, fail loudly with a clear message instead of half-writing output.
+- **The writing comes only from `content/`.** Print it with HTML escaping and nothing else: no smart quotes, no trimming, no re-wrapping. `site.cjs` compares every poem line on every poem page against `content/poems.json`.
+- **Randomness only through `site/shared/prng.js`** (`PCP.prng.makeRng(key)`). Derive sub-seeds from stable strings (`makeRng(seed + '|strips')`). Iterate arrays in a fixed order; don't let `Object.keys`, `Set` or `fetch` order pick anything.
+- **The build is reproducible.** Sort inputs, write no timestamps. CI builds twice and diffs the output.
+- **Vanilla JS** in an IIFE that hangs things off `window.PCP`. No module system, no transpile, no framework.
+- **No external requests at runtime**: no CDN scripts, webfont links, analytics or remote images. Everything ships in `site/public/`.
+- **CSS**: scope new rules to their page or component, give every animation a reduced-motion off switch, no sideways scroll at 320px (`site.cjs` checks every page).
+- **Python tools**: standard library only, Python 3.12, fail loudly with a clear message instead of half-writing output.
 
 ## Tests
 
-| Suite | Serves | Run |
+| Suite | What | Run (serve `site/public` on :8765 first) |
 |---|---|---|
-| `site/tests/visual-flow.cjs` (CI) | `site/public` on :8765 | `python3 -m http.server 8765 --directory site/public` then `node site/tests/visual-flow.cjs` |
-| `site/tools/test.js` .. `test4.js` (older Kitchen checks) | `site/dist` on :8765 | `cd site/dist && python3 -m http.server 8765` then `node ../tools/test.js` |
-| `site/tools/live_check.js` | production | only when the owner asked for a live check |
+| `site/tests/site.cjs` | every page at 320px and desktop (errors, missing files, sideways scroll), every poem line verbatim, essays' sources, Kitchen gone | `node site/tests/site.cjs` |
+| `site/tests/alive.cjs` | the motion engine on `/alive/lab/?seed=…` | `node site/tests/alive.cjs` |
+| `site/tests/spin-cycle.cjs` | Brain Candy | `node site/tests/spin-cycle.cjs` |
 
 If the Playwright browser can't install (no network in the sandbox), say so in the PR and leave it as a draft. Don't mark visual work verified without screenshots.
 
-
 ## Alive layer
 
-`site/visual/alive.js` + `alive.css` make rooms react to touch, keys, sound and tilt (CANON D-29). Read `docs/ALIVE.md` before changing it. It must never change a receipt, never record sound, and must stop moving under reduced motion. Test: `node site/tests/alive.cjs`.
+`site/alive/alive.js` + `alive.css` make things react to touch, keys, sound and tilt (CANON D-29). Read `docs/ALIVE.md` before changing it. It must never change what a seed produces, never record sound, and must stop moving under reduced motion.

@@ -2,11 +2,37 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Follow docs/GO_LIVE_PLAN.md, one step at a time. Step 1 done (PR #14, private Netlify preview); Brandon - look at the preview; send the missing Muse rounds (Art Deco 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk) and the under-8 families (constructivism, dada, swiss, afrofuturism); answer CANON Q-01, Q-02, Q-08, Q-09. Claude - rebuild the rooms around the cutouts (D-18). Always read docs/CANON.md first.
+next: docs/GO_LIVE_PLAN.md Step 3 - design the cutup maker as a playable sandbox with Brandon (Q-14). Brandon first looks at the reset on the PR #14 preview.
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-18 07:43 — The reset: Kitchen deleted, cutup card is the new outcome (D-31 to D-35)
+
+### What was asked
+Brandon, after opening the preview: drop the old generative Kitchen (kitchen, fridge, recipes, nutrition card; "too rigid and tacky"), go toward the torn-paper Cutup Database look (3 reference pictures), don't drop visitors straight into a poem, reset the design premise and delete the old versions so they stop getting mixed back in. His answers: words = his poem lines mixed with the visitor's words; front door = make one first; no logins, saves local; poems and essays on plain reading pages for now.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Writing moved out first | `content/poems.json` (56 poems, 2,650 lines), `content/essays.json` (2), `content/food-bank.json` (52 resources). Each poem line checked against the Kitchen source: 0 differences. JSON round-trip deep-equal |
+| Other things moved out | `site/shared/prng.js` (cyrb128-sfc32 verbatim), `library/families.json` (30 ids, names, branches, colours from styles.js), `site/alive/` (alive engine + lab, lab takes `?seed=`), reference pictures in `docs/design/reference/` |
+| Deleted | `site/live/`, `site/src/`, `site/dist/`, `site/visual/`, `assemble.py`, `build_board/kits/library/visual.py`, `live_check.js`, `tastefit.js`, `tastes.json`, `test*.js`, `links.txt`, `visual-flow.cjs`, `tools/cutouts/catalog.js`, old `/poems/` and `/essays/` shells + `landing/src/` |
+| New build | `site/tools/build.py` alone: landing + shared + alive, generated `/poems/<id>/`, `/essays/<id>/`, `/food-bank/`, cutouts to `/assets/cutouts/`. Reproducible (built twice, identical) |
+| Pages | `/` is a plain stand-in; About/Contact on `plain.css`; Learning's Kitchen links repointed; redirects `/kitchen/*` → `/poems/`, `/visual/*` → `/` |
+| Fixes found by the new 320px check | Spin Cycle shelf/stage and Learning h1 overflowed at 320px (pre-existing); fixed with `minmax(0,1fr)` and `overflow-wrap` |
+| Tests | New `site/tests/site.cjs`; `alive.cjs` now runs on `/alive/lab/`; CI + `netlify.toml` + `tools/codex/setup.sh` updated |
+| Docs | CANON D-31 to D-35, Q-14, graveyard, closed Q-01/02/04/05/06/08/09; AGENTS.md, site/AGENTS.md, CLAUDE.md, README rewritten for the reset; DESIGN.md and DATABASE_SPEC marked history; GO_LIVE_PLAN re-ordered; pcp-verify skill rewritten |
+
+### Result
+`site.cjs` PASS (69 pages at 320px + desktop, 56 poems / 2,650 lines verbatim, 2 essays with all sources), `alive.cjs` PASS, `spin-cycle.cjs` PASS. Screenshots looked at: stand-in `/` at 390, a poem at 320, an essay at 1280, the poems list at 390. Plain, readable, no overflow.
+
+### Open / notes
+- Production still runs the old site until Brandon OKs a release (Step 5).
+- `library/catalog.json` is now hand-edited (its generator read Kitchen files).
+- `game.js` in the Spin Cycle uses `Math.random()` for the drum's word scatter (decoration only, pre-existing). Noticed, not touched.
+- Ingredient pantry data and the Kitchen are in git history: parent of this commit, `site/src/pantry-plus.js`, `site/live/index.html`.
 
 ## 2026-11-18 02:10 — Go-live Step 1 done: work on GitHub, PR #14
 

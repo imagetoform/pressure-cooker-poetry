@@ -6,7 +6,7 @@ Adds to the root `AGENTS.md`. Full schema and tagging guide: `../docs/DATABASE_S
 
 | Path | What |
 |---|---|
-| `catalog.json` | The site's emotion vocabulary, aliases and movement tree. **Generated** by `node tools/cutouts/catalog.js`. Never edit by hand |
+| `catalog.json` | The site's emotion vocabulary, aliases and movement tree. Hand-edited source since the Kitchen was retired (CANON D-31). Edit one entry at a time and keep it valid JSON. |
 | `families/<branch>/<movement>/` | One folder per movement: `README.md`, `SHOPPING.md` (wanted cutouts), `kit/` (CSS parts + `kit.json`), `cutouts/` |
 | `cutouts/manifest.json` | The only list of cutouts the site may use. Today: 2 kept constructivism images |
 | `cutouts/shopping-list.json` | Cutouts still wanted (descriptions, not files) |
@@ -52,6 +52,5 @@ Hosts the pipeline will download from are listed in `ALLOWED_HOSTS` in `tools/cu
 
 ```sh
 python3 -c "import json;[json.load(open(p)) for p in ['library/cutouts/manifest.json','library/cutouts/shopping-list.json']];print('json ok')"
-node tools/cutouts/catalog.js     # if you changed movements in site/src/styles.js
 python3 site/tools/build.py       # kits + library counts
 ```

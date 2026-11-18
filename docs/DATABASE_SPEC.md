@@ -1,3 +1,5 @@
+> **History (2026-11-18):** this spec described the Kitchen's ingredient pantry, which was retired with the Kitchen (CANON D-31). The ingredient data is in git history (`site/src/pantry-plus.js` before the reset commit). Cutout rules live in `library/AGENTS.md`.
+
 # Pressure Cooker Poetry: Database Spec
 
 How the site's database is organized, and how the emotion wheel (the dartboard) picks what goes into each room. Hand this whole file to whoever (or whatever) builds out the full database. Section 9 is a prompt you can paste as-is.
