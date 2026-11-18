@@ -2,11 +2,27 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Follow docs/GO_LIVE_PLAN.md, one step at a time. Step 1 Brandon - give a session push access so the local commits become a PR; send the missing Muse rounds (Art Deco 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk) and the under-8 families (constructivism, dada, swiss, afrofuturism); answer CANON Q-01, Q-02, Q-08, Q-09. Claude - rebuild the rooms around the cutouts (D-18). Always read docs/CANON.md first.
+next: Follow docs/GO_LIVE_PLAN.md, one step at a time. Step 1 done (PR #14, private Netlify preview); Brandon - look at the preview; send the missing Muse rounds (Art Deco 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk) and the under-8 families (constructivism, dada, swiss, afrofuturism); answer CANON Q-01, Q-02, Q-08, Q-09. Claude - rebuild the rooms around the cutouts (D-18). Always read docs/CANON.md first.
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-18 02:10 — Go-live Step 1 done: work on GitHub, PR #14
+
+### What was asked
+Brandon: "How do I do step 1, getting the work onto GitHub?"
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Push access | `add_repo` with push access was granted this time. The repo is cloned at `/home/claude/pressure-cooker-poetry`. This is now the working copy; `/home/claude/pcp` was the old push-less one |
+| Branch | `release/step-1-front-door`: all 14 local commits, on top of `e3372f2` (main) |
+| PR | #14, **draft, don't merge**: Step 2 goes on top, Step 3 is the release. `gh pr create` fails (no GraphQL); use `gh api repos/.../pulls` (REST) |
+| Checks | GitHub `build` check passed. Netlify bot: deploy preview ready, https://deploy-preview-14--pressurecookerpoetry.netlify.app |
+
+### Open / notes
+- Netlify deploy previews are **private** (curl gets 401). Claude cannot click through them; Brandon opens it signed in to Netlify. Claude verified the same build locally (3 suites pass, reproducible build).
 
 ## 2026-11-18 01:55 — Go-live plan written
 

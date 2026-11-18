@@ -21,7 +21,7 @@ An OK covers one step only (CANON D-27).
 ## The steps, in order
 
 ### Step 1: Get the finished work onto GitHub
-Thirteen commits only exist in Claude's workspace (and in `pcp-local.bundle`). Nothing can preview or go live until they're on GitHub.
+The finished commits only existed in Claude's workspace (and in `pcp-local.bundle`). Nothing can preview or go live until they're on GitHub.
 - Option A: Brandon gives a Claude session push access to `imagetoform/pressure-cooker-poetry`, and Claude opens one PR.
 - Option B: Brandon pulls the bundle on his computer (`git pull pcp-local.bundle HEAD`) and pushes a branch.
 **Brandon checks:** the PR exists and the Netlify deploy preview link opens.
@@ -62,7 +62,7 @@ Brandon wants this "eventually". As of 2026-11-18 Claude has no description of i
 
 | Step | State |
 |---|---|
-| 1 GitHub | waiting on Brandon (push access or the bundle) |
+| 1 GitHub | **done 2026-11-18**: branch `release/step-1-front-door`, draft PR #14, Netlify deploy preview built (private: open it signed in to Netlify). Waiting on Brandon's look |
 | 2 Bigger motion | next to build (can start in the lab before Step 1 is done) |
 | 3 First release | after 1 and 2 |
 | 4 Brain Candy | after 3; nav link needs Brandon's OK |
