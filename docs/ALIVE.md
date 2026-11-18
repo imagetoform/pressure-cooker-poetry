@@ -20,6 +20,10 @@ One engine, `site/alive/alive.js` (styles: `site/alive/alive.css`; moved from `s
 - **Battery.** One `requestAnimationFrame` loop for everything. It sleeps 8 s after the last input and when the tab is hidden.
 - **Accessible.** Every cutout is focusable; arrow keys move it (Shift for big steps). Letters and stamps are decorative (`aria-hidden`). Escape wipes the letters.
 
+## Drama (how hard sound hits)
+
+`PCP.alive.drama` (0 to 3, default **1.5**, set with `PCP.alive.setDrama(v)`) adds a beat layer on top of every verb while there's sound: bass lifts pieces, a hit kicks and spins them (each piece leans its own way), loudness swells them, and hits land fast before easing back. At 0 the beat layer is off; silence is never affected. Brandon asked for more dramatic motion with music on 2026-11-18; 1.5 is a first guess. Tune it with the Drama slider in `/alive/lab/` or the cutup sandbox's knobs, then change the default here and in `alive.js`.
+
 ## Emotion → verb
 
 The first emotion on a cutout picks its main verb; a different second emotion adds a quieter second verb.

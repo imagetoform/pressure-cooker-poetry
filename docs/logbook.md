@@ -8,6 +8,29 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-18 13:54 — Motion: drama with sound + built-in animations in the cutup sandbox
+
+### What was asked
+Brandon (via `/animatedwebs:design`): yes to the drama slider, and "different animations within the site's design embedded in subtle details, keeping the site alive and responsive, almost gamified but still reserved to the site's design". The AnimatedWebs connector isn't available (no `get_account` tool; not in the connector registry), so everything was built in-house from the site's own pieces.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Drama | `alive.js`: `A.drama` (0-3, default 1.5) + `A.setDrama`; beat layer in `step()` (bass lift, hit kick + spin, loudness swell; faster easing on hits). Slider in `/alive/lab/` and in the sandbox knobs. `docs/ALIVE.md` updated |
+| Card assembly | torn blocks wipe in, pictures drop, strips slap down one by one (`cc-enter`, CSS only, `backwards` fill so alive takes over after) |
+| Living card | alive engine attached to the card art (`room cut` classes): pictures react to touch, drag, keys, mic, song file; strips sway a hair (`cc-live`); "Hold still" and reduced motion stop it |
+| Discovery | tap/Enter a strip: it lifts and says "yours" or "from <poem>" |
+| Reserved game | "Poems you've cut from: N of 56" with 56 ticks; new ones flash (localStorage `pcp-cutup-found`, this browser only) |
+| Small details | tiles deal in with a stagger, pick number stamps on, Cut it up pulses when ready, buttons press in |
+| Sound row | Play it a song / Let it hear you / Hold still under the card (sandbox) |
+| Tests | cutup.cjs: compares plan + strips (not raw HTML, alive moves things), strip tells its source, pictures movable, found count, reduced motion = no animations and a complete card. All 4 suites PASS. 320px: `html { overflow-x: clip }` because dealing tiles tip mid-flight |
+| Artifact | CUTUP MAKER sandbox v2 (version 1795031655-8b31) |
+
+### Open / notes
+- Drama default 1.5 is a guess; Brandon tunes it.
+- Found-poems count is a visitor-facing feature: sandbox only until Brandon OKs it (AGENTS law 3).
+- ALIVE LAB artifact (407cb959…) not updated (at its 512-file cap); the drama slider is in the repo lab and the sandbox artifact.
+
 ## 2026-11-18 08:24 — Go-live Step 3 started: cutup maker sandbox v1
 
 ### What was asked

@@ -1,6 +1,7 @@
 /* Cutup maker SANDBOX. Card sizes scale with the card's own width (container units), so it reads the same on a phone and a desktop. */
 :root { --bg: #15121c; --fg: #f4f4f2; --mute: #b9b4c4; --hot: #ff2e88; --yel: #ffe14d; color-scheme: dark; }
 * { box-sizing: border-box; }
+html { overflow-x: clip; }   /* tiles tip while dealing in; never let that make the page scroll sideways */
 body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
 a { color: inherit; }
 button, input { font: inherit; }
@@ -66,3 +67,49 @@ details.knobs summary { cursor: pointer; font-weight: 800; }
 .knobs output { color: var(--yel); font-weight: 700; }
 .note { color: var(--mute); font-size: .85rem; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+
+/* ---- motion (sandbox): small, built into the paper, all off under reduced motion or "Hold still" ---- */
+.cc-strip { position: relative; }
+.cc-card .cc-words .cc-strip[role="button"] { pointer-events: auto; cursor: pointer; }
+.cc-strip[data-from]::after { content: attr(data-from); position: absolute; left: .4em; top: -1.5em; white-space: nowrap; font: 700 max(11px, 2.4cqw)/1 "Courier New", monospace;
+  background: #111; color: #fff; padding: .25em .45em; opacity: 0; pointer-events: none; }
+.cc-strip.is-lifted::after { animation: cc-tag 1.8s ease-out; }
+.cc-art.room { touch-action: pan-y pinch-zoom; }
+.tile, .btn { transition: translate .12s ease, box-shadow .12s ease; }
+.tile:active, .btn:active { translate: 2px 2px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* the card assembles: torn blocks wipe in, images drop, strips slap down one by one */
+  .cc-enter .cc-block { animation: cc-wipe .45s calc(var(--i) * 70ms) cubic-bezier(.2, .8, .2, 1) backwards; transform-origin: 0 50%; }
+  .cc-enter .cc-img { animation: cc-drop .55s calc(120ms + var(--i) * 90ms) cubic-bezier(.2, 1.4, .4, 1) backwards; }
+  .cc-enter .cc-strip { animation: cc-slap .42s calc(380ms + var(--i) * 110ms) cubic-bezier(.3, 1.6, .5, 1) backwards; }
+  /* then it never quite sits still: strips sway a hair, like paper on a draft */
+  .cc-live:not(.is-still) .cc-words .cc-strip { animation: cc-sway calc(5s + var(--i) * .7s) calc(1.4s + var(--i) * .3s) ease-in-out infinite alternate; }
+  .cc-live.cc-enter:not(.is-still) .cc-words .cc-strip { animation: cc-slap .42s calc(380ms + var(--i) * 110ms) cubic-bezier(.3, 1.6, .5, 1) backwards, cc-sway calc(5s + var(--i) * .7s) calc(1.4s + var(--i) * .3s) ease-in-out infinite alternate; }
+  .cc-strip.is-lifted, .cc-enter .cc-strip.is-lifted { animation: cc-lift .7s cubic-bezier(.3, 1.5, .5, 1); }
+  .tile { animation: cc-deal .38s calc(var(--i) * 35ms) cubic-bezier(.2, 1.3, .4, 1) backwards; }
+  .tile[aria-pressed="true"]::after { animation: cc-stamp .3s cubic-bezier(.3, 1.8, .5, 1); }
+  .btn.go:not(:disabled) { animation: cc-ready 2.6s ease-in-out infinite; }
+  .found .tick.is-new { animation: cc-new 1.2s ease-out 2; }
+}
+@keyframes cc-wipe { from { scale: 0 1; opacity: .4; } }
+@keyframes cc-drop { from { translate: 0 -18%; scale: 1.18; opacity: 0; } }
+@keyframes cc-slap { from { translate: -6% -60%; scale: 1.35; opacity: 0; } 60% { opacity: 1; } }
+@keyframes cc-sway { from { rotate: calc(var(--sway) * -.5deg); } to { rotate: calc(var(--sway) * .7deg); translate: 0 -1px; } }
+@keyframes cc-lift { 0% { rotate: 0deg; } 30% { rotate: calc(var(--sway) * 5deg); translate: 0 -10%; scale: 1.06; } 100% { rotate: 0deg; translate: 0 0; scale: 1; } }
+@keyframes cc-tag { 0% { opacity: 0; translate: 0 6px; } 12%, 80% { opacity: 1; translate: 0 0; } 100% { opacity: 0; } }
+@keyframes cc-deal { from { translate: 0 14px; rotate: -4deg; opacity: 0; } }
+@keyframes cc-stamp { from { scale: 2.2; rotate: -25deg; opacity: 0; } }
+@keyframes cc-ready { 0%, 70%, 100% { box-shadow: 0 0 0 0 rgba(255, 46, 136, 0); } 80% { box-shadow: 0 0 0 7px rgba(255, 46, 136, .35); } }
+@keyframes cc-new { 50% { background: var(--yel); scale: 1.6; } }
+
+/* found-poems count: a quiet collection, not a score */
+.found { margin: 14px 0 0; font-size: .85rem; color: var(--mute); }
+.found b { color: var(--fg); }
+.found .ticks { display: grid; grid-template-columns: repeat(28, minmax(0, 1fr)); gap: 2px; margin-top: 6px; }
+.found .tick { height: 7px; background: #2c2638; }
+.found .tick.on { background: var(--hot); }
+.found .tick.is-new { background: var(--yel); }
+.sound { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.sound .btn { min-height: 40px; padding: 6px 12px; font-size: .88rem; }
+.sound .btn[aria-pressed="true"] { background: var(--yel); color: #111; border-color: var(--yel); }

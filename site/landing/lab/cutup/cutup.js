@@ -106,16 +106,18 @@
 
   function render(plan, into, opts) {
     opts = opts || {};
-    const card = el('figure', 'cc-card cc-' + plan.ground + ' cc-' + plan.shape);
-    const art = el('div', 'cc-art'); art.setAttribute('aria-hidden', 'true');
-    plan.blocks.forEach(b => {
-      const d = el('div', 'cc-block');
+    const card = el('figure', 'cc-card cc-' + plan.ground + ' cc-' + plan.shape + (opts.enter ? ' cc-enter' : '') + (opts.live ? ' cc-live' : ''));
+    const art = el('div', 'cc-art'); if (!opts.live) art.setAttribute('aria-hidden', 'true');
+    const titles = {}; plan.credit.forEach(c => { titles[c.id] = c.title; });
+    plan.blocks.forEach((b, n) => {
+      const d = el('div', 'cc-block'); d.style.setProperty('--i', n);
       d.style.cssText = 'left:' + b.x + '%;top:' + b.y + '%;width:' + b.w + '%;height:' + b.h + '%;background:' + b.color +
         ';transform:rotate(' + b.rot.toFixed(1) + 'deg);clip-path:' + b.clip;
       art.append(d);
     });
     plan.imgs.forEach(m => {
-      const i = el('img', 'cc-img'); i.src = (opts.assetBase || '') + m.src; i.alt = ''; i.loading = 'lazy';
+      const i = el('img', 'cc-img'); i.src = (opts.assetBase || '') + m.src; i.alt = opts.live ? m.label : ''; i.loading = 'lazy'; i.draggable = false;
+      i.style.setProperty('--i', plan.imgs.indexOf(m));
       i.style.cssText = 'left:' + m.x + '%;top:' + m.y + '%;width:' + m.w + '%;z-index:' + m.z + ';transform:rotate(' + m.rot.toFixed(1) + 'deg)';
       art.append(i);
     });
@@ -123,7 +125,15 @@
     plan.strips.forEach(s => {
       const w = el('span', 'cc-strip cc-' + s.src + ' cc-face-' + s.face, s.text);
       w.style.cssText = '--paper:' + s.paper + ';--ink:' + s.ink + ';--size:' + s.size.toFixed(2) + ';margin-left:' + s.indent.toFixed(1) +
-        '%;transform:rotate(' + s.rot.toFixed(1) + 'deg);clip-path:' + s.clip;
+        '%;transform:rotate(' + s.rot.toFixed(1) + 'deg);clip-path:' + s.clip + ';--i:' + plan.strips.indexOf(s) + ';--sway:' + (s.rot >= 0 ? 1 : -1);
+      if (opts.live) {   // tap or Enter: the strip lifts and says where it came from
+        w.tabIndex = 0; w.setAttribute('role', 'button');
+        const from = s.src === 'you' ? 'yours' : 'from ' + (titles[s.poem] || 'a poem');
+        w.setAttribute('aria-label', s.text + ' (' + from + ')');
+        const lift = () => { w.dataset.from = from; w.classList.remove('is-lifted'); void w.offsetWidth; w.classList.add('is-lifted'); };
+        w.addEventListener('click', lift); w.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); lift(); } });
+        w.addEventListener('animationend', e => { if (e.animationName === 'cc-lift') w.classList.remove('is-lifted'); });
+      }
       words.append(w);
     });
     card.append(art, words);

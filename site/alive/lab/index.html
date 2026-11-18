@@ -15,6 +15,8 @@
   h1 { margin: 0 .4rem 0 0; font: 900 1.15rem/1 Impact, "Arial Black", sans-serif; letter-spacing: .03em; text-transform: uppercase; transform: rotate(-1.5deg); background: var(--paper); color: #111; padding: .12rem .35rem; }
   h1 span { color: var(--hot); }
   .bar button { font: 700 .78rem/1 "Courier New", monospace; background: var(--paper); color: #111; border: 0; padding: .5rem .6rem; cursor: pointer; box-shadow: 2px 2px 0 var(--lime); min-height: 2.2rem; }
+  .drama { display: inline-flex; align-items: center; gap: .4rem; font: 700 .78rem/1 "Courier New", monospace; color: var(--paper); }
+  .drama input { width: 7.5rem; accent-color: var(--lime); }
   .bar button[aria-pressed="true"] { background: var(--lime); box-shadow: 2px 2px 0 var(--paper); }
   .bar button:focus-visible, .chips button:focus-visible { outline: 3px dashed var(--lime); outline-offset: 2px; }
   .chips { display: flex; gap: .3rem; overflow-x: auto; margin-top: .4rem; padding-bottom: .25rem; scrollbar-width: thin; }
@@ -50,6 +52,7 @@
     <button type="button" id="still" aria-pressed="false">Hold still</button>
     <button type="button" id="labels" aria-pressed="false">Show behaviours</button>
     <button type="button" id="shuffle">Shuffle ↻</button>
+    <label class="drama">Drama <input type="range" id="drama" min="0" max="3" step="0.1" aria-describedby="note"><output id="drama-out"></output></label>
   </div>
   <div class="chips" id="chips" role="group" aria-label="Families in the room (pick up to 3)"></div>
   <p class="note" id="note" role="status">Sound stays on your device. Nothing is recorded, saved or sent.</p>
@@ -126,6 +129,10 @@
 
   // Controls
   $('still').setAttribute('aria-pressed', String(A.isStill()));
+  // Drama: how hard music hits (lab-only; the chosen number gets baked into alive.js as A.drama).
+  const dr = $('drama'), dro = $('drama-out');
+  dr.value = A.drama; dro.textContent = Number(A.drama).toFixed(1);
+  dr.addEventListener('input', () => { A.setDrama(dr.value); dro.textContent = Number(dr.value).toFixed(1); });
   $('still').addEventListener('click', () => { const on = !A.isStill(); A.still(on); $('still').setAttribute('aria-pressed', String(on)); });
   $('labels').addEventListener('click', e => { const on = room.classList.toggle('labels'); e.currentTarget.setAttribute('aria-pressed', String(on)); });
   $('shuffle').addEventListener('click', () => { seed = 'lab-' + Math.random().toString(36).slice(2, 8); build(); });

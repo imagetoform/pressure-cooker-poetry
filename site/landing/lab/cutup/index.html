@@ -3,6 +3,7 @@
 <title>Cutup maker (sandbox) | Pressure Cooker Poetry</title>
 <meta name="robots" content="noindex">
 <!-- SANDBOX for go-live Step 3 (CANON Q-14). Not linked from visitor pages. The knobs are for Brandon, not visitors. -->
+<link rel="stylesheet" href="../../alive/alive.css">
 <link rel="stylesheet" href="cutup.css"></head>
 <body>
 <header class="sb-top"><b>Cutup maker · sandbox</b><small>A draft to play with. Nothing here is final, saved anywhere but this browser, or sent anywhere.</small></header>
@@ -27,6 +28,7 @@
       <label>Your words share <input type="range" id="k-mine" min="0.2" max="0.8" step="0.1"><output></output></label>
       <label>Words per poem strip <input type="range" id="k-maxWords" min="1" max="7" step="1"><output></output></label>
       <label>Ground <select id="k-ground"><option value="dark">dark</option><option value="light">light</option></select><span></span></label>
+      <label>Drama with sound <input type="range" id="k-drama" min="0" max="3" step="0.1"><output id="k-drama-out"></output></label>
       <label>Card shape <select id="k-shape"><option value="portrait">portrait 4:5</option><option value="square">square</option><option value="landscape">landscape</option></select><span></span></label>
       <p class="note">Poem lines are picked at random for now. Matching them to your images' feelings is one of the open questions.</p>
     </details>
@@ -35,6 +37,12 @@
     <h2><span>3</span> Your cutup</h2>
     <div id="card"><div class="empty">Pick images, add words if you want, then hit <b>Cut it up</b>.</div></div>
     <p class="legend" id="legend" hidden><span><i style="background:#111;border-color:#fff"></i>your words</span><span><i style="background:#ffe14d"></i>cut from the poems</span></p>
+    <div class="sound" id="sound" hidden>
+      <button class="btn" id="s-song" type="button">Play it a song</button><input type="file" id="s-file" accept="audio/*" hidden>
+      <button class="btn" id="s-hear" type="button" aria-pressed="false">Let it hear you</button>
+      <button class="btn" id="s-still" type="button" aria-pressed="false">Hold still</button>
+    </div>
+    <p class="note" id="s-note" role="status" hidden>Touch and drag the pictures. Tap a strip to see where it came from. Sound stays on your device; nothing is recorded or sent.</p>
     <div class="row" id="after" hidden>
       <button class="btn go" id="again" type="button">Cut again</button>
       <button class="btn" id="save" type="button">Save</button>
@@ -46,17 +54,21 @@
       <div class="shelf" id="shelf"></div>
       <p class="note" id="shelf-empty">Nothing saved yet.</p>
     </section>
+    <div class="found" id="found" aria-live="polite"></div>
   </div>
 </main>
 <script src="../../shared/prng.js"></script>
 <script src="data.js"></script>
+<script src="../../alive/alive.js"></script>
 <script src="cutup.js"></script>
 <script>
 (function () {
   'use strict';
   const P = window.PCP, D = P.cutupData, C = P.cutup, $ = id => document.getElementById(id);
   const OPTS = { assetBase: D.assetBase || '', poemBase: D.poemBase || '' };
-  const STORE = 'pcp-cutups-sandbox';
+  const STORE = 'pcp-cutups-sandbox', FOUND = 'pcp-cutup-found', A = P.alive;
+  P.assets = D.assets;   // the motion engine reads each cutout's emotions from here
+  let live = null;
   const freshSeed = () => { const a = new Uint32Array(2); crypto.getRandomValues(a); return a[0].toString(36) + a[1].toString(36).slice(0, 3); };
   const knobs = Object.assign({}, C.KNOBS);
   let picks = [], dealSeed = freshSeed(), seed = '', shown = null;
@@ -68,8 +80,8 @@
     const hand = fams.map(f => R.pick(D.assets.filter(a => a.family === f)));
     picks.forEach(id => { if (!hand.some(a => a.id === id)) { const a = D.assets.find(x => x.id === id); if (a) hand.pop() && hand.unshift(a); } });
     const box = $('deal'); box.replaceChildren();
-    hand.forEach(a => {
-      const b = document.createElement('button'); b.type = 'button'; b.className = 'tile'; b.dataset.id = a.id;
+    hand.forEach((a, n) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'tile'; b.dataset.id = a.id; b.style.setProperty('--i', n);
       b.setAttribute('aria-label', (a.label || a.id) + ' (' + (D.families[a.family] || {}).name + ')');
       const i = document.createElement('img'); i.src = OPTS.assetBase + a.src; i.alt = '';
       const s = document.createElement('small'); s.textContent = (D.families[a.family] || {}).name || '';
@@ -91,8 +103,14 @@
   // ---- make + show ----
   function show(state, push) {
     const plan = C.make(D, state);
-    C.render(plan, $('card'), OPTS);
-    shown = state; $('legend').hidden = false; $('after').hidden = false; $('said').textContent = '';
+    if (live) { live.detach(); live = null; }
+    const card = C.render(plan, $('card'), Object.assign({ live: true, enter: true }, OPTS));
+    const art = card.querySelector('.cc-art'); art.classList.add('room', 'cut');
+    art.setAttribute('aria-label', 'Your cutup. Drag the pictures; arrow keys move a focused one.');
+    live = A.attach(art, { assets: [], seed: 'card|' + state.seed });
+    card.classList.toggle('is-still', A.isStill());
+    shown = state; ['legend', 'after', 'sound', 's-note'].forEach(id => { $(id).hidden = false; }); $('said').textContent = '';
+    found(plan);
     if (push) { try { history.replaceState(null, '', '#' + encodeURIComponent(JSON.stringify(state))); } catch (e) { /* some embeds block this; the card still shows */ } }
   }
   const current = () => ({ picks: picks.slice(), text: $('words').value, seed, knobs: Object.assign({}, knobs) });
@@ -100,6 +118,34 @@
   $('again').addEventListener('click', () => { seed = freshSeed(); show(Object.assign(current(), { picks: shown.picks, text: shown.text }), true); });
   $('redeal').addEventListener('click', () => { dealSeed = freshSeed(); deal(); });
   $('words').addEventListener('input', () => { const n = $('words').value.trim().split(/\s+/).filter(Boolean).length; $('word-count').textContent = n ? n + (n > 12 ? ' words (only the first 12 get used)' : ' words') : ''; });
+
+  // ---- found poems: which of the poems your cards have cut from (kept in this browser only) ----
+  function found(plan) {
+    let have = []; try { have = JSON.parse(localStorage.getItem(FOUND) || '[]'); } catch (e) { have = []; }
+    const fresh = plan ? plan.credit.map(c => c.id).filter(id => !have.includes(id)) : [];
+    have = have.concat(fresh);
+    try { localStorage.setItem(FOUND, JSON.stringify(have)); } catch (e) { /* private mode: count just won't stick */ }
+    const box = $('found'); box.replaceChildren();
+    if (!have.length) return;
+    const p = document.createElement('p'); p.style.margin = '0';
+    p.innerHTML = 'Poems you’ve cut from: <b>' + have.length + '</b> of ' + D.poems.length + (fresh.length ? ' · <b>new: ' + fresh.length + '</b>' : '');
+    const ticks = document.createElement('div'); ticks.className = 'ticks'; ticks.setAttribute('aria-hidden', 'true');
+    D.poems.forEach(po => { const t = document.createElement('i'); t.className = 'tick' + (have.includes(po.id) ? ' on' : '') + (fresh.includes(po.id) ? ' is-new' : ''); t.title = have.includes(po.id) ? po.title : ''; ticks.append(t); });
+    box.append(p, ticks);
+  }
+
+  // ---- sound + stillness (the alive engine) ----
+  $('s-song').addEventListener('click', () => $('s-file').click());
+  $('s-file').addEventListener('change', async e => { const f = e.target.files[0]; if (!f) return; try { await A.feed(f); $('s-song').textContent = 'Playing: ' + f.name.slice(0, 24); } catch (err) { $('s-song').textContent = 'Couldn’t play that file'; } });
+  $('s-hear').addEventListener('click', async () => {
+    const b = $('s-hear');
+    if (b.getAttribute('aria-pressed') === 'true') { A.deafen(); b.setAttribute('aria-pressed', 'false'); b.textContent = 'Let it hear you'; return; }
+    try { await A.listen(); b.setAttribute('aria-pressed', 'true'); b.textContent = 'Stop listening'; } catch (e) { b.textContent = 'No microphone allowed'; }
+  });
+  $('s-still').addEventListener('click', () => { const on = !A.isStill(); A.still(on); $('s-still').setAttribute('aria-pressed', String(on)); });
+  A.onChange(() => { const c = document.querySelector('#card .cc-card'); if (c) c.classList.toggle('is-still', A.isStill()); });
+  const dr = $('k-drama'); dr.value = A.drama; $('k-drama-out').textContent = A.drama;
+  dr.addEventListener('input', () => { A.setDrama(dr.value); $('k-drama-out').textContent = Number(dr.value).toFixed(1); });
 
   // ---- save + share ----
   function load() { try { return JSON.parse(localStorage.getItem(STORE) || '[]'); } catch (e) { return []; } }
@@ -136,7 +182,7 @@
     if (st && Array.isArray(st.picks)) { picks = st.picks.slice(); $('words').value = st.text || ''; seed = st.seed; Object.assign(knobs, st.knobs || {}); syncKnobs(); deal(); show(st, false); }
     else { syncKnobs(); deal(); }
   } catch (e) { syncKnobs(); deal(); }
-  shelf();
+  shelf(); found(null);
 })();
 </script>
 </body></html>

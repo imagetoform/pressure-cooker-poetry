@@ -40,6 +40,10 @@
 
   const listeners = new Set();
   A.onChange = fn => { listeners.add(fn); return () => listeners.delete(fn); };
+  // DRAMA: how hard sound hits the pieces (0 = no beat layer, 1 = firm, 3 = wild). Silence is unaffected.
+  // Brandon asked for more dramatic motion with music (2026-11-18); 1.5 is a first guess, tune it in /alive/lab/.
+  A.drama = 1.5;
+  A.setDrama = function (v) { A.drama = Math.max(0, Math.min(3, Number(v) || 0)); emit(); wake(); };
   function emit() { listeners.forEach(fn => { try { fn(S); } catch (e) { /* a bad listener never breaks the loop */ } }); }
 
   function poke(amount) { S.idle = 0; S.tap = Math.min(1, S.tap + amount); S.energy = Math.min(1, S.energy + amount * 0.6); wake(); }
@@ -319,8 +323,17 @@
             const c = { d: Math.min(1, len), ax: ax0 / len, ay: ay0 / len, phase: p.phase, rnd: p.rnd };
             p.verbs.forEach((v, i) => { const o = VERBS[v](S, c), w = i ? 0.45 : 1; x += o.x * w; y += o.y * w; r += o.r * w; s += o.s * w; });
             x += S.tiltX * 16 * (0.5 + p.phase / 6.28); y += S.tiltY * 12 * (0.5 + p.phase / 6.28);
+            // Beat layer: bass lifts, a hit kicks and spins, loudness swells. Each piece leans its own way (phase).
+            const D = A.drama, loud = Math.min(1, S.audio * 1.4);
+            if (D > 0 && (S.hearing || loud > 0.02 || S.onset > 0.02)) {
+              const side = p.phase > Math.PI ? 1 : -1, amp = 1 + (D - 1) * 0.5 * loud;
+              x = x * amp + Math.sin(S.t * 2.3 + p.phase) * loud * 12 * D;
+              y = y * amp - (S.low * 26 + S.onset * 22) * D * (0.6 + 0.4 * Math.sin(p.phase));
+              r = r * amp + side * (S.onset * 11 + S.low * 4) * D;
+              s = s + (S.onset * 0.14 + S.low * 0.07 + loud * 0.05) * D;
+            }
           }
-          const k = still ? 1 : Math.min(1, dt * 9);
+          const k = still ? 1 : Math.min(1, dt * (9 + S.onset * 30 * A.drama));   // hits land fast, then ease back
           p.cur.x += (x - p.cur.x) * k; p.cur.y += (y - p.cur.y) * k; p.cur.r += (r - p.cur.r) * k; p.cur.s += (s - p.cur.s) * k;
           p.img.style.translate = (p.cur.x + p.drag.x).toFixed(1) + 'px ' + (p.cur.y + p.drag.y).toFixed(1) + 'px';
           p.img.style.rotate = p.cur.r.toFixed(2) + 'deg';
