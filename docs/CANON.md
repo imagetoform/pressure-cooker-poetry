@@ -124,6 +124,7 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | Q-11 | Grunge's ripped page and tape cross are too clean (clip-art). Replace? | Both kept for now to hold Grunge at 8, flagged in their notes. |
 | Q-12 | Brain Candy: grow the Spin Cycle's tricks? How loud should the fictional clients be? One wrapper jar or one per machine? | See `docs/BRAIN_CANDY.md`. |
 | Q-14 | **How does making a cutup work?** What does a visitor pick (images? a family? a mood?), how many of their own words, how the poem lines get chosen, how many strips, what a finished card holds, and what "one of many outcomes" covers beyond the card. | The first question of the cutup-maker step. Design with Brandon, playable sandbox first. |
+| Q-15 | **From the 2026-11-18 UI-references intake** (`docs/intake/2026-11-18-ui-references/REVIEW.md`): add Standard Ebooks + Open Culture to the Food Bank? A xerox-tear/glitch texture on the cutup card? Oulipo games (N+7, lipograms) on the visitor's own words only? | Most of that file targeted the deleted Kitchen; only these three ideas survive. |
 | Q-13 | Muse reports Brandon raised its target to **30 cutouts per family** (5–6 minimum per batch, keep going without stopping). Confirm? | Not stated to Claude directly; recorded so it isn't lost. |
 
 ---

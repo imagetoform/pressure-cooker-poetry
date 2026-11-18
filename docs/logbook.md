@@ -8,6 +8,23 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-18 14:07 — Intake: UI references + proposals file, reviewed (nothing built)
+
+### What was asked
+Brandon attached a research file (13 UI references with dial numbers, 2 reading resources, 6 code proposals) "for looking over".
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Saved | `docs/intake/2026-11-18-ui-references/SOURCE.md` (byte-identical, `cmp` checked) |
+| Links | opened 7: brutalistfolio (MIT), oulipo (MIT), 3 gists (no licence stated; one is a copy of Ksenia Kondrashova's CodePen), Standard Ebooks (CC0 own work), Open Culture (no login). 7 GitHub repos rate-limited twice: **not checked**; the CodePen pen refused the fetch |
+| Review | `REVIEW.md`: code targets the deleted Kitchen → graveyard; keepers = xerox/glitch idea (own code), Food Bank additions (needs OK), URL checker for deliveries; Three.js needs a dependency OK; Oulipo only on visitor words or public-domain text, never the poems |
+| Canon | Q-15 added |
+
+### Open / notes
+- Recheck the 7 rate-limited repos one at a time before relying on them.
+- Nothing added to the library, Food Bank or site.
+
 ## 2026-11-18 13:54 — Motion: drama with sound + built-in animations in the cutup sandbox
 
 ### What was asked
