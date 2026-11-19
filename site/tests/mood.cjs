@@ -35,6 +35,28 @@ const fails=[];const check=(ok,msg)=>{if(!ok)fails.push(msg)};
   if(width===390)await p.screenshot({path:'shots/mood-390.png',fullPage:true});
   await c.close();
  }
+ // D-42: distinct visitor signals/seeds must produce distinct artworks AND different page structures.
+ // Structural diversity is not artistic QA; it prevents accidentally collapsing back to one fixed template.
+ const context=await b.newContext({viewport:{width:1280,height:900},reducedMotion:'reduce'});
+ const worldPage=await context.newPage(), signatures=new Set(), structures=new Set();
+ const variants=[[0,1,0,2],[1,4,2,0],[2,2,1,2],[3,3,1,1],[4,0,2,1],[5,5,3,0],[0,3,0,1],[2,4,1,2],[5,0,3,2],[3,1,1,0]];
+ for(let i=0;i<variants.length;i++){
+  const receipt=Buffer.from(JSON.stringify({p:variants[i],s:'architecture-'+String(i).padStart(2,'0'),r:i%3})).toString('base64');
+  await worldPage.goto(BASE+'/#world='+encodeURIComponent(receipt));
+  await worldPage.waitForSelector('.world-title');
+  const view=await worldPage.evaluate(()=>({
+    layout:document.querySelector('.world').dataset.layout,
+    grammar:document.querySelector('.world').className.match(/grammar-([a-z-]+)/)?.[1],
+    headline:document.querySelector('.world-title').textContent,
+    art:[...document.querySelectorAll('.stage-art')].map(n=>n.getAttribute('src'))
+  }));
+  signatures.add(JSON.stringify(view));structures.add(view.layout);
+  check(await worldPage.locator('.door').count()===5,'variant '+i+': fixed destinations survive generation');
+  check(await worldPage.locator('.secret-eye').count()===1,'variant '+i+': eye survives generation');
+ }
+ check(signatures.size===variants.length,'different answers and seeds produce different complete designs ('+signatures.size+'/'+variants.length+')');
+ check(structures.size>=3,'ten editions must use at least three structural grammars (saw '+[...structures].join(', ')+')');
+ await context.close();
  await b.close();
  if(fails.length){console.error('FAIL:\n - '+fails.join('\n - '));process.exit(1)}
  console.log('PASS: mood front door / 4 steps, assets, seeded worlds, responsive and linked rooms');
