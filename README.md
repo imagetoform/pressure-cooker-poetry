@@ -8,7 +8,7 @@ The source for [pressurecookerpoetry.com](https://pressurecookerpoetry.com) and 
 
 A visitor **makes a cutup**: picks images, adds a few words of their own, and the site cuts those words together with lines from the poems into a torn-paper collage card over imagery from the cutout library. Same choices, same card. Cards can be kept in the visitor's own browser and shared as a link. No accounts, no tracking. The poems and essays are read on their own plain pages; nobody gets dropped straight into a poem.
 
-Brandon's reference pictures for the look are in `docs/design/reference/`. The cutup maker is **not built yet**; `/` is a plain stand-in.
+The look is written down in `DESIGN.md` (approved 2026-11-19); Brandon's reference pictures are in `docs/design/reference/`. The maker is the front door at `/` on PR #14; it goes live only with Brandon's OK.
 
 The old generative Kitchen (pantry, fridge, recipes, nutrition card, poem-first rooms, dials) and the front door that ran on it were deleted in the reset. They're in git history if anything ever needs looking up; don't bring them back (CANON Graveyard).
 
@@ -17,7 +17,8 @@ The old generative Kitchen (pantry, fridge, recipes, nutrition card, poem-first 
 | Path | What |
 |---|---|
 | `content/` | The writing, exactly as written: `poems.json` (56), `essays.json` (2, with sources), `food-bank.json` (free resources) |
-| `site/landing/` | Hand-written pages: the front door stand-in, Brain Candy, Learning, About, Contact, `_redirects` |
+| `site/cutup/` | The cutup maker (engine, page logic, styles) used by `/` and `/lab/cutup/` |
+| `site/landing/` | Hand-written pages: the front door shell, Brain Candy, Learning, About, Contact, `_redirects` |
 | `site/shared/` | `plain.css` for reading pages, `prng.js` (seeded randomness) |
 | `site/alive/` | The motion engine (touch, keys, sound, tilt) and its lab at `/alive/lab/` |
 | `site/tools/build.py` | The whole build: writes `site/public/` |

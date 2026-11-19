@@ -105,13 +105,15 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | D-36 | **Food Bank gains Standard Ebooks and Open Culture** in "Poetry, from scratch" (Brandon: yes to Q-15). Both opened and checked 2026-11-18: free, no login; Standard Ebooks' own production work is CC0. | 2026-11-19 |
 | D-37 | **Xerox + glitch on the cutup card** (Brandon: yes). Our own code, no copied snippets: an SVG photocopy-toner filter on some pictures (always on Punk, Zine/DIY, Grunge, Situationism, Dada, Constructivism; seeded otherwise), and a pink/cyan slice glitch on the *pictures* on a hard beat. Words never glitch. Off under reduced motion and "Hold still". | 2026-11-19 |
 | D-38 | **Oulipo word games on the visitor's own words only** (Brandon: yes). N+7 (the site's own 437-noun list), lipogram (one banned letter per card, words with it blacked out as redaction bars), snowball (shortest to longest). Never applied to the poems (law 1). The card says which game the visitor's words went through. | 2026-11-19 |
+| D-39 | **The cutup maker as played is approved** (Brandon, 2026-11-19: "It looks good", on sandbox v3). Its defaults become the design: 3 picks, 5 strips, 40% visitor words (max 12, typed order), poem runs of 1-4 words from 1-2 random poems, dark ground, portrait 4:5, drama 1.5, word games, xerox + glitch, found-poems count kept. Written down in the new `DESIGN.md`. Answers Q-14 as "keep what's there"; any default can still be tuned when Brandon names it. | 2026-11-19 |
+| D-40 | **The front door `/` is the cutup maker** (go-live Step 4), built from the same `site/cutup/` code as the lab, without the knobs. | 2026-11-19 |
 | D-35 | **DESIGN.md is superseded.** It described the Kitchen look. The new design system is written with Brandon during the cutup-maker step, from the reference pictures. Until then only AGENTS.md's access rules bind (4.5:1, keyboard and touch, reduced motion, 320px). D-11 (no SaaS look, no beige ground) and D-24 (torn-paper Cutup Database target) stand. | 2026-11-18 |
 
 ---
 
 ## NOT DONE YET (decided, not built)
 
-- **The cutup maker (D-32, D-33)** is not built. `/` is a plain stand-in. **Sandbox v1** (2026-11-18) is at `/lab/cutup/` (unlinked, `site/landing/lab/cutup/`, test `site/tests/cutup.cjs`) with knobs for picks, strips, your-words share, words per strip, ground and shape, so Brandon can answer Q-14 by playing. It's the next big step in `docs/GO_LIVE_PLAN.md`, starting with how the picking works (Q-14) and a new design system (D-35).
+- **The cutup maker** is built at `/` on PR #14 (D-40) but **not live**: Step 5, the first release, needs Brandon's OK. **Sandbox v1** (2026-11-18) is at `/lab/cutup/` (unlinked, `site/landing/lab/cutup/`, test `site/tests/cutup.cjs`) with knobs for picks, strips, your-words share, words per strip, ground and shape, so Brandon can answer Q-14 by playing. It's the next big step in `docs/GO_LIVE_PLAN.md`, starting with how the picking works (Q-14) and a new design system (D-35).
 - **D-18's section rooms**: Poems, Essays and the Food Bank are plain pages; Learning, About and Contact still wear their older styles. Each gets redesigned in the new look, one at a time.
 - **Bigger motion with music (go-live Step 2)** isn't started; it now tunes the alive engine for the cutup card.
 - **Old remote branches** (20) are still on GitHub.
@@ -126,7 +128,6 @@ Deploys: Netlify project `pressurecookerpoetry`, connected to GitHub `main`. Bui
 | Q-10 | Batches Muse made that never reached Claude: Constructivism (5), Dada (8), Punk (6), and round 1 of Zine/DIY (9), Swiss (10), Pop Art (9). Send them? | Constructivism, Dada and Swiss are still under 8. |
 | Q-11 | Grunge's ripped page and tape cross are too clean (clip-art). Replace? | Both kept for now to hold Grunge at 8, flagged in their notes. |
 | Q-12 | Brain Candy: grow the Spin Cycle's tricks? How loud should the fictional clients be? One wrapper jar or one per machine? | See `docs/BRAIN_CANDY.md`. |
-| Q-14 | **How does making a cutup work?** What does a visitor pick (images? a family? a mood?), how many of their own words, how the poem lines get chosen, how many strips, what a finished card holds, and what "one of many outcomes" covers beyond the card. | The first question of the cutup-maker step. Design with Brandon, playable sandbox first. |
 | Q-13 | Muse reports Brandon raised its target to **30 cutouts per family** (5–6 minimum per batch, keep going without stopping). Confirm? | Not stated to Claude directly; recorded so it isn't lost. |
 
 ---
@@ -169,6 +170,7 @@ Parked behind: **the cutup maker is live and looks good on a phone.**
 | Six-taste matrix (sweet, sour, salty, bitter, umami, spicy) as the engine's middle step | 2026-11-17 | Retired with the dials (D-17). |
 | Heat / Order / Noise / Weight card stats (was Q-03) | 2026-11-17 | Retired by Brandon (D-17). |
 | A second Learning Curve at `/learning-curve/` | 2026-11-17 | Redirects to `/learning/` (D-10). |
+| Q-14 (closed) | 2026-11-19 | Brandon approved the sandbox as played → D-39. |
 | Q-15 (closed) | 2026-11-19 | Brandon: yes to all three → D-36, D-37, D-38. |
 | Q-09 (closed) | 2026-11-18 | Moot: visual.css is deleted; the new design system decides (D-35). |
 | Q-08 (closed) | 2026-11-18 | Moot: the room-leading weights are gone (D-31). |
@@ -180,6 +182,8 @@ Parked behind: **the cutup maker is live and looks good on a phone.**
 ---
 
 ## Canon change log
+
+- **2026-11-19** — Q-14 closed: sandbox approved as played (D-39); new `DESIGN.md` (old one moved to `docs/history/`); the maker is the front door `/` (D-40). Brandon also merged PR #15 (research-only visual atlas) into the release branch.
 
 - **2026-11-19** — Q-15 answered (yes to all 3): D-36 Food Bank additions, D-37 xerox + beat glitch on the card, D-38 Oulipo games on visitor words only. Built in the sandbox and the Food Bank.
 

@@ -18,8 +18,8 @@ button, input { font: inherit; }
 
 .deal { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 @media (min-width: 520px) { .deal { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.tile { position: relative; aspect-ratio: 1; border: 2px solid #3a3347; background: #221d2b; padding: 6px; cursor: pointer; display: grid; place-items: center; }
-.tile img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(2px 3px 0 rgba(0,0,0,.5)); }
+.tile { position: relative; aspect-ratio: 1; min-width: 0; border: 2px solid #3a3347; background: #221d2b; padding: 0; cursor: pointer; }
+.tile img { position: absolute; inset: 7px 7px 16px; width: calc(100% - 14px); height: calc(100% - 23px); object-fit: contain; filter: drop-shadow(2px 3px 0 rgba(0,0,0,.5)); }   /* tall or wide art stays inside a square tile */
 .tile small { position: absolute; left: 4px; bottom: 3px; font-size: 10px; color: var(--mute); text-transform: uppercase; letter-spacing: .06em; pointer-events: none; }
 .tile[aria-pressed="true"] { border-color: var(--hot); background: #3a1630; box-shadow: 4px 4px 0 var(--hot); }
 .tile[aria-pressed="true"]::after { content: attr(data-n); position: absolute; top: -8px; right: -8px; width: 26px; height: 26px; border-radius: 50%; background: var(--hot); color: #111; font-weight: 900; display: grid; place-items: center; }
@@ -98,7 +98,7 @@ details.knobs summary { cursor: pointer; font-weight: 800; }
 @keyframes cc-sway { from { rotate: calc(var(--sway) * -.5deg); } to { rotate: calc(var(--sway) * .7deg); translate: 0 -1px; } }
 @keyframes cc-lift { 0% { rotate: 0deg; } 30% { rotate: calc(var(--sway) * 5deg); translate: 0 -10%; scale: 1.06; } 100% { rotate: 0deg; translate: 0 0; scale: 1; } }
 @keyframes cc-tag { 0% { opacity: 0; translate: 0 6px; } 12%, 80% { opacity: 1; translate: 0 0; } 100% { opacity: 0; } }
-@keyframes cc-deal { from { translate: 0 14px; rotate: -4deg; opacity: 0; } }
+@keyframes cc-deal { from { translate: 0 14px; opacity: 0; } }   /* no tilt: a tipped corner can poke past a 320px screen mid-deal */
 @keyframes cc-stamp { from { scale: 2.2; rotate: -25deg; opacity: 0; } }
 @keyframes cc-ready { 0%, 70%, 100% { box-shadow: 0 0 0 0 rgba(255, 46, 136, 0); } 80% { box-shadow: 0 0 0 7px rgba(255, 46, 136, .35); } }
 @keyframes cc-new { 50% { background: var(--yel); scale: 1.6; } }
@@ -136,4 +136,14 @@ details.knobs summary { cursor: pointer; font-weight: 800; }
 }
 
 /* lipogram: blacked-out words are solid ink bars, not glyph boxes */
-.cc-redact { display: inline-block; color: transparent; background: var(--ink); letter-spacing: -.12em; line-height: .9; vertical-align: -.08em; border-radius: 1px; }
+.cc-redact { display: inline-block; color: transparent; background: var(--ink, var(--fg)); letter-spacing: -.12em; line-height: .9; vertical-align: -.08em; border-radius: 1px; }
+
+/* ---- front door chrome (site menu, lede, footer) ---- */
+.mk-top { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; justify-content: space-between; padding: 14px max(16px, calc((100vw - 1100px) / 2)); border-bottom: 2px solid #2c2638; }
+.mk-brand { font: 900 1.05rem/1 Impact, "Arial Black", sans-serif; letter-spacing: .03em; text-transform: uppercase; text-decoration: none; }
+.mk-top nav { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+.mk-top nav a { text-decoration: none; padding: 10px 0; font-weight: 700; color: var(--mute); }
+.mk-top nav a[aria-current] { color: var(--fg); text-decoration: underline; text-decoration-color: var(--hot); text-decoration-thickness: 3px; text-underline-offset: .3em; }
+.mk-lede { max-width: 1100px; margin: 18px auto 0; padding: 0 16px; font: 900 clamp(1.5rem, 5vw, 2.4rem)/1.1 Impact, "Arial Black", sans-serif; text-transform: uppercase; }
+.mk-lede span { display: block; margin-top: 8px; font: 400 1rem/1.45 Georgia, serif; text-transform: none; color: var(--mute); }
+.mk-foot { text-align: center; padding: 28px 16px 36px; color: var(--mute); font-size: .85rem; border-top: 2px solid #2c2638; }

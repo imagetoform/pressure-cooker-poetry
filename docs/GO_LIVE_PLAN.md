@@ -62,9 +62,9 @@ Needs Brandon's description first (ChatGPT's notes never reached Claude). Maybe 
 |---|---|
 | 1 GitHub | **done 2026-11-18**: PR #14, private deploy preview |
 | 2 Reset | **done on PR #14 2026-11-18**, waiting on Brandon's look at the preview |
-| 3 Cutup maker sandbox | **in progress**: v1 at `/lab/cutup/` (PR #14) and as the "CUTUP MAKER sandbox" artifact; waiting on Brandon's play |
-| 4 Build the maker (+ bigger motion) | after 3 |
-| 5 First release | after 4 (or Step 2 alone, if Brandon wants) |
+| 3 Cutup maker sandbox | **done 2026-11-19**: approved as played (D-39) |
+| 4 Build the maker (+ bigger motion) | **done on PR #14 2026-11-19**: `/` is the maker (D-40); motion, drama, games, glitch in |
+| 5 First release | **next**: Brandon checks the PR #14 preview on his phone and says "ship it" |
 | 6 Brain Candy | after 5; menu link needs Brandon's OK |
 | 7 Section pages | after 6, one at a time |
 | 8 Easter egg | needs Brandon's description first |

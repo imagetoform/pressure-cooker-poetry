@@ -2,11 +2,31 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon plays the cutup maker sandbox (artifact "CUTUP MAKER sandbox" or /lab/cutup/ on the PR #14 preview) and answers Q-14; then iterate the sandbox, write the new design system, and build it into / (Step 4).
+next: go-live Step 5 - Brandon opens the PR #14 Netlify preview (signed in), goes through the PR checklist, and says "ship it"; then merge to main and check the live site. Later: Brain Candy writing-method workshop (blackout canvas, razor/glue cut-up; Brandon makes the tool art).
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-19 03:41 — Step 3 approved, Step 4 built: the cutup maker is the front door
+
+### What was asked
+Brandon: "It looks good" (sandbox v3).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Found first | Brandon merged PR #15 (research-only visual atlas: tools/atlas, library/atlas, atlas-scout workflow) into the release branch; its `build` check FAILED: 320px /lab/cutup/ 10px sideways, mid-deal (tiles tipped -4deg). Fixed by removing the tilt; worst overflow measured 0px across 40 samples at 6x CPU throttle. Atlas tests pass |
+| D-39 / D-40 | sandbox defaults approved as the design; `/` = the maker |
+| Code | `site/cutup/` (cutup.js engine + app.js page logic + cutup.css; knobs optional via `#knobs`); build copies it and writes `/cutup/data.js`; `/lab/cutup/` and `/` both use it |
+| Front door | `site/landing/index.html`: site menu, "Cut it up." lede, maker, footer. No knobs |
+| Fixes seen in screenshots | tall art stretched deal rows (now absolutely-placed images in square tiles); preview redaction bars invisible/white boxes (now `.cc-redact` spans, colour from `--ink` or `--fg`); all-caps lede too long on phone |
+| Design | new `DESIGN.md` from the approved look; old → `docs/history/DESIGN-kitchen-2026-11.md`; CLAUDE/AGENTS/README/site AGENTS/skill updated |
+| Tests | cutup.cjs runs the full flow on `/` and `/lab/cutup/` (+ no knobs and menu on `/`). All 4 suites PASS; build reproducible |
+
+### Open / notes
+- Step 5 (release) needs Brandon's explicit OK. Netlify preview is private.
+- Once PR #14 merges, the atlas workflow starts its Mon/Thu schedule (draft PRs only).
 
 ## 2026-11-19 00:23 — Q-15 yes ×3: Food Bank additions, xerox + glitch, Oulipo word games (sandbox v3)
 

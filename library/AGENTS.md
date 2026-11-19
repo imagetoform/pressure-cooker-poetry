@@ -45,7 +45,7 @@ Hosts the pipeline will download from are listed in `ALLOWED_HOSTS` in `tools/cu
 
 - One file per part in `families/<branch>/<id>/kit/`, listed in that folder's `kit.json`. Prefix by kind: `button-`, `texture-`, `ornament-`, `motion-` (generated ones start with `gen-`).
 - The intake checker rejects `@import`, `url()` other than `data:`, `@font-face`, `javascript:`, `expression()`, `behavior:` and `<style>`/`<script>`. Write self-contained CSS that passes.
-- A button skin may change the look, never the size, focus ring or label (see DESIGN.md section 8). Text on a skin needs 4.5:1 contrast.
+- A button skin may change the look, never the size, focus ring or label (see `docs/history/DESIGN-kitchen-2026-11.md` section 8; kits aren't shipped since the reset). Text on a skin needs 4.5:1 contrast.
 - After adding parts, rebuild: `python3 site/tools/build.py` (it runs the kit and library builders and prints counts). Report the new counts in the PR.
 
 ## Before you finish

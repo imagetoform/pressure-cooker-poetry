@@ -1,10 +1,10 @@
 # AGENTS.md — Pressure Cooker Poetry
 
-Instructions for any coding agent working in this repository (Codex / ChatGPT, Claude, Gemini, Muse). Read this file completely before you touch anything. `site/AGENTS.md` and `library/AGENTS.md` add rules for those folders. **Before any visual or UI change, read the reference pictures in `docs/design/reference/` (DESIGN.md is superseded history, D-35).** **Before planning anything, read `docs/CANON.md`**: what's live, what's locked, what's open, what's parked and what's dead. Don't reopen a LOCKED decision unless Brandon writes `reopen D-xx`, and never rebuild anything in its Graveyard.
+Instructions for any coding agent working in this repository (Codex / ChatGPT, Claude, Gemini, Muse). Read this file completely before you touch anything. `site/AGENTS.md` and `library/AGENTS.md` add rules for those folders. **Before any visual or UI change, read `DESIGN.md` (the cutup look, D-39) and the reference pictures in `docs/design/reference/`.** **Before planning anything, read `docs/CANON.md`**: what's live, what's locked, what's open, what's parked and what's dead. Don't reopen a LOCKED decision unless Brandon writes `reopen D-xx`, and never rebuild anything in its Graveyard.
 
 ## What this is, in one paragraph
 
-pressurecookerpoetry.com is a generative poetry, art, essay and learning site. **Since the 2026-11-18 reset (CANON D-31 to D-35)** a visitor starts by **making a cutup**: they pick images and add a few words of their own, and a deterministic engine cuts those words together with lines from the owner's poems into a torn-paper collage card over imagery from the cutout library (references: `docs/design/reference/`). The cutup maker isn't built yet; `/` is a plain stand-in. The poems and essays are read whole, unchanged, on their own plain pages. The old Kitchen (pantry, fridge, recipes, nutrition card, poem-first rooms) is deleted and in the Graveyard. The ethos is the **Gutter Intelligentsia**: drag ivory-tower ideas down to street level, anti-elitist, punk and Dada in attitude, free of gatekeeping. Core phrase: *Not a machine for producing answers. A machine for multiplying possibilities.* The owner is Brandon (GitHub `imagetoform`), a poet and visual artist. Satire always aims **up** at the powerful, never at the people underneath.
+pressurecookerpoetry.com is a generative poetry, art, essay and learning site. **Since the 2026-11-18 reset (CANON D-31 to D-35)** a visitor starts by **making a cutup**: they pick images and add a few words of their own, and a deterministic engine cuts those words together with lines from the owner's poems into a torn-paper collage card over imagery from the cutout library (references: `docs/design/reference/`). The cutup maker is the front door at `/` (on PR #14, not live until Brandon's OK). The poems and essays are read whole, unchanged, on their own plain pages. The old Kitchen (pantry, fridge, recipes, nutrition card, poem-first rooms) is deleted and in the Graveyard. The ethos is the **Gutter Intelligentsia**: drag ivory-tower ideas down to street level, anti-elitist, punk and Dada in attitude, free of gatekeeping. Core phrase: *Not a machine for producing answers. A machine for multiplying possibilities.* The owner is Brandon (GitHub `imagetoform`), a poet and visual artist. Satire always aims **up** at the powerful, never at the people underneath.
 
 ## Source of truth, in order
 
@@ -34,13 +34,14 @@ Production can lag behind `main`. Never assume what is on `main` is live, or tha
 | Path | What | Notes |
 |---|---|---|
 | `content/` | The writing: `poems.json` (56), `essays.json` (2, with sources), `food-bank.json` | **Authored. Never edit** unless the owner asks for a content change |
-| `site/landing/` | Hand-written pages: `/` (stand-in front door), `/brain-candy/`, `/learning/`, `/about/`, `/contact/`, `_redirects` | |
+| `site/landing/` | Hand-written pages: `/` (front door shell for the cutup maker), `/brain-candy/`, `/learning/`, `/about/`, `/contact/`, `_redirects` | |
+| `site/cutup/` | The cutup maker: `cutup.js` (engine: `make()` plan + `render()`), `app.js` (page logic), `cutup.css`; `data.js` is generated | Used by `/` and `/lab/cutup/` |
 | `site/shared/` | `plain.css` (reading pages), `prng.js` (seeded randomness) | |
 | `site/alive/` | The motion engine `alive.js` + `alive.css`, lab at `/alive/lab/` | Read `docs/ALIVE.md` first |
 | `site/tools/build.py` | The whole build: copies the pages, generates `/poems/`, `/essays/`, `/food-bank/`, copies cutouts to `/assets/cutouts/` | Standard library only |
 | `site/public/` | Build output (gitignored). Netlify publishes this | |
-| `site/tests/` | `site.cjs` (every page, every poem line), `cutup.cjs` (sandbox: exact poem strips, same link same card), `alive.cjs`, `spin-cycle.cjs` | CI runs all four |
-| `site/landing/lab/cutup/` | Cutup maker **sandbox** at `/lab/cutup/` (go-live Step 3). `cutup.js` = `make()` plan + `render()` | Test machinery until Brandon approves the design |
+| `site/tests/` | `site.cjs` (every page, every poem line), `cutup.cjs` (the maker on `/` and the lab: exact poem strips, same link same card, games, glitch), `alive.cjs`, `spin-cycle.cjs` | CI runs all four |
+| `site/landing/lab/cutup/` | The maker plus Brandon's knobs at `/lab/cutup/` (unlinked test machinery) | |
 | `library/families/<branch>/<movement>/` | 30 design movements: `kit/` CSS parts, `cutouts/`, README, SHOPPING list | Kits aren't shipped since the reset |
 | `library/families.json` | Family ids, names, branches, colours | Copy ids from here, never retype them |
 | `library/catalog.json` | Emotion vocabulary, aliases, petals, dyads | Hand-edited source since the reset |

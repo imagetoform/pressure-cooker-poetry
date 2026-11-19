@@ -14,7 +14,8 @@ library/cutouts/manifest.json + files             ┘    (copies cutouts to /ass
 
 | URL | From |
 |---|---|
-| `/` | `site/landing/index.html`: a plain **stand-in** until the cutup maker is built (D-33) |
+| `/` | `site/landing/index.html` + `site/cutup/`: the cutup maker (D-33, D-39) |
+| `/lab/cutup/` | the same maker plus Brandon's knobs (unlinked) |
 | `/poems/`, `/poems/<id>/`, `/essays/`, `/essays/<id>/`, `/food-bank/` | generated from `content/` by `build.py` |
 | `/learning/`, `/about/`, `/contact/`, `/brain-candy/…` | `site/landing/` |
 | `/alive/lab/` | the motion engine's lab (test machinery, not linked from visitor pages) |

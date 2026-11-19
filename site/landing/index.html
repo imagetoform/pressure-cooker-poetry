@@ -1,14 +1,65 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pressure Cooker Poetry</title>
-<!-- STAND-IN front door (CANON D-31/D-32): replaced by the cutup maker. Keep it plain; don't build on it. -->
-<link rel="stylesheet" href="/shared/plain.css"></head>
-<body><header class="top"><a class="brand" href="/">Pressure Cooker Poetry</a><nav aria-label="Main"><a href="/" aria-current="page">Make</a><a href="/poems/">Poems</a><a href="/essays/">Essays</a><a href="/learning/">Learning</a><a href="/about/">About</a></nav></header>
-<main id="main">
-<p class="kicker">Under construction</p>
-<h1>The cutup maker is being built.</h1>
-<p class="lede">Soon you'll start here: pick images, add your own words, and the site cuts them together with lines from the poems into a torn-paper collage you can keep.</p>
-<p>Until then, read the <a href="/poems/">poems</a> and <a href="/essays/">essays</a>, or work through <a href="/learning/">the Learning Curve</a>.</p>
+<title>Pressure Cooker Poetry: cut it up</title>
+<meta name="description" content="Pick images, add your own words, and cut them together with lines from the poems into a torn-paper collage you can keep.">
+<!-- FRONT DOOR = the cutup maker (CANON D-32, D-33, D-39). Same code as /lab/cutup/ minus Brandon's knobs. -->
+<link rel="stylesheet" href="alive/alive.css">
+<link rel="stylesheet" href="cutup/cutup.css"></head>
+<body class="front">
+<header class="mk-top"><a class="mk-brand" href="/">Pressure Cooker Poetry</a>
+<nav aria-label="Main"><a href="/" aria-current="page">Make</a><a href="/poems/">Poems</a><a href="/essays/">Essays</a><a href="/learning/">Learning</a><a href="/about/">About</a></nav></header>
+<p class="mk-lede">Cut it up. <span>Pick images, throw in your own words, and the machine cuts them together with lines from the poems. Not a machine for producing answers. A machine for multiplying possibilities.</span></p>
+<main class="sb">
+  <div class="sb-in">
+    <section aria-labelledby="h-pick">
+      <h2 id="h-pick"><span>1</span> Pick images</h2>
+      <p class="hint" id="pick-hint">Tap 3 that pull at you.</p>
+      <div class="deal" id="deal"></div>
+      <div class="row"><button class="btn" id="redeal" type="button">Deal again</button><span class="count" id="pick-count" role="status"></span></div>
+    </section>
+    <section aria-labelledby="h-words" style="margin-top:26px">
+      <h2 id="h-words"><span>2</span> Add your words</h2>
+      <p class="hint">A few words of your own, or none. They get cut in with lines from the poems.</p>
+      <input class="words" id="words" maxlength="80" autocomplete="off" placeholder="the rent is a weather system">
+      <div class="games" role="radiogroup" aria-label="Word game for your words">
+        <span class="games-label">Play a word game on your words:</span>
+        <button type="button" role="radio" data-game="none" aria-checked="true">none</button>
+        <button type="button" role="radio" data-game="n7" aria-checked="false" title="each noun becomes the noun seven places later in the list">N+7</button>
+        <button type="button" role="radio" data-game="lipo" aria-checked="false" title="one letter is banned; words with it get blacked out">lipogram</button>
+        <button type="button" role="radio" data-game="snowball" aria-checked="false" title="shortest words first, longest last">snowball</button>
+      </div>
+      <p class="note" id="game-preview" aria-live="polite"></p>
+      <div class="row"><button class="btn go" id="cut" type="button" disabled>Cut it up</button><span class="count" id="word-count"></span></div>
+    </section>
+  </div>
+  <div class="sb-out">
+    <h2><span>3</span> Your cutup</h2>
+    <div id="card"><div class="empty">Pick three images. Add a few words of your own if you want. Then hit <b>Cut it up</b>: your words get cut in with lines from the poems.</div></div>
+    <p class="legend" id="legend" hidden><span><i style="background:#111;border-color:#fff"></i>your words</span><span><i style="background:#ffe14d"></i>cut from the poems</span></p>
+    <div class="sound" id="sound" hidden>
+      <button class="btn" id="s-song" type="button">Play it a song</button><input type="file" id="s-file" accept="audio/*" hidden>
+      <button class="btn" id="s-hear" type="button" aria-pressed="false">Let it hear you</button>
+      <button class="btn" id="s-still" type="button" aria-pressed="false">Hold still</button>
+    </div>
+    <p class="note" id="s-note" role="status" hidden>Touch and drag the pictures. Tap a strip to see where it came from. Sound stays on your device; nothing is recorded or sent.</p>
+    <div class="row" id="after" hidden>
+      <button class="btn go" id="again" type="button">Cut again</button>
+      <button class="btn" id="save" type="button">Save</button>
+      <button class="btn" id="share" type="button">Copy link</button>
+      <span class="count" id="said" role="status"></span>
+    </div>
+    <section aria-labelledby="h-shelf" style="margin-top:28px">
+      <h2 id="h-shelf" style="font-size:1.2rem">Saved in this browser</h2>
+      <div class="shelf" id="shelf"></div>
+      <p class="note" id="shelf-empty">Nothing saved yet.</p>
+    </section>
+    <div class="found" id="found" aria-live="polite"></div>
+  </div>
 </main>
-<footer class="foot">Free to read. No accounts, no tracking. <a href="/contact/">Contact</a></footer>
+<footer class="mk-foot">Free. No accounts, no tracking. Your cards stay in this browser unless you share the link. <a href="/contact/">Contact</a></footer>
+<script src="shared/prng.js"></script>
+<script src="cutup/data.js"></script>
+<script src="alive/alive.js"></script>
+<script src="cutup/cutup.js"></script>
+<script src="cutup/app.js"></script>
 </body></html>

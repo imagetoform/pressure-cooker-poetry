@@ -7,7 +7,7 @@ description: Check any visible change to Pressure Cooker Poetry (layout, CSS, co
 
 ## Before you build
 
-1. Read the LOCKED decisions in `docs/CANON.md` and look at the reference pictures in `docs/design/reference/`. `DESIGN.md` is superseded history (D-35); its "Don't" list still describes what to avoid until a new design system is written.
+1. Read the LOCKED decisions in `docs/CANON.md`, then `DESIGN.md` (the cutup look, D-39) and the reference pictures in `docs/design/reference/`.
 2. Decide whether each thing you're touching is **shell** (needed to read, choose, navigate, recover) or **room** (mood). Shell uses the `--k-*` / `--f-*` tokens. Room looks come from the library (movement kits, cutouts), not from one-off CSS on a page.
 3. If the change adds a step, control or screen a visitor will see, stop and ask the owner in the issue first.
 

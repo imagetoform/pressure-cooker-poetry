@@ -6,7 +6,8 @@ What goes where:
   site/landing/   -> /            hand-written pages (front door, Brain Candy, Learning, About, Contact) + _redirects
   site/shared/    -> /shared/     plain.css (reading pages) and prng.js (seeded randomness)
   site/alive/     -> /alive/      the motion engine (alive.js, alive.css) and its lab at /alive/lab/
-  site/landing/lab/cutup/ -> /lab/cutup/  the cutup maker sandbox (go-live Step 3); data.js generated here
+  site/cutup/     -> /cutup/      the cutup maker: cutup.js (engine), app.js (page), cutup.css; data.js generated here
+                                  used by / (front door) and /lab/cutup/ (the same maker plus Brandon's knobs)
   library cutouts -> /assets/cutouts/<id>.webp   every kept cutout in library/cutouts/manifest.json
   content/*.json  -> /poems/ /essays/ /food-bank/  plain reading pages, generated here
 
@@ -151,7 +152,7 @@ def cutouts():
     poems = [{"id": p["id"], "title": p["title"], "book": p.get("book", ""), "stanzas": p["stanzas"]}
              for p in json.loads((CONTENT / "poems.json").read_text(encoding="utf-8"))]
     data = {"poems": poems, "assets": lab, "families": families, "assetBase": "", "poemBase": "/poems/"}
-    (PUB / "lab/cutup/data.js").write_text("window.PCP=window.PCP||{};PCP.cutupData=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+    (PUB / "cutup/data.js").write_text("window.PCP=window.PCP||{};PCP.cutupData=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
     return len(lab)
 
 
@@ -160,6 +161,7 @@ def main():
     shutil.copytree(SITE / "landing", PUB)
     shutil.copytree(SITE / "shared", PUB / "shared")
     shutil.copytree(SITE / "alive", PUB / "alive")
+    shutil.copytree(SITE / "cutup", PUB / "cutup")
     print("poems %d, essays %d, food bank %d, cutouts %d" % (poems(), essays(), food_bank(), cutouts()))
     print("built", sum(1 for p in PUB.rglob("*") if p.is_file()), "files into", PUB)
 
