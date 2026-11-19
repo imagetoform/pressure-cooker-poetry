@@ -19,6 +19,14 @@
       <h2 id="h-words"><span>2</span> Add your words</h2>
       <p class="hint">A few words of your own, or none. They get cut in with lines from the poems.</p>
       <input class="words" id="words" maxlength="80" autocomplete="off" placeholder="the rent is a weather system">
+      <div class="games" role="radiogroup" aria-label="Word game for your words">
+        <span class="games-label">Play a word game on your words:</span>
+        <button type="button" role="radio" data-game="none" aria-checked="true">none</button>
+        <button type="button" role="radio" data-game="n7" aria-checked="false" title="each noun becomes the noun seven places later in the list">N+7</button>
+        <button type="button" role="radio" data-game="lipo" aria-checked="false" title="one letter is banned; words with it get blacked out">lipogram</button>
+        <button type="button" role="radio" data-game="snowball" aria-checked="false" title="shortest words first, longest last">snowball</button>
+      </div>
+      <p class="note" id="game-preview" aria-live="polite"></p>
       <div class="row"><button class="btn go" id="cut" type="button" disabled>Cut it up</button><span class="count" id="word-count"></span></div>
     </section>
     <details class="knobs" id="knobs" style="margin-top:26px">
@@ -71,7 +79,7 @@
   let live = null;
   const freshSeed = () => { const a = new Uint32Array(2); crypto.getRandomValues(a); return a[0].toString(36) + a[1].toString(36).slice(0, 3); };
   const knobs = Object.assign({}, C.KNOBS);
-  let picks = [], dealSeed = freshSeed(), seed = '', shown = null;
+  let picks = [], dealSeed = freshSeed(), seed = '', shown = null, game = 'none';
 
   // ---- deal: 12 images from 12 different families, order set by the deal seed ----
   function deal() {
@@ -113,9 +121,27 @@
     found(plan);
     if (push) { try { history.replaceState(null, '', '#' + encodeURIComponent(JSON.stringify(state))); } catch (e) { /* some embeds block this; the card still shows */ } }
   }
-  const current = () => ({ picks: picks.slice(), text: $('words').value, seed, knobs: Object.assign({}, knobs) });
+  const current = () => Object.assign({ picks: picks.slice(), text: $('words').value, seed, knobs: Object.assign({}, knobs) }, game !== 'none' ? { game } : {});
+  // ---- word games (Oulipo): on your words only, never the poems ----
+  function setGame(g) {
+    game = C.GAMES[g] ? g : 'none';
+    document.querySelectorAll('.games [role=radio]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.game === game)));
+    preview();
+  }
+  function preview() {
+    const t = $('words').value.trim();
+    $('game-preview').textContent = game === 'none' || !t ? '' : 'Your words become: ' + C.play(t, game, P.prng.makeRng('preview|' + game + '|' + t)).words.join(' ') +
+      (game === 'lipo' ? '  (the banned letter is picked per card)' : '');
+  }
+  document.querySelectorAll('.games [role=radio]').forEach(b => {
+    b.addEventListener('click', () => { setGame(b.dataset.game); if (shown && picks.length === knobs.picks) show(current(), true); });
+    b.addEventListener('keydown', e => { if (!/Arrow(Left|Right|Up|Down)/.test(e.key)) return; e.preventDefault();
+      const all = [...document.querySelectorAll('.games [role=radio]')], n = all.indexOf(b) + (/Right|Down/.test(e.key) ? 1 : -1), nb = all[(n + all.length) % all.length]; nb.focus(); nb.click(); });
+  });
+  $('words').addEventListener('input', preview);
   $('cut').addEventListener('click', () => { seed = freshSeed(); show(current(), true); });
   $('again').addEventListener('click', () => { seed = freshSeed(); show(Object.assign(current(), { picks: shown.picks, text: shown.text }), true); });
+  setGame('none');
   $('redeal').addEventListener('click', () => { dealSeed = freshSeed(); deal(); });
   $('words').addEventListener('input', () => { const n = $('words').value.trim().split(/\s+/).filter(Boolean).length; $('word-count').textContent = n ? n + (n > 12 ? ' words (only the first 12 get used)' : ' words') : ''; });
 
@@ -143,7 +169,17 @@
     try { await A.listen(); b.setAttribute('aria-pressed', 'true'); b.textContent = 'Stop listening'; } catch (e) { b.textContent = 'No microphone allowed'; }
   });
   $('s-still').addEventListener('click', () => { const on = !A.isStill(); A.still(on); $('s-still').setAttribute('aria-pressed', String(on)); });
-  A.onChange(() => { const c = document.querySelector('#card .cc-card'); if (c) c.classList.toggle('is-still', A.isStill()); });
+  let lastGlitch = 0;
+  A.onChange(S => {
+    const c = document.querySelector('#card .cc-card'); if (!c) return;
+    c.classList.toggle('is-still', A.isStill());
+    // Glitch on a hard hit: the pictures split and slip for a blink. Words never glitch. Live reaction only; the card itself doesn't change.
+    const now = performance.now();
+    if (S && S.onset > 0.6 && A.drama > 0 && !A.isStill() && now - lastGlitch > 240) {
+      lastGlitch = now; c.style.setProperty('--glitch', Math.min(1.6, A.drama / 1.5).toFixed(2));
+      c.classList.add('cc-glitching'); setTimeout(() => c.classList.remove('cc-glitching'), 140);
+    }
+  });
   const dr = $('k-drama'); dr.value = A.drama; $('k-drama-out').textContent = A.drama;
   dr.addEventListener('input', () => { A.setDrama(dr.value); $('k-drama-out').textContent = Number(dr.value).toFixed(1); });
 
@@ -153,7 +189,7 @@
     const list = load(), box = $('shelf'); box.replaceChildren(); $('shelf-empty').hidden = list.length > 0;
     list.forEach(st => {
       const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Open saved cutup');
-      C.render(C.make(D, st), b, OPTS); b.addEventListener('click', () => { picks = st.picks.slice(); $('words').value = st.text; seed = st.seed; Object.assign(knobs, st.knobs); syncKnobs(); deal(); show(st, true); scrollTo({ top: 0 }); });
+      C.render(C.make(D, st), b, OPTS); b.addEventListener('click', () => { picks = st.picks.slice(); $('words').value = st.text; seed = st.seed; Object.assign(knobs, st.knobs); setGame(st.game); syncKnobs(); deal(); show(st, true); scrollTo({ top: 0 }); });
       box.append(b);
     });
   }
@@ -179,7 +215,7 @@
   // ---- start: a shared link opens its card ----
   try {
     const st = location.hash.length > 1 ? JSON.parse(decodeURIComponent(location.hash.slice(1))) : null;
-    if (st && Array.isArray(st.picks)) { picks = st.picks.slice(); $('words').value = st.text || ''; seed = st.seed; Object.assign(knobs, st.knobs || {}); syncKnobs(); deal(); show(st, false); }
+    if (st && Array.isArray(st.picks)) { picks = st.picks.slice(); $('words').value = st.text || ''; seed = st.seed; Object.assign(knobs, st.knobs || {}); setGame(st.game); syncKnobs(); deal(); show(st, false); }
     else { syncKnobs(); deal(); }
   } catch (e) { syncKnobs(); deal(); }
   shelf(); found(null);

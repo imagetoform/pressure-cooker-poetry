@@ -113,3 +113,27 @@ details.knobs summary { cursor: pointer; font-weight: 800; }
 .sound { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .sound .btn { min-height: 40px; padding: 6px 12px; font-size: .88rem; }
 .sound .btn[aria-pressed="true"] { background: var(--yel); color: #111; border-color: var(--yel); }
+
+/* word games */
+.games { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 10px; }
+.games-label { color: var(--mute); font-size: .88rem; margin-right: 4px; }
+.games button { min-height: 36px; padding: 4px 11px; border: 2px solid #3a3347; background: transparent; color: var(--fg); font: 700 .88rem "Courier New", monospace; cursor: pointer; }
+.games button[aria-checked="true"] { border-color: var(--yel); background: var(--yel); color: #111; }
+#game-preview { font-family: "Courier New", monospace; color: var(--fg); min-height: 1.2em; }
+.cc-game { background: var(--yel) !important; color: #111 !important; }
+
+/* xerox: photocopy toner on some pictures (static, so it stays under reduced motion) */
+.cc-art .cc-img.cc-xerox { filter: url(#cc-xerox) contrast(1.25) drop-shadow(.6cqw .9cqw 0 rgba(0,0,0,.6)); }
+
+/* glitch on a hard beat: pictures split pink/cyan and slip in slices; the words never glitch */
+@media (prefers-reduced-motion: no-preference) {
+  .cc-glitching:not(.is-still) .cc-art .cc-img { animation: cc-glitch .14s steps(2, end); }
+}
+@keyframes cc-glitch {
+  0%   { filter: drop-shadow(calc(var(--glitch, 1) * -1.2cqw) 0 #ff2e88) drop-shadow(calc(var(--glitch, 1) * 1.2cqw) 0 #2ec4d6); clip-path: inset(8% 0 52% 0); translate: calc(var(--glitch, 1) * 1.5cqw) 0; }
+  50%  { filter: drop-shadow(calc(var(--glitch, 1) * 1cqw) 0 #ff2e88) drop-shadow(calc(var(--glitch, 1) * -1cqw) 0 #2ec4d6); clip-path: inset(46% 0 12% 0); translate: calc(var(--glitch, 1) * -1.5cqw) 0; }
+  100% { clip-path: inset(0); }
+}
+
+/* lipogram: blacked-out words are solid ink bars, not glyph boxes */
+.cc-redact { display: inline-block; color: transparent; background: var(--ink); letter-spacing: -.12em; line-height: .9; vertical-align: -.08em; border-radius: 1px; }

@@ -74,6 +74,40 @@ async function cutOne(p, words) {
     check((await p.locator('#card .cc-strip').count()) >= 3, 'reduced motion: the card is complete');
     await ctx.close();
   }
+  // Word games touch only the visitor's words; poem strips stay exact under every game; a shared link keeps the game.
+  {
+    const ctx = await b.newContext({ viewport: { width: 1280, height: 900 } }); const p = await ctx.newPage(); const errs = [];
+    p.on('pageerror', e => errs.push(e.message));
+    await cutOne(p, 'The rent is a weather system and the landlords dream');
+    for (const g of ['n7', 'lipo', 'snowball']) {
+      await p.click('.games [data-game="' + g + '"]'); await p.waitForTimeout(150);
+      const r = await p.evaluate(() => { const st = JSON.parse(decodeURIComponent(location.hash.slice(1))); const plan = PCP.cutup.make(PCP.cutupData, st);
+        const poems = Object.fromEntries(PCP.cutupData.poems.map(x => [x.id, x]));
+        return { game: st.game, note: plan.gameNote, you: plan.strips.filter(s => s.src === 'you').map(s => s.text),
+          exact: plan.strips.filter(s => s.src === 'poem').every(s => poems[s.poem].stanzas[s.at[0]][s.at[1]].includes(s.text)),
+          tag: document.querySelector('#card .cc-game') ? document.querySelector('#card .cc-game').textContent : '' }; });
+      check(r.game === g, g + ': the game is stored in the link');
+      check(r.exact, g + ': poem strips are still exact slices of the poems');
+      check(r.tag.startsWith('your words:'), g + ': the card says which game your words went through (' + r.tag + ')');
+      if (g === 'n7') check(!r.you.join(' ').includes('weather') && !r.you.join(' ').includes('rent '), 'n7: nouns from the list were swapped (' + r.you.join(' | ') + ')');
+      if (g === 'lipo') { const L = r.note.slice(-1).toLowerCase(); check(r.you.every(w => !w.toLowerCase().includes(L)), 'lipo: no visible word of yours contains the banned letter ' + L + ' (' + r.you.join(' | ') + ')'); }
+      if (g === 'snowball') { const ws = r.you.join(' ').split(' '); check(ws.every((w, i) => !i || ws[i - 1].length <= w.length), 'snowball: your words run shortest to longest (' + ws.join(' ') + ')'); }
+    }
+    const url = p.url(); const p2 = await ctx.newPage(); await p2.goto(url); await p2.waitForSelector('#card .cc-strip');
+    check((await p2.getAttribute('.games [data-game="snowball"]', 'aria-checked')) === 'true', 'opening a link restores its word game');
+    // Xerox texture: Punk/Zine/Grunge/Situationism/Dada/Constructivism pictures always get it.
+    const xr = await p.evaluate(() => { const D = PCP.cutupData, ids = D.assets.filter(a => a.family === 'punk').map(a => a.id).slice(0, 3);
+      const plan = PCP.cutup.make(D, { picks: ids, text: '', seed: 'x' }); return plan.imgs.filter(m => m.family === 'punk').every(m => m.xerox); });
+    check(xr, 'xerox: punk pictures always get the photocopy texture');
+    check(!!(await p.$('#cc-filters filter#cc-xerox')), 'xerox: the photocopy filter is on the page');
+    // Glitch: a drumbeat makes the pictures glitch at least once; the words never get the glitch animation.
+    await p.evaluate(() => { window.__glitched = 0; new MutationObserver(() => { if (document.querySelector('#card .cc-card.cc-glitching')) window.__glitched++; }).observe(document.getElementById('card'), { subtree: true, attributes: true, attributeFilter: ['class'] }); });
+    await p.setInputFiles('#s-file', require('path').join(__dirname, 'fixtures/beat.wav')); await p.waitForTimeout(2500);
+    check((await p.evaluate(() => window.__glitched)) > 0, 'glitch: a drumbeat makes the pictures glitch');
+    check((await p.$$eval('#card .cc-strip', s => s.filter(x => getComputedStyle(x).animationName.includes('cc-glitch')).length)) === 0, 'glitch: the words never glitch');
+    check(!errs.length, 'games/xerox/glitch: no page errors ' + errs.join(' | '));
+    await ctx.close();
+  }
   // No words at all: all strips come from the poems.
   {
     const ctx = await b.newContext({ viewport: { width: 1280, height: 900 } }); const p = await ctx.newPage();
@@ -89,9 +123,10 @@ async function cutOne(p, words) {
       const D = PCP.cutupData, C = PCP.cutup, out = [], ids = D.assets.map(a => a.id), poems = Object.fromEntries(D.poems.map(p => [p.id, p]));
       for (let i = 0; i < 300; i++) {
         const R = PCP.prng.makeRng('t' + i), picks = R.shuffle(ids).slice(0, 3);
-        const plan = C.make(D, { picks, text: i % 3 ? 'nobody owns the weather ' + i : '', seed: 's' + i, knobs: { maxWords: 1 + (i % 7), strips: 3 + (i % 6) } });
+        const game = ['none', 'n7', 'lipo', 'snowball'][i % 4];
+        const plan = C.make(D, { picks, text: i % 3 ? 'nobody owns the weather ' + i : '', seed: 's' + i, game, knobs: { maxWords: 1 + (i % 7), strips: 3 + (i % 6) } });
         plan.strips.forEach(s => { if (!s.text) out.push('empty strip at seed ' + i); if (s.src === 'poem' && !poems[s.poem].stanzas[s.at[0]][s.at[1]].includes(s.text)) out.push('inexact at ' + i + ': ' + s.text); });
-        if (JSON.stringify(plan) !== JSON.stringify(C.make(D, { picks, text: i % 3 ? 'nobody owns the weather ' + i : '', seed: 's' + i, knobs: { maxWords: 1 + (i % 7), strips: 3 + (i % 6) } }))) out.push('not repeatable at ' + i);
+        if (JSON.stringify(plan) !== JSON.stringify(C.make(D, { picks, text: i % 3 ? 'nobody owns the weather ' + i : '', seed: 's' + i, game, knobs: { maxWords: 1 + (i % 7), strips: 3 + (i % 6) } }))) out.push('not repeatable at ' + i);
       }
       return out;
     });
@@ -100,5 +135,5 @@ async function cutOne(p, words) {
   }
   await b.close();
   if (fails.length) { console.log('FAIL:\n - ' + fails.join('\n - ')); process.exit(1); }
-  console.log('PASS: cutup sandbox - pick 3, add words, cut on Pixel 7, 320px and desktop; poem strips exact; your words in order; credits link; same link same card; strips say where they came from; pictures movable; found-poems count; cut again; save; reduced motion still; 300 seeded cards exact and repeatable.');
+  console.log('PASS: cutup sandbox - pick 3, add words, cut on Pixel 7, 320px and desktop; poem strips exact; your words in order; credits link; same link same card; strips say where they came from; pictures movable; found-poems count; cut again; save; reduced motion still; word games (N+7, lipogram, snowball) on your words only; xerox texture; glitch on the beat; 300 seeded cards exact and repeatable.');
 })();

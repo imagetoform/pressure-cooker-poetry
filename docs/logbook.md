@@ -8,6 +8,24 @@ owner: human
 
 # Logbook — pressurecookerpoetry.com update
 
+## 2026-11-19 00:23 — Q-15 yes ×3: Food Bank additions, xerox + glitch, Oulipo word games (sandbox v3)
+
+### What was asked
+Brandon: "yes to ALL 3" (Q-15 from the UI-references review).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Food Bank (D-36) | `content/food-bank.json`: 2 items appended to "Poetry, from scratch"; only additions (format check before writing). Descriptions use only facts confirmed on the pages |
+| Xerox (D-37) | `cutup.js`: SVG filter `#cc-xerox` (turbulence grain knocks out toner + slight displacement), injected once; `make()` flags `imgs[].xerox` with its own sub-RNG `xerox` (other choices unchanged); `imgs[].family` added |
+| Glitch (D-37) | sandbox listens to `A.onChange(S)`; `S.onset > 0.6` → `.cc-glitching` for 140 ms (max every 240 ms), strength from drama; CSS slices + pink/cyan split on `.cc-img` only |
+| Games (D-38) | `play(text, game, R)`: n7 (437-noun list, keeps caps/plurals/punctuation), lipo (banned letter from e/a/o/i/t/s per card, words → █ runs rendered as `.cc-redact` bars, strip flips to white paper), snowball; game in the state/link, chips (radiogroup, arrow keys) + live preview by the words box; caption tag "your words: …" |
+| Tests | cutup.cjs: games keep poem strips exact, lipo hides the banned letter, snowball order, n7 swaps, link restores game, punk always xerox, filter present, beat.wav triggers glitch, words never glitch; 300-card loop now cycles games. All 4 suites PASS; build reproducible |
+| Artifact | CUTUP MAKER sandbox v3 (version 1795069385-50a6) |
+
+### Open / notes
+- Another chat's project note: Brandon wants a blackout/erasure canvas and a Burroughs razor-and-glue cut-up (split words, glue halves), with tool assets he'll make himself. Not started; would be its own step.
+
 ## 2026-11-18 14:07 — Intake: UI references + proposals file, reviewed (nothing built)
 
 ### What was asked

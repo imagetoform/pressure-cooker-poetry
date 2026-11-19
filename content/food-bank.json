@@ -46,6 +46,20 @@
      "kind": "BOOK",
      "why": "Public-domain poetry collections, free to read and download in any format.",
      "url": "https://www.gutenberg.org/ebooks/bookshelf/60"
+    },
+    {
+     "t": "Poetry",
+     "by": "Standard Ebooks",
+     "kind": "BOOK",
+     "why": "Free, carefully produced editions of public-domain poetry. Their own production work is dedicated to the public domain (CC0), so the craft is free too.",
+     "url": "https://standardebooks.org/subjects/poetry"
+    },
+    {
+     "t": "800 Free eBooks",
+     "by": "Open Culture",
+     "kind": "ARCHIVE",
+     "why": "A no-login directory of free classic ebooks. The links lead out to Project Gutenberg, Apple Books and similar.",
+     "url": "https://www.openculture.com/free_ebooks"
     }
    ]
   },
