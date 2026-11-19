@@ -13,23 +13,28 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
-      - name: Rebuild the site
+      - name: Build the site
         run: python site/tools/build.py
-      - name: Check committed deploy files
-        run: git diff --exit-code -- site/dist
-      - name: Assemble the complete public site
-        run: python site/tools/assemble.py
+      - name: Build is identical on a second run
+        run: |
+          (cd site/public && find . -type f | sort | xargs sha256sum) > /tmp/one.txt
+          python site/tools/build.py
+          (cd site/public && find . -type f | sort | xargs sha256sum) | diff /tmp/one.txt -
       - name: Install browser test runner
         run: npm install --no-save playwright@1.62.1 && npx playwright install --with-deps chromium
-      - name: Test desktop and mobile flows
+      - name: Test every page, the cutup sandbox, the alive engine and Brain Candy
         run: |
           python -m http.server 8765 --directory site/public > /tmp/pcp-http.log 2>&1 &
-          node site/tests/visual-flow.cjs
-      - name: Upload review build and screenshots
+          sleep 1
+          node site/tests/site.cjs
+          node site/tests/alive.cjs
+          node site/tests/spin-cycle.cjs
+          node site/tests/cutup.cjs
+      - name: Upload the review build
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: visual-kitchen-review
+          name: site-review
           path: |
             site/public
             shots

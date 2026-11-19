@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Brain Candy: toys that take a trick apart and hand you the screwdriver. Play, reveal, learn.">
+<title>Brain Candy | Pressure Cooker Poetry</title>
+<style>
+:root{color-scheme:dark;--ink:#111014;--paper:#f5ead7;--acid:#e2ef63;--red:#ed5c43;--teal:#2ec4b6;--pink:#ff2d6f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--paper);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  background-image:radial-gradient(rgba(245,234,215,.07) 1px,transparent 1.4px);background-size:7px 7px}
+a{color:inherit} :focus-visible{outline:3px dashed var(--acid);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.site{border-bottom:2px solid var(--paper);padding:12px 0}
+header.site .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header.site a{text-decoration:none;font-weight:800}
+.eyebrow{font:700 .75rem/1.4 "Courier New",monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--acid)}
+h1{font:900 clamp(3rem,13vw,7.5rem)/.85 Impact,"Arial Black",sans-serif;text-transform:uppercase;margin:.3rem 0 .5rem}
+h1 span{display:inline-block;background:var(--pink);color:var(--ink);padding:0 .1em;transform:rotate(-2deg)}
+.lead{max-width:42rem;font-size:1.08rem}
+.hero{padding:26px 0 20px;border-bottom:8px solid var(--red)}
+.how{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0;font:800 .85rem "Courier New",monospace;text-transform:uppercase}
+.how b{background:var(--paper);color:var(--ink);padding:4px 8px}
+.how i{font-style:normal;align-self:center}
+
+.arcade{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));padding:28px 0}
+.cab{position:relative;background:#211c25;border:4px solid var(--paper);border-radius:14px 14px 4px 4px;padding:0 0 14px;display:flex;flex-direction:column;
+  box-shadow:6px 6px 0 var(--c);transition:transform .2s}
+.cab:hover{transform:translateY(-4px) rotate(-.6deg)}
+.marquee{background:var(--c);color:var(--ink);font:900 1.25rem/1 Impact,"Arial Black",sans-serif;text-transform:uppercase;text-align:center;padding:12px 8px;border-radius:9px 9px 0 0;border-bottom:4px solid var(--paper);
+  text-shadow:0 0 8px rgba(255,255,255,.6)}
+.cab.live .marquee{animation:flick 3.2s steps(1) infinite}
+@keyframes flick{0%,96%{filter:none}97%{filter:brightness(.5)}98%{filter:none}99%{filter:brightness(.6)}}
+.screen{margin:12px 12px 8px;aspect-ratio:4/3;border:4px solid #000;border-radius:10px;background:radial-gradient(circle at 50% 40%,color-mix(in srgb,var(--c) 35%,#06070a),#06070a 75%);
+  display:grid;place-items:center;overflow:hidden;position:relative;font:900 .8rem/1.1 "Courier New",monospace;color:var(--paper)}
+@media(max-width:560px){.screen{aspect-ratio:16/9}}
+/* mini scenes */
+.m-drum{width:58%;aspect-ratio:1;border-radius:50%;border:8px solid #c9c4ba;background:radial-gradient(circle,#2b3540,#151b21);position:relative;animation:t 6s linear infinite}
+.m-drum b{position:absolute;left:50%;top:50%;background:var(--paper);color:var(--ink);padding:1px 3px;font-size:.62rem;white-space:nowrap}
+@keyframes t{to{transform:rotate(360deg)}}
+.m-scale{display:grid;gap:6px;place-items:center}.m-scale .beam{width:150px;height:6px;background:var(--c);transform-origin:center;animation:tip 3s ease-in-out infinite alternate}
+.m-scale .pans{display:flex;gap:30px;font-size:1rem}.m-scale .pans span{background:var(--paper);color:var(--ink);padding:3px 6px}
+@keyframes tip{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.m-string{width:92%;height:84%}.m-string text{font:900 9px "Courier New",monospace;fill:#111}.m-string .ln{stroke:#ff2d6f;stroke-width:2;stroke-dasharray:300;stroke-dashoffset:300;animation:draw 4s ease-in-out infinite}
+@keyframes draw{40%,100%{stroke-dashoffset:0}}
+.m-lift{display:grid;gap:4px;width:86%}.m-lift span{border:2px solid #333;padding:3px 6px;font-size:.66rem;opacity:.35;animation:floor 8s steps(1) infinite}
+.m-lift span:nth-child(1){animation-delay:-6s}.m-lift span:nth-child(2){animation-delay:-4s}.m-lift span:nth-child(3){animation-delay:-2s}.m-lift span:nth-child(4){animation-delay:0s}
+@keyframes floor{0%,24%{opacity:1;background:var(--c);color:var(--ink)}25%,100%{opacity:.35;background:none;color:var(--paper)}}
+
+.screen::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.25) 0 2px,transparent 2px 4px);pointer-events:none}
+.cab p{margin:0 14px;font-size:.9rem;flex:1}
+.cab .num{font:700 .7rem "Courier New",monospace;margin:0 14px 6px;color:var(--c)}
+.coin{margin:12px 14px 0;display:flex;gap:10px;align-items:center}
+.coin a,.coin span:not(.slotlight){flex:1;text-align:center;padding:10px;font:900 .95rem Impact,"Arial Black",sans-serif;text-transform:uppercase;text-decoration:none;border:3px solid var(--paper)}
+.coin a{background:var(--acid);color:var(--ink);border-color:var(--ink);box-shadow:3px 3px 0 var(--paper)}
+.coin span{opacity:.55;font-size:.8rem}
+.slotlight{flex:0 0 14px;width:14px;height:22px;border:2px solid var(--paper);border-radius:3px;background:var(--c)}
+.cab.soon .screen{filter:grayscale(.6)}
+
+.jarwrap{border:3px dashed var(--paper);padding:16px;margin:0 0 30px;display:grid;gap:10px}
+.jar{display:flex;gap:6px;flex-wrap:wrap}
+.wrapper{width:76px;height:44px;display:grid;place-items:center;font:900 .62rem/1 "Courier New",monospace;text-transform:uppercase;text-align:center;background:#2a2530;color:#6d6573;
+  clip-path:polygon(0 20%,8% 0,16% 20%,84% 20%,92% 0,100% 20%,100% 80%,92% 100%,84% 80%,16% 80%,8% 100%,0 80%)}
+.wrapper.got{background:var(--c);color:#111}
+
+.dz{display:none;margin:0 0 40px;background:#05140b;color:#9dff9d;border:3px solid #9dff9d;padding:20px;font:700 1rem/1.5 "Courier New",monospace}
+.dz.on{display:block}
+.dz h2{font:900 clamp(1.6rem,6vw,2.8rem)/1 "Courier New",monospace;margin:.2rem 0 .6rem;letter-spacing:.04em}
+.dz input{font:700 1rem "Courier New",monospace;background:#000;color:#9dff9d;border:2px solid #9dff9d;padding:8px;width:min(100%,22rem)}
+.dz button{font:900 .9rem "Courier New",monospace;background:#9dff9d;color:#000;border:0;padding:10px 12px;cursor:pointer}
+.dz .cipher{font-size:1.4rem;letter-spacing:.12em;background:#000;padding:8px 10px;display:inline-block}
+.locked{display:none;margin:0 0 40px;border:3px solid var(--paper);padding:16px;font:700 .95rem "Courier New",monospace}
+.locked.on{display:block}
+footer{border-top:2px solid var(--paper);padding:14px 0 30px;font-size:.85rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><a href="/">PRESSURE COOKER POETRY</a><nav aria-label="Main"><a href="/learning/">Learning Curve</a> · <a href="/poems/">Poems</a> · <a href="/essays/">Essays</a> · <a href="/about/">Mission</a></nav></div></header>
+<main class="wrap">
+  <section class="hero">
+    <span class="eyebrow">Brain Candy / an arcade for taking tricks apart</span>
+    <h1>Brain <span>Candy</span></h1>
+    <p class="lead">Every machine here does a trick to you, then opens itself up so you can see the gears. Nobody grades your opinions. You just leave able to spot the trick next time, including when it's us doing it.</p>
+    <div class="how"><b>Play</b><i>→</i><b>Reveal</b><i>→</i><b>Learn</b></div>
+  </section>
+
+  <section class="arcade" aria-label="Machines">
+    <article class="cab live" style="--c:#ed5c43">
+      <div class="marquee">The Spin Cycle</div>
+      <div class="screen" aria-hidden="true"><div class="m-drum"><b style="transform:translate(-50%,-160%) rotate(20deg)">LAYOFFS</b><b style="transform:translate(-90%,10%) rotate(-30deg)">PROFIT</b><b style="transform:translate(-10%,80%) rotate(70deg)">TRUTH</b><b style="transform:translate(-30%,-40%) rotate(160deg)">38%</b></div></div>
+      <div class="num">Machine 01 · propaganda & doublespeak</div>
+      <p>Your client did something dirty. Load three detergents, spin it clean, X-ray the result, then switch sides and catch someone else's spin against the clock.</p>
+      <div class="coin"><span class="slotlight" aria-hidden="true"></span><a href="/brain-candy/spin-cycle/">Insert coin</a></div>
+    </article>
+    <article class="cab soon" style="--c:#2ec4b6">
+      <div class="marquee">Bias Factory</div>
+      <div class="screen" aria-hidden="true"><div class="m-scale"><div class="pans"><span>$9.99</span><span>$10</span></div><div class="beam"></div><div>SAME PRICE?</div></div></div>
+      <div class="num">Machine 02 · framing, anchoring, selection</div>
+      <p>A conveyor belt of your own snap judgments. The same number feels different depending on what came first. Watch your guesses drift, then see why.</p>
+      <div class="coin"><span class="slotlight" aria-hidden="true"></span><span>Coming next</span></div>
+    </article>
+    <article class="cab soon" style="--c:#ff2d6f">
+      <div class="marquee">Red-String Machine</div>
+      <div class="screen" aria-hidden="true"><svg class="m-string" viewBox="0 0 200 130"><rect x="0" y="0" width="200" height="130" fill="#b5895a"/><g><rect x="12" y="14" width="52" height="22" fill="#f5ead7"/><text x="16" y="29">THE MOON</text><rect x="128" y="10" width="60" height="22" fill="#f5ead7"/><text x="132" y="25">YOUR DENTIST</text><rect x="20" y="92" width="38" height="22" fill="#f5ead7"/><text x="24" y="107">1993</text><rect x="122" y="90" width="58" height="22" fill="#f5ead7"/><text x="126" y="105">PIGEONS</text></g><path class="ln" fill="none" d="M38 25 L158 21 L151 101 L39 103 L158 21"/><g fill="#ff2d6f"><circle cx="38" cy="25" r="4"/><circle cx="158" cy="21" r="4"/><circle cx="151" cy="101" r="4"/><circle cx="39" cy="103" r="4"/></g></svg></div>
+      <div class="num">Machine 03 · how conspiracies are built</div>
+      <p>Pin random facts to a corkboard and the machine strings them into a theory that sounds airtight. Every one is labelled fiction. The lesson is how easy it was.</p>
+      <div class="coin"><span class="slotlight" aria-hidden="true"></span><span>In the workshop</span></div>
+    </article>
+    <article class="cab soon" style="--c:#e2ef63">
+      <div class="marquee">S.O.F.T.</div>
+      <div class="screen" aria-hidden="true"><div class="m-lift"><span>4F · POST-TRAUMATIC STRESS DISORDER</span><span>3F · OPERATIONAL EXHAUSTION</span><span>2F · BATTLE FATIGUE</span><span>1F · SHELL SHOCK</span></div></div>
+      <div class="num">Machine 04 · the euphemism escalator</div>
+      <p>A hard word gets in the elevator. Every floor up, it comes out softer, longer and further from the pain. Shell shock rides first. Homage to George Carlin.</p>
+      <div class="coin"><span class="slotlight" aria-hidden="true"></span><span>In the workshop</span></div>
+    </article>
+  </section>
+
+  <section class="jarwrap" aria-label="Your wrapper jar">
+    <span class="eyebrow">Your wrapper jar</span>
+    <div>Every trick you catch in a machine leaves a wrapper. Kept in this browser only. Fill the jar and something opens.</div>
+    <div class="jar" id="jar"></div>
+  </section>
+
+  <section class="locked" id="locked">This door is locked. Catch every trick in the Spin Cycle to open it.</section>
+  <section class="dz" id="department-zero" aria-label="Department Zero" tabindex="-1">
+    <div>YOU WERE NOT SUPPOSED TO FIND THIS.<br>Fortunately, neither were we.</div>
+    <h2>DEPARTMENT ZERO</h2>
+    <div><i>Office of Unreasonable Possibilities.</i></div>
+    <p>File 001 is encrypted with the oldest trick in the book: every letter slid 13 places down the alphabet. Slide it back.</p>
+    <p class="cipher" aria-label="Cipher text: A B G U V A T, V F, V A R I V G N O Y R">ABGUVAT VF VARIVGNOYR</p>
+    <form id="decode"><label for="answer">Decoded:</label><br><input id="answer" autocomplete="off" spellcheck="false"> <button type="submit">Open file</button></form>
+    <p id="result" aria-live="polite"></p>
+  </section>
+</main>
+<footer><div class="wrap"><strong>Pressure Cooker Poetry</strong> · Brain Candy. Nothing here is stored anywhere but your own browser.</div></footer>
+<script>
+(function () {
+  'use strict';
+  const T = [['fog','Fog','#9fb4c7'],['name','Name-calling','#ff5a4e'],['glitter','Glitter words','#ffd23f'],['transfer','Transfer','#4f7cff'],['testimonial','Testimonial','#c86bff'],['folks','Plain folks','#8ccf5a'],['stack','Card stacking','#ff9f1c'],['wagon','Bandwagon','#2ec4b6']];
+  let got = []; try { got = JSON.parse(localStorage.getItem('pcp-spin-jar') || '[]'); } catch (e) { /* private mode */ }
+  const jar = document.getElementById('jar');
+  T.forEach(([id, name, c]) => { const w = document.createElement('div'); const has = got.includes(id); w.className = 'wrapper' + (has ? ' got' : ''); w.style.setProperty('--c', c); w.textContent = has ? name : '?'; w.setAttribute('aria-label', has ? 'Wrapper: ' + name : 'Wrapper not found yet'); jar.append(w); });
+  const full = T.every(([id]) => got.includes(id));
+  const dz = document.getElementById('department-zero');
+  function route() {
+    const want = location.hash === '#department-zero';
+    dz.classList.toggle('on', full);
+    document.getElementById('locked').classList.toggle('on', want && !full);
+    if (want && full) dz.focus();
+  }
+  addEventListener('hashchange', route); route();
+  document.getElementById('decode').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = document.getElementById('answer').value.trim().toUpperCase().replace(/\s+/g, ' ');
+    document.getElementById('result').textContent = v === 'NOTHING IS INEVITABLE'
+      ? 'Correct. That sentence is the whole department. File 002 opens when the next machine does. Until then: the Learning Curve is a good place to practise not believing in inevitability.'
+      : 'Not yet. A becomes N, B becomes O... or N becomes A. It works both ways.';
+  });
+})();
+</script>
+</body>
+</html>

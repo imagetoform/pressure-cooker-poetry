@@ -2,11 +2,311 @@
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)
 done_when: A Netlify preview of the updated site passes browser checks and Brandon approves publishing it to production
-next: Brandon - regular OpenRouter key in OPENROUTER_API_KEY, allow Actions PRs, decide heat/order/noise/weight mapping + Rococo/Muralism moods; Claude - tune Rococo/Muralism from the live site with Brandon (Rococo ground reads dark, not pastel)
+next: go-live Step 5 - Brandon opens the PR #14 Netlify preview (signed in), goes through the PR checklist, and says "ship it"; then merge to main and check the live site. Later: Brain Candy writing-method workshop (blackout canvas, razor/glue cut-up; Brandon makes the tool art).
 owner: human
 ---
 
 # Logbook — pressurecookerpoetry.com update
+
+## 2026-11-19 03:41 — Step 3 approved, Step 4 built: the cutup maker is the front door
+
+### What was asked
+Brandon: "It looks good" (sandbox v3).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Found first | Brandon merged PR #15 (research-only visual atlas: tools/atlas, library/atlas, atlas-scout workflow) into the release branch; its `build` check FAILED: 320px /lab/cutup/ 10px sideways, mid-deal (tiles tipped -4deg). Fixed by removing the tilt; worst overflow measured 0px across 40 samples at 6x CPU throttle. Atlas tests pass |
+| D-39 / D-40 | sandbox defaults approved as the design; `/` = the maker |
+| Code | `site/cutup/` (cutup.js engine + app.js page logic + cutup.css; knobs optional via `#knobs`); build copies it and writes `/cutup/data.js`; `/lab/cutup/` and `/` both use it |
+| Front door | `site/landing/index.html`: site menu, "Cut it up." lede, maker, footer. No knobs |
+| Fixes seen in screenshots | tall art stretched deal rows (now absolutely-placed images in square tiles); preview redaction bars invisible/white boxes (now `.cc-redact` spans, colour from `--ink` or `--fg`); all-caps lede too long on phone |
+| Design | new `DESIGN.md` from the approved look; old → `docs/history/DESIGN-kitchen-2026-11.md`; CLAUDE/AGENTS/README/site AGENTS/skill updated |
+| Tests | cutup.cjs runs the full flow on `/` and `/lab/cutup/` (+ no knobs and menu on `/`). All 4 suites PASS; build reproducible |
+
+### Open / notes
+- Step 5 (release) needs Brandon's explicit OK. Netlify preview is private.
+- Once PR #14 merges, the atlas workflow starts its Mon/Thu schedule (draft PRs only).
+
+## 2026-11-19 00:23 — Q-15 yes ×3: Food Bank additions, xerox + glitch, Oulipo word games (sandbox v3)
+
+### What was asked
+Brandon: "yes to ALL 3" (Q-15 from the UI-references review).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Food Bank (D-36) | `content/food-bank.json`: 2 items appended to "Poetry, from scratch"; only additions (format check before writing). Descriptions use only facts confirmed on the pages |
+| Xerox (D-37) | `cutup.js`: SVG filter `#cc-xerox` (turbulence grain knocks out toner + slight displacement), injected once; `make()` flags `imgs[].xerox` with its own sub-RNG `xerox` (other choices unchanged); `imgs[].family` added |
+| Glitch (D-37) | sandbox listens to `A.onChange(S)`; `S.onset > 0.6` → `.cc-glitching` for 140 ms (max every 240 ms), strength from drama; CSS slices + pink/cyan split on `.cc-img` only |
+| Games (D-38) | `play(text, game, R)`: n7 (437-noun list, keeps caps/plurals/punctuation), lipo (banned letter from e/a/o/i/t/s per card, words → █ runs rendered as `.cc-redact` bars, strip flips to white paper), snowball; game in the state/link, chips (radiogroup, arrow keys) + live preview by the words box; caption tag "your words: …" |
+| Tests | cutup.cjs: games keep poem strips exact, lipo hides the banned letter, snowball order, n7 swaps, link restores game, punk always xerox, filter present, beat.wav triggers glitch, words never glitch; 300-card loop now cycles games. All 4 suites PASS; build reproducible |
+| Artifact | CUTUP MAKER sandbox v3 (version 1795069385-50a6) |
+
+### Open / notes
+- Another chat's project note: Brandon wants a blackout/erasure canvas and a Burroughs razor-and-glue cut-up (split words, glue halves), with tool assets he'll make himself. Not started; would be its own step.
+
+## 2026-11-18 14:07 — Intake: UI references + proposals file, reviewed (nothing built)
+
+### What was asked
+Brandon attached a research file (13 UI references with dial numbers, 2 reading resources, 6 code proposals) "for looking over".
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Saved | `docs/intake/2026-11-18-ui-references/SOURCE.md` (byte-identical, `cmp` checked) |
+| Links | opened 7: brutalistfolio (MIT), oulipo (MIT), 3 gists (no licence stated; one is a copy of Ksenia Kondrashova's CodePen), Standard Ebooks (CC0 own work), Open Culture (no login). 7 GitHub repos rate-limited twice: **not checked**; the CodePen pen refused the fetch |
+| Review | `REVIEW.md`: code targets the deleted Kitchen → graveyard; keepers = xerox/glitch idea (own code), Food Bank additions (needs OK), URL checker for deliveries; Three.js needs a dependency OK; Oulipo only on visitor words or public-domain text, never the poems |
+| Canon | Q-15 added |
+
+### Open / notes
+- Recheck the 7 rate-limited repos one at a time before relying on them.
+- Nothing added to the library, Food Bank or site.
+
+## 2026-11-18 13:54 — Motion: drama with sound + built-in animations in the cutup sandbox
+
+### What was asked
+Brandon (via `/animatedwebs:design`): yes to the drama slider, and "different animations within the site's design embedded in subtle details, keeping the site alive and responsive, almost gamified but still reserved to the site's design". The AnimatedWebs connector isn't available (no `get_account` tool; not in the connector registry), so everything was built in-house from the site's own pieces.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Drama | `alive.js`: `A.drama` (0-3, default 1.5) + `A.setDrama`; beat layer in `step()` (bass lift, hit kick + spin, loudness swell; faster easing on hits). Slider in `/alive/lab/` and in the sandbox knobs. `docs/ALIVE.md` updated |
+| Card assembly | torn blocks wipe in, pictures drop, strips slap down one by one (`cc-enter`, CSS only, `backwards` fill so alive takes over after) |
+| Living card | alive engine attached to the card art (`room cut` classes): pictures react to touch, drag, keys, mic, song file; strips sway a hair (`cc-live`); "Hold still" and reduced motion stop it |
+| Discovery | tap/Enter a strip: it lifts and says "yours" or "from <poem>" |
+| Reserved game | "Poems you've cut from: N of 56" with 56 ticks; new ones flash (localStorage `pcp-cutup-found`, this browser only) |
+| Small details | tiles deal in with a stagger, pick number stamps on, Cut it up pulses when ready, buttons press in |
+| Sound row | Play it a song / Let it hear you / Hold still under the card (sandbox) |
+| Tests | cutup.cjs: compares plan + strips (not raw HTML, alive moves things), strip tells its source, pictures movable, found count, reduced motion = no animations and a complete card. All 4 suites PASS. 320px: `html { overflow-x: clip }` because dealing tiles tip mid-flight |
+| Artifact | CUTUP MAKER sandbox v2 (version 1795031655-8b31) |
+
+### Open / notes
+- Drama default 1.5 is a guess; Brandon tunes it.
+- Found-poems count is a visitor-facing feature: sandbox only until Brandon OKs it (AGENTS law 3).
+- ALIVE LAB artifact (407cb959…) not updated (at its 512-file cap); the drama slider is in the repo lab and the sandbox artifact.
+
+## 2026-11-18 08:24 — Go-live Step 3 started: cutup maker sandbox v1
+
+### What was asked
+Brandon: "Alright let's move forward" (after the reset). Next in the plan: a playable cutup maker sandbox (Q-14).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Engine | `site/landing/lab/cutup/cutup.js`: `make(data, {picks, text, seed, knobs})` returns a JSON plan; `render(plan, el)` draws it. Poem strips are `line.slice(start, end)` over word spans (never retyped); visitor words chunked 1-3 words, kept in typed order, max 12 words; 1-2 poems per card; picked cutouts + 2-3 wildcards sharing an emotion; torn colour blocks from the picked families' colours + one accent; credits link `/poems/<id>/` |
+| Page | `/lab/cutup/`: deal 12 images from 12 families (seeded), pick 3, add words, Cut it up / Cut again / Save (localStorage `pcp-cutups-sandbox`) / Copy link (state JSON in the hash). Sandbox knobs: picks 2-4, strips 3-8, your-words share, words per poem strip, ground dark/light, shape |
+| Look decisions (mine, for Brandon to overrule) | Typewriter face = the visitor's words only (black strip, white text); poem strips serif or heavy sans on cream/yellow/pink/blue/white paper; dark ground; first pick is the big image |
+| Data | `build.py` writes `/lab/cutup/data.js` (56 poems' text as stored, 509 cutouts, family colours) |
+| Test | `site/tests/cutup.cjs` (in CI): Pixel 7, 320px, desktop; exact strips; words in order; credits; same link same card; cut again; save; 300 seeded cards exact + repeatable. PASS. site/alive/spin-cycle PASS. Build reproducible |
+| Artifact | "CUTUP MAKER sandbox" slug ca8a8be7-7fdd-4b97-98f1-ecb1dc84c2c5 (167 cutouts: up to 6 per family; poem titles shown without links). Files staged in /home/claude/artifact-cutup (publish can't read /root/tasks) |
+
+### Open / notes (for Q-14)
+- With 6 words typed and "your words share" 0.4 of 5 strips, only the first 2 chunks of the visitor's words appear. Whether all their words should always appear is Brandon's call.
+- Poem lines are chosen at random, not matched to the images' emotions.
+- Black-on-dark tiles (e.g. Minimalism's black ellipse) are hard to see in the deal grid.
+- No motion yet (Step 4 brings the alive engine + bigger motion with music).
+
+## 2026-11-18 07:43 — The reset: Kitchen deleted, cutup card is the new outcome (D-31 to D-35)
+
+### What was asked
+Brandon, after opening the preview: drop the old generative Kitchen (kitchen, fridge, recipes, nutrition card; "too rigid and tacky"), go toward the torn-paper Cutup Database look (3 reference pictures), don't drop visitors straight into a poem, reset the design premise and delete the old versions so they stop getting mixed back in. His answers: words = his poem lines mixed with the visitor's words; front door = make one first; no logins, saves local; poems and essays on plain reading pages for now.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Writing moved out first | `content/poems.json` (56 poems, 2,650 lines), `content/essays.json` (2), `content/food-bank.json` (52 resources). Each poem line checked against the Kitchen source: 0 differences. JSON round-trip deep-equal |
+| Other things moved out | `site/shared/prng.js` (cyrb128-sfc32 verbatim), `library/families.json` (30 ids, names, branches, colours from styles.js), `site/alive/` (alive engine + lab, lab takes `?seed=`), reference pictures in `docs/design/reference/` |
+| Deleted | `site/live/`, `site/src/`, `site/dist/`, `site/visual/`, `assemble.py`, `build_board/kits/library/visual.py`, `live_check.js`, `tastefit.js`, `tastes.json`, `test*.js`, `links.txt`, `visual-flow.cjs`, `tools/cutouts/catalog.js`, old `/poems/` and `/essays/` shells + `landing/src/` |
+| New build | `site/tools/build.py` alone: landing + shared + alive, generated `/poems/<id>/`, `/essays/<id>/`, `/food-bank/`, cutouts to `/assets/cutouts/`. Reproducible (built twice, identical) |
+| Pages | `/` is a plain stand-in; About/Contact on `plain.css`; Learning's Kitchen links repointed; redirects `/kitchen/*` → `/poems/`, `/visual/*` → `/` |
+| Fixes found by the new 320px check | Spin Cycle shelf/stage and Learning h1 overflowed at 320px (pre-existing); fixed with `minmax(0,1fr)` and `overflow-wrap` |
+| Tests | New `site/tests/site.cjs`; `alive.cjs` now runs on `/alive/lab/`; CI + `netlify.toml` + `tools/codex/setup.sh` updated |
+| Docs | CANON D-31 to D-35, Q-14, graveyard, closed Q-01/02/04/05/06/08/09; AGENTS.md, site/AGENTS.md, CLAUDE.md, README rewritten for the reset; DESIGN.md and DATABASE_SPEC marked history; GO_LIVE_PLAN re-ordered; pcp-verify skill rewritten |
+
+### Result
+`site.cjs` PASS (69 pages at 320px + desktop, 56 poems / 2,650 lines verbatim, 2 essays with all sources), `alive.cjs` PASS, `spin-cycle.cjs` PASS. Screenshots looked at: stand-in `/` at 390, a poem at 320, an essay at 1280, the poems list at 390. Plain, readable, no overflow.
+
+### Open / notes
+- Production still runs the old site until Brandon OKs a release (Step 5).
+- `library/catalog.json` is now hand-edited (its generator read Kitchen files).
+- `game.js` in the Spin Cycle uses `Math.random()` for the drum's word scatter (decoration only, pre-existing). Noticed, not touched.
+- Ingredient pantry data and the Kitchen are in git history: parent of this commit, `site/src/pantry-plus.js`, `site/live/index.html`.
+
+## 2026-11-18 02:10 — Go-live Step 1 done: work on GitHub, PR #14
+
+### What was asked
+Brandon: "How do I do step 1, getting the work onto GitHub?"
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Push access | `add_repo` with push access was granted this time. The repo is cloned at `/home/claude/pressure-cooker-poetry`. This is now the working copy; `/home/claude/pcp` was the old push-less one |
+| Branch | `release/step-1-front-door`: all 14 local commits, on top of `e3372f2` (main) |
+| PR | #14, **draft, don't merge**: Step 2 goes on top, Step 3 is the release. `gh pr create` fails (no GraphQL); use `gh api repos/.../pulls` (REST) |
+| Checks | GitHub `build` check passed. Netlify bot: deploy preview ready, https://deploy-preview-14--pressurecookerpoetry.netlify.app |
+
+### Open / notes
+- Netlify deploy previews are **private** (curl gets 401). Claude cannot click through them; Brandon opens it signed in to Netlify. Claude verified the same build locally (3 suites pass, reproducible build).
+
+## 2026-11-18 01:55 — Go-live plan written
+
+### What was asked
+Brandon liked the batch. He wants the pieces to move more dramatically with music/audio, mentioned an esoteric easter egg ChatGPT worked on (for later), and asked to slow down and plan a step-by-step test, build and go-live process.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Plan | `docs/GO_LIVE_PLAN.md`: one loop (build → test → preview → Brandon's OK → live → check live → undo path) and 7 steps in order |
+| Canon | Pointer to the plan above LIVE NOW; change-log line |
+| Easter egg | Searched the repo and Claude's past chats: no description exists. Step 7 starts with Brandon sending it |
+
+### Open / notes
+- Step 1 (get the 13 local commits onto GitHub) needs Brandon. Step 2 (bigger motion) can start in the ALIVE LAB first, with a lab-only "drama" slider.
+
+## 2026-11-18 01:40 — Cutouts batch 4: 19 Muse zips, +163
+
+### What was asked
+Brandon sent 19 more Muse zips (rounds 3-4 for ukiyo-e, art-nouveau, mexican-muralism, futurism, gothic-revival, expressionism, rococo, art-deco, punk, psychedelia, bauhaus, surrealism).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| New tool | `tools/cutouts/unpack.py DEST ZIP...`: one folder per zip outside the repo, drops any PNG already received (sha256), prunes the sidecar, prints Muse's count note |
+| Unpack | 169 PNGs, 0 repeats |
+| Ingest | `ingest.py <folder> --source ai --cut none` per folder, 169 candidates |
+| Review | 5 contact sheets (`--cols 6 --cell 200`), every piece looked at |
+| Promote | 163 kept, 6 rejected (reasons in candidates.json): VW Beetle (brand trade dress), sombrero "mural painter" (cliche), rococo slipper and violin (don't read), cream plume (invisible), geta (reads as a bench) |
+| Checks | build reproducible; visual-flow, alive, spin-cycle all PASS |
+
+### Result
+Manifest 346 -> 509. Five families at 30+. Under 8: constructivism 2, dada 3, swiss 6, afrofuturism 0.
+
+### Open / notes
+- Muse's notes claim totals Claude never received (e.g. art-deco "28 delivered", 2 here before this batch). Missing: Art Deco rounds 1-3; round 3 of Psychedelia, Bauhaus, Surrealism, Punk.
+- Muse now aims for 30 per family. The canon floor stays 8; the under-8 families matter more.
+
+## 2026-11-17 23:31 — Muse batches 2 and 3: 219 kept, 15 rejected → 346 cutouts
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Received | 30 zips. 5 were byte-identical repeats of earlier zips (skipped). The other 25 held 234 new pieces, no piece-level repeats (checked by sha256 against every earlier delivery). |
+| ingest.py | Reads Muse's preset sidecar (`{cutouts:[...], made_by}`) natively; per-piece source: Muse's "Source B" fragments get licence `cosmos` with the original artist kept in provenance notes. |
+| contact_sheet.py | `--cols`, `--cell` for dense review. Seven sheets, every piece looked at. |
+| Rejected (15) | 3 Ab-Ex clip-art (blob, palette, thermometer-drip); Murakami-like flower ring; cropped grey sphere; smiley (litigious trademark); 5 Swiss tourist pieces (flag, ticket, SBB clock, Matterhorn, cowbell): Muse read "swiss" as Switzerland; grey sticker square; faint Supra fragment; hairline Y2K rings; toy airplane render. Reasons in candidates.json. |
+| Feedback | Written into MUSE_CUTOUT_MISSION.md and AI_CUTOUT_BRIEF.md (Swiss = Swiss Style, no artist copies, no litigious marks, no clip-art, no hairlines, woodblock texture for ukiyo-e). |
+| Tested | visual-flow, alive, spin-cycle: all PASS. Build reproducible. |
+
+### Corrections
+The record-keeping script first crashed on two early Constructivism records with no provenance source, after the cutouts had already been committed; docs went in a second commit.
+
+### Open / notes
+Under 8: art-deco 2, constructivism 2, dada 3, swiss 6, afrofuturism 0. Q-10 (batches that never arrived), Q-13 (30-per-family target reported by Muse, unconfirmed). Shipped cutouts are now 28 MB of WebP; a room loads only its own few.
+
+## 2026-11-17 19:50 — Brain Candy unparked: hub + Machine 01, The Spin Cycle (D-30)
+
+### What was asked
+"Build on the Brain Candy page … immersive, animated, almost gamified, but unique and educational."
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Read prior design | `origin/design/brain-candy-mood-interview:docs/EXPERIENCE_OVERHAUL_BRAIN_CANDY.md` (five machines, Play → Reveal → Learn, Eye / Department Zero). Built on it; its Propaganda Machine + DoubleSpeak became The Spin Cycle (no live AI, so curated sentences instead of free text). |
+| Verified facts | IPA founded 1937, seven devices in the Nov 1937 bulletin; Orwell's essay in Horizon, April 1946; Carlin's shell shock → battle fatigue → operational exhaustion → PTSD chain. Sources listed on the page. |
+| The Spin Cycle | `site/landing/brain-candy/spin-cycle/` (index.html, data.js, game.js, assets/mister-vulture.webp). 8 techniques × 6 fictional clients = 48 hand-written spun sentences. Washer drawn in CSS, gauges, tumbling drum, suds, synthesized sounds (mute), X-ray reveal, timed catch-the-spin round (timer can be turned off), combo scoring, wrapper jar in localStorage, learn cards with sources. |
+| Hub | `site/landing/brain-candy/`: four arcade cabinets with live mini-scenes, the jar, Department Zero File 001 (ROT13 → "NOTHING IS INEVITABLE"), locked until the jar is full. |
+| Plan | docs/BRAIN_CANDY.md: six machines, the jar/cipher progression, build order, open questions. |
+| Tested | site/tests/spin-cycle.cjs PASS on desktop, Pixel 7, reduced motion (full play-through incl. keyboard picks, jar, lock and cipher). Looked at screenshots: fixed buttons showing before the spin (`[hidden]` vs `display:flex`), stretched coin light, broken empty wrappers, a filled-black string path. |
+
+### Open / notes
+Not linked from the main nav yet (add when Brandon approves). Q-12 in the canon.
+
+## 2026-11-17 17:43 — Alive layer (D-29); Muse's first five families (127 cutouts)
+
+### What was asked
+Ingest the new zips; "everything responsive through audio, touch or keystroke … feels alive to the user's inputs."
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Muse zips | Minimalism 9, Memphis 8, Brutalism 9, Grunge 9, Situationism 10 delivered (Muse made them; its own sidecar format, mapped in a one-off script). Kept 43, rejected 2: a 1-px diagonal (invisible) and a fingerprint with a fake checkerboard painted in. The punk zip was byte-identical to the one already in. |
+| Mistake caught | Ran clean_edges.py on Muse's pieces: it trimmed outer dots of confetti/splat pieces. Restored all 45 from the deliveries; clean_edges.py now warns it's only for pieces cropped from multi-piece sheets. |
+| Engine | `site/visual/alive.js`: signals from pointer/touch, keys, scroll, opt-in mic, song file, tilt; ten verbs keyed to emotion tags; drag (mouse grabs under text, touch slides sideways), ransom letters, ink stamps on real taps only, keyboard moves, Hold still, reduced motion, one rAF loop that sleeps. Loose scraps: the room's chosen cutouts its layout didn't place, seeded from the receipt. Doc: docs/ALIVE.md. |
+| Bugs fixed on the way | Audio context created after the permission wait starts suspended: now made inside the click. Letter colours could match their tile (#111 vs #111111): now by contrast. Family regex missed `y2k` (digit) in build_visual.py and ingest.py: fixed. Lab data regex grabbed branch ids: fixed. |
+| Lab | `/visual/lab/alive/`: all cutouts, family chips, meters, behaviour labels, shuffle, song, mic, tilt. Published as a claude.ai artifact (mic and tilt don't work inside artifacts; the song button does). |
+| Tested | site/tests/alive.cjs PASS (pointer, drag, letters, stamps, keyboard, fake mic, song file, hold still, replay identical, phone tap, reduced motion). visual-flow.cjs PASS. Build reproducible. |
+
+### Open / notes
+Rooms still place only 1–3 cutouts themselves (old layouts): D-18 is the real fix. Q-10, Q-11 in the canon. Still no push access in this session.
+
+## 2026-11-17 14:31 — One rulebook; Punk from ChatGPT; split/ingest tools
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Merged `agents/codex-playbook` | Kept its AGENTS.md, DESIGN.md, folder AGENTS.md files, .agents/skills, templates. Folded its docs/DECISIONS.md into docs/CANON.md (D-23–D-28, Q-08, Q-09) and deleted it. Every reference repointed to CANON. Stale bits fixed (collage, dials, intake pipeline). |
+| Graveyarded `fix/collage-and-front-door-weight` | Its tiles are cut from the deleted AI atlas and its fonts serve the deleted collage page. Don't merge. |
+| Punk | ChatGPT first sent one 8-piece sheet (split with split_sheet.py, ~350 px pieces), then a zip of the same 8 as separate 1200 px files with a sidecar. The zip versions are fresh, sharper renders, so they replaced the split ones (old records marked `replaced`). Its own separation left slivers of neighbouring pieces on 6 of 8: clean_edges.py removed them (fist needed --keep 0.3). Megaphone and NO MASTERS keep a flat crop edge from ChatGPT; reads as a scissor cut. All 8 kept with ChatGPT's own emotion tags. |
+| Checked | ChatGPT said it would upload to the repo: nothing arrived (no branch, commit or PR). Its GitHub access is likely read-only. Deliveries come through Brandon. |
+
+### Open / notes
+84 cutouts. This session still has no push access; everything is local commits on `docs/canon`.
+
+## 2026-11-17 11:03 — Real cutout database: 2 → 76 image files (D-20, D-21)
+
+### What was asked
+"Implement the actual cutouts into a database, not just text descriptions."
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Why it stalled before | Every earlier attempt produced descriptions, leads or pipelines. The OpenRouter Actions pipeline ran once and then waited on a key. This workspace can reach The Met and Cleveland Museum APIs directly. Wikimedia search API rate-limits this connection (direct upload.wikimedia.org links work). Art Institute of Chicago returned nothing. |
+| Tools | `tools/cutouts/harvest.py` (Met + Cleveland, CC0 only, subject mode via rembg isnet-general-use, ink mode for prints), `contact_sheet.py`, `promote.py` (tags, rejects, re-files, makes WebP), `web_copy.py`. |
+| Harvested | 125 candidates. Every one looked at on contact sheets. Kept 74, rejected 51 (wrong family from loose name searches, ghosted cuts, duplicates). |
+| Site | build_library.py ships the committed WebP copies (no Pillow needed in CI/Netlify; byte-stable). Picker rooms use library cutouts only, one from each picked family first. |
+| Tested | visual-flow.cjs passes. Three rooms cooked on Pixel 7 emulation: real cutouts load, no errors. |
+
+### Corrections
+Tagged batches while a harvest was running; the harvester saved a stale copy over the decisions. Fixed: harvest now re-reads before each save. Re-applied all decisions; manifest was unaffected.
+First tried encoding WebP inside the build: very slow, and CI/Netlify have no Pillow. Moved to promote time.
+
+### Open / notes
+Rooms show cutouts poorly (old poem-first layouts): that is D-18. 16 families have no cutouts (Q-07). "artist:" filter is a substring match: "Barbier" and "Heckel" matched other people on The Met, so check every sheet.
+
+## 2026-11-17 10:15 — Canon created; fresh-start cleanup (D-17, D-18, D-19)
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Canon | Added docs/CANON.md, AGENTS.md, CLAUDE.md. CANON is the single source of truth; briefs are history. |
+| Deleted | AI atlas + provenance.json, landing/index.html (old collage), landing/assets (~235 cutouts), 7 landing/src JS files (cabinet, resonance, old engine copies). |
+| Replaced | Picker cards now draw each family's palette as colour bands. `/collage/` redirects to `/`. |
+| Tested | Rebuilt; site/tests/visual-flow.cjs passes (desktop, Pixel 7 emulation, 320px). Not deployed. |
+
+### Open / notes
+Dials are retired in the canon but still in adapter.js and site/src/tastes.js. Rewrite adapter to emotion wheel next. Remote branches not deleted (no push access in this session).
+
+## 2026-11-17 09:34 — Agent playbook: AGENTS.md, DESIGN.md, decisions, Codex skills
+
+### What was asked
+Brandon: read the repo and set up the design and agents markdown, plus whatever else would make the models working on this site (ChatGPT/Codex especially) work better.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| AGENTS.md (root) | source-of-truth order (owner > DECISIONS > issue #10 > specs > history), 8 laws, repo map, commands, workflow, definition of done, the real failure modes from the two intake audits, voice rules, skill triggers. About 10 KB, under Codex's 32 KiB instruction budget together with a nested file |
+| site/AGENTS.md, library/AGENTS.md | folder rules: build.py's exact-match patches, the four engine files duplicated in site/src and site/landing/src (identical today, nothing syncs them), committed dist, build_visual's header extraction and content-hash receipts; asset verification, rights statuses, tagging, kit-part limits |
+| DESIGN.md | shell tokens taken from the Kitchen's existing --k-* / --f-* variables (contrast measured), shell vs room, the generative system, collage/motion/component rules, the Don't list, and the front door's off-token drift flagged for Brandon |
+| docs/DECISIONS.md | Brandon's standing decisions with superseded items marked (Mood Interview, cabinet as front door) and open ones (Heat/Order/Noise/Weight, Pop Art/Maximalism dominance) |
+| .agents/skills/ | pcp-verify, pcp-design-pass, pcp-asset-intake (Codex loads .agents/skills automatically) |
+| Other | CLAUDE.md imports AGENTS.md; tools/codex/setup.sh for the Codex environment setup script; PR template; agent-task issue template; README design law and route list brought up to date (front door at /, collage at /collage/) |
+| Checked | build.py + assemble.py run clean on this branch, site/dist unchanged; setup.sh passes bash -n; README route claims checked against site/visual/app.js route() |
+
+### Open / notes
+- Brandon: paste `bash tools/codex/setup.sh` into the Codex environment's setup script.
+- Brandon to decide: bring site/visual/visual.css (Arial/Georgia, cream #f3eadb on #17151a, lime accent) onto the Kitchen tokens, or keep it.
+- Browser suite not run here (docs-only change; CI runs it on the PR).
 
 ## 2026-11-05 22:11 — Sent Brandon the preset's system prompt on its own
 

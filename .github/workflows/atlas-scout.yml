@@ -1,0 +1,66 @@
+name: PCP Visual Atlas Scout
+
+# Research and review artifacts only: never publish to production.
+on:
+  schedule:
+    - cron: "13 10 * * 1,4"
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "tools/atlas/**"
+      - "library/atlas/**"
+      - ".github/workflows/atlas-scout.yml"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: pcp-atlas-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  atlas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v6.1.0
+        with:
+          python-version: "3.12"
+      - name: Scout public sources and code metadata
+        if: github.event_name != 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ARENA_ACCESS_TOKEN: ${{ secrets.ARENA_ACCESS_TOKEN }}
+        run: python3 tools/atlas/scout.py --limit 5
+      - name: Prepare an offline PR preview
+        if: github.event_name == 'pull_request'
+        run: python3 tools/atlas/scout.py --offline
+      - name: Build offline visual pinboard and seeded collage variations
+        run: python3 tools/atlas/gallery.py
+      - name: Test atlas
+        run: python3 -m unittest discover -s tools/atlas -p "test_*.py"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: pcp-visual-atlas-${{ github.run_number }}
+          path: out/pcp-atlas/
+          if-no-files-found: error
+          retention-days: 30
+      - name: Open draft discovery PR, never publish
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$(git status --porcelain -- library/atlas/discoveries.json)" ]; then
+            echo "No new sources. The gallery is still available as an artifact."
+            exit 0
+          fi
+          git config user.name "pcp-atlas-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "atlas/discovery-$GITHUB_RUN_ID"
+          git add library/atlas/discoveries.json
+          git commit -m "atlas: new discovery metadata $GITHUB_RUN_ID"
+          git push origin HEAD
+          gh pr create --draft --base main --title "Atlas research batch $GITHUB_RUN_ID" \
+            --body "Automated source metadata and design links. Review licensing and source provenance before reuse. No third-party code executes, no new public assets, and the live site is untouched. Download the Actions artifact for the visual gallery and seeded cutup experiments."

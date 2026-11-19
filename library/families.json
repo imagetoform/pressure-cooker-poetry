@@ -1,0 +1,309 @@
+[
+ {
+  "id": "art-nouveau",
+  "name": "Art Nouveau",
+  "branch": "ornament",
+  "colors": [
+   "#6b7a2f",
+   "#b08d3c",
+   "#3f5a3a"
+  ]
+ },
+ {
+  "id": "art-deco",
+  "name": "Art Deco",
+  "branch": "ornament",
+  "colors": [
+   "#c9a227",
+   "#111111",
+   "#1d5c5a"
+  ]
+ },
+ {
+  "id": "psychedelia",
+  "name": "Psychedelia",
+  "branch": "ornament",
+  "colors": [
+   "#ff3fa4",
+   "#ffb800",
+   "#7a2cff",
+   "#00c2a8"
+  ]
+ },
+ {
+  "id": "minimalism",
+  "name": "Minimalism",
+  "branch": "order",
+  "colors": [
+   "#111111",
+   "#d4251c"
+  ]
+ },
+ {
+  "id": "swiss",
+  "name": "Swiss / International",
+  "branch": "order",
+  "colors": [
+   "#d4251c",
+   "#111111"
+  ]
+ },
+ {
+  "id": "bauhaus",
+  "name": "Bauhaus",
+  "branch": "order",
+  "colors": [
+   "#d4251c",
+   "#1f4fbf",
+   "#f2c200",
+   "#111111"
+  ]
+ },
+ {
+  "id": "brutalism",
+  "name": "Brutalism",
+  "branch": "order",
+  "colors": [
+   "#111111",
+   "#8a8a85"
+  ]
+ },
+ {
+  "id": "constructivism",
+  "name": "Constructivism",
+  "branch": "revolt",
+  "colors": [
+   "#c4161c",
+   "#111111",
+   "#e8dcc4"
+  ]
+ },
+ {
+  "id": "dada",
+  "name": "Dada",
+  "branch": "revolt",
+  "colors": [
+   "#111111",
+   "#f4f4f2",
+   "#c4161c"
+  ]
+ },
+ {
+  "id": "punk",
+  "name": "Punk",
+  "branch": "revolt",
+  "colors": [
+   "#111111",
+   "#ff2d6f",
+   "#f4f4f2"
+  ]
+ },
+ {
+  "id": "futurism",
+  "name": "Futurism",
+  "branch": "future",
+  "colors": [
+   "#e2321f",
+   "#111111",
+   "#f2c200"
+  ]
+ },
+ {
+  "id": "cyberpunk",
+  "name": "Cyberpunk",
+  "branch": "future",
+  "colors": [
+   "#ff2bd6",
+   "#00e5ff",
+   "#0b0b1a"
+  ]
+ },
+ {
+  "id": "vaporwave",
+  "name": "Vaporwave",
+  "branch": "future",
+  "colors": [
+   "#ff71ce",
+   "#01cdfe",
+   "#b967ff",
+   "#fffb96"
+  ]
+ },
+ {
+  "id": "maximalism",
+  "name": "Maximalism",
+  "branch": "excess",
+  "colors": [
+   "#d11f8b",
+   "#f2c200",
+   "#1f7a4d",
+   "#2a5bd7",
+   "#e2321f"
+  ]
+ },
+ {
+  "id": "pop-art",
+  "name": "Pop Art",
+  "branch": "excess",
+  "colors": [
+   "#e2321f",
+   "#f2c200",
+   "#1f4fbf",
+   "#111111"
+  ]
+ },
+ {
+  "id": "abstract-expressionism",
+  "name": "Abstract Expressionism",
+  "branch": "abstract",
+  "colors": [
+   "#111111",
+   "#c4161c",
+   "#f4f4f2"
+  ]
+ },
+ {
+  "id": "geometric-abstraction",
+  "name": "Geometric Abstraction",
+  "branch": "abstract",
+  "colors": [
+   "#2a5bd7",
+   "#f2c200",
+   "#c4161c",
+   "#111111"
+  ]
+ },
+ {
+  "id": "op-art",
+  "name": "Op Art",
+  "branch": "abstract",
+  "colors": [
+   "#111111",
+   "#f4f4f2"
+  ]
+ },
+ {
+  "id": "surrealism",
+  "name": "Surrealism",
+  "branch": "abstract",
+  "colors": [
+   "#161925",
+   "#d0bfa8",
+   "#e55d35"
+  ]
+ },
+ {
+  "id": "expressionism",
+  "name": "Expressionism",
+  "branch": "abstract",
+  "colors": [
+   "#24202c",
+   "#e5a827",
+   "#b73138"
+  ]
+ },
+ {
+  "id": "memphis",
+  "name": "Memphis",
+  "branch": "excess",
+  "colors": [
+   "#ffdf44",
+   "#00a8ac",
+   "#f17baf",
+   "#1a175a"
+  ]
+ },
+ {
+  "id": "rococo",
+  "name": "Rococo",
+  "branch": "excess",
+  "colors": [
+   "#fce4ec",
+   "#d4af37",
+   "#1a1a1a",
+   "#fff59d"
+  ]
+ },
+ {
+  "id": "zine-diy",
+  "name": "Zine / DIY",
+  "branch": "revolt",
+  "colors": [
+   "#171717",
+   "#f0ece3",
+   "#fa3a70"
+  ]
+ },
+ {
+  "id": "situationism",
+  "name": "Situationism",
+  "branch": "revolt",
+  "colors": [
+   "#111111",
+   "#eae5d8",
+   "#d42f24"
+  ]
+ },
+ {
+  "id": "grunge-design",
+  "name": "Grunge Design",
+  "branch": "revolt",
+  "colors": [
+   "#272920",
+   "#aba18b",
+   "#cf632e"
+  ]
+ },
+ {
+  "id": "mexican-muralism",
+  "name": "Mexican Muralism & Rasquache",
+  "branch": "revolt",
+  "colors": [
+   "#c25927",
+   "#1b4965",
+   "#e8a838",
+   "#2c221e"
+  ]
+ },
+ {
+  "id": "afrofuturism",
+  "name": "Afrofuturism",
+  "branch": "future",
+  "colors": [
+   "#241345",
+   "#e99d22",
+   "#31c6b4"
+  ]
+ },
+ {
+  "id": "y2k",
+  "name": "Y2K",
+  "branch": "future",
+  "colors": [
+   "#d9e4f1",
+   "#7b8cc6",
+   "#24b4cb",
+   "#39314d"
+  ]
+ },
+ {
+  "id": "gothic-revival",
+  "name": "Gothic Revival",
+  "branch": "ornament",
+  "colors": [
+   "#17182b",
+   "#834753",
+   "#decda0"
+  ]
+ },
+ {
+  "id": "ukiyo-e",
+  "name": "Ukiyo-e",
+  "branch": "ornament",
+  "colors": [
+   "#243c57",
+   "#e3c9a2",
+   "#bd6248"
+  ]
+ }
+]

@@ -1,15 +1,47 @@
 # Cutouts
 
-`inbox/` is for cutouts that haven't been tagged yet. Once a cutout belongs to a movement, move it into that movement's `library/families/<branch>/<movement>/cutouts/` folder.
+Real image files only (CANON D-20). Each cutout is a transparent PNG master plus a WebP web copy in
+`library/families/<branch>/<family>/cutouts/`, and a record in `manifest.json` with its source, creator, date and license.
 
-How to tag:
-1. Open the site with `?lab=1#/lab` (the cutout tagger).
-2. Load the images, tap the emotion wheel to tag each one, and fill in a label and categories.
-3. Copy the manifest entries into the cutout manifest (`window.PCP.assets` in `site/live/index.html`, or a new manifest file).
-4. Copy the image files to `assets/cutouts/` next to the deployed `index.html`.
+| File | What |
+|---|---|
+| `manifest.json` | The live database: every cutout the site uses. Built into the site at `/assets/cutouts/` by `site/tools/build.py`. |
+| `candidates.json` | Everything ever harvested, with status `candidate`, `kept` or `rejected`. Rejected objects are never harvested again. |
 
-Tags are emotion words only. The wheel decides how close one emotion is to another.
+## Adding cutouts: harvest, look, promote
 
-## Finding cutouts automatically
+```sh
+# 1. Harvest CC0 images from a museum and cut them out (subject mode) or keep only the ink (ink mode, for prints on paper)
+python3 tools/cutouts/harvest.py posada-family-id 9 --source met --mode ink "artist:Posada"
+python3 tools/cutouts/harvest.py expressionism 9 --source cma --mode ink "artist:Kirchner" "artist:Kollwitz"
+#    sources: met (The Met), cma (Cleveland Museum of Art). "artist:Name" = only objects whose artist matches.
 
-`shopping-list.json` is the list of cutouts still wanted. The pipeline in `tools/cutouts/` (run from GitHub Actions, see `docs/CUTOUT_PIPELINE.md`) finds public-domain images for them, cuts them out, tags them by looking, and opens a pull request. Records land in `manifest.json`; each run's report is in `runs/`.
+# 2. LOOK at them. This step is the point.
+python3 tools/cutouts/contact_sheet.py tmp/sheet.png expressionism
+
+# 3. Write decisions (keep + emotion tags, or reject + why) and promote. Makes the WebP copies too.
+python3 tools/cutouts/promote.py decisions.json
+```
+
+A decision looks like
+`{"id": "expressionism-cma138833", "keep": true, "label": "On the Street (Kirchner)", "emo": ["apprehension", "distraction", "loathing"], "cats": ["institution", "memory"], "notes": "why"}`.
+Add `"family": "other-family"` to re-file a cutout under a better family. Ids can be shortened to any unique prefix.
+
+Emotion tags must be words on the emotion wheel (`library/catalog.json` vocabulary). Categories: food, object, memory, institution, concept, absurdity.
+
+**Don't run `harvest.py` and `promote.py` at the same time.** Saves are merge-safe now, but there's no reason to tempt it.
+
+## Outside deliveries (ChatGPT, Brandon's art, scans)
+
+```sh
+python3 tools/cutouts/ingest.py delivery.zip --source chatgpt     # or a folder; needs a cutouts.json sidecar
+python3 tools/cutouts/contact_sheet.py tmp/sheet.png punk          # look
+python3 tools/cutouts/promote.py decisions.json                    # {"id": ..., "keep": true} reuses the suggested tags
+```
+If the AI sent one sheet with several pieces: `python3 tools/cutouts/split_sheet.py sheet.png OUT_DIR family slug1 slug2 ...`. If its pieces carry slivers of their neighbours: `python3 tools/cutouts/clean_edges.py FILE.png` (raise `--keep` for bigger slivers). Ask the AI for **one image per cutout**: a split sheet comes out small.
+
+The AI brief is `docs/handoffs/AI_CUTOUT_BRIEF.md`. Sources: chatgpt, brandon, scan.
+
+## Brandon's own images
+
+Put files in `library/cutouts/inbox/` with a note on where they came from. They go through the same look-and-tag step.

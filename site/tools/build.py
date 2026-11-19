@@ -1,236 +1,169 @@
-"""Build the updated pressurecookerpoetry.com index.html.
+"""Build the whole site into site/public/. This is exactly what Netlify runs:
 
-Reads live/index.html (the page currently in production), applies exact,
-asserted string patches, inlines the new CSS/JS from src/, and writes
-dist/index.html. Every patch must match exactly once, so a changed
-source page fails loudly instead of half-applying.
+    python3 site/tools/build.py
+
+What goes where:
+  site/landing/   -> /            hand-written pages (front door, Brain Candy, Learning, About, Contact) + _redirects
+  site/shared/    -> /shared/     plain.css (reading pages) and prng.js (seeded randomness)
+  site/alive/     -> /alive/      the motion engine (alive.js, alive.css) and its lab at /alive/lab/
+  site/cutup/     -> /cutup/      the cutup maker: cutup.js (engine), app.js (page), cutup.css; data.js generated here
+                                  used by / (front door) and /lab/cutup/ (the same maker plus Brandon's knobs)
+  library cutouts -> /assets/cutouts/<id>.webp   every kept cutout in library/cutouts/manifest.json
+  content/*.json  -> /poems/ /essays/ /food-bank/  plain reading pages, generated here
+
+Authored writing is printed exactly as stored in content/ (AGENTS.md law 1): text is HTML-escaped,
+never re-worded. The output is byte-identical between runs: sorted inputs, no timestamps.
+The old Kitchen and its front door were retired on 2026-11-18 (CANON D-31); don't bring them back here.
 """
-import os
-import sys
+import html
+import json
+import re
+import shutil
+from pathlib import Path
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = os.path.join(ROOT, "src")
+SITE = Path(__file__).resolve().parents[1]
+REPO = SITE.parent
+PUB = SITE / "public"
+CONTENT = REPO / "content"
+
+NAV = [("/", "Make"), ("/poems/", "Poems"), ("/essays/", "Essays"), ("/learning/", "Learning"), ("/about/", "About")]
 
 
-def read(name):
-    with open(os.path.join(SRC, name), encoding="utf-8") as f:
-        return f.read()
+def esc(s):
+    return html.escape(s, quote=True)
 
 
-def patch(s, old, new, label):
-    n = s.count(old)
-    if n != 1:
-        sys.exit(f"patch '{label}': expected 1 match, found {n}")
-    return s.replace(old, new)
+def page(title, body, here, desc=""):
+    nav = "".join('<a href="%s"%s>%s</a>' % (u, ' aria-current="page"' if u == here else "", t) for u, t in NAV)
+    return ('<!doctype html>\n<html lang="en"><head><meta charset="utf-8">'
+            '<meta name="viewport" content="width=device-width,initial-scale=1">'
+            '<title>%s | Pressure Cooker Poetry</title>%s'
+            '<link rel="stylesheet" href="/shared/plain.css"></head>\n'
+            '<body><header class="top"><a class="brand" href="/">Pressure Cooker Poetry</a>'
+            '<nav aria-label="Main">%s</nav></header>\n<main id="main">\n%s\n</main>\n'
+            '<footer class="foot">Free to read. No accounts, no tracking.</footer></body></html>\n'
+            % (esc(title), '<meta name="description" content="%s">' % esc(desc) if desc else "", nav, body))
+
+
+def write(rel, text):
+    p = PUB / rel
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(text, encoding="utf-8")
+
+
+# ---------- poems ----------
+def poems():
+    items = json.loads((CONTENT / "poems.json").read_text(encoding="utf-8"))
+    books = {}
+    for p in items:
+        books.setdefault(p.get("book") or "Poems", []).append(p)
+        stanzas = "\n".join('<p class="stanza">%s</p>' % "<br>\n".join('<span class="line">%s</span>' % esc(l) for l in st)
+                            for st in p["stanzas"])
+        meta = " · ".join(esc(x) for x in [p.get("author"), p.get("book"), p.get("move")] if x)
+        body = ('<article class="reading poem">\n<p class="kicker"><a href="/poems/">Poems</a></p>\n<h1>%s</h1>\n'
+                '<p class="meta">%s</p>\n<div class="poem-body">\n%s\n</div>\n</article>' % (esc(p["title"]), meta, stanzas))
+        write("poems/%s/index.html" % p["id"], page(p["title"], body, "/poems/"))
+    out = ['<h1>Poems</h1>', '<p class="lede">%d poems. Every word as written.</p>' % len(items)]
+    for book in books:
+        out.append('<section class="shelf"><h2>%s</h2><ol class="list">' % esc(book))
+        for p in sorted(books[book], key=lambda p: (p.get("number") or 0, p["id"])):
+            first = (p["stanzas"][0][0] if p["stanzas"] and p["stanzas"][0] else "")
+            out.append('<li><a href="/poems/%s/">%s</a><span class="first">%s</span></li>' % (p["id"], esc(p["title"]), esc(first)))
+        out.append("</ol></section>")
+    write("poems/index.html", page("Poems", "\n".join(out), "/poems/"))
+    return len(items)
+
+
+# ---------- essays ----------
+def inline(s):
+    s = esc(s)
+    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
+    s = re.sub(r"\*(.+?)\*", r"<em>\1</em>", s)
+    return re.sub(r"\[(\d+)\]", r'<a class="cite" href="#r-\1" aria-label="Source \1">\1</a>', s)
+
+
+def essay_body(text):
+    out = []
+    for block in text.split("\n\n"):
+        lines = block.split("\n")
+        if block.startswith("## "):
+            out.append("<h2>%s</h2>" % inline(block[3:]))
+        elif all(l.startswith("- ") for l in lines):
+            out.append("<ul>%s</ul>" % "".join("<li>%s</li>" % inline(l[2:]) for l in lines))
+        else:
+            out.append("<p>%s</p>" % "<br>".join(inline(l) for l in lines))
+    return "\n".join(out)
+
+
+def essays():
+    items = json.loads((CONTENT / "essays.json").read_text(encoding="utf-8"))
+    rows = []
+    for e in items:
+        rec = "".join('<li id="r-%d">%s <a href="%s">%s</a></li>' % (i + 1, esc(r.get("text", "")), esc(r.get("url", "")), esc(r.get("src", "source")))
+                      for i, r in enumerate(e.get("receipts", [])))
+        body = ('<article class="reading essay">\n<p class="kicker"><a href="/essays/">Essays</a></p>\n<h1>%s</h1>\n'
+                '<p class="dek">%s</p>\n<p class="meta">%s · %s</p>\n%s\n'
+                '<section class="receipts"><h2>Sources</h2><ol>%s</ol></section>\n</article>'
+                % (esc(e["title"]), esc(e.get("dek", "")), esc(e.get("author", "")), esc(e.get("date", "")), essay_body(e["body"]), rec))
+        write("essays/%s/index.html" % e["id"], page(e["title"], body, "/essays/", e.get("dek", "")))
+        rows.append('<li><a href="/essays/%s/">%s</a><span class="first">%s</span></li>' % (e["id"], esc(e["title"]), esc(e.get("dek", ""))))
+    write("essays/index.html", page("Essays", '<h1>Essays</h1>\n<p class="lede">Arguments with their sources printed underneath.</p>\n<ol class="list">%s</ol>' % "".join(rows), "/essays/"))
+    return len(items)
+
+
+# ---------- food bank ----------
+def food_bank():
+    data = json.loads((CONTENT / "food-bank.json").read_text(encoding="utf-8"))
+    out = ['<h1>The Food Bank</h1>', '<p class="lede">Free learning resources. Anything partly paywalled says so.</p>']
+    n = 0
+    for a in data["AISLES"]:
+        out.append('<section class="shelf" id="%s"><h2>%s</h2><p class="meta">%s</p><ul class="list">' % (esc(a["id"]), esc(a["name"]), esc(a.get("sign", ""))))
+        for it in a["items"]:
+            n += 1
+            out.append('<li><a href="%s">%s</a> <span class="meta">%s · %s</span><span class="first">%s</span></li>'
+                       % (esc(it.get("url", "")), esc(it["t"]), esc(it.get("by", "")), esc(it.get("kind", "")), esc(it.get("why", ""))))
+        out.append("</ul></section>")
+    write("food-bank/index.html", page("The Food Bank", "\n".join(out), "/learning/"))
+    return n
+
+
+# ---------- cutouts + alive lab data ----------
+def cutouts():
+    man = json.loads((REPO / "library/cutouts/manifest.json").read_text(encoding="utf-8"))
+    fams = {f["id"]: f for f in json.loads((REPO / "library/families.json").read_text(encoding="utf-8"))}
+    out = PUB / "assets/cutouts"
+    out.mkdir(parents=True, exist_ok=True)
+    lab = []
+    for m in sorted(man, key=lambda m: m["id"]):
+        if m.get("status") == "rejected" or not m.get("file"):
+            continue
+        png = REPO / m["file"]
+        web = png.with_suffix(".webp")
+        src = web if web.exists() else png
+        if not src.exists():
+            continue
+        shutil.copyfile(src, out / (m["id"] + src.suffix))
+        if m.get("family") in fams:
+            lab.append({"id": m["id"], "src": "/assets/cutouts/" + m["id"] + src.suffix, "label": m.get("label", ""),
+                        "emo": m.get("emo", []), "family": m["family"]})
+    families = {k: {"name": f["name"], "colors": f["colors"]} for k, f in sorted(fams.items())}
+    (PUB / "alive/cutouts.js").write_text("window.PCP=window.PCP||{};PCP.labData=" + json.dumps({"families": families, "assets": lab}, separators=(",", ":")) + ";\n")
+    # Cutup maker sandbox (/lab/cutup/, go-live Step 3): the poems' text exactly as stored, every kept cutout, family colours.
+    poems = [{"id": p["id"], "title": p["title"], "book": p.get("book", ""), "stanzas": p["stanzas"]}
+             for p in json.loads((CONTENT / "poems.json").read_text(encoding="utf-8"))]
+    data = {"poems": poems, "assets": lab, "families": families, "assetBase": "", "poemBase": "/poems/"}
+    (PUB / "cutup/data.js").write_text("window.PCP=window.PCP||{};PCP.cutupData=" + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+    return len(lab)
 
 
 def main():
-    with open(os.path.join(ROOT, "live", "index.html"), encoding="utf-8") as f:
-        s = f.read()
-
-    # ---------------- HTML ----------------
-    s = patch(s, '    <a href="#/archive" data-route="archive">Archive</a>\n',
-              '    <a href="#/archive" data-route="archive">Archive</a>\n'
-              '    <a href="#/essays" data-route="essays">Essays</a>\n'
-              '    <a href="#/food-bank" data-route="food-bank">Food Bank</a>\n', "nav")
-    s = patch(s, "Tap up to three. Each one pushes the dials below.",
-              "More than anyone needs. Tap up to three; limit three per customer.", "pantry note")
-    s = patch(s, '        <!-- dials -->\n        <section class="panel" aria-labelledby="dialLbl">\n'
-                 '          <h2 class="dymo" id="dialLbl">The dials</h2>\n          <div class="dials" id="dials"></div>\n',
-              '        <!-- flavor (the dials stay hidden behind the counter) -->\n        <section class="panel" aria-labelledby="dialLbl">\n'
-              '          <h2 class="dymo" id="dialLbl">The flavor</h2>\n'
-              '          <p class="panel-note">What the pot tastes like right now. You pick the ingredients; the kitchen works the dials behind the counter.</p>\n'
-              '          <div class="flavor" id="dials" role="img" aria-label="Flavor of the pot"></div>\n', "flavor panel")
-    s = patch(s, '          <button type="button" class="btn-valve" id="valveBtn"><span>Release the valve</span></button>\n        </div>\n',
-              '          <button type="button" class="btn-valve" id="valveBtn"><span>Release the valve</span></button>\n        </div>\n'
-              '        <div class="coupon-row"><button type="button" class="btn-coupon" id="couponBtn">&#9986; Clip a coupon for this room</button></div>\n',
-              "coupon button")
-    # test machinery: lab mode only (#/kitchen?lab=1). Visitors only ever choose ingredients.
-    s = patch(s, '        <!-- flavor (the dials stay hidden behind the counter) -->\n        <section class="panel" aria-labelledby="dialLbl">',
-              '        <!-- flavor + gauge + odds: TEST MACHINERY, lab mode only -->\n        <section class="panel lab-only" aria-labelledby="dialLbl">', "lab flavor")
-    s = patch(s, '        <!-- poem -->\n        <section class="panel" aria-labelledby="poemLbl">',
-              '        <!-- poem picker: lab mode only (the kitchen picks the poem from the pot) -->\n        <section class="panel lab-only" aria-labelledby="poemLbl">', "lab poem")
-    s = patch(s, '        <!-- batch -->\n        <section class="panel" aria-labelledby="batchLbl">',
-              '        <!-- batch / seed: lab mode only -->\n        <section class="panel lab-only" aria-labelledby="batchLbl">', "lab batch")
-    s = patch(s, '<details class="inspector" id="inspector">', '<details class="inspector lab-only" id="inspector">', "lab inspector")
-    s = patch(s, '<!DOCTYPE html>', '<!DOCTYPE html>\n<!--\n  DESIGN LAW (Brandon Rhodes, Nov 2026): visitors ONLY choose ingredients.\n  An absurd, overwhelming pantry is the point (satire of fake abundance).\n  Dials, flavor bars, PSI odds, poem picker, seeds and the inspector are TEST\n  MACHINERY: hidden from visitors, shown only in lab mode (add ?lab=1 or\n  #/kitchen?lab=1 to the URL; lab=0 turns it off). Do not bring them back.\n-->', "design law")
-    s = patch(s, '</head>', '<script>\n(function(){try{var q=location.search+location.hash,m=q.match(/[?&]lab=([01])/);if(m){if(m[1]==="1")localStorage.setItem("pcp-lab","1");else localStorage.removeItem("pcp-lab");}if(localStorage.getItem("pcp-lab")==="1")document.documentElement.classList.add("lab");}catch(e){}})();\n</script>\n</head>', "lab switch")
-    s = patch(s, '          <option value="energy">Energy</option>\n          <option value="clarity">Clarity</option>\n'
-                 '          <option value="intimacy">Intimacy</option>\n          <option value="chaos">Chaos</option>\n',
-              "".join(f'          <option value="{k}">{k.capitalize()}</option>\n'
-                      for k in ["sweet", "sour", "salty", "bitter", "umami", "spicy"]), "archive sort")
-    s = patch(s, '  <!-- ============ HOW ============ -->\n',
-              '  <!-- ============ ESSAYS ============ -->\n'
-              '  <section class="view view-essays" id="view-essays" data-view="essays" hidden aria-labelledby="essaysHeading">\n'
-              '    <div class="essays" id="essays"></div>\n  </section>\n\n'
-              '  <!-- ============ FOOD BANK ============ -->\n'
-              '  <section class="view view-foodbank" id="view-foodbank" data-view="food-bank" hidden aria-labelledby="foodbankHeading">\n'
-              '    <div class="foodbank" id="foodbank"></div>\n  </section>\n\n'
-              '  <!-- ============ HOW ============ -->\n', "essays view")
-
-    # ---------------- CSS ----------------
-    s = patch(s, "</head>", "<style>\n" + read("extra.css") + "\n</style>\n</head>", "css")
-
-    # ---------------- scripts ----------------
-    i = s.index("window.PCP.ingredients = [")
-    j = s.index("</script>", i) + len("</script>")
-    s = s[:j] + "\n<script>\n" + read("pantry-plus.js") + "\n</script>\n<script>\n" + read("tastes.js") + "\n</script>" + s[j:]
-
-    app_marker = "<script>\n/* =====================================================================\n   PRESSURE COOKER POETRY — APP (UI, state, routing)"
-    s = patch(s, app_marker,
-              "<script>\n" + read("essays.js") + "\n</script>\n<script>\n" + read("wall.js") + "\n</script>\n<script>\n"
-              + read("essays-view.js") + "\n</script>\n<script>\n" + read("foodbank.js") + "\n</script>\n" + app_marker, "pre-app scripts")
-    s = patch(s, "</body>", "<script>\n" + read("coupon.js") + "\n</script>\n</body>", "coupon script")
-
-    # ---------------- app patches ----------------
-    s = patch(s, "  var ENG = PCP.engine;\n  var h = PCP.h;\n",
-              "  var ENG = PCP.engine;\n  var h = PCP.h;\n  var TS = PCP.tastes;\n", "TS var")
-    s = patch(s, '"aria-pressed": "false", style: { "--rot": (r.range(-2.2, 2.2)).toFixed(2) + "deg" } }, [ing.text]);\n      b.title = statLine(ing.d);',
-              '"aria-pressed": "false", style: { "--rot": (r.range(-2.2, 2.2)).toFixed(2) + "deg" } }, '
-              '[h("span", { "class": "tile-text", text: ing.text }), h("span", { "class": "tile-taste", text: TS.tasteLine(ing.t || {}, 2) })]);\n'
-              '      b.title = statLine(ing);', "tile")
-    s = patch(s, '  function statLine(d) {\n    function s(n) { return (n > 0 ? "+" : "") + n; }\n'
-                 '    return "Energy " + s(d.e) + " · Clarity " + s(d.c) + " · Intimacy " + s(d.i) + " · Chaos " + s(d.x);\n  }',
-              '  function statLine(ing) {\n    return ing && ing.t ? "Tastes: " + TS.tasteLine(ing.t) : "";\n  }\n'
-              '  /* the kitchen picks the poem that tastes closest to the pot (deterministic), unless one was chosen in the Archive */\n'
-              '  function pickPoem() {\n'
-              '    if (!draft.ingredients.length) return DEFAULT.poemId;\n'
-              '    var pot = TS.potFlavor(draft.ingredients, effective());\n'
-              '    var scored = DATA.poems.map(function (p) { var f = TS.flavorOf(p.profile), d = 0; TS.LIST.forEach(function (ts) { d += Math.pow((f[ts.key] || 0) - (pot[ts.key] || 0), 2); }); return { id: p.id, d: d }; })\n'
-              '      .sort(function (a, b) { return a.d - b.d || (a.id < b.id ? -1 : 1); }).slice(0, 5);\n'
-              '    return ENG.makeRng("poem|" + draft.ingredients.slice().sort().join(",")).pick(scored).id;\n'
-              '  }', "statLine")
-    s = patch(s, 'var b = h("button", { type: "button", "class": "pot-item", "aria-label": "Remove " + ing.text }, [h("span", { text: ing.text }), h("span", { "class": "x", "aria-hidden": "true", text: "×" })]);',
-              'var b = h("button", { type: "button", "class": "pot-item", "aria-label": "Remove " + ing.text }, [h("span", null, [ing.text, ing.t ? h("span", { "class": "pot-taste", text: TS.tasteLine(ing.t, 3) }) : null]), h("span", { "class": "x", "aria-hidden": "true", text: "×" })]);',
-              "pot tastes")
-    s = patch(s, '      draft.ingredients.push(id);\n    }\n    syncConsole();',
-              '      draft.ingredients.push(id);\n    }\n    if (!draft.poemPinned) draft.poemId = pickPoem();\n    syncConsole();', "auto poem")
-    s = patch(s, '    draft.poemId = p.id; draft.force = null;', '    draft.poemId = p.id; draft.force = null; draft.poemPinned = true;', "pin on cook this")
-    s = patch(s, 'ps.addEventListener("change", function () { draft.poemId = ps.value; syncConsole(); });',
-              'ps.addEventListener("change", function () { draft.poemId = ps.value; draft.poemPinned = true; syncConsole(); });', "pin on select")
-    s = patch(s, '    var wrap = $("pantry");\n    DATA.ingredients.forEach(function (ing) {',
-              '    var wrap = $("pantry");\n    var stock = DATA.ingredients.slice();\n'
-              '    for (var si = stock.length - 1; si > 0; si--) { var sj = Math.floor(Math.random() * (si + 1)); var st = stock[si]; stock[si] = stock[sj]; stock[sj] = st; } // a fresh mess every visit; rooms stay deterministic\n'
-              '    stock.forEach(function (ing) {', "shuffle pantry")
-    s = patch(s, 'announce((at >= 0 ? "Removed " : "Added ") + ing.text + ". " + statLine(ing.d) + ".");',
-              'announce((at >= 0 ? "Removed " : "Added ") + ing.text + ". " + statLine(ing) + ".");', "announce")
-
-    a = s.index("  function buildDials() {")
-    b = s.index("  function word(ax, v)")
-    s = s[:a] + '''  function buildDials() {
-    var wrap = $("dials");
-    TS.LIST.forEach(function (ts) {
-      wrap.appendChild(h("div", { "class": "fl-row", "data-taste": ts.key }, [
-        h("span", { "class": "fl-k", text: ts.label }),
-        h("span", { "class": "fl-bar", "aria-hidden": "true" }, [h("span", { style: { "--c": ts.color, width: "0%" } })]),
-        h("span", { "class": "fl-v", text: "0" })
-      ]));
-    });
-  }
-''' + s[b:]
-
-    a = s.index('    AXES.forEach(function (ax) {\n      var inp = $("dial-" + ax.key);')
-    end_marker = '      inp.style.setProperty("--fill", eff[ax.key] + "%");\n    });\n'
-    b = s.index(end_marker, a) + len(end_marker)
-    s = s[:a] + '''    // what's in the pot: the tastes the visitor actually chose (capped at 10);
-    // an empty pot shows the house stock (or the poem's own flavor after "Cook this")
-    var fl = TS.potFlavor(draft.ingredients, eff);
-    var flLabel = [];
-    TS.LIST.forEach(function (ts) {
-      var row = document.querySelector('.fl-row[data-taste="' + ts.key + '"]'); if (!row) return;
-      row.querySelector(".fl-bar span").style.width = (fl[ts.key] * 10) + "%";
-      row.querySelector(".fl-v").textContent = fl[ts.key];
-      flLabel.push(ts.label + " " + fl[ts.key]);
-    });
-    $("dials").setAttribute("aria-label", "Flavor of the pot, out of 10: " + flLabel.join(", "));
-''' + s[b:]
-
-    s = patch(s, '"no ingredients declared — the dials alone"', '"no ingredients — just the house stock"', "pz text")
-    s = patch(s, '''    AXES.forEach(function (ax) {
-      art.appendChild(h("p", { "class": "nl-row" }, [
-        h("span", { "class": "nl-k", text: ax.label }),
-        h("span", { "class": "nl-bar", "aria-hidden": "true" }, [h("span", { style: { width: p.profile[ax.key] + "%" } })]),
-        h("strong", { text: p.profile[ax.key] + "%" })
-      ]));
-    });''', '''    var fl = TS.flavorOf(p.profile);
-    TS.LIST.forEach(function (ts) {
-      art.appendChild(h("p", { "class": "nl-row" }, [
-        h("span", { "class": "nl-k", text: ts.label }),
-        h("span", { "class": "nl-bar", "aria-hidden": "true" }, [h("span", { style: { width: fl[ts.key] * 10 + "%" } })]),
-        h("strong", { text: fl[ts.key] * 10 + "%" })
-      ]));
-    });''', "nutrition rows")
-    s = patch(s, "b.profile[sort] - a.profile[sort]",
-              "TS.flavorOf(b.profile)[sort] - TS.flavorOf(a.profile)[sort]", "shelf sort")
-
-    s = patch(s, '    var el = $("reader"); el.innerHTML = "";\n',
-              '    var el = $("reader"); el.innerHTML = ""; el.classList.remove("has-wall");\n', "reader reset")
-    s = patch(s, '''    p.stanzas.forEach(function (st) { body.appendChild(h("p", { "class": "rd-stz" }, st.reduce(function (acc, line, k) { if (k) acc.push(h("br")); acc.push(line); return acc; }, []))); });
-    el.appendChild(body);
-''', '''    var wallItems = [], lineNo = 0;
-    p.stanzas.forEach(function (st) { body.appendChild(h("p", { "class": "rd-stz" }, st.reduce(function (acc, line, k) { if (k) acc.push(h("br")); var sp = h("span", { "class": "ln" }, [line]); lineNo++; wallItems.push({ text: line, el: sp, where: "line " + lineNo }); acc.push(sp); return acc; }, []))); });
-    el.appendChild(body);
-    var wallCol = h("div", { "class": "wall-col" });
-    el.appendChild(wallCol);
-    el.classList.add("has-wall");
-    if (PCP.wall) PCP.wall.attach(wallCol, wallItems, { kind: "poem", id: p.id });
-''', "reader lines + wall")
-    s = patch(s, '    el.appendChild(h("p", { "class": "rd-hint", text: "Tip: the ← and → keys move along the shelf." }));\n',
-              '    el.appendChild(h("p", { "class": "rd-hint", text: "Tip: the ← and → keys move along the shelf." }));\n'
-              '    if (PCP.foodBank) { var fbs = PCP.foodBank.strip(["poetry", "publish"], "Hungry for more? Free at the Food Bank"); if (fbs) el.appendChild(fbs); }\n',
-              "reader food bank strip")
-
-    s = patch(s, '["Declare", "Drop up to three ingredients in the pot and/or set the four dials. Ingredients are shortcuts: each one pushes the dials by a fixed amount you can see on hover."]',
-              '["Declare", "Drop up to three ingredients in the pot. Every ingredient carries a flavor, printed on the tile: sweet, sour, salty, bitter, umami, spicy. That is the only thing you choose. The kitchen picks the poem that tastes closest to your pot, unless you chose one in the Archive."]',
-              "how declare")
-    s = patch(s, '["Pressurize", "The dials become a semantic vector.',
-              '["Pressurize", "Behind the counter, flavor turns into four hidden dials (energy, clarity, intimacy, chaos), and the dials become a semantic vector.',
-              "how pressurize")
-    s = patch(s, '''    el.appendChild(h("h2", { "class": "how-h2", text: "The four dials" }));
-    el.appendChild(h("dl", { "class": "how-axes" }, AXES.reduce(function (acc, ax) {
-      acc.push(h("dt", { text: ax.label })); acc.push(h("dd", { text: "Drives " + ax.help + ". Low to high: " + ax.words.join(" → ") + "." })); return acc;
-    }, [])));''', '''    el.appendChild(h("h2", { "class": "how-h2", text: "The six tastes" }));
-    el.appendChild(h("p", { text: "Every ingredient is rated 0 to 10 on six tastes. Each taste point pushes the hidden dials by a fixed amount, so the flavor on the tile is exactly what moves the room. Here is what each taste tends to do:" }));
-    el.appendChild(h("dl", { "class": "how-axes" }, TS.LIST.reduce(function (acc, ts) {
-      acc.push(h("dt", null, [h("span", { "class": "how-taste-sw", "aria-hidden": "true", style: { "--c": ts.color } }), ts.label]));
-      acc.push(h("dd", { text: ts.room.charAt(0).toUpperCase() + ts.room.slice(1) + "." })); return acc;
-    }, [])));
-    el.appendChild(h("h2", { "class": "how-h2", text: "The drawing wall" }));
-    el.appendChild(h("p", { text: "Every poem and essay has a wall in its margin. Draw a mark and the piece answers with the line that tastes closest to it. The wall recognizes about fifteen basic shapes (circle, spiral, zigzag, heart, X and so on) and also reads how you drew: fast or slow, big or small, one stroke or many. Every line is scored from its own words on the same hidden dials. It all runs in your browser; nothing is sent anywhere." }));
-    el.appendChild(h("h2", { "class": "how-h2", text: "Coupons" }));
-    el.appendChild(h("p", { text: "Clip a coupon in the Batch panel and you get a link to that exact room. The link is the recipe, so it rebuilds the same room forever. Coupons you clip are kept in a drawer in your own browser." }));''',
-              "how tastes")
-    s = patch(s, '''        h("div", { "class": "how-aff", "aria-label": "Leans: " + ["E", "C", "I", "X"].map(function (k, i) { return AXES[i].label + " " + f.affinity[k]; }).join(", ") }, aff),''',
-              '''        h("p", { "class": "how-leans", text: "Tastes " + TS.tasteWords(TS.flavorOf({ energy: 50 + 45 * f.affinity.E, clarity: 50 + 45 * f.affinity.C, intimacy: 50 + 45 * f.affinity.I, chaos: 50 + 45 * f.affinity.X }), 2) }),''',
-              "how leans")
-
-    s = patch(s, 'var valid = ["kitchen", "archive", "read", "how"];',
-              'var valid = ["kitchen", "archive", "read", "how", "essays", "food-bank"];', "router valid")
-    s = patch(s, '    else if (r.view === "how") { renderHow(); document.title = "How it works — Pressure Cooker Poetry"; }\n',
-              '    else if (r.view === "how") { renderHow(); document.title = "How it works — Pressure Cooker Poetry"; }\n'
-              '    else if (r.view === "essays") { document.title = (PCP.essaysView ? PCP.essaysView.render(r.arg) : "Essays") + " — Pressure Cooker Poetry"; }\n'
-              '    else if (r.view === "food-bank") { document.title = (PCP.foodBank ? PCP.foodBank.render(r.arg) : "The Food Bank") + " — Pressure Cooker Poetry"; }\n',
-              "router essays")
-    s = patch(s, '    if (changed && r.view !== "kitchen") {',
-              '    if ((changed || r.view === "essays") && r.view !== "kitchen") {', "essay scroll top")
-
-    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    import build_board
-    s = build_board.apply(s, patch, read, app_marker)
-    import build_kits
-    s = build_kits.apply(s, patch, app_marker, os.path.dirname(ROOT))
-    import build_library
-    s = build_library.apply(s, patch, app_marker, os.path.dirname(ROOT), os.path.join(ROOT, "dist"))
-
-    # Kit-4 PNGs were never supplied. Use the existing procedural fallback
-    # directly instead of knowingly making broken image requests.
-    for missing in ("kit4-001", "kit4-002"):
-        s = patch(s, 'src: "assets/cutouts/' + missing + '.png"', 'src: null', "missing " + missing)
-
-    os.makedirs(os.path.join(ROOT, "dist"), exist_ok=True)
-    with open(os.path.join(ROOT, "dist", "index.html"), "w", encoding="utf-8") as f:
-        f.write(s)
-    print("ok", len(s))
+    shutil.rmtree(PUB, ignore_errors=True)
+    shutil.copytree(SITE / "landing", PUB)
+    shutil.copytree(SITE / "shared", PUB / "shared")
+    shutil.copytree(SITE / "alive", PUB / "alive")
+    shutil.copytree(SITE / "cutup", PUB / "cutup")
+    print("poems %d, essays %d, food bank %d, cutouts %d" % (poems(), essays(), food_bank(), cutouts()))
+    print("built", sum(1 for p in PUB.rglob("*") if p.is_file()), "files into", PUB)
 
 
 if __name__ == "__main__":

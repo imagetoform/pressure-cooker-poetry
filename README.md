@@ -1,48 +1,41 @@
 # Pressure Cooker Poetry
 
-The website's database, design elements and cutouts for [pressurecookerpoetry.com](https://pressurecookerpoetry.com), and the source for the site itself: a generative poetry site where visitors pick ingredients and the kitchen builds a room for a poem.
+The source for [pressurecookerpoetry.com](https://pressurecookerpoetry.com) and its library of design elements and cutouts.
 
-## Design law
+**Agents start with [`AGENTS.md`](AGENTS.md), then [`docs/CANON.md`](docs/CANON.md)** for what's live, what the owner has decided and what's dead. The release order is in [`docs/GO_LIVE_PLAN.md`](docs/GO_LIVE_PLAN.md).
 
-Visitors **only choose ingredients**, from an absurd, overwhelming pantry (satire of fake abundance). The dials, flavor bars, PSI odds, dartboard, poem picker, seeds and inspector are **test machinery**: hidden from visitors, shown only in lab mode (`?lab=1`; `?lab=0` turns it off). Authored writing is never edited. Same recipe, same room.
+## What it's becoming (reset 2026-11-18, CANON D-31 to D-35)
 
-## How it works
+A visitor **makes a cutup**: picks images, adds a few words of their own, and the site cuts those words together with lines from the poems into a torn-paper collage card over imagery from the cutout library. Same choices, same card. Cards can be kept in the visitor's own browser and shared as a link. No accounts, no tracking. The poems and essays are read on their own plain pages; nobody gets dropped straight into a poem.
 
-1. **Ingredients** (481: 28 starters plus 453 in `site/src/pantry-plus.js`) each carry six tastes: sweet, sour, salty, bitter, umami, spicy.
-2. **Tastes** push four hidden dials (energy, clarity, intimacy, chaos), which set the pressure and layout parameters (`site/src/tastes.js`).
-3. **The dartboard** (`site/src/board.js`): each ingredient is a dart thrown at Plutchik's emotion wheel. Its tastes aim it, and strong single tastes land near the center (rage, grief).
-4. **Cutouts and styles** carry emotion tags, never numbers. The room pulls the cutouts and design movements closest to where the darts landed (`site/src/styles.js`, `library/families/`).
-5. **The writing**: 56 poems, 2 essays with receipts, the drawing wall in every margin, and the Food Bank of free resources.
+The look is written down in `DESIGN.md` (approved 2026-11-19); Brandon's reference pictures are in `docs/design/reference/`. The maker is the front door at `/` on PR #14; it goes live only with Brandon's OK.
+
+The old generative Kitchen (pantry, fridge, recipes, nutrition card, poem-first rooms, dials) and the front door that ran on it were deleted in the reset. They're in git history if anything ever needs looking up; don't bring them back (CANON Graveyard).
 
 ## Where things live
 
 | Path | What |
 |---|---|
-| `site/live/index.html` | The original single-file site the build starts from (poems, fonts, layout families, engine) |
-| `site/src/` | Everything added on top: tastes, pantry, dartboard, styles, wall, essays, Food Bank, coupons, lab tools, CSS |
-| `site/tools/build.py` | Patches `live/index.html` with `src/` and writes `dist/index.html` |
-| `site/tools/test*.js` | Playwright browser checks |
-| `site/dist/index.html` | The deployable page |
-| `library/families/` | One folder per design movement: its kit and its cutouts |
-| `library/cutouts/inbox/` | Cutouts waiting to be tagged |
-| `docs/logbook.md` | Session-by-session history of the build |
+| `content/` | The writing, exactly as written: `poems.json` (56), `essays.json` (2, with sources), `food-bank.json` (free resources) |
+| `site/cutup/` | The cutup maker (engine, page logic, styles) used by `/` and `/lab/cutup/` |
+| `site/landing/` | Hand-written pages: the front door shell, Brain Candy, Learning, About, Contact, `_redirects` |
+| `site/shared/` | `plain.css` for reading pages, `prng.js` (seeded randomness) |
+| `site/alive/` | The motion engine (touch, keys, sound, tilt) and its lab at `/alive/lab/` |
+| `site/tools/build.py` | The whole build: writes `site/public/` |
+| `site/tests/` | Browser checks: `site.cjs`, `alive.cjs`, `spin-cycle.cjs` |
+| `library/` | 30 design movements, 509 looked-at cutouts (`library/cutouts/manifest.json`), the emotion vocabulary (`catalog.json`), `families.json` |
+| `tools/cutouts/` | Bringing cutouts in: harvest, unpack, ingest, contact sheets, promote |
+| `docs/` | Canon, go-live plan, logbook, handoffs, history |
 
 ## Build and test
 
 ```sh
-cd site
-python3 tools/build.py            # writes dist/index.html
-cd dist && python3 -m http.server 8765 &
-cd .. && node tools/test.js       # needs Playwright
+python3 site/tools/build.py                                   # exactly what Netlify runs
+python3 -m http.server 8765 --directory site/public &
+npm install --no-save playwright@1.62.1 && npx playwright install --with-deps chromium
+node site/tests/site.cjs && node site/tests/alive.cjs && node site/tests/spin-cycle.cjs
 ```
 
 ## Deploy
 
-Netlify (site `pressurecookerpoetry`) publishes `site/public/`, built by `python3 site/tools/build.py && python3 site/tools/assemble.py`:
-
-- `/` is the Gutter Intelligentsia landing (`site/landing/`: the cabinet, the cooked menu, 235 cutouts in `assets/c/`)
-- `/kitchen/` is the Kitchen (`site/dist/`). Old `#/...` links on `/` redirect to `/kitchen/#/...`.
-
-For automatic deploys, connect this GitHub repository to the existing Netlify project, choose `main` as the production branch, and use the build command and publish directory in `netlify.toml`. GitHub Actions rebuilds every pull request and checks that `site/dist/` matches the source files. Do not create a second Netlify project for the same domain.
-
-**Database-only rooms.** Once a movement has 6 library cutouts, its rooms stop using the layouts' built-in background art and stand-in drawings. They use only library cutouts and the movement's kit; the layout still arranges the poem. Movements below 6 keep the old art. The line is `DB_MIN` in `site/tools/build_library.py`.
+Netlify project `pressurecookerpoetry` (never a second one) builds every pull request into a private deploy preview and publishes `main`. Production changes only with Brandon's OK for that release.

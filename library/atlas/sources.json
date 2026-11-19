@@ -1,0 +1,258 @@
+[
+  {
+    "id": "pinterest-website-design-elements-a",
+    "type": "reference-link",
+    "title": "Website Design Elements board A",
+    "url": "https://pin.it/2bCrj2p1a",
+    "platform": "pinterest",
+    "tags": [
+      "editorial",
+      "web-design",
+      "composition"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "pinterest-website-design-elements-b",
+    "type": "reference-link",
+    "title": "Website Design Elements board B",
+    "url": "https://pin.it/623VzIX0f",
+    "platform": "pinterest",
+    "tags": [
+      "web-design",
+      "interaction",
+      "collage"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "pinterest-design-link-c",
+    "type": "reference-link",
+    "title": "Pinterest design reference C",
+    "url": "https://pin.it/6J8xlIxQH",
+    "platform": "pinterest",
+    "tags": [
+      "graphic-design",
+      "design-reference"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "arena-graphic-soup",
+    "type": "arena-channel",
+    "title": "Mishka / Graphic Soup",
+    "url": "https://www.are.na/mishka-online/graphic-soup-4chbywtwtfo",
+    "slug": "graphic-soup-4chbywtwtfo",
+    "platform": "are.na",
+    "tags": [
+      "graphic-soup",
+      "cutup",
+      "editorial"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-image-1",
+    "type": "reference-link",
+    "title": "User-supplied Cosmos reference 1",
+    "url": "https://cdn.cosmos.so/f14af0fc-7ee0-42a3-9868-033ef1faefe1",
+    "platform": "cosmos",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-image-2",
+    "type": "reference-link",
+    "title": "User-supplied Cosmos reference 2",
+    "url": "https://cdn.cosmos.so/01a1d77a-8d79-7d9c-91e0-fa41ecae01bc?format=webp&w=400",
+    "platform": "cosmos",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-image-3",
+    "type": "reference-link",
+    "title": "User-supplied Cosmos reference 3",
+    "url": "https://cdn.cosmos.so/01a16c65-875a-7de6-8d59-3eed8b5d30e3?format=webp&w=400",
+    "platform": "cosmos",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-image-4",
+    "type": "reference-link",
+    "title": "User-supplied Cosmos reference 4",
+    "url": "https://cdn.cosmos.so/01a0e87c-a034-7b5c-b5bc-b53073a92efa?format=webp&w=400",
+    "platform": "cosmos",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-image-5",
+    "type": "reference-link",
+    "title": "User-supplied Cosmos reference 5",
+    "url": null,
+    "platform": "cosmos",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only",
+    "note": "Only an incomplete fragment of this Cosmos URL was recorded. Original user reference preserved as a research lead; not fetchable without full link."
+  },
+  {
+    "id": "github-creative-coding",
+    "type": "github-query",
+    "title": "Creative coding in vanilla JavaScript",
+    "query": "creative coding generative art language:JavaScript archived:false",
+    "platform": "github",
+    "tags": [
+      "creative-coding",
+      "motion",
+      "generative"
+    ],
+    "rights": "verify_before_reuse"
+  },
+  {
+    "id": "github-collage",
+    "type": "github-query",
+    "title": "Editorial collage & CSS composition",
+    "query": "collage creative coding CSS archived:false",
+    "platform": "github",
+    "tags": [
+      "collage",
+      "layout",
+      "css"
+    ],
+    "rights": "verify_before_reuse"
+  },
+  {
+    "id": "github-svg",
+    "type": "github-query",
+    "title": "SVG paper effects and filters",
+    "query": "SVG filter generative art archived:false",
+    "platform": "github",
+    "tags": [
+      "svg",
+      "texture",
+      "animation"
+    ],
+    "rights": "verify_before_reuse"
+  },
+  {
+    "id": "github-kinetic",
+    "type": "github-query",
+    "title": "Kinetic typography",
+    "query": "kinetic typography JavaScript archived:false",
+    "platform": "github",
+    "tags": [
+      "typography",
+      "motion"
+    ],
+    "rights": "verify_before_reuse"
+  },
+  {
+    "id": "museum-met",
+    "type": "reference-link",
+    "title": "The Metropolitan Museum of Art Open Access",
+    "url": "https://www.metmuseum.org/hubs/open-access",
+    "platform": "museum",
+    "tags": [
+      "public-domain",
+      "engraving",
+      "archive"
+    ],
+    "rights": "verify_individual_item"
+  },
+  {
+    "id": "museum-loc",
+    "type": "reference-link",
+    "title": "Library of Congress Free to Use",
+    "url": "https://www.loc.gov/free-to-use/",
+    "platform": "archive",
+    "tags": [
+      "ephemera",
+      "poster",
+      "historical"
+    ],
+    "rights": "verify_individual_item"
+  },
+  {
+    "id": "cosmos-website-design-inspo",
+    "type": "reference-link",
+    "title": "Cosmos / Website Design Inspo",
+    "url": "https://www.cosmos.so/brandonrhodes/website-design-inspo",
+    "platform": "cosmos",
+    "tags": [
+      "website",
+      "composition",
+      "editorial"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-design-inspo",
+    "type": "reference-link",
+    "title": "Cosmos / Design Inspo",
+    "url": "https://www.cosmos.so/brandonrhodes/design-inspo",
+    "platform": "cosmos",
+    "tags": [
+      "graphic-design",
+      "cutup",
+      "visual-reference"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "cosmos-pcp-backgrounds",
+    "type": "reference-link",
+    "title": "Cosmos / PCP Backgrounds",
+    "url": "https://www.cosmos.so/brandonrhodes/pcp-backgrounds",
+    "platform": "cosmos",
+    "tags": [
+      "textures",
+      "backgrounds",
+      "composition"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "arena-pcp-design",
+    "type": "arena-channel",
+    "title": "Are.na / PCP Design",
+    "url": "https://www.are.na/brandon-rhodes/pcp-design",
+    "slug": "pcp-design",
+    "platform": "are.na",
+    "tags": [
+      "pcp",
+      "design",
+      "cutups"
+    ],
+    "rights": "reference_only"
+  },
+  {
+    "id": "archive-nypl",
+    "type": "reference-link",
+    "title": "NYPL Digital Collections",
+    "url": "https://api.repo.nypl.org/",
+    "platform": "archive",
+    "tags": [
+      "ephemera",
+      "type",
+      "historical"
+    ],
+    "rights": "verify_individual_item"
+  }
+]

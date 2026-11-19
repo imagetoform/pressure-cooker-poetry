@@ -49,8 +49,6 @@ jobs:
           python-version: "3.12"
       - name: Install
         run: pip install -r tools/cutouts/requirements.txt
-      - name: Read the site's vocabulary and movements
-        run: node tools/cutouts/catalog.js
       - name: Check the OpenRouter key (never prints it)
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
