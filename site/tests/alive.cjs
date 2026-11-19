@@ -39,7 +39,14 @@ const offsets = p => p.evaluate(() => [...document.querySelectorAll('#room .aliv
     await p.waitForTimeout(250);
     check(JSON.stringify(before) !== JSON.stringify(await offsets(p)), 'cutouts move when the pointer moves');
     // drag the first exposed piece
-    const piece = p.locator('#room .alive-piece').first(); await piece.scrollIntoViewIfNeeded(); await p.waitForTimeout(150); const pb = await piece.boundingBox();
+    const pieces = p.locator('#room .alive-piece');
+    const exposed = await pieces.evaluateAll(nodes => nodes.findIndex(node => {
+      const box = node.getBoundingClientRect();
+      const x = box.x + box.width / 2, y = box.y + box.height / 2;
+      return x + 120 < innerWidth && y + 40 < innerHeight && document.elementFromPoint(x,y) === node;
+    }));
+    if (exposed < 0) throw new Error('No exposed piece available for a pointer drag');
+    const piece = pieces.nth(exposed), pb = await piece.boundingBox();
     await p.mouse.move(pb.x + pb.width / 2, pb.y + pb.height / 2); await p.mouse.down();
     await p.mouse.move(pb.x + pb.width / 2 + 120, pb.y + pb.height / 2 + 40, { steps: 6 }); await p.mouse.up();
     await p.waitForTimeout(250);
