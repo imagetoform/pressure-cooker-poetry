@@ -1,3 +1,14 @@
+# PRESSURE COOKER POETRY — LIVE ENTRY DESIGN (2026-11-19)
+
+This is the current homepage design. Previous cutup-card-specific design notes below describe the independent /lab/cutup/ workshop, NOT the homepage. D-41 in docs/CANON.md wins.
+
+The visitor begins with a four-step, non-diagnostic, self-reported mood/affinity questionnaire. Answers carry emotion words and aesthetic-family affinities. The engine evaluates the 30 established family records (with image availability checks), weighted emotion overlap, and one seeded random sequence. Three different families provide compositional layers and tagged image cutouts. One of five editorial grammars (revolt, archive, signal, ornament, spectrum) determines the typography, composition, framing, density, spatial relationships and motion. Images are real library assets, not drawn geometric placeholders. Repeating the same answer/seed/revision reproduces the same composition; changing the revision produces another composition of the same mood. No profiles, diagnoses, accounts or tracking. Responsive from 320px; reduced-motion keeps the full art static. Sources: the user's supplied Cosmos/Pinterest/Are.na design corpus and the verified manifest. Only *actually imported*, vetted assets are shipped.
+
+Core files: `site/landing/index.html`, `site/landing/mood.css`, `site/landing/mood.js`; uses the shared seeded PRNG and cutout/data.js generated from the existing 509-image manifest. The original poem/essay/learning routes are preserved.
+
+---
+
+## Archive: cutup workshop design at /lab/cutup/
 # DESIGN.md: Pressure Cooker Poetry (the cutup look)
 
 Written 2026-11-19 after Brandon approved the cutup maker sandbox ("It looks good", CANON D-39). It replaces the Kitchen design file, which is history now (`docs/history/DESIGN-kitchen-2026-11.md`, D-35). Reference pictures: `docs/design/reference/`. The live source of every value below is `site/cutup/cutup.css` and `site/cutup/cutup.js`; if this file and the code disagree, fix this file.

@@ -1,3 +1,8 @@
+# CURRENT GO-LIVE POLICY (2026-11-19)
+The owner has expressly directed that new approved work on the questionnaire→generative homepage be published directly to the ONE existing production domain and verified there. This overrides the older multi-preview release queue below for the new homepage. Each change must be checked on https://pressurecookerpoetry.com before it can be described as live. Do not spawn another site or restore the old Kitchen, visual picker or cutup-first home. Unrelated destructive changes still require separate authorization.
+
+---
+
 # Go-live plan: one step at a time
 
 Written 2026-11-18 at Brandon's request ("slow down, one step at a time, a step-by-step test, build and go-live process").

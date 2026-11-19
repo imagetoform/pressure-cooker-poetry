@@ -1,3 +1,6 @@
+## 2026-11-19 — New owner reset: live questionnaire + generative editorial front door
+Owner replaced the cutup-first home with a four-choice feeling/affinity instrument feeding an emotion-weighted artistic-family sampler and image-based responsive layouts. Direct production publishing and public URL verification were explicitly requested. The existing cutup maker remains on /lab/cutup/ and all authored writing and real cutout files stay intact. No previews are considered the site of record; inspect the public domain after deployment. This entry describes work being committed; verify the public version before calling it live.
+
 ---
 task: pcp-site-update
 goal: Put the Nov 1 2026 ideas onto pressurecookerpoetry.com (tastes instead of visible dials, drawing wall, essays with receipts, room coupons)

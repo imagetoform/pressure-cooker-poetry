@@ -1,4 +1,4 @@
-// Browser checks for the cutup maker: the front door (/) and the lab (/lab/cutup/, same maker + knobs). Serve site/public on :8765 first.
+// Browser checks for the separate cutup workshop at /lab/cutup/; the public front door now has mood.cjs. Serve site/public on :8765 first.
 // Checks: picking + cutting works on a phone and at 320px; every poem strip is an exact slice of a stored line (law 1);
 // the visitor's words stay in their typed order; the same link rebuilds the same card (law 2); save works; no page errors.
 const fs = require('fs'), path = require('path');
@@ -20,15 +20,7 @@ async function cutOne(p, words, page) {
 
 (async () => {
   const b = await chromium.launch();
-  // The front door: the maker, the site menu, no knobs.
-  {
-    const ctx = await b.newContext(devices['Pixel 7']); const p = await ctx.newPage();
-    await p.goto(BASE + '/'); await p.waitForSelector('.tile img');
-    check(!(await p.$('#knobs')), 'front door: no sandbox knobs for visitors');
-    check((await p.$$eval('.mk-top nav a', a => a.map(x => x.getAttribute('href')))).join(' ') === '/ /poems/ /essays/ /learning/ /about/', 'front door: the site menu is there');
-    await ctx.close();
-  }
-  for (const page of ['/', '/lab/cutup/'])
+  for (const page of ['/lab/cutup/'])
   for (const [label0, opts] of [['Pixel 7', devices['Pixel 7']], ['320px', { viewport: { width: 320, height: 720 }, hasTouch: true }], ['desktop', { viewport: { width: 1280, height: 900 } }]]) {
     const label = page + ' ' + label0;
     const ctx = await b.newContext(opts); const p = await ctx.newPage(); const errs = [];
@@ -145,5 +137,5 @@ async function cutOne(p, words, page) {
   }
   await b.close();
   if (fails.length) { console.log('FAIL:\n - ' + fails.join('\n - ')); process.exit(1); }
-  console.log('PASS: cutup maker on / and /lab/cutup/ (no knobs on /, site menu) - pick 3, add words, cut on Pixel 7, 320px and desktop; poem strips exact; your words in order; credits link; same link same card; strips say where they came from; pictures movable; found-poems count; cut again; save; reduced motion still; word games (N+7, lipogram, snowball) on your words only; xerox texture; glitch on the beat; 300 seeded cards exact and repeatable.');
+  console.log('PASS: cutup maker on /lab/cutup/ (no knobs on /, site menu) - pick 3, add words, cut on Pixel 7, 320px and desktop; poem strips exact; your words in order; credits link; same link same card; strips say where they came from; pictures movable; found-poems count; cut again; save; reduced motion still; word games (N+7, lipogram, snowball) on your words only; xerox texture; glitch on the beat; 300 seeded cards exact and repeatable.');
 })();

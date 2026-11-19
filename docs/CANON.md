@@ -1,5 +1,8 @@
 # PCP CANON — what is true and decided right now
 
+> **LATEST DIRECTIVE · 2026-11-19 · D-41 (supersedes D-33 and D-40)**: The owner explicitly reset the front door. **Production / is a 4-question, mood-and-affinity entrance, NOT the cutup maker**. Visitors report what they feel, their choices map to emotional signals and the 30 aesthetic families, and a seeded renderer makes a radically variable editorial cover/experience using actual catalogued image cutouts, unique compositions and responsive motion. The same choices+seed+revision reproduce the same cover. The existing cutup maker remains accessible as an independent laboratory at /lab/cutup/; it must not return as the default entrance. All the owner's Cosmos, Pinterest, Are.na and other supplied reference images are FIRST-CLASS design sources; capture and catalogue them as source evidence when available, do not claim unimported sources are present or use generic placeholder layouts. Changing the live front door is authorized explicitly by the owner on 2026-11-19; make incremental production changes on the existing Netlify project and **check the actual public URL after every update**. This directive overrides contrary older prose throughout this file and in prior design docs. The existing original writings and asset provenance are preserved.
+
+
 **Last checked against the repo and the live site: 2026-11-17** (main `e3372f2`, PR #11 merged). **Reset written 2026-11-18 on PR #14 (not live).**
 
 This file is the single source of truth for Pressure Cooker Poetry.

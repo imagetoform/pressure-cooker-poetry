@@ -1,3 +1,7 @@
+
+## CURRENT PRODUCTION FRONT DOOR (2026-11-19, CANON D-41)
+The owner's latest instruction supersedes the cutup-first entrance: `/` is the mood/affinity questionnaire, followed by a seeded emotional-vector→aesthetic-family→living editorial-cover renderer using catalogued real cutout images. `site/landing/index.html` plus `mood.css`/`mood.js` provide the new entrance; `/lab/cutup/` keeps the cutup tool separate. NEVER revert the home page to the Kitchen, standalone picker or cutup maker; do not mistake older locked decisions D-33/D-40 for the latest directive. The owner explicitly authorised updating the existing live Netlify site directly, with public URL checks after publication. Sources must be traceable; Pinterest/Cosmos material missing from the library is not to be fabricated or represented as imported. Original writings remain unchanged.
+
 # AGENTS.md — Pressure Cooker Poetry
 
 Instructions for any coding agent working in this repository (Codex / ChatGPT, Claude, Gemini, Muse). Read this file completely before you touch anything. `site/AGENTS.md` and `library/AGENTS.md` add rules for those folders. **Before any visual or UI change, read `DESIGN.md` (the cutup look, D-39) and the reference pictures in `docs/design/reference/`.** **Before planning anything, read `docs/CANON.md`**: what's live, what's locked, what's open, what's parked and what's dead. Don't reopen a LOCKED decision unless Brandon writes `reopen D-xx`, and never rebuild anything in its Graveyard.

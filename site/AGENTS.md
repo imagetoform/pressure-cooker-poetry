@@ -1,3 +1,7 @@
+
+## CURRENT PRODUCTION FRONT DOOR (2026-11-19, CANON D-41)
+The owner's latest instruction supersedes the cutup-first entrance: `/` is the mood/affinity questionnaire, followed by a seeded emotional-vector→aesthetic-family→living editorial-cover renderer using catalogued real cutout images. `site/landing/index.html` plus `mood.css`/`mood.js` provide the new entrance; `/lab/cutup/` keeps the cutup tool separate. NEVER revert the home page to the Kitchen, standalone picker or cutup maker; do not mistake older locked decisions D-33/D-40 for the latest directive. The owner explicitly authorised updating the existing live Netlify site directly, with public URL checks after publication. Sources must be traceable; Pinterest/Cosmos material missing from the library is not to be fabricated or represented as imported. Original writings remain unchanged.
+
 # site/AGENTS.md: rules for the website code
 
 Adds to the root `AGENTS.md`. Rewritten for the 2026-11-18 reset (CANON D-31 to D-35): the Kitchen, its patched single-file build and the old front door are gone. Don't bring any of them back.
