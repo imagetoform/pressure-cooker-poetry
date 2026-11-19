@@ -1,0 +1,61 @@
+{
+  "schema_version": "pressroom-research-1",
+  "status": "research_only",
+  "notes": "Collection-level leads, not downloaded individual artifacts. Evaluate individual object metadata, rights and attribution before moving into cleared catalog.",
+  "leads": [
+    {
+      "id": "loc-poster-parade",
+      "label": "Library of Congress Poster Parade",
+      "url": "https://www.loc.gov/free-to-use/",
+      "focus": [
+        "historic commercial posters",
+        "war propaganda",
+        "print typography"
+      ],
+      "rights_note": "LOC free-to-use collections; confirm each item's rights/advisory."
+    },
+    {
+      "id": "loc-wpa-posters",
+      "label": "Library of Congress WPA posters",
+      "url": "https://www.loc.gov/free-to-use/",
+      "focus": [
+        "constructivist geometry",
+        "public information posters",
+        "screenprint palettes"
+      ],
+      "rights_note": "Confirm rights and image-specific metadata."
+    },
+    {
+      "id": "loc-advertising-food",
+      "label": "Library of Congress advertising food",
+      "url": "https://www.loc.gov/free-to-use/",
+      "focus": [
+        "vintage ad cutouts",
+        "lettering",
+        "packaging"
+      ],
+      "rights_note": "Confirm rights and image-specific metadata."
+    },
+    {
+      "id": "met-open-access",
+      "label": "Metropolitan Museum Open Access",
+      "url": "https://www.metmuseum.org/hubs/open-access",
+      "focus": [
+        "ornament",
+        "historic etching",
+        "art nouveau precedents"
+      ],
+      "rights_note": "Only objects specifically marked public domain/Open Access; Met OA images released CC0."
+    },
+    {
+      "id": "met-collection-api",
+      "label": "Met Open Access API",
+      "url": "https://metmuseum.github.io/",
+      "focus": [
+        "metadata harvesting",
+        "reproducible image research"
+      ],
+      "rights_note": "Not every API artwork is public domain; check isPublicDomain and image URL."
+    }
+  ]
+}
