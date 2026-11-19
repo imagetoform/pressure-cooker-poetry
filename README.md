@@ -1,43 +1,38 @@
-> **D-42 HARD RESET · 2026-11-19** — The only live architecture is questionnaire → animated pressurization → user-conditioned seeded editorial homepage, with fixed destinations and reactive source-first artwork. Start with [docs/CANON.md](docs/CANON.md); all prior homepage briefs are historical. Production runs on current main through the existing Netlify project. Every build has a mandatory anti-regression gate.
-
 # Pressure Cooker Poetry
 
-The source for [pressurecookerpoetry.com](https://pressurecookerpoetry.com) and its library of design elements and cutouts.
+**LIVE PROJECT · D-42 HARD RESET · November 19, 2026**
 
-**Agents start with [`AGENTS.md`](AGENTS.md), then [`docs/CANON.md`](docs/CANON.md)** for what's live, what the owner has decided and what's dead. The release order is in [`docs/GO_LIVE_PLAN.md`](docs/GO_LIVE_PLAN.md).
+[Open the live site](https://pressurecookerpoetry.com/) · [THE ONLY ARCHITECTURE](docs/CANON.md) · [Current design doctrine](DESIGN.md) · [Agent instructions](AGENTS.md)
 
-## What it's becoming (reset 2026-11-18, CANON D-31 to D-35)
+## The ONE visitor experience
 
-A visitor **makes a cutup**: picks images, adds a few words of their own, and the site cuts those words together with lines from the poems into a torn-paper collage card over imagery from the cutout library. Same choices, same card. Cards can be kept in the visitor's own browser and shared as a link. No accounts, no tracking. The poems and essays are read on their own plain pages; nobody gets dropped straight into a poem.
+1. Fresh entry to / shows an engaging four-question mood/affinity intake. No generated writing and no generated homepage beforehand.
+2. Visitor answers create emotional signals and weighted aesthetic-family affinities.
+3. A brief, accessible animated pressurization transition plays.
+4. A unique seeded, responsive, source-first **complete editorial homepage** appears. Remix changes the composition; shared links recreate an edition.
+5. Every edition provides the SAME core content: Brain Candies (/brain-candy/), My Two Cents (/my-two-cents/), Contact (/contact/), Mission Statement (/about/) and Learning Curve (/learning/), with original poems and essays on their own pages.
+6. Graphic cutouts react to click, touch and pointer; sound is opt-in and locally processed; hold-still/reduced-motion work in every edition; the hidden eye always leads to /the-eye/.
 
-The look is written down in `DESIGN.md` (approved 2026-11-19); Brandon's reference pictures are in `docs/design/reference/`. The maker is the front door at `/` on PR #14; it goes live only with Brandon's OK.
+What varies: chosen and blended aesthetic families, graphical cutouts, masks, composition grammar, palette, typography, layout, interactive geometry and motion personality. No single permanent Cutup Database layout; the owner's reference images define the visual quality level, not a template.
 
-The old generative Kitchen (pantry, fridge, recipes, nutrition card, poem-first rooms, dials) and the front door that ran on it were deleted in the reset. They're in git history if anything ever needs looking up; don't bring them back (CANON Graveyard).
+## One live source, no preview labyrinth
 
-## Where things live
+Production is the existing Netlify project `pressurecookerpoetry` tracking the current `main` branch of this repo. Never restore older archived branches or obsolete homepage styles. The release plan in [docs/GO_LIVE_PLAN.md](docs/GO_LIVE_PLAN.md) instructs agents to verify the **actual public site** after any change. Source committed, deployment ready and public verified are three separate states.
 
-| Path | What |
-|---|---|
-| `content/` | The writing, exactly as written: `poems.json` (56), `essays.json` (2, with sources), `food-bank.json` (free resources) |
-| `site/cutup/` | The cutup maker (engine, page logic, styles) used by `/` and `/lab/cutup/` |
-| `site/landing/` | Hand-written pages: the front door shell, Brain Candy, Learning, About, Contact, `_redirects` |
-| `site/shared/` | `plain.css` for reading pages, `prng.js` (seeded randomness) |
-| `site/alive/` | The motion engine (touch, keys, sound, tilt) and its lab at `/alive/lab/` |
-| `site/tools/build.py` | The whole build: writes `site/public/` |
-| `site/tests/` | Browser checks: `site.cjs`, `alive.cjs`, `spin-cycle.cjs` |
-| `library/` | 30 design movements, 509 looked-at cutouts (`library/cutouts/manifest.json`), the emotion vocabulary (`catalog.json`), `families.json` |
-| `tools/cutouts/` | Bringing cutouts in: harvest, unpack, ingest, contact sheets, promote |
-| `docs/` | Canon, go-live plan, logbook, handoffs, history |
+## Technical map (for collaborators only)
 
-## Build and test
+- `site/landing/index.html`, `mood.js`, `mood.css`: real entrance, loading screen, live world
+- `site/alive/`: centralized pointer/touch/audio motion behavior
+- `site/shared/prng.js`: deterministic seeded renderer randomness
+- `library/families.json`, `library/cutouts/manifest.json`: catalogued movements and approved graphic assets
+- `content/`: original writing (must be preserved verbatim)
+- `site/landing/brain-candy/`, `my-two-cents/`, `about/`, `contact/`, `learning/`, `the-eye/`: canonical destinations
+- `site/cutup/`, `site/landing/lab/cutup/`: separate cutup tool/lab; NEVER the homepage
+- `site/tests/architecture_contract.py`: build-blocking anti-regression rule. Called by `site/tools/build.py` even outside GitHub Actions.
+- `site/tests/mood.cjs`: end-to-end questionnaire, loading, seeded edition and viewport tests
 
-```sh
-python3 site/tools/build.py                                   # exactly what Netlify runs
-python3 -m http.server 8765 --directory site/public &
-npm install --no-save playwright@1.62.1 && npx playwright install --with-deps chromium
-node site/tests/site.cjs && node site/tests/alive.cjs && node site/tests/spin-cycle.cjs
-```
+To build locally: `python3 site/tools/build.py`. GitHub CI runs a deterministic double-build and browser tests. Broken changes must be repaired forward from current main; do not roll back to historic screens.
 
-## Deploy
+## Historical records are not build instructions
 
-Netlify project `pressurecookerpoetry` (never a second one) builds every pull request into a private deploy preview and publishes `main`. Production changes only with Brandon's OK for that release.
+Prior versions of CANON, DESIGN, AGENTS, README, GO_LIVE_PLAN live under `docs/history/` and in version history strictly for provenance. They have **no authority** to override D-42.
