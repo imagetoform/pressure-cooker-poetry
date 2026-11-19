@@ -11,7 +11,7 @@ function el(t,c,text){const e=document.createElement(t);e.className=c;e.textCont
 function draw(){const q=$('section-search').value.trim().toLowerCase();$('section-list').replaceChildren();let count=0;
 items.forEach(p=>{const text=[p.title,p.dek,p.author,p.collection,JSON.stringify(p.stanzas||[])].join(' ');if(!text.toLowerCase().includes(q))return;count++;
 const a=el('article','entry','');a.append(el('span','kind',poems?'Poem':'Essay'),el('h2','',p.title));a.append(el('p','',poems?(p.stanzas?.[0]||[]).slice(0,2).join(' / '):p.dek||''));
-const link=el('a','go','Read '+(poems?'poem':'essay'));link.href='/kitchen/#/'+(poems?'read/':'essays/')+encodeURIComponent(p.id);a.append(link);$('section-list').append(a);});
+const link=el('a','go','Read '+(poems?'poem':'essay'));link.href='/read/?'+(poems?'poem=':'essay=')+encodeURIComponent(p.id);a.append(link);$('section-list').append(a);});
 $('section-count').textContent=count+' of '+items.length+' entries';if(!count)$('section-list').append(el('p','','Nothing matches that search.'));}
 $('section-search').addEventListener('input',draw);draw();
 })();

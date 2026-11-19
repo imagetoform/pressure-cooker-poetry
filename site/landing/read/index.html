@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171412">
+<title>Read · Pressure Cooker Poetry</title>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the reading</a>
+<header class="site-head">
+  <a class="brand" href="/">Pressure Cooker Poetry</a>
+  <nav class="site-nav" aria-label="Main"><a href="/poems/" id="nav-poems">Poems</a><a href="/essays/" id="nav-essays">Essays</a><a class="candy" href="/brain-candy/">Brain Candy</a><a href="/learning/">The Learning Curve</a><a href="/food-bank/">Food Bank</a><a href="/about/">Mission</a><a href="/contact/">Contact</a></nav>
+</header>
+<main id="main"><p id="status">Loading…</p><noscript><p>This page needs JavaScript to load the text. Every poem and essay is also listed on <a href="/poems/">Poems</a> and <a href="/essays/">Essays</a>.</p></noscript></main>
+<footer class="site-foot"><a href="/">Back to Pressure Cooker Poetry</a> · <span>Free minds, no admission charge.</span></footer>
+<script src="/visual/runtime.js"></script>
+<script>
+/* Plain reading pages: /read/?poem=<id> and /read/?essay=<id>. The authored text is shown exactly as written. */
+(function(){
+  "use strict";
+  var P = window.PCP || {}, main = document.getElementById("main");
+  var q = new URLSearchParams(location.search), pid = q.get("poem"), eid = q.get("essay");
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function inline(s){ return esc(s).replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>")
+      .replace(/\[(\d+)\]/g, function(m,n){ return '<a class="cite" href="#rc-'+n+'" aria-label="Receipt '+n+'">'+n+'</a>'; }); }
+  function missing(kind){ document.title = "Not found · Pressure Cooker Poetry";
+    main.innerHTML = '<p class="kicker">Lost '+kind+'</p><h1 class="big">Not on this shelf.</h1><p class="lede">That link doesn\'t match anything here. Try the <a href="/poems/">poems</a> or the <a href="/essays/">essays</a>.</p>'; }
+
+  if (pid){
+    document.getElementById("nav-poems").setAttribute("aria-current","page");
+    var list = P.poems || [], i = list.findIndex(function(p){ return p.id === pid; });
+    if (i < 0) return missing("poem");
+    var p = list[i], prev = list[i-1], next = list[i+1];
+    document.title = p.title + " · Pressure Cooker Poetry";
+    main.innerHTML =
+      '<p class="kicker">'+esc(p.book)+(p.move ? ' · '+esc(p.move) : '')+'</p>'+
+      '<h1 class="big">'+esc(p.title)+'</h1>'+
+      '<p class="read-meta">'+esc(p.author || "")+(p.number ? ' · No. '+p.number : '')+'</p>'+
+      '<div class="poem-body">'+p.stanzas.map(function(st){ return '<p>'+st.map(function(l){ return '<span>'+esc(l)+'</span>'; }).join("")+'</p>'; }).join("")+'</div>'+
+      '<div class="pager">'+
+        '<a class="btn red" href="/brain-candy/bench/#poem='+encodeURIComponent(p.id)+'">Cut this up →</a>'+
+        (prev ? '<a class="btn" href="?poem='+encodeURIComponent(prev.id)+'">← '+esc(prev.title)+'</a>' : '')+
+        (next ? '<a class="btn" href="?poem='+encodeURIComponent(next.id)+'">'+esc(next.title)+' →</a>' : '')+
+        '<a class="btn" href="/poems/">All poems</a>'+
+      '</div>';
+    return;
+  }
+  if (eid){
+    document.getElementById("nav-essays").setAttribute("aria-current","page");
+    var e = (P.essays || []).filter(function(x){ return x.id === eid; })[0];
+    if (!e) return missing("essay");
+    document.title = e.title + " · Pressure Cooker Poetry";
+    var body = e.body.split(/\n{2,}/).map(function(b){
+      if (/^## /.test(b)) return '<h2>'+inline(b.slice(3))+'</h2>';
+      if (/^- /.test(b)) return '<ul>'+b.split(/\n/).map(function(li){ return '<li>'+inline(li.replace(/^- /,""))+'</li>'; }).join("")+'</ul>';
+      return '<p>'+inline(b)+'</p>';
+    }).join("");
+    var code = (P.engine && P.engine.hashString) ? P.engine.hashString("receipt|"+e.id).slice(0,10).toUpperCase() : "";
+    var rec = '<section class="receipt" aria-labelledby="rc-h">'+
+      '<p>PRESSURE COOKER POETRY</p><h2 id="rc-h">Receipt of sources</h2><p>'+esc(e.title.toUpperCase())+'</p><p>TXN '+code+' · '+esc((e.date||"").toUpperCase())+'</p>'+
+      '<p class="rule" aria-hidden="true">- - - - - - - - - - - - - - - - - - - - -</p><ol>'+
+      e.receipts.map(function(r,k){ return '<li id="rc-'+(k+1)+'" tabindex="-1"><span>'+String(k+1).padStart(2,"0")+'</span><span>'+esc(r.text)+' <a href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer">'+esc(r.src)+' ↗</a></span></li>'; }).join("")+
+      '</ol><p class="rule" aria-hidden="true">- - - - - - - - - - - - - - - - - - - - -</p>'+
+      '<p class="tot"><span>CLAIMS RECEIPTED</span><strong>'+e.receipts.length+'</strong></p><p class="tot"><span>OPINIONS</span><strong>NOT FOR SALE</strong></p><p class="tot"><span>AMOUNT DUE</span><strong>$0.00</strong></p>'+
+      '<p>KEEP THIS RECEIPT. CHECK OUR MATH. If a source is wrong, the claim is wrong, and it gets corrected in the open.</p></section>';
+    main.innerHTML = '<p class="kicker">Essay · '+esc(e.date || "")+'</p><h1 class="big">'+esc(e.title)+'</h1><p class="lede">'+esc(e.dek || "")+'</p>'+
+      '<p class="read-meta">'+esc(e.author || "")+' · '+e.receipts.length+' receipts</p><div class="essay-body">'+body+'</div>'+rec+
+      '<div class="pager"><a class="btn" href="/essays/">All essays</a><a class="btn" href="/food-bank/">Stock up at the Food Bank</a></div>';
+    return;
+  }
+  missing("page");
+})();
+</script>
+</body>
+</html>

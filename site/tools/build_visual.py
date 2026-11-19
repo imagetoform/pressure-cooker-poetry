@@ -8,12 +8,17 @@ import shutil
 SITE = Path(__file__).resolve().parents[1]
 REPO = SITE.parent
 
-def assemble():
+def assemble(front=True):
+    """front=False: only publish the shared engine file (runtime.js/.css, version.json, visual.css)."""
     pub = SITE / 'public'
     source = SITE / 'visual'
     kitchen = (SITE / 'dist/index.html').read_text()
     target = pub / 'visual'
-    shutil.copytree(source, target, dirs_exist_ok=True)
+    if front:
+        shutil.copytree(source, target, dirs_exist_ok=True)
+    else:
+        target.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source / "visual.css", target / "visual.css")
     scripts = re.findall(r'<script[^>]*>(.*?)</script>', kitchen, re.S)
     # Explicit module headers: no Kitchen app, coupon dialog, lab or storage side effects.
     modules = ('POEM MANIFEST', 'ESSAY MANIFEST', 'INGREDIENT MANIFEST', 'THE BIG PANTRY', '— TASTES', 'THE DARTBOARD (', 'THE STYLE TREE', 'CUTOUT / ASSET MANIFEST', 'THE ENGINE', 'FALLBACK GRAPHICS', 'LAYOUT FAMILIES + RENDERER')
@@ -32,6 +37,10 @@ def assemble():
     runtime += '\nPCP.assets.forEach(function(a){if(a.src && !/^(https?:|data:|\\/)/.test(a.src))a.src="/kitchen/"+a.src;});\n'
     (target/'runtime.js').write_text(runtime)
     (target/'runtime.css').write_text(css)
+    if not front:
+        (target/'version.json').write_text(json.dumps({'build':version,'engine':'kitchen-adapter/1','prng':'cyrb128-sfc32/warmup15'},indent=2))
+        print('visual (engine only):',version)
+        return
     # Keep the original collage and its opt-in sound experiment as a separate destination.
     old = (pub/'index.html').read_text()
     old = old.replace('<head>', '<head><base href="/">', 1)

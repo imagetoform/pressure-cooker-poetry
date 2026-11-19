@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The Kitchen has closed · Pressure Cooker Poetry</title>
+<link rel="stylesheet" href="/assets/site.css">
+<script>
+/* The Kitchen is retired. Old links kept their place in the hash (#/read/<id>, #/essays/<id>, #/food-bank/<aisle>),
+   which a server redirect can't see, so this page forwards them to the plain pages. */
+(function(){
+  var h = location.hash, m, to = null;
+  if ((m = h.match(/^#\/read\/([^\/?#]+)/))) to = "/read/?poem=" + m[1];
+  else if ((m = h.match(/^#\/essays\/([^\/?#]+)/))) to = "/read/?essay=" + m[1];
+  else if (/^#\/essays\/?$/.test(h)) to = "/essays/";
+  else if ((m = h.match(/^#\/food-bank\/?([^\/?#]*)/))) to = "/food-bank/" + (m[1] ? "#" + m[1] : "");
+  else if (/^#\/(archive)/.test(h)) to = "/poems/";
+  if (to) location.replace(to);
+})();
+</script>
+</head>
+<body>
+<header class="site-head"><a class="brand" href="/">Pressure Cooker Poetry</a></header>
+<main>
+  <p class="kicker">Notice of closure</p>
+  <h1 class="big">The Kitchen has closed.</h1>
+  <p class="lede">The stove’s cold and the coupons expired. Everything worth keeping moved down the street: the poems and essays are on plain pages, the Food Bank kept its shelves, and the tools for making things are in Brain Candy.</p>
+  <div class="pager">
+    <a class="btn red" href="/brain-candy/">Brain Candy →</a>
+    <a class="btn" href="/poems/">Poems</a>
+    <a class="btn" href="/essays/">Essays</a>
+    <a class="btn" href="/food-bank/">Food Bank</a>
+  </div>
+</main>
+</body>
+</html>

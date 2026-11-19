@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171412">
+<title>The Food Bank · Pressure Cooker Poetry</title>
+<meta name="description" content="Knowledge is a grocery, not a luxury. Free resources to read, watch or download.">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the shelves</a>
+<header class="site-head">
+  <a class="brand" href="/">Pressure Cooker Poetry</a>
+  <nav class="site-nav" aria-label="Main"><a href="/poems/">Poems</a><a href="/essays/">Essays</a><a class="candy" href="/brain-candy/">Brain Candy</a><a href="/learning/">The Learning Curve</a><a href="/food-bank/" aria-current="page">Food Bank</a><a href="/about/">Mission</a><a href="/contact/">Contact</a></nav>
+</header>
+<main id="main"><div id="foodbank"></div><noscript><p>The Food Bank needs JavaScript to stock its shelves.</p></noscript></main>
+<footer class="site-foot"><a href="/">Back to Pressure Cooker Poetry</a> · <span>Free minds, no admission charge.</span></footer>
+<script src="/visual/runtime.js"></script>
+<script src="/food-bank/foodbank.js"></script>
+<script>
+/* The Food Bank used to live inside the Kitchen at #/food-bank/<aisle>. Same shelves, same aisle links, own page now. */
+(function(){
+  function aisle(){ var m = location.hash.match(/^#\/?food-bank\/([\w-]+)/) || location.hash.match(/^#([\w-]+)$/); return m ? m[1] : null; }
+  function go(){ var t = PCP.foodBank.render(aisle()); document.title = t + " · Pressure Cooker Poetry"; }
+  go(); window.addEventListener("hashchange", go);
+})();
+</script>
+</body>
+</html>

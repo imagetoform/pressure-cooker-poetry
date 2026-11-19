@@ -1,2 +1,7 @@
 /learning-curve /learning/ 301
 /learning-curve/* /learning/:splat 301
+/collage /  301
+/collage/* /  301
+/visual-picks /  301
+/visual-picks/* /  301
+/visual/ /  301

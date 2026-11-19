@@ -1,6 +1,8 @@
 # Pressure Cooker Poetry
 
-The website's database, design elements and cutouts for [pressurecookerpoetry.com](https://pressurecookerpoetry.com), and the source for the site itself: a generative poetry site where visitors pick ingredients and the kitchen builds a room for a poem.
+The website's database, design elements and cutouts for [pressurecookerpoetry.com](https://pressurecookerpoetry.com), and the source for the site itself: poetry, essays with receipts, the Food Bank of free resources, and **Brain Candy**, a workbench of writers' methods for taking language apart (blackout, cut-up, fold-in, N+7, mesostic, permutations, sound poems).
+
+> **The Kitchen is retired from the public site (Nov 2026).** Its engine still builds, because the reading pages load poems and essays from it, but `/kitchen/` now only forwards old links. The sections below on ingredients and rooms describe that archived engine.
 
 ## Design law
 
@@ -40,8 +42,12 @@ cd .. && node tools/test.js       # needs Playwright
 
 Netlify (site `pressurecookerpoetry`) publishes `site/public/`, built by `python3 site/tools/build.py && python3 site/tools/assemble.py`:
 
-- `/` is the Gutter Intelligentsia landing (`site/landing/`: the cabinet, the cooked menu, 235 cutouts in `assets/c/`)
-- `/kitchen/` is the Kitchen (`site/dist/`). Old `#/...` links on `/` redirect to `/kitchen/#/...`.
+- `/` is the front door: the Gutter Intelligentsia mission and a big door into Brain Candy (`site/landing/index.html`, styles in `site/landing/assets/site.css`)
+- `/brain-candy/` is the Brain Candy hub, `/brain-candy/bench/` the Cut-Up Bench (`site/brain-candy/`, published by `site/tools/build_brain_candy.py`). Bench deep links: `#tool=marker`, `#station=n7`, `#poem=<id>`, `#burroughs`
+- `/read/?poem=<id>` and `/read/?essay=<id>` are the plain reading pages; `/food-bank/` is the Food Bank on its own page
+- `/kitchen/` forwards old Kitchen links (`#/read/…`, `#/essays/…`, `#/food-bank/…`) to their new homes; `/collage/` and `/visual-picks/` redirect to `/`
+- The old Kitchen-era landing is kept, unpublished, at `site/archive/gutter-landing.html`
+- Tests: `site/tests/site-flow.cjs` (desktop, Pixel 7, 320px phone) against `python3 -m http.server 8765 --directory site/public`
 
 For automatic deploys, connect this GitHub repository to the existing Netlify project, choose `main` as the production branch, and use the build command and publish directory in `netlify.toml`. GitHub Actions rebuilds every pull request and checks that `site/dist/` matches the source files. Do not create a second Netlify project for the same domain.
 

@@ -24,12 +24,13 @@ jobs:
       - name: Test desktop and mobile flows
         run: |
           python -m http.server 8765 --directory site/public > /tmp/pcp-http.log 2>&1 &
-          node site/tests/visual-flow.cjs
+          sleep 1
+          node site/tests/site-flow.cjs
       - name: Upload review build and screenshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: visual-kitchen-review
+          name: site-review
           path: |
             site/public
             shots
