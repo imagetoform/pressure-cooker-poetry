@@ -82,7 +82,7 @@ function scoreFamilies(assets,r){
  const chosen=picks.map((choice,i)=>questions[i].answers[choice]);const allEmo=new Map(), branchWeights=new Map(),preferred=new Map();
  chosen.forEach((a,q)=>{a.emo.forEach(e=>allEmo.set(e,(allEmo.get(e)||0)+[3,2.4,2.6,1.3][q]));branchWeights.set(a.branch,(branchWeights.get(a.branch)||0)+[2.5,2.2,2.6,1.3][q]);a.families.forEach((f,i)=>preferred.set(f,(preferred.get(f)||0)+4.5-i*1.1))});
  const counts=new Map();assets.forEach(a=>counts.set(a.family,(counts.get(a.family)||0)+1));
- const entries=Object.keys(movements).filter(id=>(counts.get(id)||0)>0).map(id=>{
+ const entries=Object.keys(movements).filter(id=>!assets.length || counts.has(id)).map(id=>{
  const [branch,...tags]=movements[id];const em=tags.reduce((s,t)=>s+(allEmo.get(t)||0),0);
  const affinity=em*1.6+(preferred.get(id)||0)*2+(branchWeights.get(branch)||0)*1.2;
  return {id,branch,weight:Math.max(.15,affinity+1.1),count:counts.get(id)};
@@ -114,7 +114,7 @@ function renderWorld(same){
  if(!seed)seed=freshSeed();
  const data=window.PCP&&PCP.cutupData;
  const assets=(data&&Array.isArray(data.assets)?data.assets:[]).filter(a=>a&&a.id&&cleanSrc(a.src));
- if(!assets.length){app.innerHTML='<section class="intake"><div class="intro-panel"><h1 class="intro-headline">THE<br>ART IS<br><em>missing.</em></h1></div><div class="question-panel"><h2>The image library did not load.</h2><p>Please reload the page. No choices have been sent anywhere.</p><button id="retry-art" class="answer">Reload</button></div></section>';$("retry-art").onclick=()=>location.reload();return}
+
  asWorld();const r=rng("pcp-world-v1|"+seed+"|"+picks.join(".")+"|"+revision);
  const ranked=scoreFamilies(assets,r);
  let branch=ranked.dominant;
@@ -149,14 +149,14 @@ function renderWorld(same){
  '<div class="world-kicker">A publication that changes its skin</div><h1 class="world-title">'+titleA+'<span class="accent">'+titleB+'</span></h1>'+
  '<p class="world-desc">'+esc(subt)+'</p><div class="world-inscription">This cover is yours for this moment. Not a psychological profile. A visual interpretation of four choices.</div>'+
  '<div class="world-actions"><button id="remix" class="primary" type="button">↻ Another version</button><button id="start-over" type="button">Change my answers</button><button id="share-world" type="button">Copy this edition</button><button id="audio-mic" type="button">Let it hear you</button><button id="hold-still" type="button">Hold still</button></div>'+
- '</div><div class="stage" aria-label="A new composition using actual artwork from the PCP library"><div class="stage-inner">'+
+ '</div><div class="stage" aria-label="Your seeded editorial composition"><div class="stage-inner">'+
  '<div class="stage-floor"></div><div class="stage-grid"></div><div class="stage-plate"></div>'+scene+'<a class="secret-eye" href="/the-eye/" aria-label="The hidden eye: open the secret page" style="--eye-x:'+eyeX+'%;--eye-y:'+eyeY+'%"><span class="eye-shell" aria-hidden="true">'+(eyeArt?'<img src="'+esc(eyeArt.src)+'" alt="">':'◉')+'</span></a>'+
  '<span class="stage-vertical">An unstable editorial organism</span><span class="stage-mark">'+esc(familyNames.join(" × "))+'</span></div></div></section>'+
  '<div class="world-ticker"><span>Entry / '+esc(chosen[0])+'</span><span>+ / '+esc(chosen[2])+'</span><span>Result / '+esc(familyNames[0])+'</span></div>'+
  '<section class="world-doors" id="explore"><div class="door-head"><h2>Go<br>deeper.</h2><p>The skin changes. The work beneath it stays human. Wander into something worth arguing with.</p></div><nav class="door-grid" aria-label="Explore the publication">'+
  door(1,"Brain Candies","/brain-candy/","B")+door(2,"My Two Cents","/my-two-cents/","M")+door(3,"Contact","/contact/","C")+door(4,"Mission Statement","/about/","S")+door(5,"Learning Curve","/learning/","L")+
  '</nav></section>'+
- '<section class="world-note"><p><strong>How this edition formed</strong><br>'+esc(familyNames.join(" / "))+'<br>Real cutout images, weighted by your chosen emotional signals. The composition, scale, density, typography and motion are drawn anew for this seed.</p>'+
+ '<section class="world-note"><p><strong>How this edition formed</strong><br>'+esc(familyNames.join(" / "))+'<br>Your answers weight the design movements used on this cover. The composition, scale, density, typography and motion are drawn anew for this seed.</p>'+
  '<p><strong>No mind-reading bullshit</strong><br>Those were aesthetic choices, not an assessment. Your answers stay in this browser. The address can reproduce the same edition without creating an account.</p></section>'+
  '<section class="world-entry"><h2>Not your<br>last answer.</h2><p>Same feelings, another composition. That is the point of a living publication.</p><button id="more-worlds" type="button">Remix the world ↗</button></section>'+
  '</div></div>';

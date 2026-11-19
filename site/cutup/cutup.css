@@ -147,3 +147,5 @@ details.knobs summary { cursor: pointer; font-weight: 800; }
 .mk-lede { max-width: 1100px; margin: 18px auto 0; padding: 0 16px; font: 900 clamp(1.5rem, 5vw, 2.4rem)/1.1 Impact, "Arial Black", sans-serif; text-transform: uppercase; }
 .mk-lede span { display: block; margin-top: 8px; font: 400 1rem/1.45 Georgia, serif; text-transform: none; color: var(--mute); }
 .mk-foot { text-align: center; padding: 28px 16px 36px; color: var(--mute); font-size: .85rem; border-top: 2px solid #2c2638; }
+
+.tile small:only-child { position: static; display: block; padding: .4em; font-size: clamp(.75rem, 2vw, 1rem); color: #fff; overflow-wrap: anywhere; }

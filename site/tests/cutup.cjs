@@ -10,7 +10,7 @@ const fails = [];
 const check = (ok, what) => { if (!ok) fails.push(what); };
 
 async function cutOne(p, words, page) {
-  await p.goto(BASE + (page || '/lab/cutup/')); await p.waitForSelector('.tile img');
+  await p.goto(BASE + (page || '/lab/cutup/')); await p.waitForSelector('.tile');
   const tiles = p.locator('.tile');
   for (let i = 0; i < 3; i++) await tiles.nth(i * 2).click();
   check(await p.locator('#cut').isEnabled(), 'Cut it up turns on after 3 picks');

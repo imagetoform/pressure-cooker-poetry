@@ -8,6 +8,13 @@ const check = (ok, what) => { if (!ok) fails.push(what); };
 async function room(ctx, fams, seed) {
   const p = await ctx.newPage(); const errs = [];
   p.on('pageerror', e => errs.push(e.message));
+  // Exercise image interactions with test-only samples even while production has no cutouts.
+  await p.route('**/alive/cutouts.js', async route => {
+    const assets = fams.flatMap(family => [0,1,2].map(i => ({id:family+'-'+i,family,emo:['wonder'],src:'/fixture/'+family+'-'+i+'.png'})));
+    const families = Object.fromEntries(fams.map(f => [f,{name:f,colors:['#111','#eee','#c32']}]));
+    await route.fulfill({contentType:'application/javascript',body:'window.PCP=window.PCP||{}; PCP.labData='+JSON.stringify({assets,families})});
+  });
+  await p.route('**/fixture/*.png', route => route.fulfill({contentType:'image/png',body:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=','base64')}));
   await p.goto(BASE + '/alive/lab/?seed=' + encodeURIComponent(seed)); await p.waitForSelector('#room .alive-piece');
   await p.waitForTimeout(400);
   return { p, errs };

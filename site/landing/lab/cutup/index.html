@@ -10,7 +10,7 @@
 <main class="sb">
   <div class="sb-in">
     <section aria-labelledby="h-pick">
-      <h2 id="h-pick"><span>1</span> Pick images</h2>
+      <h2 id="h-pick"><span>1</span> Pick design movements</h2>
       <p class="hint" id="pick-hint">Tap 3 that pull at you.</p>
       <div class="deal" id="deal"></div>
       <div class="row"><button class="btn" id="redeal" type="button">Deal again</button><span class="count" id="pick-count" role="status"></span></div>
@@ -31,19 +31,19 @@
     </section>
     <details class="knobs" id="knobs" style="margin-top:26px">
       <summary>Sandbox knobs (for deciding, not for visitors)</summary>
-      <label>Images to pick <input type="range" id="k-picks" min="2" max="4" step="1"><output></output></label>
+      <label>Movements to pick <input type="range" id="k-picks" min="2" max="4" step="1"><output></output></label>
       <label>Strips <input type="range" id="k-strips" min="3" max="8" step="1"><output></output></label>
       <label>Your words share <input type="range" id="k-mine" min="0.2" max="0.8" step="0.1"><output></output></label>
       <label>Words per poem strip <input type="range" id="k-maxWords" min="1" max="7" step="1"><output></output></label>
       <label>Ground <select id="k-ground"><option value="dark">dark</option><option value="light">light</option></select><span></span></label>
       <label>Drama with sound <input type="range" id="k-drama" min="0" max="3" step="0.1"><output id="k-drama-out"></output></label>
       <label>Card shape <select id="k-shape"><option value="portrait">portrait 4:5</option><option value="square">square</option><option value="landscape">landscape</option></select><span></span></label>
-      <p class="note">Poem lines are picked at random for now. Matching them to your images' feelings is one of the open questions.</p>
+      <p class="note">Poem lines are picked at random for now. Your chosen movements supply the colors of the cutup.</p>
     </details>
   </div>
   <div class="sb-out">
     <h2><span>3</span> Your cutup</h2>
-    <div id="card"><div class="empty">Pick images, add words if you want, then hit <b>Cut it up</b>.</div></div>
+    <div id="card"><div class="empty">Pick design movements, add words if you want, then hit <b>Cut it up</b>.</div></div>
     <p class="legend" id="legend" hidden><span><i style="background:#111;border-color:#fff"></i>your words</span><span><i style="background:#ffe14d"></i>cut from the poems</span></p>
     <div class="sound" id="sound" hidden>
       <button class="btn" id="s-song" type="button">Play it a song</button><input type="file" id="s-file" accept="audio/*" hidden>

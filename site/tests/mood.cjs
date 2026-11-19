@@ -15,9 +15,10 @@ const fails=[];const check=(ok,msg)=>{if(!ok)fails.push(msg)};
   check((await p.locator('.question-copy h2').textContent()).includes('weather'),width+': questions are the entrance');
   for(let i=0;i<4;i++){await p.locator('.answer').nth(i===2?1:0).click()}
   check(await p.locator('.pressure-transition').count()===1,width+': transition follows final answer');
-  await p.waitForSelector('.world-title');check((await p.locator('.stage-art').count())>=6,width+': real image cutouts populate the composition');
-  const src=await p.locator('.stage-art').first().getAttribute('src');
-  check(src.startsWith('/assets/cutouts/'),width+': images come from the library');
+  await p.waitForSelector('.world-title');
+  const catalog = await p.evaluate(() => PCP.cutupData.assets.map(a => a.src));
+  const displayed = await p.locator('.stage-art').evaluateAll(nodes => nodes.map(n => n.getAttribute('src')));
+  check(displayed.length >= Math.min(6,catalog.length) && displayed.every(src => catalog.includes(src)),width+': only active cutouts appear');
   check((await p.locator('.door').count())===5,width+': all five canonical destinations present');
   for(const title of ['Brain Candies','My Two Cents','Contact','Mission Statement','Learning Curve']) check(await p.locator('.door', {hasText:title}).count()===1,width+': destination '+title);
   check(await p.locator('.secret-eye[href="/the-eye/"]').count()===1,width+': eye exists in generated world');

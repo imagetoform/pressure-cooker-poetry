@@ -15,16 +15,22 @@
   // ---- deal: 12 images from 12 different families, order set by the deal seed ----
   function deal() {
     const R = P.prng.makeRng('deal|' + dealSeed);
-    const fams = R.shuffle(Object.keys(D.families).sort().filter(f => D.assets.some(a => a.family === f))).slice(0, 12);
-    const hand = fams.map(f => R.pick(D.assets.filter(a => a.family === f)));
-    picks.forEach(id => { if (!hand.some(a => a.id === id)) { const a = D.assets.find(x => x.id === id); if (a) hand.pop() && hand.unshift(a); } });
+    const families = Object.keys(D.families).sort();
+    const fams = R.shuffle(families).slice(0, 12);
+    const choice = family => ({ id: 'movement:' + family, family, label: D.families[family].name });
+    const hand = fams.map(f => {
+      const images = D.assets.filter(a => a.family === f);
+      return images.length ? R.pick(images) : choice(f);
+    });
+    picks.forEach(id => { if (!hand.some(a => a.id === id)) { const family = id.startsWith('movement:') && id.slice(9);
+      const a = D.families[family] ? choice(family) : D.assets.find(x => x.id === id); if (a) hand.pop() && hand.unshift(a); } });
     const box = $('deal'); box.replaceChildren();
     hand.forEach((a, n) => {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'tile'; b.dataset.id = a.id; b.style.setProperty('--i', n);
       b.setAttribute('aria-label', (a.label || a.id) + ' (' + (D.families[a.family] || {}).name + ')');
-      const i = document.createElement('img'); i.src = OPTS.assetBase + a.src; i.alt = '';
+      if (a.src) { const i = document.createElement('img'); i.src = OPTS.assetBase + a.src; i.alt = ''; b.append(i); }
       const s = document.createElement('small'); s.textContent = (D.families[a.family] || {}).name || '';
-      b.append(i, s); b.addEventListener('click', () => toggle(a.id)); box.append(b);
+      b.append(s); b.addEventListener('click', () => toggle(a.id)); box.append(b);
     });
     marks();
   }

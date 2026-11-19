@@ -8,10 +8,12 @@ Adds to the root `AGENTS.md`. Full schema and tagging guide: `../docs/DATABASE_S
 |---|---|
 | `catalog.json` | The site's emotion vocabulary, aliases and movement tree. Hand-edited source since the Kitchen was retired (CANON D-31). Edit one entry at a time and keep it valid JSON. |
 | `families/<branch>/<movement>/` | One folder per movement: `README.md`, `SHOPPING.md` (wanted cutouts), `kit/` (CSS parts + `kit.json`), `cutouts/` |
-| `cutouts/manifest.json` | The only list of cutouts the site may use. Today: 2 kept constructivism images |
+| `cutouts/manifest.json` | The only list of cutouts the site may use. Starts empty after the November 19 collection reset. Never repopulate from historical files, intake batches or previous manifests. |
 | `cutouts/shopping-list.json` | Cutouts still wanted (descriptions, not files) |
 | `cutouts/inbox/` | Untagged images waiting for review |
 | `intake/` | Delivery JSON for the parked OpenRouter workflow. The main path is `tools/cutouts/` (see `cutouts/README.md`) |
+
+The fresh [scout review board](https://github.com/imagetoform/pressure-cooker-poetry/issues/17) accepts owner and scout reference saves regardless of rights status. Track removals there and consult it before implementation.
 
 ## The rule that matters most: verify, then record
 

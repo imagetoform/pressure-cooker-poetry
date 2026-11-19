@@ -131,7 +131,10 @@
 
     // 3. Ground and torn colour blocks from the picked families' own colours plus one loud accent.
     const RC = sub('colour');
-    const famColors = picked.flatMap(a => (D.families[a.family] || { colors: [] }).colors);
+    const famColors = picks.flatMap(id => {
+      const family = byId[id]?.family || (id.startsWith('movement:') && id.slice(9));
+      return D.families[family]?.colors || [];
+    });
     const accent = RC.pick(ACCENTS);
     const blocks = [famColors[0] || accent, accent, famColors[2] || RC.pick(ACCENTS)].map((c, i) => ({
       color: c, x: RC.range(-10, 55), y: RC.range(-10, 70), w: RC.range(45, 85), h: RC.range(22, 48),
