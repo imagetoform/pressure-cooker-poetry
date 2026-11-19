@@ -141,7 +141,7 @@ function renderWorld(same){
  '</nav></section>'+
  '<section class="world-note"><p><strong>How this edition formed</strong><br>'+esc(familyNames.join(" / "))+'<br>Real cutout images, weighted by your chosen emotional signals. The composition, scale, density, typography and motion are drawn anew for this seed.</p>'+
  '<p><strong>No mind-reading bullshit</strong><br>Those were aesthetic choices, not an assessment. Your answers stay in this browser. The address can reproduce the same edition without creating an account.</p></section>'+
- '<section class="world-entry"><h2>Not your<br>last answer.</h2><p>Same feelings, another composition. That's the point of a living publication.</p><button id="more-worlds" type="button">Remix the world ↗</button></section>'+
+ '<section class="world-entry"><h2>Not your<br>last answer.</h2><p>Same feelings, another composition. That is the point of a living publication.</p><button id="more-worlds" type="button">Remix the world ↗</button></section>'+
  '</div></div>';
  $("remix").onclick=$("more-worlds").onclick=()=>{revision++;renderWorld();scrollTo({top:0,behavior:"smooth"})};
  $("start-over").onclick=()=>{picks=[];step=0;revision=0;history.replaceState(null,"",location.pathname+location.search);renderQ();scrollTo({top:0,behavior:"smooth"})};
