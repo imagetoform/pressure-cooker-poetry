@@ -7,7 +7,7 @@ What goes where:
   site/shared/    -> /shared/     plain.css (reading pages) and prng.js (seeded randomness)
   site/alive/     -> /alive/      the motion engine (alive.js, alive.css) and its lab at /alive/lab/
   site/cutup/     -> /cutup/      the cutup maker: cutup.js (engine), app.js (page), cutup.css; data.js generated here
-                                  used by / (front door) and /lab/cutup/ (the same maker plus Brandon's knobs)
+                                  used ONLY by /lab/cutup/; NOT the homepage
   library cutouts -> /assets/cutouts/<id>.webp   every kept cutout in library/cutouts/manifest.json
   content/*.json  -> /poems/ /essays/ /food-bank/  plain reading pages, generated here
 
@@ -28,7 +28,7 @@ REPO = SITE.parent
 PUB = SITE / "public"
 CONTENT = REPO / "content"
 
-NAV = [("/", "Make"), ("/poems/", "Poems"), ("/essays/", "Essays"), ("/learning/", "Learning"), ("/about/", "About")]
+NAV = [("/", "New Edition"), ("/poems/", "Poems"), ("/essays/", "Essays"), ("/learning/", "Learning"), ("/about/", "About")]
 
 
 def esc(s):
