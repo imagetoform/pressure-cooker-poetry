@@ -193,7 +193,7 @@
     if (layer.children.length) { room.insertBefore(layer, room.querySelector('.content')); added.push(layer); }
 
     // b) Every cutout in the room gets a behaviour from its emotion tags.
-    room.querySelectorAll('.cut img, .alive-scrap img').forEach((img, n) => {
+    room.querySelectorAll('.cut img, .alive-scrap img, .stage-art').forEach((img, n) => {
       const id = (img.getAttribute('src') || '').split('/').pop().replace(/\.\w+$/, ''), a = byId[id] || {};
       const emo = a.emo && a.emo.length ? a.emo : ['interest'];
       const verbs = [VERB[emo[0]] || 'drift'].concat(emo[1] && VERB[emo[1]] && VERB[emo[1]] !== VERB[emo[0]] ? [VERB[emo[1]]] : []);

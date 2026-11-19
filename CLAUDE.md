@@ -1,3 +1,3 @@
 @AGENTS.md
 
-Claude: the repository rules live in AGENTS.md (imported above), with folder rules in site/AGENTS.md and library/AGENTS.md. Read docs/CANON.md before planning anything, and DESIGN.md (the cutup look, approved 2026-11-19) plus docs/design/reference/ before visual work. The skills in .agents/skills/ are plain instructions; follow them by hand when their trigger fits.
+D-42 is the only current architecture. READ docs/CANON.md first; do not follow any archived CANON, dated release plan, or earlier cutup-first brief. Main -> existing Netlify project -> verify public URL. The architecture contract must pass.

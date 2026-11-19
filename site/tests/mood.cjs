@@ -14,10 +14,15 @@ const fails=[];const check=(ok,msg)=>{if(!ok)fails.push(msg)};
   check((await p.locator('.answer').count())===6,width+': six meaningful answers appear');
   check((await p.locator('.question-copy h2').textContent()).includes('weather'),width+': questions are the entrance');
   for(let i=0;i<4;i++){await p.locator('.answer').nth(i===2?1:0).click()}
+  check(await p.locator('.pressure-transition').count()===1,width+': transition follows final answer');
   await p.waitForSelector('.world-title');check((await p.locator('.stage-art').count())>=6,width+': real image cutouts populate the composition');
   const src=await p.locator('.stage-art').first().getAttribute('src');
   check(src.startsWith('/assets/cutouts/'),width+': images come from the library');
-  check((await p.locator('.door').count())===4,width+': published rooms accessible');
+  check((await p.locator('.door').count())===5,width+': all five canonical destinations present');
+  for(const title of ['Brain Candies','My Two Cents','Contact','Mission Statement','Learning Curve']) check(await p.locator('.door', {hasText:title}).count()===1,width+': destination '+title);
+  check(await p.locator('.secret-eye[href="/the-eye/"]').count()===1,width+': eye exists in generated world');
+  check(await p.locator('#audio-mic').count()===1 && await p.locator('#hold-still').count()===1,width+': audio opt-in and still controls present');
+  check(await p.locator('.world[data-layout]').count()===1,width+': seed-specific structural composition exists');
   const before=await p.evaluate(()=>({art:[...document.querySelectorAll('.stage-art')].map(n=>n.src),title:document.querySelector('.world-title').textContent,grammar:document.querySelector('.world').className}));
   const link=p.url();await p.reload();await p.waitForSelector('.world-title');
   const after=await p.evaluate(()=>({art:[...document.querySelectorAll('.stage-art')].map(n=>n.src),title:document.querySelector('.world-title').textContent,grammar:document.querySelector('.world').className}));

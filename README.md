@@ -1,3 +1,5 @@
+> **D-42 HARD RESET · 2026-11-19** — The only live architecture is questionnaire → animated pressurization → user-conditioned seeded editorial homepage, with fixed destinations and reactive source-first artwork. Start with [docs/CANON.md](docs/CANON.md); all prior homepage briefs are historical. Production runs on current main through the existing Netlify project. Every build has a mandatory anti-regression gate.
+
 # Pressure Cooker Poetry
 
 The source for [pressurecookerpoetry.com](https://pressurecookerpoetry.com) and its library of design elements and cutouts.

@@ -77,3 +77,42 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 @media(max-width:480px){.site-head{padding:12px 15px}.site-brand{font-size:17px}.site-head .head-links{gap:11px}.site-head .head-links a:nth-child(2){display:none}.intro-panel{min-height:260px;padding:23px 17px}.intro-headline{font-size:clamp(63px,15vw,91px);letter-spacing:-.045em}.intro-headline em{font-size:.85em}.question-panel{padding:28px 15px}.question-copy h2{font-size:clamp(44px,11vw,62px)}.answer-grid{gap:7px}.answer{padding:12px;min-height:96px}.answer strong{font-size:18px}.answer small{font-size:11px}.answer:after{font-size:16px;right:7px}.q-progress{font-size:10px}.progress-rail i{width:25px}.world-topline{padding:14px 16px;font-size:9px}.world-copy{padding:30px 17px 8px}.world-title{font-size:clamp(65px,15vw,93px);margin:24px 0 21px}.grammar-archive .world-title,.grammar-ornament .world-title{font-size:clamp(70px,15vw,100px)}.world-desc{font-size:18px}.stage{min-height:420px;margin:0 8px}.stage-floor{inset:8% 3% 8% 1%}.stage-mark{font-size:9px;padding:8px}.stage-art{max-height:72%}.world-ticker{font-size:10px;padding:14px 16px}.world-doors{padding:65px 16px 80px}.door-head h2{font-size:56px}.door{min-height:232px;padding:18px 13px}.door-title{font-size:31px}.door-watermark{font-size:140px}.world-note{padding:28px 16px 50px;font-size:11px}.site-footer{font-size:9px;padding:15px}}
 @media(max-width:350px){.site-brand{font-size:16px}.site-head .head-links{gap:8px}.answer{min-height:99px}.answer strong{font-size:16px}.intro-headline{font-size:61px}.door-title{font-size:27px}.world-title{font-size:60px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+
+/* D-42 invariant: transition AFTER questionnaire, before any generated world */
+body.show-questions .head-links{display:none}
+.pressure-transition{min-height:calc(100svh - 120px);background:#111017;color:#f7f0df;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:45px 18px;overflow:hidden}
+.pressure-kicker{font:800 12px/1.4 "Courier New",monospace;text-transform:uppercase;letter-spacing:.13em;color:#f3b95b;margin:33px 0 18px}
+.pressure-transition h1{font:900 clamp(64px,12vw,170px)/.85 Impact,"Arial Black",sans-serif;letter-spacing:-.05em;margin:10px 0 26px}.pressure-transition h1 em{color:#fb587c;font-family:Georgia,serif;font-weight:400}
+.pressure-transition>p:last-child{font:18px/1.4 Georgia,serif}
+.pressure-wheel{width:clamp(130px,25vw,250px);aspect-ratio:1;position:relative;animation:press-spin 2.5s linear infinite}
+.pressure-wheel span{position:absolute;inset:4%;border:12px solid #f4e5cb;border-radius:50% 12% 50% 17%;transform:rotate(38deg)}
+.pressure-wheel span:nth-child(2){inset:18%;border-color:#fb587c;transform:rotate(-30deg)}
+.pressure-wheel span:nth-child(3){inset:32%;border-color:#f0d84c;transform:rotate(14deg)}
+@keyframes press-spin{to{transform:rotate(360deg)}}
+.stage-art{pointer-events:auto;cursor:grab;touch-action:none}
+.stage-art.is-held{cursor:grabbing}
+.secret-eye{position:absolute;left:var(--eye-x,76%);top:var(--eye-y,15%);z-index:11;width:clamp(55px,7vw,105px);height:clamp(40px,5vw,74px);display:grid;place-items:center;opacity:.4;transform:rotate(var(--layout-angle,0deg));transition:opacity .25s,transform .4s;filter:drop-shadow(3px 3px 1px #000);mix-blend-mode:normal}
+.eye-shell{display:grid;place-items:center;width:100%;height:100%;border:3px dashed var(--world-fg);border-radius:70% 4% 70% 4%;overflow:hidden;font-size:54px;background:color-mix(in srgb,var(--world-a) 40%,transparent)}
+.eye-shell img{display:block;width:100%;height:100%;object-fit:contain}
+.secret-eye:hover,.secret-eye:focus-visible{opacity:1;transform:rotate(45deg) scale(1.16)}.secret-eye:hover .eye-shell,.secret-eye:focus-visible .eye-shell{animation:eye-blink .65s ease-in-out}
+@keyframes eye-blink{50%{height:12%}}
+/* Structural compositional variations are seeded separately from the five family grammars. */
+.world-hero{grid-template-columns:minmax(270px,var(--copy-fr,.9fr)) minmax(300px,var(--art-fr,1.1fr))}
+.composition-lateral{--copy-fr:.72fr;--art-fr:1.28fr}
+.composition-inverted .world-hero{direction:rtl}.composition-inverted .world-copy,.composition-inverted .stage{direction:ltr}
+.composition-inverted .world-copy{padding-right:clamp(20px,5vw,80px);padding-left:25px}
+.composition-tower .world-hero{display:flex;flex-direction:column;min-height:900px}.composition-tower .world-copy{padding:65px clamp(22px,8vw,130px) 5px}.composition-tower .world-title{max-width:1150px;font-size:clamp(73px,11vw,190px);margin:28px 0 25px}
+.composition-tower .stage{height:min(70vw,740px);min-height:530px;width:100%;margin:auto}
+.composition-tower .stage-inner{inset:0 12% 2%}
+.composition-collage .world-copy{transform:translateY(7%);padding-right:3%;padding-bottom:8%}
+.composition-collage .stage-inner{inset:-4% 0 1% -15%}
+.composition-collage .stage-floor{clip-path:polygon(var(--layout-cut,9%) 0,100% 4%,97% 100%,0 79%);transform:rotate(var(--layout-angle,3deg))}
+.composition-poster .world-hero{display:flex;min-height:940px;align-items:end}.composition-poster .stage{position:absolute;inset:0;min-height:0}.composition-poster .stage-inner{inset:4% 9% 8% 9%}.composition-poster .world-copy{z-index:9;min-height:65%;width:min(82%,1100px);padding:8% 7% 6%;text-shadow:3px 3px 0 var(--world-bg)}.composition-poster .world-title{font-size:clamp(82px,11vw,200px);max-width:1000px}
+.composition-archive-spread .world-hero{grid-template-columns:1fr 1fr}.composition-archive-spread .world-copy{border-right:1px solid var(--world-fg);padding-right:8%}.composition-archive-spread .stage-plate{transform:rotate(var(--layout-angle,0deg));border-width:7px}.composition-archive-spread .world-title{transform:scale(var(--layout-scale,1));transform-origin:left center}
+.world-doors .door-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+.world-doors .door{min-height:280px}.world-doors .door-title{font-size:clamp(22px,2.5vw,45px)}
+@media(max-width:980px){.world-doors .door-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.world-doors .door{border-bottom:1px solid currentColor}.world-doors .door:last-child{grid-column:span 2;min-height:150px}}
+@media(max-width:780px){.world-hero,.composition-archive-spread .world-hero{display:flex;flex-direction:column;min-height:0}.composition-inverted .world-hero{direction:ltr}.composition-inverted .world-copy{padding:35px 25px 10px}.composition-tower .world-hero{min-height:0}.composition-tower .stage{min-height:460px;height:460px}.composition-collage .world-copy{transform:none}.composition-collage .stage-inner{inset:0}.composition-poster .world-hero{min-height:740px}.composition-poster .stage{position:absolute;inset:0}.composition-poster .world-copy{position:relative;width:100%;min-height:0;padding:35px 22px 55px;background:linear-gradient(0deg,var(--world-bg),transparent)}.composition-poster .world-title{font-size:clamp(65px,14vw,125px)}.composition-archive-spread .world-copy{border-right:0}.secret-eye{width:70px;height:55px}}
+@media(max-width:480px){.world-doors .door-grid{grid-template-columns:1fr}.world-doors .door{border-right:0;min-height:150px}.world-doors .door:last-child{grid-column:auto}.composition-poster .world-hero{min-height:680px}.composition-poster .stage{inset:0 0 140px}.composition-poster .world-copy{margin-top:auto}.composition-tower .stage{height:380px;min-height:380px}.composition-tower .world-copy{padding:35px 17px 5px}.world-actions button{min-height:42px}}
+@media(prefers-reduced-motion:reduce){.pressure-wheel,.secret-eye:hover .eye-shell,.secret-eye:focus-visible .eye-shell{animation:none!important}.secret-eye{transition:none!important}}

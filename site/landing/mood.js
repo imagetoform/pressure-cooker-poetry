@@ -48,13 +48,16 @@ const combos={
 const grammarByBranch={revolt:"revolt",ornament:"ornament",abstract:"archive",future:"signal",order:"archive",excess:"spectrum"};
 const prepositions={revolt:"a page that refuses to stay inside its margins",ornament:"an atmosphere between a relic and a dream",abstract:"an arrangement of things that were never meant to meet",future:"a broadcast intercepted from a possible tomorrow",order:"a map for questions without easy answers",excess:"a riot of useful contradictions"};
 const app=$("app");
-let picks=[],step=0,revision=0,seed="",lastPlan=null;
+let picks=[],step=0,revision=0,seed="",lastPlan=null,liveRoom=null,loadingTimer=null;
+function detachLivingArt(){if(liveRoom){liveRoom.detach();liveRoom=null}}
+function cancelLoading(){if(loadingTimer!==null){clearTimeout(loadingTimer);loadingTimer=null}}
+
 function freshSeed(){const bytes=new Uint32Array(2);crypto.getRandomValues(bytes);return Array.from(bytes).map(x=>x.toString(36)).join("-")}
 function rng(key){return window.PCP.prng.makeRng(key)}
 function asWorld(){document.body.classList.add("show-world");document.body.classList.remove("show-questions")}
 function asQuestions(){document.body.classList.remove("show-world");document.body.classList.add("show-questions")}
 function renderQ(){
- asQuestions();step=Math.min(3,Math.max(0,step));const q=questions[step];
+ cancelLoading();detachLivingArt();asQuestions();step=Math.min(3,Math.max(0,step));const q=questions[step];
  const intro=step===0?["TELL US","WHAT'S","<em>brewing.</em>"]:step===1?["FOLLOW","YOUR","<em>curiosity.</em>"]:step===2?["MAKE","A LITTLE","<em>trouble.</em>"]:["TURN","UP THE","<em>pressure.</em>"];
  app.innerHTML='<section class="intake" aria-label="The entrance questionnaire">'+
  '<aside class="intro-panel"><div class="eyebrow">An experiment in perception / No. 001</div><h1 class="intro-headline">'+intro.join("<br>")+'</h1>'+
@@ -68,7 +71,13 @@ function renderQ(){
  app.querySelectorAll("[data-answer]").forEach(b=>b.addEventListener("click",()=>select(+b.dataset.answer)));
  $("go-back").addEventListener("click",()=>{if(step){step--;picks=picks.slice(0,step);renderQ()}});
 }
-function select(index){picks[step]=index;picks.length=step+1;if(step<3){step++;renderQ()}else{seed=freshSeed();revision=0;renderWorld()}}
+function select(index){picks[step]=index;picks.length=step+1;if(step<3){step++;renderQ()}else{seed=freshSeed();revision=0;renderLoading()}}
+function renderLoading(){
+ detachLivingArt();asQuestions();
+ app.innerHTML='<section class="pressure-transition" role="status" aria-live="polite"><div class="pressure-wheel" aria-hidden="true"><span></span><span></span><span></span></div><p class="pressure-kicker">Pressure Cooker Poetry / Mixing the variables</p><h1>THE WORLD<br>IS <em>BREWING.</em></h1><p>Something drawn from what you brought in.</p></section>';
+ cancelLoading();const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ loadingTimer=setTimeout(()=>{loadingTimer=null;renderWorld()},reduce?50:950);
+}
 function scoreFamilies(assets,r){
  const chosen=picks.map((choice,i)=>questions[i].answers[choice]);const allEmo=new Map(), branchWeights=new Map(),preferred=new Map();
  chosen.forEach((a,q)=>{a.emo.forEach(e=>allEmo.set(e,(allEmo.get(e)||0)+[3,2.4,2.6,1.3][q]));branchWeights.set(a.branch,(branchWeights.get(a.branch)||0)+[2.5,2.2,2.6,1.3][q]);a.families.forEach((f,i)=>preferred.set(f,(preferred.get(f)||0)+4.5-i*1.1))});
@@ -101,6 +110,7 @@ function chooseArt(assets,selected,emotions,r,count){
 function seedTitle(r,branch){return r.pick(combos[branch]||combos.abstract)}
 function selectedNames(){return picks.map((n,i)=>questions[i].answers[n].name)}
 function renderWorld(same){
+ cancelLoading();detachLivingArt();
  if(!seed)seed=freshSeed();
  const data=window.PCP&&PCP.cutupData;
  const assets=(data&&Array.isArray(data.assets)?data.assets:[]).filter(a=>a&&a.id&&cleanSrc(a.src));
@@ -110,10 +120,17 @@ function renderWorld(same){
  let branch=ranked.dominant;
  // The graphic grammars are not presets for every visit; the answers bias them.
  const grammar=grammarByBranch[branch]||"archive";
+ const compositions=["lateral","inverted","tower","collage","poster","archive-spread"];
+ const composition=r.pick(compositions);
+ const layoutAngle=r.int(-9,9), layoutCut=r.int(5,19);
+ const layoutScale=(0.83+r.float()*0.42).toFixed(3);
  const phrase=seedTitle(r,branch),energy=questions[3].answers[picks[3]].energy;
  const count=energy>.75?10:energy<.35?6:8;
  const art=chooseArt(assets,ranked.taken,ranked.emotions,r,count);
  const chosen=selectedNames();
+ const eyes=assets.filter(a=>/\beye\b|ocular|iris|gaze/i.test(a.label||"")&&cleanSrc(a.src));
+ const eyeArt=eyes.length?r.pick(eyes):null;
+ const eyeX=r.int(64,83),eyeY=r.int(8,26);
  const titleA=esc(phrase[0]),titleB=esc(phrase[1]);
  const artPositions=[
  [5,13,40,-15],[45,2,43,13],[40,44,48,-4],[7,54,36,10],[63,32,32,-15],
@@ -125,24 +142,32 @@ function renderWorld(same){
  const familyNames=ranked.taken.map(x=>data.families[x.id]?.name||x.id);
  const subt='You arrived carrying '+chosen[0].toLowerCase()+'. You followed '+chosen[1].toLowerCase()+'. What emerged is '+prepositions[branch]+'.';
  const moodTag=ranked.taken.map(x=>x.id).join(" / ");
- lastPlan={choices:picks.slice(),seed,revision,grammar,art:art.map(a=>a.id),families:ranked.taken.map(f=>f.id)};
+ lastPlan={choices:picks.slice(),seed,revision,grammar,composition,art:art.map(a=>a.id),families:ranked.taken.map(f=>f.id)};
  try{history.replaceState(null,"",location.pathname+location.search+"#world="+encodeURIComponent(btoa(JSON.stringify({p:picks,s:seed,r:revision}))))}catch(e){}
- app.innerHTML='<div class="world grammar-'+grammar+'"><div class="world-topline"><span class="world-id">PCP / Living edition '+esc(seed.slice(0,7))+'</span><span class="world-mix">Aesthetic collision  /  '+esc(ranked.taken.length)+' movements</span></div>'+
+ app.innerHTML='<div class="world grammar-'+grammar+' composition-'+composition+'" data-layout="'+composition+'" style="--layout-angle:'+layoutAngle+'deg;--layout-cut:'+layoutCut+'%;--layout-scale:'+layoutScale+'"><div class="world-topline"><span class="world-id">PCP / Living edition '+esc(seed.slice(0,7))+'</span><span class="world-mix">Aesthetic collision  /  '+esc(ranked.taken.length)+' movements</span></div>'+
  '<div class="world-content"><section class="world-hero" aria-label="Your generated living cover"><div class="world-copy">'+
  '<div class="world-kicker">A publication that changes its skin</div><h1 class="world-title">'+titleA+'<span class="accent">'+titleB+'</span></h1>'+
  '<p class="world-desc">'+esc(subt)+'</p><div class="world-inscription">This cover is yours for this moment. Not a psychological profile. A visual interpretation of four choices.</div>'+
- '<div class="world-actions"><button id="remix" class="primary" type="button">↻ Another version</button><button id="start-over" type="button">Change my answers</button><button id="share-world" type="button">Copy this edition</button></div>'+
+ '<div class="world-actions"><button id="remix" class="primary" type="button">↻ Another version</button><button id="start-over" type="button">Change my answers</button><button id="share-world" type="button">Copy this edition</button><button id="audio-mic" type="button">Let it hear you</button><button id="hold-still" type="button">Hold still</button></div>'+
  '</div><div class="stage" aria-label="A new composition using actual artwork from the PCP library"><div class="stage-inner">'+
- '<div class="stage-floor"></div><div class="stage-grid"></div><div class="stage-plate"></div>'+scene+
+ '<div class="stage-floor"></div><div class="stage-grid"></div><div class="stage-plate"></div>'+scene+'<a class="secret-eye" href="/the-eye/" aria-label="The hidden eye: open the secret page" style="--eye-x:'+eyeX+'%;--eye-y:'+eyeY+'%"><span class="eye-shell" aria-hidden="true">'+(eyeArt?'<img src="'+esc(eyeArt.src)+'" alt="">':'◉')+'</span></a>'+
  '<span class="stage-vertical">An unstable editorial organism</span><span class="stage-mark">'+esc(familyNames.join(" × "))+'</span></div></div></section>'+
  '<div class="world-ticker"><span>Entry / '+esc(chosen[0])+'</span><span>+ / '+esc(chosen[2])+'</span><span>Result / '+esc(familyNames[0])+'</span></div>'+
  '<section class="world-doors" id="explore"><div class="door-head"><h2>Go<br>deeper.</h2><p>The skin changes. The work beneath it stays human. Wander into something worth arguing with.</p></div><nav class="door-grid" aria-label="Explore the publication">'+
- door(1,"Poems","/poems/","P")+door(2,"Essays","/essays/","E")+door(3,"Brain Candy","/brain-candy/","B")+door(4,"Learning Curve","/learning/","L")+
+ door(1,"Brain Candies","/brain-candy/","B")+door(2,"My Two Cents","/my-two-cents/","M")+door(3,"Contact","/contact/","C")+door(4,"Mission Statement","/about/","S")+door(5,"Learning Curve","/learning/","L")+
  '</nav></section>'+
  '<section class="world-note"><p><strong>How this edition formed</strong><br>'+esc(familyNames.join(" / "))+'<br>Real cutout images, weighted by your chosen emotional signals. The composition, scale, density, typography and motion are drawn anew for this seed.</p>'+
  '<p><strong>No mind-reading bullshit</strong><br>Those were aesthetic choices, not an assessment. Your answers stay in this browser. The address can reproduce the same edition without creating an account.</p></section>'+
  '<section class="world-entry"><h2>Not your<br>last answer.</h2><p>Same feelings, another composition. That is the point of a living publication.</p><button id="more-worlds" type="button">Remix the world ↗</button></section>'+
  '</div></div>';
+ if(window.PCP&&PCP.alive){
+   PCP.assets=assets;
+   liveRoom=PCP.alive.attach(app.querySelector(".stage"),{assets:[],seed:seed+"|"+revision});
+   const mic=$("audio-mic"),hold=$("hold-still");
+   mic.onclick=async()=>{try{if(PCP.alive.signals.hearing){PCP.alive.deafen();mic.textContent="Let it hear you"}else{mic.textContent="Listening…";await PCP.alive.listen();mic.textContent="Stop listening"}}catch(e){mic.textContent="Microphone unavailable"}};
+   hold.textContent=PCP.alive.isStill()?"Let it move":"Hold still";
+   hold.onclick=()=>{PCP.alive.still(!PCP.alive.isStill());hold.textContent=PCP.alive.isStill()?"Let it move":"Hold still"};
+ }
  $("remix").onclick=$("more-worlds").onclick=()=>{revision++;renderWorld();scrollTo({top:0,behavior:"smooth"})};
  $("start-over").onclick=()=>{picks=[];step=0;revision=0;history.replaceState(null,"",location.pathname+location.search);renderQ();scrollTo({top:0,behavior:"smooth"})};
  $("share-world").onclick=async()=>{const btn=$("share-world");try{await navigator.clipboard.writeText(location.href);btn.textContent="Copied ✓"}catch(e){btn.textContent="Copy the address above"}};

@@ -19,6 +19,8 @@ import html
 import json
 import re
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 SITE = Path(__file__).resolve().parents[1]
@@ -157,6 +159,8 @@ def cutouts():
 
 
 def main():
+    # D-42: an old front door must not be publishable even outside GitHub Actions.
+    subprocess.run([sys.executable, str(SITE / "tests/architecture_contract.py")], check=True)
     shutil.rmtree(PUB, ignore_errors=True)
     shutil.copytree(SITE / "landing", PUB)
     shutil.copytree(SITE / "shared", PUB / "shared")
