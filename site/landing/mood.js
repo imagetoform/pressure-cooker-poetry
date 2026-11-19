@@ -123,7 +123,7 @@ function renderWorld(same){
  const compositions=["lateral","inverted","tower","collage","poster","archive-spread"];
  const composition=r.pick(compositions);
  const layoutAngle=r.int(-9,9), layoutCut=r.int(5,19);
- const layoutScale=(0.83+r.float()*0.42).toFixed(3);
+ const layoutScale=(0.83+r.next()*0.42).toFixed(3);
  const phrase=seedTitle(r,branch),energy=questions[3].answers[picks[3]].energy;
  const count=energy>.75?10:energy<.35?6:8;
  const art=chooseArt(assets,ranked.taken,ranked.emotions,r,count);
