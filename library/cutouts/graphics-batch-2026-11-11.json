@@ -1,0 +1,132 @@
+{
+  "schema_version": "pressroom-batch-1",
+  "generated_date": "2026-11-11",
+  "related_issue": "https://github.com/imagetoform/pressure-cooker-poetry/issues/2",
+  "status": "review_only",
+  "assets": [
+    {
+      "id": "pcp-original-pressure-sunburst",
+      "type": "cutout",
+      "format": "image/svg+xml",
+      "path": "library/cutouts/originals/pressure-sunburst.svg",
+      "creator": "Pressure Cooker Poetry original vector asset",
+      "origin": "original",
+      "license": "original project asset",
+      "publication_status": "review",
+      "attribution": {
+        "source": "original composition",
+        "confidence": "high"
+      },
+      "family_tag": {
+        "value": "dada",
+        "tag_status": "unreviewed",
+        "rationale": null,
+        "source": null
+      },
+      "emotional_tags": [
+        "volatile",
+        "collage",
+        "print"
+      ],
+      "axes": {
+        "energy": 0.93,
+        "chaos": 0.75
+      },
+      "responsive": "scales using SVG viewBox",
+      "notes": "New review-branch original. Not wired into landing or deployed."
+    },
+    {
+      "id": "pcp-original-broken-halo",
+      "type": "cutout",
+      "format": "image/svg+xml",
+      "path": "library/cutouts/originals/broken-halo.svg",
+      "creator": "Pressure Cooker Poetry original vector asset",
+      "origin": "original",
+      "license": "original project asset",
+      "publication_status": "review",
+      "attribution": {
+        "source": "original composition",
+        "confidence": "high"
+      },
+      "family_tag": {
+        "value": "surrealism",
+        "tag_status": "unreviewed",
+        "rationale": null,
+        "source": null
+      },
+      "emotional_tags": [
+        "uncanny",
+        "collage",
+        "print"
+      ],
+      "axes": {
+        "energy": 0.7,
+        "chaos": 0.78
+      },
+      "responsive": "scales using SVG viewBox",
+      "notes": "New review-branch original. Not wired into landing or deployed."
+    },
+    {
+      "id": "pcp-original-ink-eye",
+      "type": "cutout",
+      "format": "image/svg+xml",
+      "path": "library/cutouts/originals/ink-eye.svg",
+      "creator": "Pressure Cooker Poetry original vector asset",
+      "origin": "original",
+      "license": "original project asset",
+      "publication_status": "review",
+      "attribution": {
+        "source": "original composition",
+        "confidence": "high"
+      },
+      "family_tag": {
+        "value": "expressionism",
+        "tag_status": "unreviewed",
+        "rationale": null,
+        "source": null
+      },
+      "emotional_tags": [
+        "watchful",
+        "collage",
+        "print"
+      ],
+      "axes": {
+        "energy": 0.68,
+        "chaos": 0.42
+      },
+      "responsive": "scales using SVG viewBox",
+      "notes": "New review-branch original. Not wired into landing or deployed."
+    },
+    {
+      "id": "pcp-original-rupture-label",
+      "type": "cutout",
+      "format": "image/svg+xml",
+      "path": "library/cutouts/originals/rupture-label.svg",
+      "creator": "Pressure Cooker Poetry original vector asset",
+      "origin": "original",
+      "license": "original project asset",
+      "publication_status": "review",
+      "attribution": {
+        "source": "original composition",
+        "confidence": "high"
+      },
+      "family_tag": {
+        "value": "punk",
+        "tag_status": "unreviewed",
+        "rationale": null,
+        "source": null
+      },
+      "emotional_tags": [
+        "abrasive",
+        "collage",
+        "print"
+      ],
+      "axes": {
+        "energy": 0.94,
+        "chaos": 0.62
+      },
+      "responsive": "scales using SVG viewBox",
+      "notes": "New review-branch original. Not wired into landing or deployed."
+    }
+  ]
+}
