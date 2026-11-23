@@ -1,0 +1,596 @@
+[
+  {
+    "id": "559e5576b45ae83a",
+    "url": "https://api.repo.nypl.org/",
+    "title": "NYPL Digital Collections",
+    "platform": "archive",
+    "kind": "source-board",
+    "source_id": "archive-nypl",
+    "tags": [
+      "ephemera",
+      "type",
+      "historical"
+    ],
+    "rights": "verify_individual_item",
+    "status": "research"
+  },
+  {
+    "id": "a5612baa606d54d1",
+    "url": "https://www.loc.gov/free-to-use/",
+    "title": "Library of Congress Free to Use",
+    "platform": "archive",
+    "kind": "source-board",
+    "source_id": "museum-loc",
+    "tags": [
+      "ephemera",
+      "poster",
+      "historical"
+    ],
+    "rights": "verify_individual_item",
+    "status": "research"
+  },
+  {
+    "id": "add2cb8230b4d0ca",
+    "url": "https://www.are.na/block/13731812",
+    "title": "Boot Boyz Biz, Dress to Read t-shirt",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-pcp-design",
+    "tags": [
+      "pcp",
+      "design",
+      "cutups"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "13731812",
+    "block_type": "Link"
+  },
+  {
+    "id": "ef365acf2b2abf5e",
+    "url": "https://www.are.na/block/16683342",
+    "title": "272942046_483773876601304_1225184911058206906_n.jpg?stp=dst-jpg_e35-_nc_ht=instagram.fyxe2-1.fna.fbcdn.net-_nc_cat=104-_nc_o...",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-graphic-soup",
+    "tags": [
+      "graphic-soup",
+      "cutup",
+      "editorial"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "16683342",
+    "block_type": "Image"
+  },
+  {
+    "id": "371a4a140db666be",
+    "url": "https://www.are.na/block/18581763",
+    "title": "Ezhishin—Native North American Typography",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-pcp-design",
+    "tags": [
+      "pcp",
+      "design",
+      "cutups"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "18581763",
+    "block_type": "Link"
+  },
+  {
+    "id": "1e24246080f343e1",
+    "url": "https://www.are.na/block/1947831",
+    "title": "flatline-constructs.pdf",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-pcp-design",
+    "tags": [
+      "pcp",
+      "design",
+      "cutups"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "1947831",
+    "block_type": "Attachment"
+  },
+  {
+    "id": "851a854087f908d7",
+    "url": "https://www.are.na/block/29700793",
+    "title": "d314bb3e5c02d0c0d1780e2895a48073.jpg",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-graphic-soup",
+    "tags": [
+      "graphic-soup",
+      "cutup",
+      "editorial"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "29700793",
+    "block_type": "Image"
+  },
+  {
+    "id": "920ad6321c0621c4",
+    "url": "https://www.are.na/block/37994090",
+    "title": "All posts • Instagram",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-graphic-soup",
+    "tags": [
+      "graphic-soup",
+      "cutup",
+      "editorial"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "37994090",
+    "block_type": "Image"
+  },
+  {
+    "id": "eeaa77e47972a649",
+    "url": "https://www.are.na/block/38548205",
+    "title": "instagram-photo-525737149.jpg",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-graphic-soup",
+    "tags": [
+      "graphic-soup",
+      "cutup",
+      "editorial"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "38548205",
+    "block_type": "Image"
+  },
+  {
+    "id": "ffba00a5a42bcde0",
+    "url": "https://www.are.na/block/40771651",
+    "title": "The thing that wouldn’t die: why Gothic endures in visual culture",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-pcp-design",
+    "tags": [
+      "pcp",
+      "design",
+      "cutups"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "40771651",
+    "block_type": "Link"
+  },
+  {
+    "id": "0a89bf0307ab478a",
+    "url": "https://www.are.na/block/42796093",
+    "title": "Instagram",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-graphic-soup",
+    "tags": [
+      "graphic-soup",
+      "cutup",
+      "editorial"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "42796093",
+    "block_type": "Image"
+  },
+  {
+    "id": "32c052200d0ec301",
+    "url": "https://www.are.na/block/52363617",
+    "title": "Y2K Futurism | Aesthetics Wiki | Fandom",
+    "platform": "are.na",
+    "kind": "visual-reference",
+    "source_id": "arena-pcp-design",
+    "tags": [
+      "pcp",
+      "design",
+      "cutups"
+    ],
+    "rights": "reference_only",
+    "status": "research",
+    "block_id": "52363617",
+    "block_type": "Link"
+  },
+  {
+    "id": "83b0da7f9949477a",
+    "url": "https://www.are.na/brandon-rhodes/pcp-design",
+    "title": "Are.na / PCP Design",
+    "platform": "are.na",
+    "kind": "source-board",
+    "source_id": "arena-pcp-design",
+    "tags": [
+      "pcp",
+      "design",
+      "cutups"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "3f5cfc4d3e66e7a7",
+    "url": "https://www.are.na/mishka-online/graphic-soup-4chbywtwtfo",
+    "title": "Mishka / Graphic Soup",
+    "platform": "are.na",
+    "kind": "source-board",
+    "source_id": "arena-graphic-soup",
+    "tags": [
+      "graphic-soup",
+      "cutup",
+      "editorial"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "052ba191e0517839",
+    "url": "https://cdn.cosmos.so/01a0e87c-a034-7b5c-b5bc-b53073a92efa?format=webp&w=400",
+    "title": "User-supplied Cosmos reference 4",
+    "platform": "cosmos",
+    "kind": "source-board",
+    "source_id": "cosmos-image-4",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "45e367a2064d5c1f",
+    "url": "https://cdn.cosmos.so/01a16c65-875a-7de6-8d59-3eed8b5d30e3?format=webp&w=400",
+    "title": "User-supplied Cosmos reference 3",
+    "platform": "cosmos",
+    "kind": "source-board",
+    "source_id": "cosmos-image-3",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "aa28d7d4880b4fb1",
+    "url": "https://cdn.cosmos.so/01a1d77a-8d79-7d9c-91e0-fa41ecae01bc?format=webp&w=400",
+    "title": "User-supplied Cosmos reference 2",
+    "platform": "cosmos",
+    "kind": "source-board",
+    "source_id": "cosmos-image-2",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "1ba4e8ee6b756a4b",
+    "url": "https://cdn.cosmos.so/f14af0fc-7ee0-42a3-9868-033ef1faefe1",
+    "title": "User-supplied Cosmos reference 1",
+    "platform": "cosmos",
+    "kind": "source-board",
+    "source_id": "cosmos-image-1",
+    "tags": [
+      "cosmos",
+      "graphic-design"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "defdc8bb3a311759",
+    "url": "https://www.cosmos.so/brandonrhodes/design-inspo",
+    "title": "Cosmos / Design Inspo",
+    "platform": "cosmos",
+    "kind": "source-board",
+    "source_id": "cosmos-design-inspo",
+    "tags": [
+      "graphic-design",
+      "cutup",
+      "visual-reference"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "a42b10610aa08165",
+    "url": "https://www.cosmos.so/brandonrhodes/pcp-backgrounds",
+    "title": "Cosmos / PCP Backgrounds",
+    "platform": "cosmos",
+    "kind": "source-board",
+    "source_id": "cosmos-pcp-backgrounds",
+    "tags": [
+      "textures",
+      "backgrounds",
+      "composition"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "1949739574e54e3e",
+    "url": "https://www.cosmos.so/brandonrhodes/website-design-inspo",
+    "title": "Cosmos / Website Design Inspo",
+    "platform": "cosmos",
+    "kind": "source-board",
+    "source_id": "cosmos-website-design-inspo",
+    "tags": [
+      "website",
+      "composition",
+      "editorial"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "4f26ff19b114db6b",
+    "url": "https://github.com/YananLee/ae-text-animator",
+    "title": "YananLee/ae-text-animator",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-kinetic",
+    "tags": [
+      "typography",
+      "motion"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "MIT",
+    "description": "After Effects–style kinetic typography for the web. AE 动态字体 / AE 文字动画开源库. Live editor: https://www.typemotion.art",
+    "language": "TypeScript",
+    "stars": 0
+  },
+  {
+    "id": "b302831c1f19b76d",
+    "url": "https://github.com/amycardoso/creative-coding",
+    "title": "amycardoso/creative-coding",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-creative-coding",
+    "tags": [
+      "creative-coding",
+      "motion",
+      "generative"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "MIT",
+    "description": "Generative art in p5.js and GLSL: small systems that draw something different every time they run.",
+    "language": "JavaScript",
+    "stars": 0
+  },
+  {
+    "id": "f4504d6cd23840cc",
+    "url": "https://github.com/css-doodle/css-doodle",
+    "title": "css-doodle/css-doodle",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-creative-coding",
+    "tags": [
+      "creative-coding",
+      "motion",
+      "generative"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "MIT",
+    "description": "A web component for visual art and creative coding",
+    "language": "JavaScript",
+    "stars": 6083
+  },
+  {
+    "id": "296f98c30cc6f447",
+    "url": "https://github.com/gi-k-glacier-0705/Soft-Overcomes-Hard",
+    "title": "gi-k-glacier-0705/Soft-Overcomes-Hard",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-creative-coding",
+    "tags": [
+      "creative-coding",
+      "motion",
+      "generative"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "UNVERIFIED",
+    "description": "A creative-coding / generative-art experiment inspire by Chapter 78 of the Tao Te Ching.   \"Nothing under heaven is softer than water and nothing beats it at wearing down the hard. no substitute exists. soft beats strong; gentle beats rigid. everybody knows it; no one lives it. So, the sage said: ... straight talk sounds backwards.\" ~Lao Tzu",
+    "language": "JavaScript",
+    "stars": 1
+  },
+  {
+    "id": "50642a9b4a0d23ac",
+    "url": "https://github.com/jaycer/creative-coding-portfolio",
+    "title": "jaycer/creative-coding-portfolio",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-creative-coding",
+    "tags": [
+      "creative-coding",
+      "motion",
+      "generative"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "MIT",
+    "description": "Jayce Renner — Creative Coding portfolio: generative art, simulations & interactive sketches.",
+    "language": "JavaScript",
+    "stars": 0
+  },
+  {
+    "id": "330797d54b4d73a1",
+    "url": "https://github.com/kyenzamomin/ledger",
+    "title": "kyenzamomin/ledger",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-kinetic",
+    "tags": [
+      "typography",
+      "motion"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "UNVERIFIED",
+    "description": "Ledger — An interactive, browser-history-driven portfolio template built with HTML, CSS, and JavaScript. Features dynamic kinetic typography, fluid modal drawers mapped to browser hash routes, and a clean financial-executive layout.",
+    "language": "JavaScript",
+    "stars": 0
+  },
+  {
+    "id": "4a8aa0dda0c539fc",
+    "url": "https://github.com/languel/artistmodelstudio",
+    "title": "languel/artistmodelstudio",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-creative-coding",
+    "tags": [
+      "creative-coding",
+      "motion",
+      "generative"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "UNVERIFIED",
+    "description": "A human-in-the-loop creative coding studio for fine-tuning, evaluating, and running generative art models on local Apple Silicon & WebGPU",
+    "language": "JavaScript",
+    "stars": 0
+  },
+  {
+    "id": "be17768a111699b1",
+    "url": "https://github.com/michaelkariuki/portfolio-kinetic-swiss",
+    "title": "michaelkariuki/portfolio-kinetic-swiss",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-kinetic",
+    "tags": [
+      "typography",
+      "motion"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "UNVERIFIED",
+    "description": "Zero-dependency kinetic-typography portfolio in hand-written HTML, CSS and JavaScript. Deployed on Cloudflare Workers.",
+    "language": "CSS",
+    "stars": 0
+  },
+  {
+    "id": "eafb8dcaabb625fb",
+    "url": "https://github.com/roedyrustam/cinematic-motion-engine",
+    "title": "roedyrustam/cinematic-motion-engine",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-kinetic",
+    "tags": [
+      "typography",
+      "motion"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "UNVERIFIED",
+    "description": "🎬 Standalone Broadcast Programmatic Motion Graphics, Kinetic Typography, Living Cartoon Stage & 60fps Video Engine for AI Agents (Antigravity, Claude Code, Cursor, Codex)",
+    "language": "JavaScript",
+    "stars": 1
+  },
+  {
+    "id": "4200d83a574f9b62",
+    "url": "https://github.com/syubidin/portfolio-react",
+    "title": "syubidin/portfolio-react",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-kinetic",
+    "tags": [
+      "typography",
+      "motion"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "UNVERIFIED",
+    "description": "Architectural brutalist developer portfolio crafted with React 19, Anime.js v4, and Vite. Features a tactile elevation altimeter, kinetic typography, and a single-file content engine.",
+    "language": "JavaScript",
+    "stars": 0
+  },
+  {
+    "id": "fb6ec9d0b9d2cf61",
+    "url": "https://github.com/tgiachett/react-svg-big-plus-filters-plus-color-transitions",
+    "title": "tgiachett/react-svg-big-plus-filters-plus-color-transitions",
+    "platform": "github",
+    "kind": "code-repository",
+    "source_id": "github-svg",
+    "tags": [
+      "svg",
+      "texture",
+      "animation"
+    ],
+    "rights": "verify_before_reuse",
+    "status": "research",
+    "license_spdx": "UNVERIFIED",
+    "description": "Basic generative art with SVG and ReactJS. ",
+    "language": "JavaScript",
+    "stars": 1
+  },
+  {
+    "id": "a1eb5e0af58cc33a",
+    "url": "https://www.metmuseum.org/hubs/open-access",
+    "title": "The Metropolitan Museum of Art Open Access",
+    "platform": "museum",
+    "kind": "source-board",
+    "source_id": "museum-met",
+    "tags": [
+      "public-domain",
+      "engraving",
+      "archive"
+    ],
+    "rights": "verify_individual_item",
+    "status": "research"
+  },
+  {
+    "id": "cb5449c4f74cfa6f",
+    "url": "https://pin.it/2bCrj2p1a",
+    "title": "Website Design Elements board A",
+    "platform": "pinterest",
+    "kind": "source-board",
+    "source_id": "pinterest-website-design-elements-a",
+    "tags": [
+      "editorial",
+      "web-design",
+      "composition"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "49ab248be801ba07",
+    "url": "https://pin.it/623VzIX0f",
+    "title": "Website Design Elements board B",
+    "platform": "pinterest",
+    "kind": "source-board",
+    "source_id": "pinterest-website-design-elements-b",
+    "tags": [
+      "web-design",
+      "interaction",
+      "collage"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  },
+  {
+    "id": "6a034c2c72b972a9",
+    "url": "https://pin.it/6J8xlIxQH",
+    "title": "Pinterest design reference C",
+    "platform": "pinterest",
+    "kind": "source-board",
+    "source_id": "pinterest-design-link-c",
+    "tags": [
+      "graphic-design",
+      "design-reference"
+    ],
+    "rights": "reference_only",
+    "status": "research"
+  }
+]
