@@ -29,12 +29,12 @@
 .pu-stamp span{border:4px double var(--ink);color:var(--ink);font:900 clamp(13px,1.6vw,24px)/1 "Courier New",monospace;letter-spacing:.12em;padding:.4em .6em;transform:rotate(-8deg);opacity:.85;text-align:center;mix-blend-mode:multiply}
 /* satirical ad block */
 .pu-ad{flex-direction:column;align-items:flex-start;justify-content:space-between;border:3px solid var(--ink);padding:7%}
-.pu-ad b{font:900 clamp(13px,1.5vw,22px)/.95 Impact,"Arial Black",sans-serif;text-transform:uppercase;color:var(--ink)}
+.pu-ad b{font:900 clamp(13px,1.5vw,22px)/.95 Impact,"Arial Black",sans-serif;text-transform:uppercase;color:#141216;border-bottom:4px solid var(--ink)}
 .pu-ad .pu-price{font:900 clamp(26px,3.4vw,52px)/1 Impact,sans-serif;background:#ffd400;color:#111;padding:0 .15em;transform:rotate(-4deg);align-self:flex-end}.pu-ad sup{font-size:.4em}
 .pu-ad small{font:9px/1.25 Arial,sans-serif;opacity:.75}
 /* constructivist wedge + stencil */
 .pu-wedge{background:linear-gradient(115deg,var(--w1) 0 46%,transparent 46%),linear-gradient(115deg,transparent 0 52%,var(--w2) 52% 60%,transparent 60%),var(--paper)}
-.pu-stencil{font:900 clamp(16px,2.3vw,36px)/.95 "Arial Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:.06em;position:relative;z-index:1;text-align:center;overflow-wrap:anywhere}
+.pu-stencil{font:900 clamp(14px,1.8vw,30px)/.95 "Arial Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:.06em;position:relative;z-index:1;text-align:center;overflow-wrap:anywhere}
 .pu-wedge .pu-stencil{color:#fff;text-shadow:2px 2px 0 #111;transform:rotate(-12deg)}
 .pu-stencilplate .pu-stencil{color:var(--ink);-webkit-text-stroke:1px rgba(0,0,0,.2);background:repeating-linear-gradient(90deg,transparent 0 .9em,var(--paper) .9em .98em);-webkit-background-clip:text;font-size:clamp(14px,1.8vw,28px)}
 .pu-stripes{background:repeating-linear-gradient(var(--ang),var(--s1) 0 10px,var(--s2) 10px 20px)}
