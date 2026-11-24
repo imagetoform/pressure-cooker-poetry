@@ -71,6 +71,12 @@ function pages(dir, rel = '/') {
   }
   await ctx.close();
   await b.close();
+  // Contact: a Netlify form Netlify can detect at deploy, a honeypot, a required message, and a real thank-you page.
+  const contact = fs.readFileSync(path.join(PUB, 'contact/index.html'), 'utf8');
+  check(/<form[^>]*name="contact"[^>]*data-netlify="true"/.test(contact) && /name="form-name" value="contact"/.test(contact), 'contact form is a detectable Netlify form');
+  check(/netlify-honeypot="bot-field"/.test(contact) && /name="bot-field"/.test(contact), 'contact form has a honeypot');
+  check(/<textarea[^>]*name="message"[^>]*required/.test(contact), 'contact message is required');
+  check(/action="\/contact\/sent\/"/.test(contact) && fs.existsSync(path.join(PUB, 'contact/sent/index.html')), 'contact form lands on /contact/sent/');
   if (fails.length) { console.log('FAIL:\n - ' + fails.join('\n - ')); process.exit(1); }
   console.log('PASS: site - ' + urls.length + ' pages at 320px and desktop (no errors, no missing files, no sideways scroll); ' +
     poems.length + ' poems, ' + lines + ' lines verbatim; ' + essays.length + ' essays with sources; Kitchen gone and redirected.');
