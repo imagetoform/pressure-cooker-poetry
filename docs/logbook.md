@@ -1,3 +1,31 @@
+## 2026-11-24 16:24 — Review + three things live: the arcade, contact form, paste-up homepage
+
+### What was asked
+Brandon: review where the site is against the mission, and get part of it live tonight. Chose: arcade to /brain-candy/, homepage polish, a no-image fix for the empty stage, and a working contact page (form now, @pressurecookerpoetry.com address later).
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Review | Built main (70bdb4a), screenshotted 6 seeds at 320/390/768/1280. The generative stage was an empty slab: `library/cutouts/manifest.json` is `[]` since 35b720b (Nov 19) |
+| Cutout rule (owner, Nov 24) | Brandon emptied the manifest **on purpose**: he'll cut his own. Earlier AI cutouts read to him as "dollar tree clipart". He doesn't care about copyright unless it's blatant misuse of a character. **Do not repopulate the manifest from the 1,018 files in `library/families/*/cutouts/`** |
+| Arcade (363bd98) | Nov 24 claude.ai prototype (artifact Ew2qMSEuHTcRNCps25JHMd) ported to `/brain-candy/` as a compiled single-file bundle; fonts self-hosted; site strip; prototype labels rewritten. See docs/BRAIN_CANDY.md |
+| Contact (55ded2e) | Netlify form `contact` + honeypot, lands on `/contact/sent/`. Form detection switched ON in Netlify (owner OK). Netlify detected the form (fields: name, email, about, message) |
+| Homepage (96d17ba, 09a67aa) | `paste-up.js/css`: seeded torn paper + print-marks per movement; scraps are alive pieces. Headline shrink-to-fit (no REVOLUTI/ON). Label moved off title. Phone poster = art panel on top. Copy rewritten (see below) |
+| Tests | mood.cjs: scraps present/live/reproducible, no split headline words. site.cjs: contact form checks. spin-cycle.cjs: arcade hub. All 5 suites + D-42 contract pass; double build identical |
+| Verified | SOURCE CHANGED, DEPLOY READY, PUBLIC SITE VERIFIED: walked pressurecookerpoetry.com in headless Chrome at 390 and 1280 (questionnaire → world with 6/8 scraps, 0 errors); /brain-candy/ shows 6 cabinets |
+
+### Changed: old → new (homepage copy; Brandon asked to approve wording, so treat as draft)
+- kicker `A publication that changes its skin` → `Pressed fresh. Nobody else gets this one.`
+- inscription → `Not a horoscope. Not a profile. Not a product recommendation. Four choices, run through a machine that sells nothing.`
+- `Go deeper.` → `Now dig.` + new line; remix → `Cut it again`; end band line → `Same feelings, different paste-up. Nothing here is final. Neither are you.`
+- titles added: NOBODY'S PROPERTY, SAY IT PLAIN, FREE GIFT INSIDE, BUY NOTHING FEEL EVERYTHING, WHO BENEFITS?, SHOW YOUR WORK (dropped NOTHING STAYS STILL, RIOTOUS POSSIBILITY, AN OPEN QUESTION)
+
+### Open / notes
+- Netlify sends no form emails until Brandon adds a notification: Project configuration → Notifications → Emails and webhooks → Form submission notifications (address must be a team member's, or confirm by email). Nobody has sent a test message yet.
+- Domain email: ImprovMX forwarding = MX `mx1.improvmx.com` (10), `mx2.improvmx.com` (20), TXT `v=spf1 include:spf.improvmx.com ~all` at the domain's DNS. Not started.
+- The arcade bundle's readable source is not in the repo.
+- Paste-up is the interim art. When Brandon's own cutouts land in the manifest, `withCutouts` lowers the scrap count automatically.
+
 ## 2026-11-19 — New owner reset: live questionnaire + generative editorial front door
 Owner replaced the cutup-first home with a four-choice feeling/affinity instrument feeding an emotion-weighted artistic-family sampler and image-based responsive layouts. Direct production publishing and public URL verification were explicitly requested. The existing cutup maker remains on /lab/cutup/ and all authored writing and real cutout files stay intact. No previews are considered the site of record; inspect the public domain after deployment. This entry describes work being committed; verify the public version before calling it live.
 
