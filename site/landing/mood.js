@@ -38,12 +38,12 @@ const movements={
 "art-nouveau":["ornament","serenity","love","admiration"],"art-deco":["ornament","admiration","anticipation","ecstasy"],"psychedelia":["ornament","amazement","ecstasy","distraction"],"gothic-revival":["ornament","awe","apprehension","pensiveness"],"ukiyo-e":["ornament","serenity","interest","pensiveness"],"minimalism":["order","serenity","acceptance","pensiveness"],"swiss":["order","trust","interest","vigilance"],"bauhaus":["order","anticipation","trust","interest"],"brutalism":["order","disapproval","vigilance","boredom"],"constructivism":["revolt","anticipation","aggressiveness","admiration"],"dada":["revolt","amazement","distraction","contempt"],"punk":["revolt","rage","contempt","aggressiveness"],"zine-diy":["revolt","interest","annoyance","acceptance"],"situationism":["revolt","contempt","interest","aggressiveness"],"grunge-design":["revolt","loathing","annoyance","pensiveness"],"mexican-muralism":["revolt","admiration","anger","optimism"],"futurism":["future","anticipation","ecstasy","aggressiveness"],"cyberpunk":["future","apprehension","vigilance","awe"],"vaporwave":["future","pensiveness","boredom","distraction"],"afrofuturism":["future","vigilance","awe","admiration"],"y2k":["future","anticipation","amazement","interest"],"maximalism":["excess","ecstasy","overwhelm","amazement"],"pop-art":["excess","joy","amazement","contempt"],"memphis":["excess","ecstasy","distraction","optimism"],"rococo":["excess","ecstasy","distraction","contempt"],"abstract-expressionism":["abstract","rage","grief","overwhelm"],"geometric-abstraction":["abstract","serenity","interest","trust"],"op-art":["abstract","distraction","amazement","apprehension"],"surrealism":["abstract","amazement","awe","pensiveness"],"expressionism":["abstract","grief","terror","admiration"]
 };
 const combos={
- revolt:[["BEAUTIFUL","DISORDER"],["NOTHING","STAYS STILL"],["THE UNRULY","HUMAN"]],
+ revolt:[["BEAUTIFUL","DISORDER"],["NOBODY'S","PROPERTY"],["THE UNRULY","HUMAN"],["SAY IT","PLAIN"]],
  ornament:[["A SECRET","GARDEN"],["THE OTHER","SIDE"],["TENDER","MACHINERY"]],
  abstract:[["A STRANGER","LOGIC"],["THE SPACE","BETWEEN"],["UNFINISHED","WONDERS"]],
  future:[["ELECTRIC","GHOSTS"],["A FUTURE","UNWRITTEN"],["SIGNAL /","NOISE"]],
- order:[["THE SHAPE","OF THOUGHT"],["AN OPEN","QUESTION"],["THE QUIET","REVOLUTION"]],
- excess:[["TOO MUCH","IS NEVER ENOUGH"],["THE WHOLE","WEIRD WORLD"],["RIOTOUS","POSSIBILITY"]]
+ order:[["THE SHAPE","OF THOUGHT"],["WHO","BENEFITS?"],["THE QUIET","REVOLUTION"],["SHOW YOUR","WORK"]],
+ excess:[["TOO MUCH","IS NEVER ENOUGH"],["THE WHOLE","WEIRD WORLD"],["FREE GIFT","INSIDE"],["BUY NOTHING","FEEL EVERYTHING"]]
 };
 const grammarByBranch={revolt:"revolt",ornament:"ornament",abstract:"archive",future:"signal",order:"archive",excess:"spectrum"};
 const prepositions={revolt:"a page that refuses to stay inside its margins",ornament:"an atmosphere between a relic and a dream",abstract:"an arrangement of things that were never meant to meet",future:"a broadcast intercepted from a possible tomorrow",order:"a map for questions without easy answers",excess:"a riot of useful contradictions"};
@@ -131,7 +131,7 @@ function renderWorld(same){
  const eyes=assets.filter(a=>/\beye\b|ocular|iris|gaze/i.test(a.label||"")&&cleanSrc(a.src));
  const eyeArt=eyes.length?r.pick(eyes):null;
  const eyeX=r.int(64,83),eyeY=r.int(8,26);
- const titleA=esc(phrase[0]),titleB=esc(phrase[1]);
+ const fit=w=>String(w).split(" ").map(x=>'<span class="fit-word">'+esc(x)+'</span>').join(" ");const titleA=fit(phrase[0]),titleB=fit(phrase[1]);
  const artPositions=[
  [5,13,40,-15],[45,2,43,13],[40,44,48,-4],[7,54,36,10],[63,32,32,-15],
  [21,29,31,20],[64,70,28,13],[-1,79,30,-18],[76,3,25,22],[28,76,31,4]
@@ -140,25 +140,29 @@ function renderWorld(same){
  const scene=art.map((a,i)=>{let p=placement[i];return '<img class="stage-art" alt="'+esc(a.label||a.family||"Archive fragment")+'" loading="'+(i<4?"eager":"lazy")+'" src="'+esc(a.src)+'" style="--x:'+p[0]+'%;--y:'+p[1]+'%;--w:'+p[2]+'%;--r:'+p[3]+'deg;--duration:'+(6+r.int(0,5))+'s;--delay:-'+r.int(0,5)+'s;--drift:'+r.int(-6,10)+'px;z-index:'+(i+1)+'">';
  }).join("");
  const familyNames=ranked.taken.map(x=>data.families[x.id]?.name||x.id);
+ // Paste-up: torn paper and print-marks from the chosen movements (paste-up.js). Own rng key, so it never shifts the cutout draw.
+ const paste=window.PCP.pasteUp?window.PCP.pasteUp(rng("pcp-paste-v1|"+seed+"|"+picks.join(".")+"|"+revision),{
+  families:ranked.taken.map(x=>({id:x.id,name:data.families[x.id]?.name||x.id,colors:(data.families[x.id]&&data.families[x.id].colors)||["#111","#d33","#f4efe2"]})),
+  branch,energy,answers:picks.map((n,i)=>questions[i].answers[n]),title:phrase,withCutouts:art.length>0,narrow:innerWidth<700}):"";
  const subt='You arrived carrying '+chosen[0].toLowerCase()+'. You followed '+chosen[1].toLowerCase()+'. What emerged is '+prepositions[branch]+'.';
  const moodTag=ranked.taken.map(x=>x.id).join(" / ");
  lastPlan={choices:picks.slice(),seed,revision,grammar,composition,art:art.map(a=>a.id),families:ranked.taken.map(f=>f.id)};
  try{history.replaceState(null,"",location.pathname+location.search+"#world="+encodeURIComponent(btoa(JSON.stringify({p:picks,s:seed,r:revision}))))}catch(e){}
  app.innerHTML='<div class="world grammar-'+grammar+' composition-'+composition+'" data-layout="'+composition+'" style="--layout-angle:'+layoutAngle+'deg;--layout-cut:'+layoutCut+'%;--layout-scale:'+layoutScale+'"><div class="world-topline"><span class="world-id">PCP / Living edition '+esc(seed.slice(0,7))+'</span><span class="world-mix">Aesthetic collision  /  '+esc(ranked.taken.length)+' movements</span></div>'+
  '<div class="world-content"><section class="world-hero" aria-label="Your generated living cover"><div class="world-copy">'+
- '<div class="world-kicker">A publication that changes its skin</div><h1 class="world-title">'+titleA+'<span class="accent">'+titleB+'</span></h1>'+
- '<p class="world-desc">'+esc(subt)+'</p><div class="world-inscription">This cover is yours for this moment. Not a psychological profile. A visual interpretation of four choices.</div>'+
- '<div class="world-actions"><button id="remix" class="primary" type="button">↻ Another version</button><button id="start-over" type="button">Change my answers</button><button id="share-world" type="button">Copy this edition</button><button id="audio-mic" type="button">Let it hear you</button><button id="hold-still" type="button">Hold still</button></div>'+
+ '<div class="world-kicker">Pressed fresh. Nobody else gets this one.</div><h1 class="world-title">'+titleA+'<span class="accent">'+titleB+'</span></h1>'+
+ '<p class="world-desc">'+esc(subt)+'</p><div class="world-inscription">Not a horoscope. Not a profile. Not a product recommendation. Four choices, run through a machine that sells nothing.</div>'+
+ '<div class="world-actions"><button id="remix" class="primary" type="button">↻ Cut it again</button><button id="start-over" type="button">Change my answers</button><button id="share-world" type="button">Copy the link to this one</button><button id="audio-mic" type="button">Let it hear you</button><button id="hold-still" type="button">Hold still</button></div>'+
  '</div><div class="stage" aria-label="Your seeded editorial composition"><div class="stage-inner">'+
- '<div class="stage-floor"></div><div class="stage-grid"></div><div class="stage-plate"></div>'+scene+'<a class="secret-eye" href="/the-eye/" aria-label="The hidden eye: open the secret page" style="--eye-x:'+eyeX+'%;--eye-y:'+eyeY+'%"><span class="eye-shell" aria-hidden="true">'+(eyeArt?'<img src="'+esc(eyeArt.src)+'" alt="">':'◉')+'</span></a>'+
+ '<div class="stage-floor"></div><div class="stage-grid"></div><div class="stage-plate"></div>'+paste+scene+'<a class="secret-eye" href="/the-eye/" aria-label="The hidden eye: open the secret page" style="--eye-x:'+eyeX+'%;--eye-y:'+eyeY+'%"><span class="eye-shell" aria-hidden="true">'+(eyeArt?'<img src="'+esc(eyeArt.src)+'" alt="">':'◉')+'</span></a>'+
  '<span class="stage-vertical">An unstable editorial organism</span><span class="stage-mark">'+esc(familyNames.join(" × "))+'</span></div></div></section>'+
  '<div class="world-ticker"><span>Entry / '+esc(chosen[0])+'</span><span>+ / '+esc(chosen[2])+'</span><span>Result / '+esc(familyNames[0])+'</span></div>'+
- '<section class="world-doors" id="explore"><div class="door-head"><h2>Go<br>deeper.</h2><p>The skin changes. The work beneath it stays human. Wander into something worth arguing with.</p></div><nav class="door-grid" aria-label="Explore the publication">'+
+ '<section class="world-doors" id="explore"><div class="door-head"><h2>Now<br>dig.</h2><p>The paint changes every visit. What\'s underneath doesn\'t: tools for taking language apart, writing worth arguing with, and nobody charging admission.</p></div><nav class="door-grid" aria-label="Explore the publication">'+
  door(1,"Brain Candies","/brain-candy/","B")+door(2,"My Two Cents","/my-two-cents/","M")+door(3,"Contact","/contact/","C")+door(4,"Mission Statement","/about/","S")+door(5,"Learning Curve","/learning/","L")+
  '</nav></section>'+
- '<section class="world-note"><p><strong>How this edition formed</strong><br>'+esc(familyNames.join(" / "))+'<br>Your answers weight the design movements used on this cover. The composition, scale, density, typography and motion are drawn anew for this seed.</p>'+
+ '<section class="world-note"><p><strong>How this edition formed</strong><br>'+esc(familyNames.join(" / "))+'<br>Your answers weighted the art movements. The machine tore the paper, picked the type and set the layout for this seed. Drag the scraps; they\'re yours.</p>'+
  '<p><strong>No mind-reading bullshit</strong><br>Those were aesthetic choices, not an assessment. Your answers stay in this browser. The address can reproduce the same edition without creating an account.</p></section>'+
- '<section class="world-entry"><h2>Not your<br>last answer.</h2><p>Same feelings, another composition. That is the point of a living publication.</p><button id="more-worlds" type="button">Remix the world ↗</button></section>'+
+ '<section class="world-entry"><h2>Not your<br>last answer.</h2><p>Same feelings, different paste-up. Nothing here is final. Neither are you.</p><button id="more-worlds" type="button">Cut it again ↗</button></section>'+
  '</div></div>';
  if(window.PCP&&PCP.alive){
    PCP.assets=assets;
@@ -168,10 +172,16 @@ function renderWorld(same){
    hold.textContent=PCP.alive.isStill()?"Let it move":"Hold still";
    hold.onclick=()=>{PCP.alive.still(!PCP.alive.isStill());hold.textContent=PCP.alive.isStill()?"Let it move":"Hold still"};
  }
+ fitTitle();
  $("remix").onclick=$("more-worlds").onclick=()=>{revision++;renderWorld();scrollTo({top:0,behavior:"smooth"})};
  $("start-over").onclick=()=>{picks=[];step=0;revision=0;history.replaceState(null,"",location.pathname+location.search);renderQ();scrollTo({top:0,behavior:"smooth"})};
  $("share-world").onclick=async()=>{const btn=$("share-world");try{await navigator.clipboard.writeText(location.href);btn.textContent="Copied ✓"}catch(e){btn.textContent="Copy the address above"}};
 }
+// The headline shrinks until its longest word fits. Words never split mid-word (no REVOLUTI / ON).
+function fitTitle(){const t=app.querySelector(".world-title");if(!t)return;t.style.fontSize="";let size=parseFloat(getComputedStyle(t).fontSize),guard=0;
+ const words=[...t.querySelectorAll(".fit-word")];const over=()=>words.some(w=>w.scrollWidth>t.clientWidth+1||w.getBoundingClientRect().right>innerWidth-6);
+ while(over()&&size>30&&guard++<40){size*=.94;t.style.fontSize=size.toFixed(1)+"px"}}
+let fitTimer=null;addEventListener("resize",()=>{clearTimeout(fitTimer);fitTimer=setTimeout(fitTitle,120)});
 function door(n,title,url,letter){return '<a class="door" href="'+url+'"><span class="door-num">ROOM '+String(n).padStart(2,"0")+'</span><span class="door-watermark" aria-hidden="true">'+letter+'</span><span class="door-title">'+title+'</span><span class="door-arrow" aria-hidden="true">↗</span></a>'}
 function restore(){const hash=location.hash;if(!hash.startsWith("#world="))return false;try{let x=JSON.parse(atob(decodeURIComponent(hash.slice(7))));if(!Array.isArray(x.p)||x.p.length!==4||!x.p.every((p,i)=>Number.isInteger(p)&&p>=0&&p<questions[i].answers.length)||typeof x.s!=="string"||!/^[a-z0-9-]{5,80}$/.test(x.s)||!Number.isInteger(x.r)||x.r<0||x.r>5000)return false;picks=x.p;seed=x.s;revision=x.r;renderWorld(true);return true}catch(e){return false}}
 document.addEventListener("keydown",e=>{if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest("input,textarea"))return;if(document.body.classList.contains("show-questions")&&/^[1-6]$/.test(e.key)){const ix=+e.key-1;if(ix<questions[step].answers.length)select(ix)}});

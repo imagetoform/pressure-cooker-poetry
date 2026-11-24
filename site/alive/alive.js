@@ -193,7 +193,7 @@
     if (layer.children.length) { room.insertBefore(layer, room.querySelector('.content')); added.push(layer); }
 
     // b) Every cutout in the room gets a behaviour from its emotion tags.
-    room.querySelectorAll('.cut img, .alive-scrap img, .stage-art').forEach((img, n) => {
+    room.querySelectorAll('.cut img, .alive-scrap img, .stage-art, .stage-scrap').forEach((img, n) => {
       const id = (img.getAttribute('src') || '').split('/').pop().replace(/\.\w+$/, ''), a = byId[id] || {};
       const emo = a.emo && a.emo.length ? a.emo : ['interest'];
       const verbs = [VERB[emo[0]] || 'drift'].concat(emo[1] && VERB[emo[1]] && VERB[emo[1]] !== VERB[emo[0]] ? [VERB[emo[1]]] : []);
@@ -202,7 +202,7 @@
       img.tabIndex = 0;
       img.setAttribute('role', 'img');
       img.setAttribute('aria-roledescription', 'movable cutout');
-      if (!img.alt) img.alt = a.label || 'cutout';
+      if (img.tagName === 'IMG' && !img.alt) img.alt = a.label || 'cutout';
       img.dataset.verb = verbs.join('+');
       pieces.push({ img, asset: a, verbs, phase: r() * 6.28, rnd: r, cx: 0, cy: 0, cur: { x: 0, y: 0, r: 0, s: 0 }, drag: { x: 0, y: 0 } });
     });

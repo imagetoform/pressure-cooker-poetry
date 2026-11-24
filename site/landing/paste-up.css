@@ -1,0 +1,83 @@
+/* The paste-up layer: torn paper + print-marks on the homepage stage (see paste-up.js). */
+.pu-defs{position:absolute;width:0;height:0}
+.stage-scrap{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);min-width:110px;min-height:74px;transform:rotate(var(--r));filter:drop-shadow(6px 8px 0 rgba(0,0,0,.28));cursor:grab;touch-action:none;outline-offset:6px}
+.stage-scrap.is-held{cursor:grabbing;filter:drop-shadow(12px 16px 0 rgba(0,0,0,.3))}
+.stage-scrap:focus-visible{outline:3px dashed var(--world-b,#fcdb64)}
+.pu-paper{position:absolute;inset:0;background:var(--paper);color:#151316;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:8% 9%;font-family:Georgia,serif}
+.pu-dark .pu-paper{color:#f1ece0}
+/* paper grain: the same faint fibre everywhere */
+.pu-paper:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(0,0,0,.09) .6px,transparent .7px),radial-gradient(rgba(0,0,0,.05) .6px,transparent .7px);background-size:5px 5px,7px 7px;background-position:0 0,2px 3px;mix-blend-mode:multiply}
+.pu-dark .pu-paper:after{mix-blend-mode:screen;opacity:.4}
+.pu-tape{position:absolute;top:-9px;width:30%;min-width:44px;height:20px;background:rgba(240,232,190,.62);border-left:1px dashed rgba(0,0,0,.12);border-right:1px dashed rgba(0,0,0,.12);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.pu-svg{position:absolute;inset:6%;width:88%;height:88%}
+.pu-big{font:900 clamp(18px,2.6vw,40px)/.9 Impact,"Arial Black",sans-serif;text-transform:uppercase;letter-spacing:-.02em;text-align:center;position:relative;z-index:1;overflow-wrap:anywhere}
+/* halftone: pop-art dots, Ben-Day screen */
+.pu-halftone{background-color:var(--paper);background-image:radial-gradient(var(--dot) 34%,transparent 36%);background-size:var(--dot-size) var(--dot-size)}
+.pu-halftone .pu-big{background:var(--paper);padding:.12em .25em;color:#111}
+/* ransom: one letter per scrap of somebody else's headline */
+.pu-ransom{flex-wrap:wrap;gap:3px;align-content:center;padding:6%}
+.pu-ransom span{display:inline-block;font-size:clamp(16px,2.1vw,32px);font-weight:900;line-height:1;padding:2px 4px;text-transform:uppercase;box-shadow:1px 1px 0 rgba(0,0,0,.25)}
+.pu-ransom i.sp{width:8px}
+/* xerox: toner-burnt photocopy */
+.pu-xerox{background:radial-gradient(ellipse at 30% 20%,transparent 40%,rgba(0,0,0,.28) 100%),var(--paper);filter:contrast(1.5)}
+.pu-xerox .pu-big{font-family:"Arial Black",Impact,sans-serif;letter-spacing:.02em;font-size:clamp(14px,1.9vw,28px)}
+.pu-xerox:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.08) 0 1px,transparent 1px 3px),radial-gradient(rgba(0,0,0,.4) .7px,transparent .8px) 0 0/3px 3px;opacity:.55}
+/* typewriter note from the visitor's own answer */
+.pu-type{flex-direction:column;align-items:flex-start;justify-content:center;font:clamp(12px,1.15vw,16px)/1.35 "Courier New",monospace}
+.pu-type p{margin:0 0 .4em;position:relative;z-index:1}.pu-type .pu-by{font-size:.8em;opacity:.7;text-transform:uppercase;letter-spacing:.08em}
+/* rubber stamp */
+.pu-stamp span{border:4px double var(--ink);color:var(--ink);font:900 clamp(13px,1.6vw,24px)/1 "Courier New",monospace;letter-spacing:.12em;padding:.4em .6em;transform:rotate(-8deg);opacity:.85;text-align:center;mix-blend-mode:multiply}
+/* satirical ad block */
+.pu-ad{flex-direction:column;align-items:flex-start;justify-content:space-between;border:3px solid var(--ink);padding:7%}
+.pu-ad b{font:900 clamp(13px,1.5vw,22px)/.95 Impact,"Arial Black",sans-serif;text-transform:uppercase;color:var(--ink)}
+.pu-ad .pu-price{font:900 clamp(26px,3.4vw,52px)/1 Impact,sans-serif;background:#ffd400;color:#111;padding:0 .15em;transform:rotate(-4deg);align-self:flex-end}.pu-ad sup{font-size:.4em}
+.pu-ad small{font:9px/1.25 Arial,sans-serif;opacity:.75}
+/* constructivist wedge + stencil */
+.pu-wedge{background:linear-gradient(115deg,var(--w1) 0 46%,transparent 46%),linear-gradient(115deg,transparent 0 52%,var(--w2) 52% 60%,transparent 60%),var(--paper)}
+.pu-stencil{font:900 clamp(16px,2.3vw,36px)/.95 "Arial Black",Impact,sans-serif;text-transform:uppercase;letter-spacing:.06em;position:relative;z-index:1;text-align:center;overflow-wrap:anywhere}
+.pu-wedge .pu-stencil{color:#fff;text-shadow:2px 2px 0 #111;transform:rotate(-12deg)}
+.pu-stencilplate .pu-stencil{color:var(--ink);-webkit-text-stroke:1px rgba(0,0,0,.2);background:repeating-linear-gradient(90deg,transparent 0 .9em,var(--paper) .9em .98em);-webkit-background-clip:text;font-size:clamp(14px,1.8vw,28px)}
+.pu-stripes{background:repeating-linear-gradient(var(--ang),var(--s1) 0 10px,var(--s2) 10px 20px)}
+.pu-rays{background:repeating-conic-gradient(from 0deg at 50% 100%,var(--r1) 0 calc(180deg/var(--n)),var(--r2) calc(180deg/var(--n)) calc(360deg/var(--n)))}
+.pu-blocks{padding:0;display:grid;align-items:stretch;justify-items:stretch;place-content:stretch;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr}.pu-blocks i:nth-child(1){background:var(--b1);grid-row:span 2}.pu-blocks i:nth-child(2){background:var(--b2)}.pu-blocks i:nth-child(3){background:var(--b3)}
+/* ornament */
+.pu-frame{padding:10%}.pu-frame span{border:2px solid var(--ink);outline:6px double var(--ink);outline-offset:4px;padding:.5em .7em;font:italic 700 clamp(16px,2vw,30px)/1 Georgia,serif;color:var(--ink);text-align:center;overflow-wrap:anywhere}
+.pu-arch{padding:0}.pu-arch:before{content:"";position:absolute;left:18%;right:18%;top:10%;bottom:0;background:linear-gradient(var(--glow),var(--ink));border-radius:50% 50% 0 0/38% 38% 0 0}
+.pu-arch span{position:relative;z-index:1;color:#f4efe2;font:italic 700 clamp(12px,1.3vw,19px)/1.1 Georgia,serif;text-align:center;max-width:58%;margin-top:18%}
+.pu-waves{background:repeating-radial-gradient(circle at 50% 120%,var(--w1) 0 6px,var(--paper) 6px 12px,var(--w2) 12px 15px,var(--paper) 15px 22px)}
+.pu-rings{background:repeating-radial-gradient(circle,var(--r1) 0 var(--gap),var(--r2) var(--gap) calc(var(--gap)*2))}
+/* order */
+.pu-grid{background-image:linear-gradient(var(--ink) 1px,transparent 1px),linear-gradient(90deg,var(--ink) 1px,transparent 1px);background-size:22px 22px;background-color:var(--paper);justify-content:flex-end;align-items:flex-end}
+.pu-grid .pu-num,.pu-numeral b{font:900 clamp(40px,6vw,96px)/.8 "Helvetica Neue",Arial,sans-serif;color:var(--ink);letter-spacing:-.06em;position:relative;z-index:1}
+.pu-numeral b{font-size:clamp(54px,8vw,130px)}
+.pu-slab{background:#8d8a84;color:#141414;justify-content:flex-start;align-items:flex-end}.pu-slab b{font:700 clamp(11px,1.1vw,15px)/1.2 "Courier New",monospace;text-transform:uppercase;letter-spacing:.1em}
+.pu-line:before{content:"";position:absolute;left:10%;right:10%;top:50%;height:4px;background:var(--ink)}
+/* future */
+.pu-speed{background:repeating-linear-gradient(-12deg,transparent 0 9px,var(--ink) 9px 11px),var(--paper)}
+.pu-italic{font:italic 900 clamp(18px,2.6vw,40px)/.9 "Arial Black",Impact,sans-serif;text-transform:uppercase;background:var(--paper);padding:.1em .3em;transform:skewX(-14deg);position:relative;z-index:1}
+.pu-scan{background:repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 2px,transparent 2px 4px),#0c0f1d!important;color:var(--ink)!important}
+.pu-mono{font:700 clamp(11px,1.2vw,16px)/1.3 "Courier New",monospace;letter-spacing:.14em;text-shadow:0 0 6px currentColor,2px 0 rgba(255,0,90,.6),-2px 0 rgba(0,240,255,.6);position:relative;z-index:1;text-align:center}
+.pu-chrome b{font:italic 900 clamp(20px,3vw,46px)/.9 "Arial Black",Impact,sans-serif;text-transform:uppercase;background:linear-gradient(180deg,#fff 0 30%,var(--c1) 48%,#1a1a1a 52%,var(--c2) 80%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:1px #111;position:relative;z-index:1}
+.pu-horizon{background:linear-gradient(transparent 0 55%,var(--ink) 55%),radial-gradient(circle at 50% 58%,var(--sun) 0 28%,transparent 28.5%),#1d1235}
+.pu-horizon:before{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px) 0 0/16px 100%,linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px) 0 0/100% 10px;transform:perspective(60px) rotateX(35deg);transform-origin:bottom}
+/* abstract */
+.pu-optic{background:repeating-radial-gradient(circle at 40% 45%,#111 0 4px,#f4efe2 4px 8px),#f4efe2}
+.pu-optic:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,#111 0 4px,#f4efe2 4px 8px);clip-path:circle(30% at 62% 55%)}
+.pu-plain{padding:0}
+@media(max-width:480px){.stage-scrap{min-width:92px;min-height:60px}.pu-ad small{display:none}}
+@media(prefers-reduced-motion:reduce){.stage-scrap{transition:none}}
+
+/* The eye and the labels stay on top of the paper; the reading copy gets a paste-up backing so it always reads. */
+.stage .secret-eye{z-index:40}.stage .stage-mark,.stage .stage-vertical{z-index:41}
+.world-desc,.world-inscription{background:color-mix(in srgb,var(--world-bg) 90%,transparent);padding:.25em .4em;margin-left:-.4em;width:fit-content;position:relative;z-index:2;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.world-kicker{background:color-mix(in srgb,var(--world-bg) 90%,transparent);padding-right:.5em}
+.world-title{text-shadow:3px 3px 0 var(--world-bg),-1px -1px 0 var(--world-bg)}
+/* Phone poster: the paste-up gets its own top panel and the headline bites into its bottom edge, instead of art drowning under the copy. */
+@media(max-width:780px){
+ .composition-poster .world-hero{min-height:0!important;display:flex;flex-direction:column;align-items:stretch!important}
+ .composition-poster .stage{position:relative!important;inset:auto!important;order:-1;height:400px;min-height:400px;margin:18px 10px 0;width:auto;align-self:stretch}
+ .composition-poster .stage-inner{inset:0}
+ .composition-poster .world-copy{margin-top:-70px!important;background:none;padding-top:0}
+ .stage-vertical{display:none}
+}
+@media(max-width:480px){.composition-poster .stage{height:360px;min-height:360px}}

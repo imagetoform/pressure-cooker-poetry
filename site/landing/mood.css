@@ -39,7 +39,8 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 .world-hero{min-height:740px;display:grid;grid-template-columns:minmax(290px,.9fr) minmax(390px,1.1fr);position:relative}
 .world-copy{padding:clamp(32px,5vw,90px) 0 clamp(28px,4vw,70px) clamp(20px,5vw,90px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:4}
 .world-kicker{font:700 12px "Courier New",monospace;letter-spacing:.2em;text-transform:uppercase;border-top:3px solid var(--world-a);padding-top:16px;width:max-content;max-width:90%}
-.world-title{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(66px,9.4vw,178px);letter-spacing:-.043em;line-height:.82;text-transform:uppercase;margin:38px -12vw 27px 0;max-width:880px;position:relative;z-index:4;overflow-wrap:anywhere}
+.world-title{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(66px,9.4vw,178px);letter-spacing:-.043em;line-height:.82;text-transform:uppercase;margin:38px -12vw 27px 0;max-width:880px;position:relative;z-index:4;overflow-wrap:normal;hyphens:none}
+.world-title .fit-word{display:inline-block;white-space:nowrap}
 .world-title .accent{color:var(--world-a);display:block}
 .world-desc{max-width:385px;font:clamp(18px,1.8vw,24px)/1.4 Georgia,serif;margin:0 0 25px}
 .world-inscription{font:11px/1.6 "Courier New",monospace;letter-spacing:.09em;text-transform:uppercase;max-width:380px;opacity:.65}
@@ -51,7 +52,7 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:po
 .stage-mark{position:absolute;z-index:5;right:4%;bottom:12%;background:var(--world-b);color:var(--world-bg);padding:11px 16px;font:900 12px "Courier New",monospace;letter-spacing:.08em;transform:rotate(5deg);max-width:240px;text-align:right}
 .stage-art{position:absolute;z-index:2;left:var(--x);top:var(--y);width:var(--w);height:auto;max-height:70%;object-fit:contain;transform:rotate(var(--r));filter:drop-shadow(10px 13px 0 rgba(0,0,0,.24));animation:floatart var(--duration,7s) ease-in-out infinite alternate;animation-delay:var(--delay,0s);user-select:none;pointer-events:none}
 .stage-art:nth-of-type(3n){mix-blend-mode:normal}.stage-art:nth-of-type(5n){filter:grayscale(.8) contrast(1.3) drop-shadow(5px 6px 0 rgba(0,0,0,.35))}
-.stage-vertical{position:absolute;left:8%;top:13%;writing-mode:vertical-rl;transform:rotate(180deg);z-index:6;font:900 11px "Courier New",monospace;letter-spacing:.3em;text-transform:uppercase;color:var(--world-b)}
+.stage-vertical{position:absolute;right:1%;top:13%;writing-mode:vertical-rl;transform:rotate(180deg);z-index:6;font:900 11px "Courier New",monospace;letter-spacing:.3em;text-transform:uppercase;color:var(--world-b)}
 @keyframes floatart{from{transform:translate3d(0,0,0) rotate(var(--r))}to{transform:translate3d(var(--drift,5px),-9px,0) rotate(calc(var(--r) + 1.8deg))}}
 .world-ticker{display:flex;justify-content:space-between;gap:18px;padding:17px clamp(20px,4vw,72px);border-block:2px solid currentColor;text-transform:uppercase;font:900 12px "Courier New",monospace;letter-spacing:.12em;flex-wrap:wrap}
 .world-ticker span:nth-child(2){color:var(--world-a)}

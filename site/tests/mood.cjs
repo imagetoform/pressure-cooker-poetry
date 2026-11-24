@@ -24,9 +24,14 @@ const fails=[];const check=(ok,msg)=>{if(!ok)fails.push(msg)};
   check(await p.locator('.secret-eye[href="/the-eye/"]').count()===1,width+': eye exists in generated world');
   check(await p.locator('#audio-mic').count()===1 && await p.locator('#hold-still').count()===1,width+': audio opt-in and still controls present');
   check(await p.locator('.world[data-layout]').count()===1,width+': seed-specific structural composition exists');
-  const before=await p.evaluate(()=>({art:[...document.querySelectorAll('.stage-art')].map(n=>n.src),title:document.querySelector('.world-title').textContent,grammar:document.querySelector('.world').className}));
+  // Paste-up layer: torn paper with print-marks is the art while the cutout library is empty (Nov 19 reset).
+  check(await p.locator('.stage-scrap').count()>=4,width+': paste-up scraps fill the stage');
+  check(await p.locator('.stage-scrap.alive-piece').count()===await p.locator('.stage-scrap').count(),width+': every scrap is a live, movable piece');
+  const split=await p.evaluate(()=>{const t=document.querySelector('.world-title');return [...t.querySelectorAll('.fit-word')].filter(w=>w.getBoundingClientRect().right>innerWidth||w.getClientRects().length>1).map(w=>w.textContent)});
+  check(split.length===0,width+': headline words never split or run off screen ('+split.join(',')+')');
+  const before=await p.evaluate(()=>({art:[...document.querySelectorAll('.stage-art')].map(n=>n.src),title:document.querySelector('.world-title').textContent,grammar:document.querySelector('.world').className,paste:[...document.querySelectorAll('.stage-scrap')].map(n=>n.dataset.family+':'+n.dataset.mark+':'+n.textContent)}));
   const link=p.url();await p.reload();await p.waitForSelector('.world-title');
-  const after=await p.evaluate(()=>({art:[...document.querySelectorAll('.stage-art')].map(n=>n.src),title:document.querySelector('.world-title').textContent,grammar:document.querySelector('.world').className}));
+  const after=await p.evaluate(()=>({art:[...document.querySelectorAll('.stage-art')].map(n=>n.src),title:document.querySelector('.world-title').textContent,grammar:document.querySelector('.world').className,paste:[...document.querySelectorAll('.stage-scrap')].map(n=>n.dataset.family+':'+n.dataset.mark+':'+n.textContent)}));
   check(JSON.stringify(before)===JSON.stringify(after),width+': same link restores composition');
   await p.click('#remix');await p.waitForSelector('.world-title');check(p.url()!==link,width+': remix creates new seed revision');
   const over=await p.evaluate(()=>({px:document.documentElement.scrollWidth-innerWidth,offenders:[...document.querySelectorAll('body *')].filter(el=>{const r=el.getBoundingClientRect();return r.right>innerWidth+1&&getComputedStyle(el).position!=='absolute'}).slice(0,6).map(el=>el.tagName+'.'+String(el.className).slice(0,65))}));
@@ -49,7 +54,8 @@ const fails=[];const check=(ok,msg)=>{if(!ok)fails.push(msg)};
     layout:document.querySelector('.world').dataset.layout,
     grammar:document.querySelector('.world').className.match(/grammar-([a-z-]+)/)?.[1],
     headline:document.querySelector('.world-title').textContent,
-    art:[...document.querySelectorAll('.stage-art')].map(n=>n.getAttribute('src'))
+    art:[...document.querySelectorAll('.stage-art')].map(n=>n.getAttribute('src')),
+    paste:[...document.querySelectorAll('.stage-scrap')].map(n=>n.dataset.mark+':'+n.textContent)
   }));
   signatures.add(JSON.stringify(view));structures.add(view.layout);
   check(await worldPage.locator('.door').count()===5,'variant '+i+': fixed destinations survive generation');

@@ -22,6 +22,7 @@ Production is the existing Netlify project `pressurecookerpoetry` tracking the c
 ## Technical map (for collaborators only)
 
 - `site/landing/index.html`, `mood.js`, `mood.css`: real entrance, loading screen, live world
+- `site/landing/paste-up.js`, `paste-up.css`: seeded torn-paper + print-mark layer on the homepage stage, dealt from the chosen movements (palette from `library/families.json`). It is the art while `library/cutouts/manifest.json` is empty (owner reset, Nov 19: Brandon is cutting his own), and the paper ground under his cutouts once they return
 - `site/alive/`: centralized pointer/touch/audio motion behavior
 - `site/shared/prng.js`: deterministic seeded renderer randomness
 - `library/families.json`, `library/cutouts/manifest.json`: catalogued movements and approved graphic assets
