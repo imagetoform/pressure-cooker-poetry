@@ -1,6 +1,15 @@
 # BRAIN CANDY: the arcade plan
 
-Decided in CANON D-30. Built so far: the hub (`/brain-candy/`) and Machine 01, The Spin Cycle (`/brain-candy/spin-cycle/`).
+Decided in CANON D-30.
+
+**Live (Nov 24, 2026):** `/brain-candy/` is the arcade: 01 The Spin Cycle (revised), 02 S.O.F.T., 03 Bias Factory, 04 Cut-Up Bench (graffiti kit: marker, Wite-Out, knife, glue), and Department Zero File 001 (ROT13 dial). Machines 05-10 are blueprints shown in the arcade; full blueprints are in the claude.ai project doc `claude/brain-candy-blueprints.md`. Machines open by hash: `#spin-cycle`, `#soft`, `#bias-factory`, `#cutup-bench`, `#department-zero`.
+
+- `site/landing/brain-candy/index.html` is a **compiled single-file bundle** (React, built in claude.ai artifact `Ew2qMSEuHTcRNCps25JHMd`, version 1795505842-3ccd). Its readable source is not in this repo yet. Small text edits can be string-replaced in the bundle; anything bigger should start from the artifact source, then be re-ported.
+- Fonts are self-hosted in `brain-candy/fonts/` (SIL OFL, via @fontsource): no Google Fonts request.
+- A plain HTML site strip above the bundle links back to the five doors.
+- The arcade's jar is `pcp-bc-jar-v*` in localStorage. The older standalone Spin Cycle at `/brain-candy/spin-cycle/` keeps its own jar (`pcp-spin-jar`) and its tests; it is no longer linked from the hub.
+
+(History: the first hub and the standalone Machine 01 shipped earlier at `/brain-candy/` and `/brain-candy/spin-cycle/`.)
 
 ## The one rule
 
