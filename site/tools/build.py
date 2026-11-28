@@ -137,7 +137,7 @@ def cutouts():
     out.mkdir(parents=True, exist_ok=True)
     lab = []
     for m in sorted(man, key=lambda m: m["id"]):
-        if m.get("status") == "rejected" or not m.get("file"):
+        if m.get("status") in ("rejected", "held") or not m.get("file"):
             continue
         png = REPO / m["file"]
         web = png.with_suffix(".webp")
@@ -146,8 +146,17 @@ def cutouts():
             continue
         shutil.copyfile(src, out / (m["id"] + src.suffix))
         if m.get("family") in fams:
-            lab.append({"id": m["id"], "src": "/assets/cutouts/" + m["id"] + src.suffix, "label": m.get("label", ""),
-                        "emo": m.get("emo", []), "family": m["family"]})
+            a = {"id": m["id"], "src": "/assets/cutouts/" + m["id"] + src.suffix, "label": m.get("label", ""),
+                 "emo": m.get("emo", []), "family": m["family"]}
+            # Owner cutouts (tools/cutouts/owner_import.py) carry measured traits instead of a hand-filed movement:
+            # k = kind, t = [dark, sat, warm, contrast, colorful], l = lean per branch, c = cut-off edges, s = [w, h].
+            if m.get("traits"):
+                t = m["traits"]
+                a.update({"k": m.get("kind", "object"), "t": [t["dark"], t["sat"], t["warm"], t["contrast"], t["colorful"]],
+                          "l": m["lean"], "c": m.get("cut", []), "s": m.get("size", [1, 1])})
+                if m.get("text"):
+                    a["x"] = m["text"]
+            lab.append(a)
     families = {k: {"name": f["name"], "colors": f["colors"]} for k, f in sorted(fams.items())}
     (PUB / "alive/cutouts.js").write_text("window.PCP=window.PCP||{};PCP.labData=" + json.dumps({"families": families, "assets": lab}, separators=(",", ":")) + ";\n")
     # Cutup maker sandbox (/lab/cutup/, go-live Step 3): the poems' text exactly as stored, every kept cutout, family colours.

@@ -8,7 +8,8 @@ Adds to the root `AGENTS.md`. Full schema and tagging guide: `../docs/DATABASE_S
 |---|---|
 | `catalog.json` | The site's emotion vocabulary, aliases and movement tree. Hand-edited source since the Kitchen was retired (CANON D-31). Edit one entry at a time and keep it valid JSON. |
 | `families/<branch>/<movement>/` | One folder per movement: `README.md`, `SHOPPING.md` (wanted cutouts), `kit/` (CSS parts + `kit.json`), `cutouts/` |
-| `cutouts/manifest.json` | The only list of cutouts the site may use. Starts empty after the November 19 collection reset. Never repopulate from historical files, intake batches or previous manifests. |
+| `cutouts/manifest.json` | The only list of cutouts the site may use. Emptied in the November 19 reset; since Nov 28, 2026 it holds **Brandon's own reviewed-and-accepted cutouts** from his CutoutBatcher library (`Documents/PCP Library/cutouts/<batch>/`), imported by `tools/cutouts/owner_import.py` into `cutouts/owner/<batch>/`. Never repopulate from historical files, AI batches, intake batches or previous manifests. |
+| `cutouts/owner/` | WebP web copies of Brandon's cutouts (masters stay on his laptop). Not filed by movement: each record has measured traits, kind, cut edges and a branch lean (see the importer's docstring). Records with `status: held` name a megacorp character and stay off the site until he releases them. |
 | `cutouts/shopping-list.json` | Cutouts still wanted (descriptions, not files) |
 | `cutouts/inbox/` | Untagged images waiting for review |
 | `intake/` | Delivery JSON for the parked OpenRouter workflow. The main path is `tools/cutouts/` (see `cutouts/README.md`) |

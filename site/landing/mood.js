@@ -82,7 +82,7 @@ function scoreFamilies(assets,r){
  const chosen=picks.map((choice,i)=>questions[i].answers[choice]);const allEmo=new Map(), branchWeights=new Map(),preferred=new Map();
  chosen.forEach((a,q)=>{a.emo.forEach(e=>allEmo.set(e,(allEmo.get(e)||0)+[3,2.4,2.6,1.3][q]));branchWeights.set(a.branch,(branchWeights.get(a.branch)||0)+[2.5,2.2,2.6,1.3][q]);a.families.forEach((f,i)=>preferred.set(f,(preferred.get(f)||0)+4.5-i*1.1))});
  const counts=new Map();assets.forEach(a=>counts.set(a.family,(counts.get(a.family)||0)+1));
- const entries=Object.keys(movements).filter(id=>!assets.length || counts.has(id)).map(id=>{
+ const entries=Object.keys(movements).map(id=>{
  const [branch,...tags]=movements[id];const em=tags.reduce((s,t)=>s+(allEmo.get(t)||0),0);
  const affinity=em*1.6+(preferred.get(id)||0)*2+(branchWeights.get(branch)||0)*1.2;
  return {id,branch,weight:Math.max(.15,affinity+1.1),count:counts.get(id)};
@@ -97,14 +97,33 @@ function scoreFamilies(assets,r){
  return {taken,dominant,emotions:allEmo,branches:branchWeights,entries};
 }
 function cleanSrc(src){return typeof src==="string"&&/^\/assets\/cutouts\/[a-z0-9-]+\.(?:png|webp)$/.test(src)?src:""}
-function chooseArt(assets,selected,emotions,r,count){
- const pool=assets.filter(a=>a.family&&cleanSrc(a.src));
- const used=new Set(), out=[];
- const take=list=>{if(!list.length)return;const pick=r.weighted(list,list.map(a=>{let s=1;const emo=a.emo||[];emo.forEach(t=>s+=(emotions.get(t)||0)*1.35);return s;}));out.push(pick);used.add(pick.id)};
- selected.forEach(f=>take(pool.filter(a=>a.family===f.id&&!used.has(a.id))));
- while(out.length<count){let options=pool.filter(a=>!used.has(a.id));if(!options.length)break;
- let weighted=options.map(a=>{const f=selected.findIndex(x=>x.id===a.family);let w=f>=0?7-f*1.5:.6;for(const t of a.emo||[])w+=(emotions.get(t)||0)*1.4;return Math.max(.1,w)});
- let a=r.weighted(options,weighted);out.push(a);used.add(a.id)}
+/* Adaptive matching (Nov 28, 2026). Brandon's own cutouts aren't filed under art movements. Each carries
+   measured traits (t = dark, sat, warm, contrast, colorful), a kind (k), and a lean (l) toward each of the six
+   branches, built from its palette and its own description (tools/cutouts/owner_import.py). A visitor's answers
+   give emotion and branch weights; every cutout is scored against those, and the draw is weighted, so the room
+   leans toward the visitor without becoming a stereotype. Legacy family-filed records still score by family. */
+function artScore(a,ranked,energy){
+ let s=.35;
+ for(const t of a.emo||[])s+=(ranked.emotions.get(t)||0)*.8;
+ if(a.l){for(const [b,w] of ranked.branches)s+=(a.l[b]||0)*w*1.15;
+  const [dark,sat,,contrast,colorful]=a.t||[.5,.5,0,.5,.5];
+  // volume: a whisper wants quiet, dark, low-chroma pieces; full volume wants colour and contrast
+  s+=energy>.75?(colorful*2+contrast*1.4):energy<.35?((1-sat)*1.6+dark*1.2):(contrast*1.2+.6);
+ }else{const f=ranked.taken.findIndex(x=>x.id===a.family);s+=f>=0?7-f*1.5:.6}
+ return Math.max(.05,s);
+}
+function chooseArt(assets,ranked,r,count,energy){
+ const pool=assets.filter(a=>cleanSrc(a.src)&&(a.l||a.family));
+ if(!pool.length)return[];
+ const scored=pool.map(a=>({a,w:artScore(a,ranked,energy)})).sort((x,y)=>y.w-x.w).slice(0,160);
+ const out=[],usedPin=new Set(),kinds=new Map();
+ const pinOf=a=>a.id.replace(/-\d\d$/,"");
+ // A paste-up needs a mix: words, a body, then whatever else fits. No two scraps from the same source image.
+ const want=["lettering","figure"];
+ const draw=filter=>{const opts=scored.filter(x=>!usedPin.has(pinOf(x.a))&&filter(x.a));if(!opts.length)return null;
+  const pick=r.weighted(opts,opts.map(x=>Math.pow(x.w,1.6))).a;out.push(pick);usedPin.add(pinOf(pick));kinds.set(pick.k,(kinds.get(pick.k)||0)+1);return pick};
+ want.forEach(k=>{if(out.length<count)draw(a=>a.k===k)});
+ while(out.length<count){if(!draw(a=>(kinds.get(a.k)||0)<Math.ceil(count/2)))if(!draw(()=>true))break}
  return r.shuffle(out);
 }
 function seedTitle(r,branch){return r.pick(combos[branch]||combos.abstract)}
@@ -126,7 +145,7 @@ function renderWorld(same){
  const layoutScale=(0.83+r.next()*0.42).toFixed(3);
  const phrase=seedTitle(r,branch),energy=questions[3].answers[picks[3]].energy;
  const count=energy>.75?10:energy<.35?6:8;
- const art=chooseArt(assets,ranked.taken,ranked.emotions,r,count);
+ const art=chooseArt(assets,ranked,r,count,energy);
  const chosen=selectedNames();
  const eyes=assets.filter(a=>/\beye\b|ocular|iris|gaze/i.test(a.label||"")&&cleanSrc(a.src));
  const eyeArt=eyes.length?r.pick(eyes):null;
@@ -137,7 +156,9 @@ function renderWorld(same){
  [21,29,31,20],[64,70,28,13],[-1,79,30,-18],[76,3,25,22],[28,76,31,4]
  ];
  const placement=r.shuffle(artPositions).slice(0,art.length);
- const scene=art.map((a,i)=>{let p=placement[i];return '<img class="stage-art" alt="'+esc(a.label||a.family||"Archive fragment")+'" loading="'+(i<4?"eager":"lazy")+'" src="'+esc(a.src)+'" style="--x:'+p[0]+'%;--y:'+p[1]+'%;--w:'+p[2]+'%;--r:'+p[3]+'deg;--duration:'+(6+r.int(0,5))+'s;--delay:-'+r.int(0,5)+'s;--drift:'+r.int(-6,10)+'px;z-index:'+(i+1)+'">';
+ const scene=art.map((a,i)=>{let p=placement[i].slice();const asp=a.s?a.s[1]/a.s[0]:1;if(asp>1.5)p[2]=Math.round(p[2]*.72);if(asp<.6)p[2]=Math.round(Math.min(58,p[2]*1.25));
+ const edge=(a.c||[]).find(e=>e==="bottom"||e==="left"||e==="right"||e==="top");if(edge)p[3]=Math.round(p[3]/4);
+ return '<img class="stage-art'+(edge?' edge-'+edge:'')+(a.k?' kind-'+a.k:'')+'" alt="'+esc(a.x?('Lettering: '+a.x):(a.label||a.family||"Archive fragment"))+'" loading="'+(i<4?"eager":"lazy")+'" src="'+esc(a.src)+'" style="--x:'+p[0]+'%;--y:'+p[1]+'%;--w:'+p[2]+'%;--r:'+p[3]+'deg;--duration:'+(6+r.int(0,5))+'s;--delay:-'+r.int(0,5)+'s;--drift:'+r.int(-6,10)+'px;z-index:'+(i+1)+'">';
  }).join("");
  const familyNames=ranked.taken.map(x=>data.families[x.id]?.name||x.id);
  // Paste-up: torn paper and print-marks from the chosen movements (paste-up.js). Own rng key, so it never shifts the cutout draw.

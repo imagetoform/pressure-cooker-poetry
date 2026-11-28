@@ -81,3 +81,11 @@
  .stage-vertical{display:none}
 }
 @media(max-width:480px){.composition-poster .stage{height:360px;min-height:360px}}
+
+/* Owner cutouts that were cut off at an edge of their source photo sit flush against that edge of the stage,
+   so the cut reads as a cut, not a mistake. */
+.stage-art.edge-bottom{top:auto!important;bottom:-1%}
+.stage-art.edge-top{top:-1%!important}
+.stage-art.edge-left{left:-1%!important}
+.stage-art.edge-right{left:auto!important;right:-1%}
+.stage-art.kind-lettering{filter:drop-shadow(4px 5px 0 rgba(0,0,0,.3))}
