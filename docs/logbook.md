@@ -48,6 +48,25 @@ Brandon: review where the site is against the mission, and get part of it live t
 - The arcade bundle's readable source is not in the repo.
 - Paste-up is the interim art. When Brandon's own cutouts land in the manifest, `withCutouts` lowers the scrap count automatically.
 
+
+## 2026-11-28 03:03 — Cut-Up Bench rework: knife cuts, Hand moves, glue stick only, site writing + speeches + links
+
+### What was asked
+Brandon (Nov 28): the cut-up bench should work on other writing (mostly what's on the site, plus a few public-domain speeches, or text pulled from a link); the knife doesn't cut anything; there's no free hand to grab and move things; only one glue, the glue stick.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Why it looked broken | Cut pieces landed on a board below the page (off-screen on a phone), and "hand" only existed as an un-selected tool |
+| Bench (tools/brain-candy-arcade/src/machines/CutupBench.tsx) | Tools: Hand, Knife, Glue stick, Marker, Wite-Out (school glue gone). Knife: tap = cut a word (middle of a long word = split in half), drag = cut a strip, tap a loose piece = re-cut it. Pieces lift off where cut, step aside from pieces already there, drag anywhere on the table with the Hand (auto-scroll near screen edges). Glue stick: tap two pieces; half-words fuse into new words. Put the page away / bring it back. Keyboard: page caret + Enter; pieces focusable, arrows move, Enter cuts/glues, Delete removes |
+| Sources | `site/tools/build.py` writes `/brain-candy/writing.json` (56 poems + 2 essays, words as stored; essays lose only markup). Speeches in `src/data/speeches.ts`, built by script from Project Gutenberg #202 (Douglass 1852 extract), #4 (Lincoln 1863), #66938 (Goldman, State Prison at Jefferson City, 1919), #59110 (Debs as quoted, 1908). Paste box. Link puller: this site and Wikipedia/Wikisource pull in; other sites mostly refuse and the bench says to paste instead |
+| Source in repo | `tools/brain-candy-arcade/` (React source + README rebuild steps); the live file is its compiled bundle |
+| Tests | New `site/tests/cutup-bench.cjs` (in CI): desktop mouse + phone real touch: knife tap/strip/re-cut/split, glue stick coinage, 4 Hand drags, edge auto-scroll, marker, speech/random poem/own words/link pull, polite refusal, no overflow. 4 local runs x 2 devices all pass on random poems. All 6 suites + D-42 contract pass |
+
+### Open / notes
+- Wikisource rate-limits scripted fetches (429) — the build doesn't depend on it; the visitor's browser does the pulling.
+- Not checked: real phone hardware, screen reader.
+
 ## 2026-11-19 — New owner reset: live questionnaire + generative editorial front door
 Owner replaced the cutup-first home with a four-choice feeling/affinity instrument feeding an emotion-weighted artistic-family sampler and image-based responsive layouts. Direct production publishing and public URL verification were explicitly requested. The existing cutup maker remains on /lab/cutup/ and all authored writing and real cutout files stay intact. No previews are considered the site of record; inspect the public domain after deployment. This entry describes work being committed; verify the public version before calling it live.
 

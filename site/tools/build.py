@@ -170,6 +170,24 @@ def cutouts():
     return len(lab)
 
 
+# ---------- Brain Candy: the writing the Cut-Up Bench works on ----------
+def bench_writing():
+    """/brain-candy/writing.json: every poem and essay, words exactly as stored.
+    Essays lose only their markup (**, *, ##, list dashes, [n] citation numbers); the bench works on a copy."""
+    out = []
+    for p in json.loads((CONTENT / "poems.json").read_text(encoding="utf-8")):
+        out.append({"id": p["id"], "kind": "poem", "title": p["title"], "book": p.get("book") or "Poems",
+                    "url": "/poems/%s/" % p["id"], "text": "\n\n".join("\n".join(st) for st in p["stanzas"])})
+    for e in json.loads((CONTENT / "essays.json").read_text(encoding="utf-8")):
+        body = re.sub(r"\s?\[\d+\]", "", e["body"])
+        body = re.sub(r"\*\*(.+?)\*\*|\*(.+?)\*", lambda m: m.group(1) or m.group(2), body)
+        body = re.sub(r"(?m)^(## |- )", "", body)
+        out.append({"id": e["id"], "kind": "essay", "title": e["title"], "book": "Essays",
+                    "url": "/essays/%s/" % e["id"], "text": body})
+    (PUB / "brain-candy/writing.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return len(out)
+
+
 def main():
     # D-42: an old front door must not be publishable even outside GitHub Actions.
     subprocess.run([sys.executable, str(SITE / "tests/architecture_contract.py")], check=True)
@@ -179,6 +197,7 @@ def main():
     shutil.copytree(SITE / "alive", PUB / "alive")
     shutil.copytree(SITE / "cutup", PUB / "cutup")
     print("poems %d, essays %d, food bank %d, cutouts %d" % (poems(), essays(), food_bank(), cutouts()))
+    print("brain candy bench: %d pieces of writing" % bench_writing())
     print("built", sum(1 for p in PUB.rglob("*") if p.is_file()), "files into", PUB)
 
 

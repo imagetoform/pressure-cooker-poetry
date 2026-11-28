@@ -1,0 +1,236 @@
+/*
+VOICE: loud, funny, street-level; satire aimed up. A toy first, a lesson second.
+IDEA: a sheet of printed candy wrappers that is also an arcade: every machine is a wrapper you tear open.
+PICTURE: each machine's toy (washer drum, elevator, conveyor belt, cutting mat with the graffiti tools) fills its screen.
+COLOUR and TYPE: cherry-red ground, cool white paper, ink black, acid-yellow sharp accent; Anton marquee + Archivo body.
+LAYOUT: hub = wrapper sheet of cabinets + jar; machine = one full-width paper screen with its toy on top, reveal below.
+*/
+@tailwind base;
+
+:root {
+  color-scheme: light dark;
+  --red: light-dark(#c3102f, #5a0718);
+  --red-deep: light-dark(#8e0b22, #3a0410);
+  --paper: light-dark(#fbfaf6, #1b1719);
+  --paper-2: light-dark(#eeece6, #262123);
+  --ink: light-dark(#141214, #f3f1ec);
+  --ink-soft: light-dark(#4a4549, #b9b3b5);
+  --on-red: #fff;
+  --acid: #e2ef63;
+  --teal: #2ec4b6;
+  --pink: #ff2d6f;
+  --orange: #ed5c43;
+  --blue: #4f7cff;
+  --shadow: 4px 5px 0 rgba(0, 0, 0, .35);
+}
+:root[data-theme=light] { color-scheme: light }
+:root[data-theme=dark] { color-scheme: dark }
+* { box-sizing: border-box; min-width: 0 }
+html { scroll-padding-top: 72px }
+body { margin: 0; background: var(--red); color: var(--on-red); font: 16px/1.55 "Archivo", Arial, sans-serif; overflow-x: clip; -webkit-font-smoothing: antialiased }
+button { font: inherit; cursor: pointer }
+:focus-visible { outline: 3px solid var(--acid); outline-offset: 3px }
+a { color: inherit }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%) }
+
+/* ---------- top bar ---------- */
+.bar { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; gap: 12px; padding: 10px max(4vw, 14px); background: var(--red-deep); border-bottom: 3px solid #000 }
+.bar .logo { font: 400 1.35rem/1 "Anton", Impact, sans-serif; letter-spacing: .02em; text-decoration: none; display: flex; gap: 6px; align-items: baseline }
+.bar .logo small { font: 600 .8rem "Archivo", sans-serif; opacity: .85 }
+.bar .grow { flex: 1 }
+.chip { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border: 2px solid currentColor; background: transparent; color: inherit; font-weight: 800; font-size: .85rem }
+.chip:hover { background: rgba(255, 255, 255, .12) }
+.jarchip b { background: var(--acid); color: #141214; padding: 1px 7px; font-weight: 800 }
+
+/* ---------- hub ---------- */
+.band { padding: clamp(24px, 4vw, 56px) max(4vw, 14px) }
+.wrap { max-width: 1240px; margin: 0 auto }
+.marquee { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: clamp(18px, 3vw, 40px); align-items: end }
+.marquee h1 { font: 400 clamp(3.2rem, 11vw, 8.4rem)/.86 "Anton", Impact, sans-serif; margin: 0; letter-spacing: -.01em }
+.marquee h1 span { display: block; color: var(--acid) }
+.marquee p { font-size: 1.1rem; max-width: 34rem; margin: 0 0 12px }
+.rule3 { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px }
+.rule3 span { background: #000; color: #fff; padding: 6px 12px; font: 800 .95rem "Archivo"; transform: rotate(var(--r, 0deg)) }
+.rule3 span:nth-child(2) { background: var(--acid); color: #141214 }
+.sheet { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 18px; margin-top: 30px }
+.cab { position: relative; display: flex; flex-direction: column; text-align: left; border: 3px solid #000; background: var(--c); color: #141214; padding: 0; box-shadow: var(--shadow); transition: transform .15s; min-height: 260px; overflow: hidden }
+.cab:hover, .cab:focus-visible { transform: translate(-2px, -3px) rotate(-.4deg) }
+.cab .crimp { height: 16px; background: repeating-linear-gradient(90deg, #000 0 8px, transparent 8px 16px); opacity: .22 }
+.cab .num { position: absolute; right: 12px; top: 22px; font: 400 2.6rem/1 "Anton"; opacity: .25 }
+.cab h3 { font: 400 clamp(1.7rem, 3vw, 2.1rem)/1 "Anton", Impact, sans-serif; margin: 16px 64px 6px 16px; text-transform: uppercase }
+.cab p { margin: 0 16px; font-weight: 600 }
+.cab .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-top: 3px solid #000; font-weight: 800; font-size: .9rem; background: rgba(255, 255, 255, .35) }
+.cab.blue { --c: #9fd8ff } .cab.pink { --c: #ffb3cb } .cab.orange { --c: #ffb08f } .cab.acid { --c: var(--acid) } .cab.paper { --c: #f1efe8 } .cab.ghost { --c: #d9d4d6 }
+.cab.blueprint { background: #12306b; color: #e8eefc; border-style: dashed }
+.cab.blueprint .foot { background: rgba(255, 255, 255, .08); border-top-style: dashed }
+.cab .art { height: 92px; margin: 6px 16px 10px; position: relative }
+
+/* jar */
+.jarband { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 28px; align-items: center }
+.jar { position: relative; width: min(260px, 70vw); aspect-ratio: .8; margin: 0 auto; border: 4px solid #fff; border-top-width: 14px; border-radius: 18px 18px 40px 40px; background: rgba(255, 255, 255, .12); overflow: hidden }
+.jar .lvl { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(226, 239, 99, .25); transition: height .5s }
+.jar .w { position: absolute; width: 46px; height: 22px; border: 2px solid #000; background: var(--wc); clip-path: polygon(0 20%, 12% 0, 12% 100%, 0 80%, 0 20%, 12% 20%, 88% 20%, 88% 0, 100% 20%, 100% 80%, 88% 100%, 88% 80%, 12% 80%); animation: drop .6s cubic-bezier(.3, 1.5, .6, 1) both }
+@keyframes drop { from { transform: translateY(-260px) rotate(0) } }
+.jarband h2, .sec h2 { font: 400 clamp(2rem, 5vw, 3.2rem)/1 "Anton", Impact, sans-serif; margin: 0 0 10px; text-transform: uppercase }
+.wlist { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 }
+.wlist span { background: var(--wc); color: #141214; border: 2px solid #000; padding: 2px 8px; font-weight: 800; font-size: .8rem }
+
+/* ---------- machine screen ---------- */
+.screen { background: var(--paper); color: var(--ink); border: 3px solid #000; box-shadow: 8px 9px 0 rgba(0, 0, 0, .4); max-width: 1240px; margin: 0 auto }
+.screen-h { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: end; justify-content: space-between; padding: 18px clamp(14px, 3vw, 30px); border-bottom: 3px solid #000; background: var(--c, var(--acid)); color: #141214 }
+.screen-h h2 { font: 400 clamp(2rem, 6vw, 3.6rem)/.95 "Anton", Impact, sans-serif; margin: 0; text-transform: uppercase }
+.screen-h p { margin: 4px 0 0; font-weight: 600; max-width: 42rem }
+.steps { display: flex; gap: 0; border: 2px solid #000 }
+.steps span { padding: 6px 12px; font-weight: 800; font-size: .85rem; background: #fff; color: #141214 }
+.steps span.on { background: #141214; color: var(--acid) }
+.body { padding: clamp(14px, 3vw, 30px) }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center }
+.btn { min-height: 48px; padding: 0 18px; border: 3px solid #000; background: #141214; color: #fff; font: 800 1rem "Archivo"; box-shadow: 3px 3px 0 #000; transition: transform .08s }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #000 }
+.btn.big { min-height: 60px; font: 400 1.5rem "Anton"; letter-spacing: .03em; padding: 0 28px; background: var(--red); text-transform: uppercase }
+.btn.acid { background: var(--acid); color: #141214 }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); box-shadow: none }
+.btn:disabled { opacity: .45; cursor: not-allowed }
+.muted { color: var(--ink-soft) }
+.lab { font: 700 .82rem "Archivo"; letter-spacing: .02em }
+.hud { display: flex; gap: 10px; flex-wrap: wrap }
+.hud div { border: 2px solid var(--ink); padding: 4px 12px; font-weight: 800; background: var(--paper-2) }
+.hud b { font: 400 1.6rem/1 "Anton"; display: block }
+.meter { height: 16px; border: 2px solid var(--ink); background: var(--paper-2); position: relative }
+.meter i { position: absolute; inset: 0 auto 0 0; background: var(--mc, var(--red)); transition: width .4s }
+.grid2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(16px, 3vw, 30px) }
+.xray { border: 3px dashed var(--ink); padding: 16px; background: var(--paper-2); margin-top: 18px }
+.xray h3 { font: 400 1.6rem "Anton"; margin: 0 0 8px; text-transform: uppercase }
+.xray li { margin-bottom: 10px }
+.tag { display: inline-block; padding: 1px 8px; border: 2px solid #000; font-weight: 800; font-size: .8rem; background: var(--tc, #fff); color: #141214; margin-right: 6px }
+.sources { font-size: .9rem }
+.sources a { text-decoration-thickness: 2px }
+.spot { margin-top: 14px; padding: 12px 14px; background: #141214; color: #fff; font-weight: 700 }
+.spot b { color: var(--acid) }
+.toast { position: fixed; left: 50%; top: 78px; transform: translateX(-50%); z-index: 90; background: #141214; color: #fff; border: 3px solid var(--acid); padding: 10px 18px; font-weight: 800; box-shadow: var(--shadow); animation: pop .3s both; max-width: calc(100vw - 24px) }
+@keyframes pop { from { transform: translate(-50%, -20px); opacity: 0 } }
+.shake { animation: shake .35s }
+@keyframes shake { 25% { transform: translateX(-6px) } 50% { transform: translateX(5px) } 75% { transform: translateX(-3px) } }
+
+/* spin cycle */
+.washer { position: relative; width: min(320px, 78vw); aspect-ratio: 1; margin: 0 auto; border-radius: 22px; background: #e9eef2; border: 4px solid #000; box-shadow: var(--shadow); touch-action: none; user-select: none; cursor: grab }
+.washer .door { position: absolute; inset: 14%; border-radius: 50%; border: 10px solid #9aa7b1; background: radial-gradient(circle at 35% 30%, #cfe8ff, #5f88b5 70%); overflow: hidden }
+.washer .drum { position: absolute; inset: 0; border-radius: 50%; display: grid; place-items: center }
+.washer .sud { position: absolute; width: 38%; padding: 4px 6px; border: 2px solid #000; font: 800 .72rem/1.1 "Archivo"; text-align: center; color: #141214 }
+.washer .knob { position: absolute; top: 3%; left: 6%; right: 6%; display: flex; justify-content: space-between; font: 700 .7rem "Space Mono"; color: #141214 }
+.pods { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; margin-top: 12px }
+.pod { min-height: 60px; border: 3px solid #000; background: var(--tc); color: #141214; text-align: left; padding: 6px 10px; font-weight: 800; position: relative }
+.pod small { display: block; font-weight: 600; font-size: .75rem }
+.pod.on { outline: 4px solid var(--ink); outline-offset: 2px; transform: rotate(-1deg) }
+.pod kbd, .catch kbd { position: absolute; right: 6px; top: 4px; font: 700 .7rem "Space Mono"; opacity: .7 }
+.release { background: #fff; color: #141214; border: 2px solid #000; padding: 18px; font: 1.05rem/1.6 "IM Fell English", Georgia, serif; box-shadow: var(--shadow) }
+.release .hd { font: 700 .8rem "Space Mono"; border-bottom: 2px solid #000; margin-bottom: 8px; padding-bottom: 4px }
+.catchline { font: 600 clamp(1.1rem, 2.5vw, 1.5rem)/1.35 "Archivo"; padding: 16px; border: 3px solid #000; background: #fff; color: #141214; min-height: 110px; display: flex; align-items: center }
+.catchgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 12px }
+.catch { min-height: 56px; border: 3px solid #000; background: var(--tc); color: #141214; font-weight: 800; position: relative; padding: 0 10px }
+.combo { font: 400 2.4rem/1 "Anton"; color: var(--red); display: inline-block }
+.combo.bump { animation: bump .25s }
+@keyframes bump { 50% { transform: scale(1.35) rotate(-4deg) } }
+
+/* soft elevator */
+.shaft { display: grid; grid-template-columns: minmax(0, 1fr) 120px; border: 3px solid #000; background: #2a2a2e; color: #fff; min-height: 420px }
+.floors { display: flex; flex-direction: column-reverse }
+.floor { flex: 1; display: flex; align-items: center; gap: 12px; padding: 8px 14px; border-top: 2px dashed rgba(255, 255, 255, .25); opacity: .35; transition: opacity .3s, background .3s }
+.floor.here { opacity: 1; background: rgba(226, 239, 99, .16) }
+.floor.past { opacity: .85 }
+.floor .fn { font: 400 1.6rem "Anton"; width: 2.2ch; color: var(--acid); flex: none }
+.floor .ft { font: 700 clamp(1rem, 2.4vw, 1.35rem)/1.2 "Archivo" }
+.floor .fr { display: block; font: 400 .8rem "Archivo"; opacity: .85 }
+.car { background: #44444a; border-left: 3px solid #000; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12px 8px; gap: 10px }
+.car .disp { font: 700 1.6rem "Space Mono"; color: #ff5a4e; background: #000; padding: 2px 10px; border: 2px solid #666 }
+.car button { width: 64px; height: 64px; border-radius: 50%; border: 4px solid #b8b8b8; background: radial-gradient(#fff9c4, #d7c64f); font: 400 1.4rem "Anton"; color: #141214 }
+.car button:disabled { filter: grayscale(1); opacity: .5 }
+.opt { display: block; width: 100%; text-align: left; min-height: 56px; margin: 8px 0; padding: 10px 14px; border: 3px solid #000; background: #fff; color: #141214; font-weight: 700 }
+.opt.right { background: var(--acid) } .opt.wrong { background: #ffb3b3; text-decoration: line-through }
+.mush { font: 1.25rem/1.45 "IM Fell English", Georgia, serif; padding: 16px; background: var(--paper-2); border-left: 8px solid var(--pink) }
+
+/* bias factory */
+.belt { position: relative; height: 140px; border: 3px solid #000; background: repeating-linear-gradient(90deg, #3a3a3a 0 22px, #2a2a2a 22px 44px); overflow: hidden; display: grid; place-items: center }
+.belt.run { animation: beltmove .5s linear infinite }
+@keyframes beltmove { to { background-position: 44px 0 } }
+.belt .crate { background: #e7c27d; border: 3px solid #000; padding: 8px 18px; font: 400 clamp(2rem, 7vw, 3.6rem)/1 "Anton"; color: #141214; box-shadow: var(--shadow) }
+.belt .stamp { position: absolute; right: 12px; top: 8px; font: 700 .75rem "Space Mono"; color: #fff; opacity: .8 }
+.guess { display: grid; gap: 10px; margin-top: 14px }
+.guess input[type=range] { width: 100%; height: 44px; accent-color: var(--red) }
+.guess input[type=number] { width: 100%; min-height: 52px; font: 400 2rem "Anton"; padding: 0 12px; border: 3px solid #000; background: #fff; color: #141214 }
+.plot { position: relative; height: 260px; border: 2px solid var(--ink); background: var(--paper-2); margin-top: 10px }
+.plot svg { position: absolute; inset: 0; width: 100%; height: 100% }
+.plane { width: 100%; max-width: 560px; display: block; margin: 0 auto; touch-action: manipulation }
+.plane .zone { cursor: pointer; transition: fill .2s }
+.plane .zone:focus-visible { outline: none; stroke: var(--acid); stroke-width: 6 }
+
+/* cut-up bench */
+.bench { position: relative; display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 14px }
+.tray { display: flex; flex-direction: column; gap: 8px; background: #3b3f36; border: 3px solid #000; padding: 8px; align-self: start; position: sticky; top: 76px }
+.tool { position: relative; height: 92px; border: 2px solid #000; background: #5a5e52; display: grid; place-items: center; overflow: visible; padding: 0 }
+.tool img { max-height: 84px; max-width: 120px; filter: drop-shadow(4px 6px 3px rgba(0, 0, 0, .55)); animation: bob var(--d, 3s) ease-in-out infinite alternate; pointer-events: none }
+@keyframes bob { from { transform: translateY(2px) rotate(-3deg) } to { transform: translateY(-5px) rotate(3deg) } }
+.tool span { position: absolute; left: 4px; bottom: 2px; font: 800 .68rem "Archivo"; color: #fff; text-shadow: 0 1px 0 #000 }
+.tool kbd { position: absolute; right: 4px; top: 2px; font: 700 .65rem "Space Mono"; color: #fff }
+.tool.on { background: var(--acid); outline: 3px solid #fff }
+.tool.on span, .tool.on kbd { color: #141214; text-shadow: none }
+.tool.on img { animation: none; opacity: .25 }
+.mat { position: relative; background: #2f5d46; border: 3px solid #000; padding: clamp(10px, 2.5vw, 26px); padding-bottom: 0; background-image: linear-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .08) 1px, transparent 1px); background-size: 26px 26px; touch-action: none; overflow: hidden; user-select: none; -webkit-user-select: none }
+.mat.handmode { touch-action: pan-y }
+.mat-tip { color: #fff; font-weight: 700; margin: 0 0 10px; min-height: 2.6em }
+.page { background: #fbf9f3; color: #1d1b1b; padding: clamp(14px, 3vw, 30px); box-shadow: 0 8px 18px rgba(0, 0, 0, .45); max-width: 46rem; outline-offset: 4px }
+.page .head { font: 700 .8rem "Space Mono", monospace; letter-spacing: .06em; border-bottom: 1px solid #1d1b1b; padding-bottom: 6px; margin-bottom: 10px }
+.page .credit { margin-top: 14px; font: 400 .75rem "Archivo", sans-serif; color: #5c5750 }
+.wd { position: relative; display: inline; padding: 0 .08em; border-radius: 1px }
+.wd.black { background-color: #0d0d0d; color: transparent; box-shadow: 0 0 0 1px #0d0d0d; background-image: linear-gradient(100deg, rgba(255, 255, 255, .07) 20%, transparent 21% 60%, rgba(255, 255, 255, .05) 61%) }
+.wd.white { background: #fdfdfb; color: transparent; box-shadow: 0 0 0 2px #fdfdfb, 0 1px 3px rgba(0, 0, 0, .12) }
+.wd.cut { color: transparent; background: #2f5d46; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35) }
+.spare { min-height: 230px; margin: 14px calc(-1 * clamp(10px, 2.5vw, 26px)) 0; padding: 14px; border-top: 3px dashed rgba(255, 255, 255, .35); color: rgba(255, 255, 255, .75); font-weight: 700; text-align: center }
+.slash { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 6 }
+.slash path { fill: none; stroke: #fff; stroke-width: 2.5; stroke-dasharray: 7 5; filter: drop-shadow(0 0 2px #000) }
+.scrap { position: absolute; z-index: 5; padding: 4px 11px; background: #fbf9f3; color: #1d1b1b; border: 1px solid #b9b2a3; box-shadow: 3px 5px 0 rgba(0, 0, 0, .3); white-space: nowrap; touch-action: none; animation: liftoff .25s ease-out; clip-path: polygon(0 4%, 8% 0, 20% 5%, 33% 0, 48% 4%, 62% 0, 77% 5%, 90% 0, 100% 6%, 98% 50%, 100% 95%, 88% 100%, 74% 96%, 60% 100%, 45% 95%, 30% 100%, 16% 96%, 4% 100%, 0 93%, 2% 50%) }
+.scrap.half { background: #fff8de }
+.scrap.sel { background: #ffd0de; box-shadow: 0 0 0 3px #ff2d6f, 3px 5px 0 rgba(0, 0, 0, .3) }
+.scrap:focus-visible { outline: 3px solid var(--acid); outline-offset: 2px }
+@keyframes liftoff { from { transform: translateY(14px) scale(.96) } }
+.cursor-tool { position: fixed; left: 0; top: 0; z-index: 80; pointer-events: none; will-change: transform; filter: drop-shadow(12px 22px 6px rgba(0, 0, 0, .4)); transition: filter .12s }
+.cursor-tool.down { filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, .55)) }
+.cursor-tool img { display: block; width: 100%; height: 100% }
+.goals { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none }
+.goals li { display: flex; gap: 8px; align-items: flex-start; padding: 6px 10px; border: 2px solid var(--ink); background: var(--paper-2); font-weight: 600 }
+.goals li.done { background: var(--acid); color: #141214; border-color: #000 }
+.goals li i { font-style: normal; font-weight: 800; flex: none }
+.found { font: 1.3rem/1.5 "IM Fell English", Georgia, serif; padding: 14px; background: #141214; color: #fff; min-height: 64px }
+select.src { min-height: 44px; border: 2px solid var(--ink); background: var(--paper); color: var(--ink); padding: 0 10px; font-weight: 700; font-size: 16px }
+
+/* dept zero */
+.dial { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center }
+.dial input { width: 100%; height: 44px; accent-color: var(--acid) }
+.cipher { font: 700 clamp(1.2rem, 4vw, 2.2rem)/1.3 "Space Mono"; letter-spacing: .12em; padding: 18px; background: #0d0d0d; color: #8cff8c; border: 3px solid #000; word-break: break-word }
+.cipher.solved { color: var(--acid); text-shadow: 0 0 12px rgba(226, 239, 99, .6) }
+
+/* blueprints */
+.bp { background: #12306b; color: #e8eefc; border: 3px dashed #c9d6f5; padding: clamp(14px, 3vw, 28px); background-image: linear-gradient(rgba(255, 255, 255, .06) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .06) 1px, transparent 1px); background-size: 24px 24px }
+.bp h3 { font: 400 2rem/1 "Anton"; margin: 0 0 4px; text-transform: uppercase }
+.bp h4 { font: 800 1rem "Archivo"; margin: 16px 0 4px }
+.bp ol { padding-left: 1.2em; margin: 0 }
+.bp .k { display: inline-block; font: 800 .75rem "Archivo"; background: #e8eefc; color: #12306b; padding: 1px 8px; margin-right: 6px }
+.bplist { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 14px; margin-bottom: 18px }
+.bplist button { text-align: left; border: 3px dashed #c9d6f5; background: #12306b; color: #e8eefc; padding: 14px; min-height: 120px }
+.bplist button.on { background: #e8eefc; color: #12306b; border-style: solid }
+.bplist button b { font: 400 1.6rem/1 "Anton"; display: block; text-transform: uppercase }
+
+@media (max-width: 760px) {
+  .marquee, .jarband, .grid2 { grid-template-columns: minmax(0, 1fr) }
+  .bench { grid-template-columns: minmax(0, 1fr) }
+  .tray { flex-direction: row; position: sticky; top: 64px; z-index: 30; overflow-x: auto }
+  .tool { flex: 0 0 84px; height: 76px }
+  .tool img { max-height: 66px; max-width: 76px }
+  .shaft { grid-template-columns: minmax(0, 1fr) 92px }
+  .car button { width: 56px; height: 56px }
+  .bar .logo small { display: none }
+  .catchgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important }
+}

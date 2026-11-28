@@ -32,6 +32,7 @@ jobs:
           node site/tests/alive.cjs
           node site/tests/spin-cycle.cjs
           node site/tests/cutup.cjs
+          node site/tests/cutup-bench.cjs
           node site/tests/mood.cjs
       - name: Upload the review build
         if: always()
