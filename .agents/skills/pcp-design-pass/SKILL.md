@@ -1,35 +1,38 @@
 ---
 name: pcp-design-pass
-description: Check any visible change to Pressure Cooker Poetry (layout, CSS, colour, type, motion, buttons, copy) against DESIGN.md and the owner's taste before and after building it. Use for every UI, styling, animation or wording change.
+description: Check any visible change to Pressure Cooker Poetry (layout, CSS, colour, type, motion, doors, copy) against D-42 and the owner's taste before and after building it. Use for every UI, styling, animation or wording change.
 ---
 
 # pcp-design-pass
 
 ## Before you build
 
-1. Read the LOCKED decisions in `docs/CANON.md`, then `DESIGN.md` (the cutup look, D-39) and the reference pictures in `docs/design/reference/`.
-2. Decide whether each thing you're touching is **shell** (needed to read, choose, navigate, recover) or **room** (mood). Shell uses the `--k-*` / `--f-*` tokens. Room looks come from the library (movement kits, cutouts), not from one-off CSS on a page.
-3. If the change adds a step, control or screen a visitor will see, stop and ask the owner in the issue first.
+1. Read `docs/CANON.md` (D-42 is the only active architecture), then `DESIGN.md`. Anything in `docs/history/`, old branches or old PRs is history, not a brief: no Kitchen, no cut-up maker as homepage, no poem-first cover, no "LOCKED" rows from archived files.
+2. Know the journey you must not break: questionnaire → animated pressurization → seeded, art-directed homepage → live reactive art with the hidden eye (`/the-eye/`). Five doors on every edition: Brain Candies `/brain-candy/`, My Two Cents `/my-two-cents/`, Contact `/contact/`, Mission Statement `/about/`, Learning Curve `/learning/`.
+3. Generative freedom means **structure** changes per seed (skeleton, grid, hierarchy, background, type system, motion), not a palette or card swap.
+4. Source-first: imagery comes from `library/cutouts/manifest.json` (Brandon's own kept cutouts) or other catalogued, cleared sources. Name any reference that is still unimported instead of faking it.
+5. If the change adds a step, control or screen a visitor will see, or replaces something on `/`, build it under `/lab/<name>/` first and let the owner play with it.
 
 ## While you build
 
-- Fonts: Anton (display), Archivo (UI), Fraunces (the writing), Space Mono (labels, receipts), Special Elite (collage strips only). No new webfont links.
-- Colour: ink-black or paper grounds for the shell. No default cream or beige ground. Yellow is for focus and selected state.
-- Every animation: `transform` / `opacity` / `clip-path` only, seeded if it varies, off under `prefers-reduced-motion` and `.no-motion`, nothing flashing more than 3 times a second.
-- Buttons: 44px minimum, visible label, yellow focus ring, real disabled and pressed states.
-- Copy: second person, irreverent, plain, punches up. No "seamless", "elevate", "unlock", "journey". Never about the owner on the front door.
+- **No code-drawn stand-ins.** Don't draw objects in CSS/SVG to look like collage material: no fake paper notes, tape, torn labels, outlined arches, stickers, gradients or placeholder geometry. Code sets type, flat inks and placement; every object is a real cutout. (Nov 28, 2026: this is what made editions look "generated clip-art".)
+- Fonts: self-hosted OFL files in `/brain-candy/fonts/` (Anton, Archivo, IM Fell English, Space Mono, Special Elite) or system stacks. No CDN or Google Fonts links.
+- Colour: grounds and inks come from the edition's families (`/cutup/data.js` `families`), flattened to paper or night. Text at least 4.5:1 against what is actually behind it.
+- Motion: `transform` / `opacity` / `clip-path`, seeded if it varies, fully off under `prefers-reduced-motion` and Hold still, nothing flashing more than 3 times a second.
+- Doors and controls: real links/buttons with visible text, 44px targets, visible focus. The eye stays keyboard-reachable.
+- Copy: second person, irreverent, plain, punches up. No "seamless", "elevate", "unlock", "journey". Authored poems verbatim, always.
 
 ## After you build: the checklist
 
-Look at the screenshots from `pcp-verify` (desktop, Pixel 7, 320px) and answer each line in the PR:
+Look at real renders (see `pcp-verify`). For generative work, look at **at least 12 seeds** at desktop, 390px and 320px (the `/lab/wall/?sheet=1` and `?sheet=phone` contact sheets show the pattern). Answer each line in the PR:
 
-- [ ] Poem or main text readable everywhere; contrast at least 4.5:1 against what is actually behind it (measure it; don't guess)
-- [ ] Nothing covers the reading region
-- [ ] Keyboard: Tab reaches every control in a sensible order; focus ring always visible
-- [ ] Reduced motion: the page is complete and still
-- [ ] No horizontal scroll at 320px; no clipped buttons
-- [ ] Two different recipes look **different** (not just a hue swap). Attach both screenshots
-- [ ] Nothing from the "Don't" list in DESIGN.md section 9 crept in (cream ground, SaaS cards, gradients, glassmorphism, emoji icons, everything centred)
+- [ ] Editions differ in structure, not just hue. Attach a contact sheet
+- [ ] Five doors and the eye on every seed and viewport
+- [ ] Text readable everywhere; nothing important under art
+- [ ] Keyboard: Tab order is sensible; focus always visible
+- [ ] Reduced motion / Hold still: the page is complete and still
+- [ ] No sideways scroll at 320px; nothing clipped
+- [ ] Every image on the page is a catalogued asset (no drawn props, no hotlinks)
 - [ ] Copy follows the voice rules
 
 ## Contrast helper
@@ -48,4 +51,4 @@ PY
 
 ## When it's a matter of taste
 
-Show, don't argue. Put two or three variants side by side as screenshots in the PR and let the owner pick. He works visually and prefers a playable prototype over a written spec.
+Show, don't argue. Put variants side by side as screenshots or a playable lab page and let the owner pick. He works visually and prefers a sandbox over a written spec.
