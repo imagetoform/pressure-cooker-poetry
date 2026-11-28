@@ -1,4 +1,4 @@
-## 2026-11-28 05:50 — Paste-up wall sandbox (/lab/wall/): cutouts as the whole page
+## 2026-11-28 05:41 — Paste-up wall sandbox (/lab/wall/): cutouts as the whole page
 
 ### What was asked
 Brandon: the background, layout structure, animation and front end should change every visit, built from modular blocks. The collage must be the whole aesthetic, not "10 little randos in a sandboxed part of the page". Use the real cut graphics and none of the generated-clip-art look.
