@@ -1,3 +1,19 @@
+## 2026-11-28 05:50 — Paste-up wall sandbox (/lab/wall/): cutouts as the whole page
+
+### What was asked
+Brandon: the background, layout structure, animation and front end should change every visit, built from modular blocks. The collage must be the whole aesthetic, not "10 little randos in a sandboxed part of the page". Use the real cut graphics and none of the generated-clip-art look.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Audit | The homepage art pool (`/cutup/data.js`) is 1,256 of Brandon's kept cutouts and nothing else. The generic look comes from code-drawn props around them in mood.js/paste-up.js: CSS paper notes, outlined arches, the label tag, fixed dark bar and buttons. Only 6/8/10 pieces sit in one zone. |
+| Sandbox | `site/landing/lab/wall/` (index.html, wall.js, wall.css), noindex and unlinked. The seed picks 2 families (their own inks become flat paper/night grounds), 1 of 7 skeletons (blow-up crop, wheatpaste wall, spine, modular grid, specimen table, ribbon bands, ransom cluster), a background built from cutouts (tiled, xeroxed huge, pasted over, repeating strips, bare), 1 of 5 type systems (self-hosted OFL fonts), a door skin and a motion personality (drift/stop-motion/breath/still). No drawn objects: code only sets type, flat ink and placement. |
+| Contact sheet | `/lab/wall/?sheet=1` (12 desktop editions) and `?sheet=phone`; `?skel= &back= &motion= &type=` force a module. |
+| Test | `site/tests/wall.cjs` (in CI): 7 skeletons × 1280/390/320 keep five doors + eye, no sideways scroll, one h1, library cutouts only; same seed = same page; reduced motion = no animation; 14 seeds reach ≥5 skeletons. |
+
+### Open / notes
+Sandbox only; / is unchanged. Once Brandon picks what works, fold the modules into mood.js's renderWorld (keep questionnaire → transition → world, alive layer, mic, hold-still, contract). Grid skeleton puts the h1 inside the nav landmark; fix when folding in.
+
 ## 2026-11-28 03:05 — Brandon's own cutouts replace the generic ones (adaptive matching)
 
 ### What was asked
