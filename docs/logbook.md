@@ -1,3 +1,25 @@
+## 2026-11-28 03:05 — Brandon's own cutouts replace the generic ones (adaptive matching)
+
+### What was asked
+Put the cutouts Brandon has reviewed and accepted into the site design, replacing the generic ones; change the aesthetic-family naming to something more adaptive if needed.
+
+### Done
+| Action | Detail |
+|--------|--------|
+| Importer | `tools/cutouts/owner_import.py SRC BATCH [--sheet html]`: trims, WebP q80 ≤720px, measures traits/kind/edges/lean/emotion words, writes `library/cutouts/owner/<batch>/`, merges `manifest.json` |
+| Matcher | `site/landing/mood.js` `artScore`/`chooseArt` score each cutout from measured traits and the visitor's ranked emotions/branches; `family` is now only a derived hint for /lab/cutup/ |
+| Wave 1 (b704ac3) | lettering board 2026-11-28 + first loose batches: 296 kept |
+| Wave 2 | rest of `loose 2026-11-23`: 1,155 kept, 9 held, 7 skipped as empty; manifest 1,265 records, 1,256 on the site |
+| Payload | `build.py` rounds traits/lean and drops zero lean keys: cutup/data.js 464 KB raw / ~80 KB gzip |
+| Checks | contract PASS; mood, site, alive, cutup, spin-cycle suites PASS; 6 seeds × 1280/390 screenshotted, no errors, no sideways scroll |
+
+### Result
+Every generated homepage now collages from Brandon's own accepted cutouts only. No AI/historical batches were used.
+
+### Open / notes
+- Held (status `held`, never shipped) for Brandon to release or drop: own-lz-018-01/02 Charlie Brown; own-lz-095-00 Merlina Addams; own-lz-141-01..03 Batman tarot; own-lz-220-00 Mickey t-shirt figure; own-lz-302-00/01 Cuphead. To release: set `status` to `kept` in the manifest and rebuild.
+- Masters stay on his laptop (`Documents/PCP Library/cutouts/`); only trimmed WebPs are in the repo (~45 MB).
+
 ## 2026-11-24 16:24 — Review + three things live: the arcade, contact form, paste-up homepage
 
 ### What was asked

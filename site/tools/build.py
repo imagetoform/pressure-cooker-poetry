@@ -152,8 +152,11 @@ def cutouts():
             # k = kind, t = [dark, sat, warm, contrast, colorful], l = lean per branch, c = cut-off edges, s = [w, h].
             if m.get("traits"):
                 t = m["traits"]
-                a.update({"k": m.get("kind", "object"), "t": [t["dark"], t["sat"], t["warm"], t["contrast"], t["colorful"]],
-                          "l": m["lean"], "c": m.get("cut", []), "s": m.get("size", [1, 1])})
+                # Rounded and zero-free so ~1,250 records stay light on the homepage (the matcher reads missing lean as 0).
+                a.update({"k": m.get("kind", "object"), "t": [round(t[k], 1) for k in ("dark", "sat", "warm", "contrast", "colorful")],
+                          "l": {b: round(v, 1) for b, v in m["lean"].items() if round(v, 1) > 0}, "s": m.get("size", [1, 1])})
+                if m.get("cut"):
+                    a["c"] = m["cut"]
                 if m.get("text"):
                     a["x"] = m["text"]
             lab.append(a)
